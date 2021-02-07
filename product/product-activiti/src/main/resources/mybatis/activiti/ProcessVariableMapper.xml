@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- @Automatically generate by Coder in 2019-03-19 14:45 -->
+<mapper namespace="com.taro.dao.activiti.ProcessVariableDao">
+  <resultMap id="BaseResultMap" type="com.taro.entity.activiti.ProcessVariableEntity">
+  	<id column="f_pid" property="id" jdbcType="VARCHAR" />
+  	<result column="f_pid" property="id" jdbcType="VARCHAR" />
+  	<result column="f_task_id" property="task_id" jdbcType="VARCHAR" />
+  	<result column="f_task_name" property="task_name" jdbcType="VARCHAR" />
+  	<result column="f_key" property="key" jdbcType="VARCHAR" />
+  	<result column="f_value" property="value" jdbcType="VARCHAR" />
+  	<result column="f_remark" property="remark" jdbcType="VARCHAR" />
+  	<result column="f_sys_flag" property="sysFlag" jdbcType="VARCHAR" />
+  	<result column="f_creator" property="creator" jdbcType="VARCHAR" />
+  	<result column="f_create_time" property="createTime" jdbcType="VARCHAR" />
+  	<result column="f_last_modifier" property="lastModifier" jdbcType="VARCHAR" />
+  	<result column="f_last_modified_time" property="lastModifiedTime" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+  	t.f_pid, t.f_task_id, t.f_task_name, t.f_key, t.f_value, t.f_remark,
+t.f_sys_flag, t.f_creator, t.f_create_time, t.f_last_modifier, t.f_last_modified_time
+  </sql>
+  
+  <sql id="where_sql">
+	<if test="id != null and id != ''" > and t.f_pid = #{id,jdbcType=VARCHAR}</if>
+	<if test="task_id != null and task_id != ''" > and t.f_task_id = #{task_id,jdbcType=VARCHAR}</if>
+	<if test="task_name != null and task_name != ''" > and t.f_task_name = #{task_name,jdbcType=VARCHAR}</if>
+	<if test="key != null and key != ''" > and t.f_key = #{key,jdbcType=VARCHAR}</if>
+	<if test="value != null and value != ''" > and t.f_value = #{value,jdbcType=VARCHAR}</if>
+	<if test="remark != null and remark != ''" > and t.f_remark = #{remark,jdbcType=VARCHAR}</if>
+	<if test="sysFlag != null and sysFlag != ''" > and t.f_sys_flag = #{sysFlag,jdbcType=VARCHAR}</if>
+	<if test="creator != null and creator != ''" > and t.f_creator = #{creator,jdbcType=VARCHAR}</if>
+	<if test="createTime != null and createTime != ''" > and t.f_create_time = #{createTime,jdbcType=VARCHAR}</if>
+	<if test="lastModifier != null and lastModifier != ''" > and t.f_last_modifier = #{lastModifier,jdbcType=VARCHAR}</if>
+	<if test="lastModifiedTime != null and lastModifiedTime != ''" > and t.f_last_modified_time = #{lastModifiedTime,jdbcType=VARCHAR}</if>
+  </sql>
+  
+  <insert id="insert" parameterType="com.taro.entity.activiti.ProcessVariableEntity" >
+    insert into t_process_variable (
+      f_pid, f_task_id, f_task_name,
+  f_key, f_value, f_remark,
+  f_sys_flag, f_creator, f_create_time,
+  f_last_modifier, f_last_modified_time
+    ) values (
+      #{id,jdbcType=VARCHAR}, #{task_id,jdbcType=VARCHAR}, #{task_name,jdbcType=VARCHAR},
+  #{key,jdbcType=VARCHAR}, #{value,jdbcType=VARCHAR}, #{remark,jdbcType=VARCHAR},
+  #{sysFlag,jdbcType=VARCHAR}, #{creator,jdbcType=VARCHAR}, #{createTime,jdbcType=VARCHAR},
+  #{lastModifier,jdbcType=VARCHAR}, #{lastModifiedTime,jdbcType=VARCHAR} 
+    )
+  </insert>
+  
+  <insert id="insertObjects" parameterType="list">
+		insert into t_process_variable (
+		  f_pid, f_task_id, f_task_name,
+  f_key, f_value, f_remark,
+  f_sys_flag, f_creator, f_create_time,
+  f_last_modifier, f_last_modified_time
+		)
+		<foreach collection="list" item="entity" index="index" separator="union all">
+			select
+		  		#{entity.id,jdbcType=VARCHAR}, #{entity.task_id,jdbcType=VARCHAR}, #{entity.task_name,jdbcType=VARCHAR},
+  #{entity.key,jdbcType=VARCHAR}, #{entity.value,jdbcType=VARCHAR}, #{entity.remark,jdbcType=VARCHAR},
+  #{entity.sysFlag,jdbcType=VARCHAR}, #{entity.creator,jdbcType=VARCHAR}, #{entity.createTime,jdbcType=VARCHAR},
+  #{entity.lastModifier,jdbcType=VARCHAR}, #{entity.lastModifiedTime,jdbcType=VARCHAR} 
+			from dual
+		</foreach>
+  </insert>
+  
+  <update id="update" parameterType="com.taro.entity.activiti.ProcessVariableEntity">
+    update t_process_variable 
+    <set>
+      <if test="id != null" > f_pid = #{id,jdbcType=VARCHAR}, </if>
+      <if test="task_id != null" > f_task_id = #{task_id,jdbcType=VARCHAR}, </if>
+      <if test="task_name != null" > f_task_name = #{task_name,jdbcType=VARCHAR}, </if>
+      <if test="key != null" > f_key = #{key,jdbcType=VARCHAR}, </if>
+      <if test="value != null" > f_value = #{value,jdbcType=VARCHAR}, </if>
+      <if test="remark != null" > f_remark = #{remark,jdbcType=VARCHAR}, </if>
+      <if test="sysFlag != null" > f_sys_flag = #{sysFlag,jdbcType=VARCHAR}, </if>
+      <if test="creator != null" > f_creator = #{creator,jdbcType=VARCHAR}, </if>
+      <if test="createTime != null" > f_create_time = #{createTime,jdbcType=VARCHAR}, </if>
+      <if test="lastModifier != null" > f_last_modifier = #{lastModifier,jdbcType=VARCHAR}, </if>
+      <if test="lastModifiedTime != null" > f_last_modified_time = #{lastModifiedTime,jdbcType=VARCHAR}, </if>
+    </set>
+    where f_pid = #{id,jdbcType=VARCHAR}
+  </update>
+  
+  <update id="batchUpdate" parameterType="java.util.List">
+		<foreach collection="list" item="entity" separator=";">
+			update t_process_variable
+			<set>
+			  <if test="id != null" > f_pid = #{entity.id,jdbcType=VARCHAR}, </if>
+			  <if test="task_id != null" > f_task_id = #{entity.task_id,jdbcType=VARCHAR}, </if>
+			  <if test="task_name != null" > f_task_name = #{entity.task_name,jdbcType=VARCHAR}, </if>
+			  <if test="key != null" > f_key = #{entity.key,jdbcType=VARCHAR}, </if>
+			  <if test="value != null" > f_value = #{entity.value,jdbcType=VARCHAR}, </if>
+			  <if test="remark != null" > f_remark = #{entity.remark,jdbcType=VARCHAR}, </if>
+			  <if test="sysFlag != null" > f_sys_flag = #{entity.sysFlag,jdbcType=VARCHAR}, </if>
+			  <if test="creator != null" > f_creator = #{entity.creator,jdbcType=VARCHAR}, </if>
+			  <if test="createTime != null" > f_create_time = #{entity.createTime,jdbcType=VARCHAR}, </if>
+			  <if test="lastModifier != null" > f_last_modifier = #{entity.lastModifier,jdbcType=VARCHAR}, </if>
+			  <if test="lastModifiedTime != null" > f_last_modified_time = #{entity.lastModifiedTime,jdbcType=VARCHAR}, </if>
+			</set>
+			where f_pid = #{id,jdbcType=VARCHAR}
+		</foreach>
+  </update>
+  
+  
+  <update id="delete" parameterType="java.lang.String" >
+    update t_process_variable set
+		F_SYS_FLAG='0',
+	    F_LAST_MODIFIER = #{lastModifier,jdbcType=VARCHAR},
+		F_LAST_MODIFIED_TIME = #{lastModifiedTime,jdbcType=VARCHAR} 
+	where f_pid = #{id,jdbcType=VARCHAR}
+  </update>
+  
+  <update id="deleteAll" parameterType="map">
+	update t_process_variable set 
+		F_SYS_FLAG='0',
+	    F_LAST_MODIFIER = #{lastModifier,jdbcType=VARCHAR},
+		F_LAST_MODIFIED_TIME = #{lastModifiedTime,jdbcType=VARCHAR} 
+	where f_pid in
+	<foreach item="item" collection="ids" open="(" separator="," close=")">
+        #{item}
+    </foreach>
+  </update>
+  
+  <!-- 查询条件 模糊查询用concat函数 ：name like concat(concat('%',#{bean.name,jdbcType=VARCHAR}),'%')，
+  	         这样做主要是为了支持mysql和oracle以及防止sql注入 -->
+  <select id="list" resultMap="BaseResultMap" parameterType="map">
+    select 
+    <include refid="Base_Column_List" />
+    from t_process_variable t
+    <where>
+		<include refid="where_sql"/>
+	</where>
+  </select>
+  
+  <select id="get" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from t_process_variable t
+    where t.f_pid = #{id,jdbcType=VARCHAR}
+  </select>
+  
+</mapper>

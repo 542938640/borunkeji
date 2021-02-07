@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- @Automatically generate by Coder in 2019-08-23 18:02 -->
+<mapper namespace="com.taro.dao.sec.SecRolePermissionDao">
+  <resultMap id="BaseResultMap" type="com.taro.entity.sec.SecRolePermissionEntity">
+  	<id column="f_pid" property="id" jdbcType="VARCHAR" />
+  	<result column="f_pid" property="id" jdbcType="VARCHAR" />
+  	<result column="f_role_pid" property="role_pid" jdbcType="VARCHAR" />
+  	<result column="f_resource_pid" property="resource_pid" jdbcType="VARCHAR" />
+  	<result column="f_type" property="type" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+  	t.f_pid, t.f_role_pid, t.f_resource_pid, t.f_type
+  </sql>
+  
+  <sql id="where_sql">
+	<if test="id != null and id != ''" > and t.f_pid = #{id,jdbcType=VARCHAR}</if>
+	<if test="role_pid != null and role_pid != ''" > and t.f_role_pid = #{role_pid,jdbcType=VARCHAR}</if>
+	<if test="resource_pid != null and resource_pid != ''" > and t.f_resource_pid = #{resource_pid,jdbcType=VARCHAR}</if>
+	<if test="type != null and type != ''" > and t.f_type = #{type,jdbcType=VARCHAR}</if>
+  </sql>
+  
+  <insert id="insert" parameterType="com.taro.entity.sec.SecRolePermissionEntity" >
+    insert into t_sec_role_permission (
+      f_pid, f_role_pid, f_resource_pid,
+  f_type
+    ) values (
+      #{id,jdbcType=VARCHAR}, #{role_pid,jdbcType=VARCHAR}, #{resource_pid,jdbcType=VARCHAR},
+  #{type,jdbcType=VARCHAR} 
+    )
+  </insert>
+  
+  <insert id="insertObjects" parameterType="list">
+		insert into t_sec_role_permission (
+		  f_pid, f_role_pid, f_resource_pid,
+  f_type
+		)
+		<foreach collection="list" item="entity" index="index" separator="union all">
+			select
+		  		#{entity.id,jdbcType=VARCHAR}, #{entity.role_pid,jdbcType=VARCHAR}, #{entity.resource_pid,jdbcType=VARCHAR},
+  #{entity.type,jdbcType=VARCHAR} 
+			from dual
+		</foreach>
+  </insert>
+  
+  <update id="update" parameterType="com.taro.entity.sec.SecRolePermissionEntity">
+    update t_sec_role_permission 
+    <set>
+      <if test="id != null" > f_pid = #{id,jdbcType=VARCHAR}, </if>
+      <if test="role_pid != null" > f_role_pid = #{role_pid,jdbcType=VARCHAR}, </if>
+      <if test="resource_pid != null" > f_resource_pid = #{resource_pid,jdbcType=VARCHAR}, </if>
+      <if test="type != null" > f_type = #{type,jdbcType=VARCHAR}, </if>
+    </set>
+    where f_pid = #{id,jdbcType=VARCHAR}
+  </update>
+  
+  <update id="batchUpdate" parameterType="java.util.List">
+		<foreach collection="list" item="entity" separator=";">
+			update t_sec_role_permission
+			<set>
+			  <if test="id != null" > f_pid = #{entity.id,jdbcType=VARCHAR}, </if>
+			  <if test="role_pid != null" > f_role_pid = #{entity.role_pid,jdbcType=VARCHAR}, </if>
+			  <if test="resource_pid != null" > f_resource_pid = #{entity.resource_pid,jdbcType=VARCHAR}, </if>
+			  <if test="type != null" > f_type = #{entity.type,jdbcType=VARCHAR}, </if>
+			</set>
+			where f_pid = #{id,jdbcType=VARCHAR}
+		</foreach>
+  </update>
+  
+  
+  <delete id="delete" parameterType="java.lang.String" >
+    delete from t_sec_role_permission
+	where f_pid = #{id,jdbcType=VARCHAR}
+  </delete>
+  
+  <delete id="deleteAll" parameterType="map">
+	delete from t_sec_role_permission
+	where f_pid in
+	<foreach item="item" collection="ids" open="(" separator="," close=")">
+        #{item}
+    </foreach>
+  </delete>
+  
+  <!-- 查询条件 模糊查询用concat函数 ：name like concat(concat('%',#{bean.name,jdbcType=VARCHAR}),'%')，
+  	         这样做主要是为了支持mysql和oracle以及防止sql注入 -->
+  <select id="list" resultMap="BaseResultMap" parameterType="map">
+    select 
+    <include refid="Base_Column_List" />
+    from t_sec_role_permission t
+    <where>
+		<include refid="where_sql"/>
+	</where>
+  </select>
+  
+  <select id="get" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from t_sec_role_permission t
+    where t.f_pid = #{id,jdbcType=VARCHAR}
+  </select>
+  
+  	<!-- 删除用户下的资源 -->  
+	<delete id="deleteRolePerm" parameterType="com.taro.entity.sec.SecRolePermissionEntity">  
+        DELETE FROM t_sec_role_permission WHERE f_role_pid = #{role_pid}  
+	</delete> 
+</mapper>

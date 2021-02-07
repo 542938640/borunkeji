@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- @Automatically generate by Coder in 2020-10-22 21:18:31 -->
+<mapper namespace="com.taro.dao.market.TProductTypeDao">
+
+  	<resultMap id="BaseResultMap" type="com.taro.entity.market.TProductTypeEntity">
+	  	<id column="ID" property="id" jdbcType="INTEGER" />
+  		<result column="ID" property="id" jdbcType="INTEGER" />
+  		<result column="T_FNAME" property="t_fname" jdbcType="VARCHAR" />
+  		<result column="T_FPARENTID" property="t_fparentid" jdbcType="INTEGER" />
+  		<result column="T_FCREATEDATE" property="t_fcreatedate" jdbcType="DATE" />
+  		<result column="T_FCREATEUSER" property="t_fcreateuser" jdbcType="VARCHAR" />
+  		
+  		<result column="T_FPARENTNAME" property="t_fparentname" jdbcType="VARCHAR" />
+  	</resultMap>
+
+  	<sql id="Base_Column_List" >
+		T.ID, T.T_FNAME, T.T_FPARENTID, T.T_FCREATEDATE, T.T_FCREATEUSER
+  	</sql>
+
+  	<sql id="where_sql">
+		<if test="id != null and id != ''" > 
+			and T.ID = #{id, jdbcType=INTEGER}
+		</if>
+		<if test="t_fname != null and t_fname != ''" > 
+			and T.T_FNAME = #{t_fname, jdbcType=VARCHAR}
+		</if>
+		<if test="t_fparentid != null and t_fparentid != ''" > 
+			and T.T_FPARENTID = #{t_fparentid, jdbcType=INTEGER}
+		</if>
+		<if test="t_fcreatedate != null and t_fcreatedate != ''" > 
+			and T.T_FCREATEDATE = #{t_fcreatedate, jdbcType=DATE}
+		</if>
+		<if test="t_fcreateuser != null and t_fcreateuser != ''" > 
+			and T.T_FCREATEUSER = #{t_fcreateuser, jdbcType=VARCHAR}
+		</if>
+  	</sql>
+
+	<!-- 新增 -->
+  	<insert id="insert" parameterType="com.taro.entity.market.TProductTypeEntity" >
+    	INSERT INTO TPRODUCTTYPE (
+    		T_FNAME, T_FPARENTID,
+			T_FCREATEDATE, T_FCREATEUSER
+    	) VALUES (
+    		#{t_fname, jdbcType=VARCHAR}, #{t_fparentid, jdbcType=INTEGER},
+			#{t_fcreatedate, jdbcType=DATE}, #{t_fcreateuser,jdbcType=VARCHAR}
+    	)
+  	</insert>
+
+	<!-- 批量新增 -->
+  	<insert id="insertObjects" parameterType="list">
+		INSERT INTO TPRODUCTTYPE (
+    		T_FNAME, T_FPARENTID,
+			T_FCREATEDATE, T_FCREATEUSER
+		)
+		<foreach collection="list" item="entity" index="index" separator="union all">
+			SELECT
+    		#{entity.t_fname, jdbcType=VARCHAR}, #{entity.t_fparentid, jdbcType=INTEGER},
+			#{entity.t_fcreatedate, jdbcType=DATE}, #{entity.t_fcreateuser,jdbcType=VARCHAR}
+			FROM DUAL
+		</foreach>
+  	</insert>
+
+	<!-- 更新 -->
+  	<update id="update" parameterType="com.taro.entity.market.TProductTypeEntity">
+    	UPDATE TPRODUCTTYPE
+	    <set>
+      		<if test="id != null" > ID = #{id, jdbcType=INTEGER}, </if>
+      		<if test="t_fname != null" > T_FNAME = #{t_fname, jdbcType=VARCHAR}, </if>
+      		<if test="t_fparentid != null" > T_FPARENTID = #{t_fparentid, jdbcType=INTEGER}, </if>
+      		<if test="t_fcreatedate != null" > T_FCREATEDATE = #{t_fcreatedate, jdbcType=DATE}, </if>
+      		<if test="t_fcreateuser != null" > T_FCREATEUSER = #{t_fcreateuser, jdbcType=VARCHAR}, </if>
+	    </set>
+    	WHERE ID = #{id, jdbcType=VARCHAR}
+  	</update>
+
+	<!-- 批量更新 -->
+  	<update id="batchUpdate" parameterType="java.util.List">
+		<foreach collection="list" item="entity" separator=";">
+			UPDATE TPRODUCTTYPE
+			<set>
+	      		<if test="id != null" > ID = #{entity.id, jdbcType=INTEGER}, </if>
+	      		<if test="t_fname != null" > T_FNAME = #{entity.t_fname, jdbcType=VARCHAR}, </if>
+	      		<if test="t_fparentid != null" > T_FPARENTID = #{entity.t_fparentid, jdbcType=INTEGER}, </if>
+	      		<if test="t_fcreatedate != null" > T_FCREATEDATE = #{entity.t_fcreatedate, jdbcType=DATE}, </if>
+	      		<if test="t_fcreateuser != null" > T_FCREATEUSER = #{entity.t_fcreateuser, jdbcType=VARCHAR}, </if>
+			</set>
+    		WHERE ID = #{id, jdbcType=VARCHAR}
+		</foreach>
+  	</update>
+
+	<!-- 逻辑删除 -->
+  	<delete id="delete" parameterType="java.lang.String" >
+    	DELETE FROM TPRODUCTTYPE WHERE ID = #{id, jdbcType=VARCHAR}
+  	</delete>
+
+	<!-- 逻辑删除所有 -->
+  	<delete id="deleteAll" parameterType="map">
+		DELETE FROM TPRODUCTTYPE WHERE ID IN
+		<foreach item="item" collection="ids" open="(" separator="," close=")">
+        	#{item}
+    	</foreach>
+  	</delete>
+
+	<!-- 查询条件 模糊查询用concat函数:name like concat(concat('%',#{bean.name,jdbcType=VARCHAR}),'%'),	这样做主要是为了支持mysql和oracle以及防止sql注入 -->
+  	<!-- 列表查询 -->
+  	<select id="list" resultMap="BaseResultMap" parameterType="map">
+	    SELECT t.*,
+		p.T_FName as T_FParentName
+	    FROM TPRODUCTTYPE T
+		left join TPRODUCTTYPE p on t.T_FParentId = p.ID
+	    <where>
+			<include refid="where_sql"/>
+		</where>
+  	</select>
+
+	<!-- 根据ID查询单条记录 -->
+  	<select id="get" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    	SELECT 
+    		<include refid="Base_Column_List" />
+    	FROM TPRODUCTTYPE T
+    	WHERE T.ID = #{id,jdbcType=VARCHAR}
+  	</select>
+
+</mapper>

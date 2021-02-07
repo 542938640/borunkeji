@@ -1,0 +1,227 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- @Automatically generate by Coder in 2021-02-05 13:48:14 -->
+<mapper namespace="com.taro.dao.finance.FinanceNoteDetailDao">
+
+  	<resultMap id="BaseResultMap" type="com.taro.entity.finance.FinanceNoteDetailEntity">
+	  	<id column="F_PID" property="id" jdbcType="VARCHAR" />
+  		<result column="F_PID" property="id" jdbcType="VARCHAR" />
+  		<result column="F_TENANTS_PID" property="tenants_pid" jdbcType="VARCHAR" />
+  		<result column="F_BUSI_TYPE" property="busi_type" jdbcType="VARCHAR" />
+  		<result column="F_BUSI_NAME" property="busi_name" jdbcType="VARCHAR" />
+  		<result column="F_NUM" property="num" jdbcType="INTEGER" />
+  		<result column="F_C1" property="c1" jdbcType="VARCHAR" />
+  		<result column="F_C2" property="c2" jdbcType="VARCHAR" />
+  		<result column="F_C3" property="c3" jdbcType="VARCHAR" />
+  		<result column="F_C4" property="c4" jdbcType="VARCHAR" />
+  		<result column="F_C5" property="c5" jdbcType="VARCHAR" />
+	  	<result column="F_SYS_FLAG" property="sysFlag" jdbcType="VARCHAR" />
+	  	<result column="F_REMARK" property="remark" jdbcType="VARCHAR" />
+	  	<result column="F_LAST_MODIFIER" property="lastModifier" jdbcType="VARCHAR" />
+	  	<result column="F_LAST_MODIFIED_TIME" property="lastModifiedTime" jdbcType="VARCHAR" />
+	  	<result column="F_CREATOR" property="creator" jdbcType="VARCHAR" />
+	  	<result column="F_CREATE_TIME" property="createTime" jdbcType="VARCHAR" />
+	  	
+  		<result column="F_TENANTS_NAME" property="tenants_name" jdbcType="VARCHAR" />
+  	</resultMap>
+
+  	<sql id="Base_Column_List" >
+		t.F_PID, T.F_TENANTS_PID, T.F_BUSI_TYPE, T.F_BUSI_NAME, T.F_NUM, T.F_C1,		T.F_C2, T.F_C3, T.F_C4, T.F_C5, 
+		t.F_SYS_FLAG, t.F_REMARK, t.F_LAST_MODIFIER, t.F_LAST_MODIFIED_TIME, t.F_CREATOR, t.F_CREATE_TIME
+  	</sql>
+
+  	<sql id="where_sql">
+		<if test="id != null and id != ''" > 
+			and t.F_PID = #{id, jdbcType=VARCHAR}
+		</if>
+		<if test="tenants_pid != null and tenants_pid != ''" > 
+			and T.F_TENANTS_PID = #{tenants_pid, jdbcType=VARCHAR}
+		</if>
+		<if test="busi_type != null and busi_type != ''" > 
+			and T.F_BUSI_TYPE = #{busi_type, jdbcType=VARCHAR}
+		</if>
+		<if test="busi_name != null and busi_name != ''" > 
+			and T.F_BUSI_NAME = #{busi_name, jdbcType=VARCHAR}
+		</if>
+		<if test="num != null and num != ''" > 
+			and T.F_NUM = #{num, jdbcType=INTEGER}
+		</if>
+		<if test="c1 != null and c1 != ''" > 
+			and T.F_C1 = #{c1, jdbcType=VARCHAR}
+		</if>
+		<if test="c2 != null and c2 != ''" > 
+			and T.F_C2 = #{c2, jdbcType=VARCHAR}
+		</if>
+		<if test="c3 != null and c3 != ''" > 
+			and T.F_C3 = #{c3, jdbcType=VARCHAR}
+		</if>
+		<if test="c4 != null and c4 != ''" > 
+			and T.F_C4 = #{c4, jdbcType=VARCHAR}
+		</if>
+		<if test="c5 != null and c5 != ''" > 
+			and T.F_C5 = #{c5, jdbcType=VARCHAR}
+		</if>
+		<if test="sysFlag != null and sysFlag != ''" > 
+			and t.F_SYS_FLAG = #{sysFlag, jdbcType=VARCHAR}
+		</if>
+		<if test="remark != null and remark != ''" > 
+			and t.F_REMARK = #{remark, jdbcType=VARCHAR}
+		</if>
+		<if test="lastModifier != null and lastModifier != ''" > 
+			and t.F_LAST_MODIFIER = #{lastModifier, jdbcType=VARCHAR}
+		</if>
+		<if test="lastModifiedTime != null and lastModifiedTime != ''" > 
+			and t.F_LAST_MODIFIED_TIME = #{lastModifiedTime, jdbcType=VARCHAR}
+		</if>
+		<if test="creator != null and creator != ''" > 
+			and t.F_CREATOR = #{creator, jdbcType=VARCHAR}
+		</if>
+		<if test="createTime != null and createTime != ''" > 
+			and t.F_CREATE_TIME = #{createTime, jdbcType=VARCHAR}
+		</if>
+  	</sql>
+
+	<!-- 新增 -->
+  	<insert id="insert" parameterType="com.taro.entity.finance.FinanceNoteDetailEntity" >
+    	INSERT INTO T_FINANCE_NOTE_DETAIL (
+    		F_PID, F_TENANTS_PID, F_BUSI_TYPE, F_BUSI_NAME,			F_NUM, F_C1, F_C2,			F_C3, F_C4, F_C5, 
+		  	F_SYS_FLAG, F_REMARK, F_LAST_MODIFIER,
+		  	F_LAST_MODIFIED_TIME, F_CREATOR, F_CREATE_TIME
+    	) VALUES (
+    		#{id, jdbcType=VARCHAR}, #{tenants_pid, jdbcType=VARCHAR}, #{busi_type, jdbcType=VARCHAR}, #{busi_name, jdbcType=VARCHAR},			#{num, jdbcType=INTEGER}, #{c1, jdbcType=VARCHAR}, #{c2, jdbcType=VARCHAR},			#{c3, jdbcType=VARCHAR}, #{c4, jdbcType=VARCHAR}, #{c5,jdbcType=VARCHAR} , 
+		  	#{sysFlag, jdbcType=VARCHAR}, #{remark, jdbcType=VARCHAR}, #{lastModifier, jdbcType=VARCHAR},
+		  	#{lastModifiedTime, jdbcType=VARCHAR}, #{creator, jdbcType=VARCHAR}, #{createTime, jdbcType=VARCHAR} 
+    	)
+  	</insert>
+
+	<!-- 批量新增 -->
+  	<insert id="insertObjects" parameterType="list">
+		INSERT INTO T_FINANCE_NOTE_DETAIL (
+    		F_PID, F_TENANTS_PID, F_BUSI_TYPE, F_BUSI_NAME,			F_NUM, F_C1, F_C2,			F_C3, F_C4, F_C5, 
+		  	F_SYS_FLAG, F_REMARK, F_LAST_MODIFIER,
+		  	F_LAST_MODIFIED_TIME, F_CREATOR, F_CREATE_TIME
+		)
+		<foreach collection="list" item="entity" index="index" separator="union all">
+			SELECT
+    		#{entity.id, jdbcType=VARCHAR}, #{entity.tenants_pid, jdbcType=VARCHAR}, #{entity.busi_type, jdbcType=VARCHAR}, #{entity.busi_name, jdbcType=VARCHAR},			#{entity.num, jdbcType=INTEGER}, #{entity.c1, jdbcType=VARCHAR}, #{entity.c2, jdbcType=VARCHAR},			#{entity.c3, jdbcType=VARCHAR}, #{entity.c4, jdbcType=VARCHAR}, #{entity.c5,jdbcType=VARCHAR} , 
+  			#{entity.sysFlag,jdbcType=VARCHAR}, #{entity.remark,jdbcType=VARCHAR}, #{entity.lastModifier,jdbcType=VARCHAR},
+  			#{entity.lastModifiedTime,jdbcType=VARCHAR}, #{entity.creator,jdbcType=VARCHAR}, #{entity.createTime,jdbcType=VARCHAR} 
+			FROM DUAL
+		</foreach>
+  	</insert>
+
+	<!-- 更新 -->
+  	<update id="update" parameterType="com.taro.entity.finance.FinanceNoteDetailEntity">
+    	UPDATE T_FINANCE_NOTE_DETAIL
+	    <set>
+      		<if test="id != null" > F_PID = #{id, jdbcType=VARCHAR}, </if>
+      		<if test="tenants_pid != null" > F_TENANTS_PID = #{tenants_pid, jdbcType=VARCHAR}, </if>
+      		<if test="busi_type != null" > F_BUSI_TYPE = #{busi_type, jdbcType=VARCHAR}, </if>
+      		<if test="busi_name != null" > F_BUSI_NAME = #{busi_name, jdbcType=VARCHAR}, </if>
+      		<if test="num != null" > F_NUM = #{num, jdbcType=INTEGER}, </if>
+      		<if test="c1 != null" > F_C1 = #{c1, jdbcType=VARCHAR}, </if>
+      		<if test="c2 != null" > F_C2 = #{c2, jdbcType=VARCHAR}, </if>
+      		<if test="c3 != null" > F_C3 = #{c3, jdbcType=VARCHAR}, </if>
+      		<if test="c4 != null" > F_C4 = #{c4, jdbcType=VARCHAR}, </if>
+      		<if test="c5 != null" > F_C5 = #{c5, jdbcType=VARCHAR}, </if>
+	      	<if test="sysFlag != null" > F_SYS_FLAG = #{sysFlag, jdbcType=VARCHAR}, </if>
+	      	<if test="remark != null" > F_REMARK = #{remark, jdbcType=VARCHAR}, </if>
+	      	<if test="lastModifier != null" > F_LAST_MODIFIER = #{lastModifier, jdbcType=VARCHAR}, </if>
+	      	<if test="lastModifiedTime != null" > F_LAST_MODIFIED_TIME = #{lastModifiedTime, jdbcType=VARCHAR}, </if>
+	      	<if test="creator != null" > F_CREATOR = #{creator, jdbcType=VARCHAR}, </if>
+	      	<if test="createTime != null" > F_CREATE_TIME = #{createTime, jdbcType=VARCHAR}, </if>
+	    </set>
+    	WHERE F_PID = #{id, jdbcType=VARCHAR}
+  	</update>
+
+	<!-- 批量更新 -->
+  	<update id="batchUpdate" parameterType="java.util.List">
+		<foreach collection="list" item="entity" separator=";">
+			UPDATE T_FINANCE_NOTE_DETAIL
+			<set>
+		      	<if test="id != null" > F_PID = #{entity.id, jdbcType=VARCHAR}, </if>
+	      		<if test="tenants_pid != null" > F_TENANTS_PID = #{entity.tenants_pid, jdbcType=VARCHAR}, </if>
+	      		<if test="busi_type != null" > F_BUSI_TYPE = #{entity.busi_type, jdbcType=VARCHAR}, </if>
+	      		<if test="busi_name != null" > F_BUSI_NAME = #{entity.busi_name, jdbcType=VARCHAR}, </if>
+	      		<if test="num != null" > F_NUM = #{entity.num, jdbcType=INTEGER}, </if>
+	      		<if test="c1 != null" > F_C1 = #{entity.c1, jdbcType=VARCHAR}, </if>
+	      		<if test="c2 != null" > F_C2 = #{entity.c2, jdbcType=VARCHAR}, </if>
+	      		<if test="c3 != null" > F_C3 = #{entity.c3, jdbcType=VARCHAR}, </if>
+	      		<if test="c4 != null" > F_C4 = #{entity.c4, jdbcType=VARCHAR}, </if>
+	      		<if test="c5 != null" > F_C5 = #{entity.c5, jdbcType=VARCHAR}, </if>
+		      	<if test="sysFlag != null" > F_SYS_FLAG = #{entity.sysFlag, jdbcType=VARCHAR}, </if>
+		      	<if test="remark != null" > F_REMARK = #{entity.remark, jdbcType=VARCHAR}, </if>
+		      	<if test="lastModifier != null" > F_LAST_MODIFIER = #{entity.lastModifier, jdbcType=VARCHAR}, </if>
+		      	<if test="lastModifiedTime != null" > F_LAST_MODIFIED_TIME = #{entity.lastModifiedTime, jdbcType=VARCHAR}, </if>
+		      	<if test="creator != null" > F_CREATOR = #{entity.creator, jdbcType=VARCHAR}, </if>
+		      	<if test="createTime != null" > F_CREATE_TIME = #{entity.createTime, jdbcType=VARCHAR}, </if>
+			</set>
+    		WHERE F_PID = #{id, jdbcType=VARCHAR}
+		</foreach>
+  	</update>
+
+	<!-- 更新 -->
+  	<update id="updateNum" parameterType="com.taro.entity.finance.FinanceNoteDetailEntity">
+    	UPDATE T_FINANCE_NOTE_DETAIL
+	    <set>
+      		<if test="id != null" > F_PID = #{id, jdbcType=VARCHAR}, </if>
+      		<if test="tenants_pid != null" > F_TENANTS_PID = #{tenants_pid, jdbcType=VARCHAR}, </if>
+      		<if test="busi_type != null" > F_BUSI_TYPE = #{busi_type, jdbcType=VARCHAR}, </if>
+      		<if test="busi_name != null" > F_BUSI_NAME = #{busi_name, jdbcType=VARCHAR}, </if>
+      		<if test="num != null" > F_NUM = F_NUM + 1, </if>
+      		<if test="c1 != null" > F_C1 = #{c1, jdbcType=VARCHAR}, </if>
+      		<if test="c2 != null" > F_C2 = #{c2, jdbcType=VARCHAR}, </if>
+      		<if test="c3 != null" > F_C3 = #{c3, jdbcType=VARCHAR}, </if>
+      		<if test="c4 != null" > F_C4 = #{c4, jdbcType=VARCHAR}, </if>
+      		<if test="c5 != null" > F_C5 = #{c5, jdbcType=VARCHAR}, </if>
+	      	<if test="sysFlag != null" > F_SYS_FLAG = #{sysFlag, jdbcType=VARCHAR}, </if>
+	      	<if test="remark != null" > F_REMARK = #{remark, jdbcType=VARCHAR}, </if>
+	      	<if test="lastModifier != null" > F_LAST_MODIFIER = #{lastModifier, jdbcType=VARCHAR}, </if>
+	      	<if test="lastModifiedTime != null" > F_LAST_MODIFIED_TIME = #{lastModifiedTime, jdbcType=VARCHAR}, </if>
+	      	<if test="creator != null" > F_CREATOR = #{creator, jdbcType=VARCHAR}, </if>
+	      	<if test="createTime != null" > F_CREATE_TIME = #{createTime, jdbcType=VARCHAR}, </if>
+	    </set>
+    	WHERE F_PID = #{id, jdbcType=VARCHAR}
+  	</update>
+  	
+	<!-- 逻辑删除 -->
+  	<update id="delete" parameterType="java.lang.String" >
+    	UPDATE T_FINANCE_NOTE_DETAIL SET
+			F_SYS_FLAG = '0',
+		    F_LAST_MODIFIER = #{lastModifier, jdbcType=VARCHAR},
+			F_LAST_MODIFIED_TIME = #{lastModifiedTime, jdbcType=VARCHAR}
+    	WHERE F_PID = #{id, jdbcType=VARCHAR}
+  	</update>
+
+	<!-- 逻辑删除所有 -->
+  	<update id="deleteAll" parameterType="map">
+		UPDATE T_FINANCE_NOTE_DETAIL SET 
+			F_SYS_FLAG = '0',
+		    F_LAST_MODIFIER = #{lastModifier, jdbcType=VARCHAR},
+			F_LAST_MODIFIED_TIME = #{lastModifiedTime, jdbcType=VARCHAR}
+		WHERE F_PID IN
+		<foreach item="item" collection="ids" open="(" separator="," close=")">
+        	#{item}
+    	</foreach>
+  	</update>
+
+	<!-- 查询条件 模糊查询用concat函数:name like concat(concat('%',#{bean.name,jdbcType=VARCHAR}),'%'),	这样做主要是为了支持mysql和oracle以及防止sql注入 -->
+  	<!-- 列表查询 -->
+  	<select id="list" resultMap="BaseResultMap" parameterType="map">
+	    select t.*,
+		st.F_NAME as F_TENANTS_NAME
+		from t_finance_note_detail t
+		left join t_sec_tenants st on t.F_TENANTS_PID = st.F_PID and st.F_SYS_FLAG = '1'
+	    where t.f_sys_flag = '1'
+		<include refid="where_sql"/>
+  	</select>
+
+	<!-- 根据ID查询单条记录 -->
+  	<select id="get" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    	SELECT 
+    		<include refid="Base_Column_List" />
+    	FROM T_FINANCE_NOTE_DETAIL T
+    	WHERE T.F_PID = #{id,jdbcType=VARCHAR}
+  	</select>
+
+</mapper>

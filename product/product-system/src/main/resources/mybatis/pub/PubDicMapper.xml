@@ -1,0 +1,390 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- @Automatically generate by Coder in 2019-07-31 10:57 -->
+<mapper namespace="com.taro.dao.pub.PubDicDao">
+  <resultMap id="BaseResultMap" type="com.taro.entity.pub.PubDicEntity">
+  	<id column="f_pid" property="id" jdbcType="VARCHAR" />
+  	<result column="f_pid" property="id" jdbcType="VARCHAR" />
+  	<result column="f_code" property="code" jdbcType="VARCHAR" />
+  	<result column="f_name" property="name" jdbcType="VARCHAR" />
+  	<result column="f_base_pid" property="base_pid" jdbcType="VARCHAR" />
+  	<result column="f_value1" property="value1" jdbcType="VARCHAR" />
+  	<result column="f_value2" property="value2" jdbcType="VARCHAR" />
+  	<result column="f_value3" property="value3" jdbcType="VARCHAR" />
+  	<result column="f_value4" property="value4" jdbcType="VARCHAR" />
+  	<result column="f_value5" property="value5" jdbcType="VARCHAR" />
+  	<result column="f_other_pid1" property="other_pid1" jdbcType="VARCHAR" />
+  	<result column="f_other_pid2" property="other_pid2" jdbcType="VARCHAR" />
+  	<result column="f_other_pid3" property="other_pid3" jdbcType="VARCHAR" />
+  	<result column="f_other_pid4" property="other_pid4" jdbcType="VARCHAR" />
+  	<result column="f_other_pid5" property="other_pid5" jdbcType="VARCHAR" />
+  	<result column="f_double1" property="double1" jdbcType="DECIMAL" />
+  	<result column="f_double2" property="double2" jdbcType="DECIMAL" />
+  	<result column="f_double3" property="double3" jdbcType="DECIMAL" />
+  	<result column="f_double4" property="double4" jdbcType="DECIMAL" />
+  	<result column="f_double5" property="double5" jdbcType="DECIMAL" />
+  	<result column="f_num1" property="num1" jdbcType="INTEGER" />
+  	<result column="f_num2" property="num2" jdbcType="INTEGER" />
+  	<result column="f_num3" property="num3" jdbcType="INTEGER" />
+  	<result column="f_num4" property="num4" jdbcType="INTEGER" />
+  	<result column="f_num5" property="num5" jdbcType="INTEGER" />
+  	<result column="f_order" property="order" jdbcType="INTEGER" />
+  	<result column="f_sys_flag" property="sysFlag" jdbcType="VARCHAR" />
+  	<result column="f_remark" property="remark" jdbcType="VARCHAR" />
+  	<result column="f_last_modifier" property="lastModifier" jdbcType="VARCHAR" />
+  	<result column="f_last_modified_time" property="lastModifiedTime" jdbcType="VARCHAR" />
+  	<result column="f_creator" property="creator" jdbcType="VARCHAR" />
+  	<result column="f_create_time" property="createTime" jdbcType="VARCHAR" />
+  	
+  	<result column="f_structure_relation_pid" property="structure_relation_pid" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+  	t.f_pid, t.f_code, t.f_name, t.f_base_pid, t.f_value1, t.f_value2,
+t.f_value3, t.f_value4, t.f_value5, t.f_other_pid1, t.f_other_pid2, t.f_other_pid3,
+t.f_other_pid4, t.f_other_pid5, t.f_double1, t.f_double2, t.f_double3, t.f_double4,
+t.f_double5, t.f_num1, t.f_num2, t.f_num3, t.f_num4, t.f_num5, t.f_order,
+t.f_sys_flag, t.f_remark, t.f_last_modifier, t.f_last_modified_time, t.f_creator, t.f_create_time
+  </sql>
+  
+  <sql id="where_sql">
+	<if test="id != null and id != ''" > and t.f_pid = #{id,jdbcType=VARCHAR}</if>
+	<if test="code != null and code != ''" > and t.f_code = #{code,jdbcType=VARCHAR}</if>
+	<if test="name != null and name != ''" > and t.f_name = #{name,jdbcType=VARCHAR}</if>
+	<if test="base_pid != null and base_pid != ''" > and t.f_base_pid = #{base_pid,jdbcType=VARCHAR}</if>
+	<if test="value1 != null and value1 != ''" > and t.f_value1 = #{value1,jdbcType=VARCHAR}</if>
+	<if test="value2 != null and value2 != ''" > and t.f_value2 = #{value2,jdbcType=VARCHAR}</if>
+	<if test="value3 != null and value3 != ''" > and t.f_value3 = #{value3,jdbcType=VARCHAR}</if>
+	<if test="value4 != null and value4 != ''" > and t.f_value4 = #{value4,jdbcType=VARCHAR}</if>
+	<if test="value5 != null and value5 != ''" > and t.f_value5 = #{value5,jdbcType=VARCHAR}</if>
+	<if test="other_pid1 != null and other_pid1 != ''" > and t.f_other_pid1 = #{other_pid1,jdbcType=VARCHAR}</if>
+	<if test="other_pid2 != null and other_pid2 != ''" > and t.f_other_pid2 = #{other_pid2,jdbcType=VARCHAR}</if>
+	<if test="other_pid3 != null and other_pid3 != ''" > and t.f_other_pid3 = #{other_pid3,jdbcType=VARCHAR}</if>
+	<if test="other_pid4 != null and other_pid4 != ''" > and t.f_other_pid4 = #{other_pid4,jdbcType=VARCHAR}</if>
+	<if test="other_pid5 != null and other_pid5 != ''" > and t.f_other_pid5 = #{other_pid5,jdbcType=VARCHAR}</if>
+	<if test="double1 != null and double1 != ''" > and t.f_double1 = #{double1,jdbcType=DECIMAL}</if>
+	<if test="double2 != null and double2 != ''" > and t.f_double2 = #{double2,jdbcType=DECIMAL}</if>
+	<if test="double3 != null and double3 != ''" > and t.f_double3 = #{double3,jdbcType=DECIMAL}</if>
+	<if test="double4 != null and double4 != ''" > and t.f_double4 = #{double4,jdbcType=DECIMAL}</if>
+	<if test="double5 != null and double5 != ''" > and t.f_double5 = #{double5,jdbcType=DECIMAL}</if>
+	<if test="num1 != null and num1 != ''" > and t.f_num1 = #{num1,jdbcType=INTEGER}</if>
+	<if test="num2 != null and num2 != ''" > and t.f_num2 = #{num2,jdbcType=INTEGER}</if>
+	<if test="num3 != null and num3 != ''" > and t.f_num3 = #{num3,jdbcType=INTEGER}</if>
+	<if test="num4 != null and num4 != ''" > and t.f_num4 = #{num4,jdbcType=INTEGER}</if>
+	<if test="num5 != null and num5 != ''" > and t.f_num5 = #{num5,jdbcType=INTEGER}</if>
+	<if test="order != null and order != ''" > and t.f_order = #{order,jdbcType=VARCHAR}</if>
+	<if test="sysFlag != null and sysFlag != ''" > and t.f_sys_flag = #{sysFlag,jdbcType=VARCHAR}</if>
+	<if test="remark != null and remark != ''" > and t.f_remark = #{remark,jdbcType=VARCHAR}</if>
+	<if test="lastModifier != null and lastModifier != ''" > and t.f_last_modifier = #{lastModifier,jdbcType=VARCHAR}</if>
+	<if test="lastModifiedTime != null and lastModifiedTime != ''" > and t.f_last_modified_time = #{lastModifiedTime,jdbcType=VARCHAR}</if>
+	<if test="creator != null and creator != ''" > and t.f_creator = #{creator,jdbcType=VARCHAR}</if>
+	<if test="createTime != null and createTime != ''" > and t.f_create_time = #{createTime,jdbcType=VARCHAR}</if>
+  </sql>
+  
+  <insert id="insert" parameterType="com.taro.entity.pub.PubDicEntity" >
+    insert into t_pub_dic (
+      f_pid, f_code, f_name,
+  f_base_pid, f_value1, f_value2,
+  f_value3, f_value4, f_value5,
+  f_other_pid1, f_other_pid2, f_other_pid3,
+  f_other_pid4, f_other_pid5, f_double1,
+  f_double2, f_double3, f_double4,
+  f_double5, f_num1, f_num2,
+  f_num3, f_num4, f_num5, f_order,
+  f_sys_flag, f_remark, f_last_modifier,
+  f_last_modified_time, f_creator, f_create_time
+    ) values (
+      #{id,jdbcType=VARCHAR}, #{code,jdbcType=VARCHAR}, #{name,jdbcType=VARCHAR},
+  #{base_pid,jdbcType=VARCHAR}, #{value1,jdbcType=VARCHAR}, #{value2,jdbcType=VARCHAR},
+  #{value3,jdbcType=VARCHAR}, #{value4,jdbcType=VARCHAR}, #{value5,jdbcType=VARCHAR},
+  #{other_pid1,jdbcType=VARCHAR}, #{other_pid2,jdbcType=VARCHAR}, #{other_pid3,jdbcType=VARCHAR},
+  #{other_pid4,jdbcType=VARCHAR}, #{other_pid5,jdbcType=VARCHAR}, #{double1,jdbcType=DECIMAL},
+  #{double2,jdbcType=DECIMAL}, #{double3,jdbcType=DECIMAL}, #{double4,jdbcType=DECIMAL},
+  #{double5,jdbcType=DECIMAL}, #{num1,jdbcType=INTEGER}, #{num2,jdbcType=INTEGER},
+  #{num3,jdbcType=INTEGER}, #{num4,jdbcType=INTEGER}, #{num5,jdbcType=INTEGER}, #{order,jdbcType=INTEGER},
+  #{sysFlag,jdbcType=VARCHAR}, #{remark,jdbcType=VARCHAR}, #{lastModifier,jdbcType=VARCHAR},
+  #{lastModifiedTime,jdbcType=VARCHAR}, #{creator,jdbcType=VARCHAR}, #{createTime,jdbcType=VARCHAR} 
+    )
+  </insert>
+  
+  <insert id="insertObjects" parameterType="list">
+		insert into t_pub_dic (
+		  f_pid, f_code, f_name,
+  f_base_pid, f_value1, f_value2,
+  f_value3, f_value4, f_value5,
+  f_other_pid1, f_other_pid2, f_other_pid3,
+  f_other_pid4, f_other_pid5, f_double1,
+  f_double2, f_double3, f_double4,
+  f_double5, f_num1, f_num2,
+  f_num3, f_num4, f_num5, f_order,
+  f_sys_flag, f_remark, f_last_modifier,
+  f_last_modified_time, f_creator, f_create_time
+		)
+		<foreach collection="list" item="entity" index="index" separator="union all">
+			select
+		  		#{entity.id,jdbcType=VARCHAR}, #{entity.code,jdbcType=VARCHAR}, #{entity.name,jdbcType=VARCHAR},
+  #{entity.base_pid,jdbcType=VARCHAR}, #{entity.value1,jdbcType=VARCHAR}, #{entity.value2,jdbcType=VARCHAR},
+  #{entity.value3,jdbcType=VARCHAR}, #{entity.value4,jdbcType=VARCHAR}, #{entity.value5,jdbcType=VARCHAR},
+  #{entity.other_pid1,jdbcType=VARCHAR}, #{entity.other_pid2,jdbcType=VARCHAR}, #{entity.other_pid3,jdbcType=VARCHAR},
+  #{entity.other_pid4,jdbcType=VARCHAR}, #{entity.other_pid5,jdbcType=VARCHAR}, #{entity.double1,jdbcType=DECIMAL},
+  #{entity.double2,jdbcType=DECIMAL}, #{entity.double3,jdbcType=DECIMAL}, #{entity.double4,jdbcType=DECIMAL},
+  #{entity.double5,jdbcType=DECIMAL}, #{entity.num1,jdbcType=INTEGER}, #{entity.num2,jdbcType=INTEGER},
+  #{entity.num3,jdbcType=INTEGER}, #{entity.num4,jdbcType=INTEGER}, #{entity.num5,jdbcType=INTEGER}, #{entity.order,jdbcType=INTEGER},
+  #{entity.sysFlag,jdbcType=VARCHAR}, #{entity.remark,jdbcType=VARCHAR}, #{entity.lastModifier,jdbcType=VARCHAR},
+  #{entity.lastModifiedTime,jdbcType=VARCHAR}, #{entity.creator,jdbcType=VARCHAR}, #{entity.createTime,jdbcType=VARCHAR} 
+			from dual
+		</foreach>
+  </insert>
+  
+  <update id="update" parameterType="com.taro.entity.pub.PubDicEntity">
+    update t_pub_dic 
+    <set>
+      <if test="id != null" > f_pid = #{id,jdbcType=VARCHAR}, </if>
+      <if test="code != null" > f_code = #{code,jdbcType=VARCHAR}, </if>
+      <if test="name != null" > f_name = #{name,jdbcType=VARCHAR}, </if>
+      <if test="base_pid != null" > f_base_pid = #{base_pid,jdbcType=VARCHAR}, </if>
+      <if test="value1 != null" > f_value1 = #{value1,jdbcType=VARCHAR}, </if>
+      <if test="value2 != null" > f_value2 = #{value2,jdbcType=VARCHAR}, </if>
+      <if test="value3 != null" > f_value3 = #{value3,jdbcType=VARCHAR}, </if>
+      <if test="value4 != null" > f_value4 = #{value4,jdbcType=VARCHAR}, </if>
+      <if test="value5 != null" > f_value5 = #{value5,jdbcType=VARCHAR}, </if>
+      <if test="other_pid1 != null" > f_other_pid1 = #{other_pid1,jdbcType=VARCHAR}, </if>
+      <if test="other_pid2 != null" > f_other_pid2 = #{other_pid2,jdbcType=VARCHAR}, </if>
+      <if test="other_pid3 != null" > f_other_pid3 = #{other_pid3,jdbcType=VARCHAR}, </if>
+      <if test="other_pid4 != null" > f_other_pid4 = #{other_pid4,jdbcType=VARCHAR}, </if>
+      <if test="other_pid5 != null" > f_other_pid5 = #{other_pid5,jdbcType=VARCHAR}, </if>
+      <if test="double1 != null" > f_double1 = #{double1,jdbcType=DECIMAL}, </if>
+      <if test="double2 != null" > f_double2 = #{double2,jdbcType=DECIMAL}, </if>
+      <if test="double3 != null" > f_double3 = #{double3,jdbcType=DECIMAL}, </if>
+      <if test="double4 != null" > f_double4 = #{double4,jdbcType=DECIMAL}, </if>
+      <if test="double5 != null" > f_double5 = #{double5,jdbcType=DECIMAL}, </if>
+      <if test="num1 != null" > f_num1 = #{num1,jdbcType=INTEGER}, </if>
+      <if test="num2 != null" > f_num2 = #{num2,jdbcType=INTEGER}, </if>
+      <if test="num3 != null" > f_num3 = #{num3,jdbcType=INTEGER}, </if>
+      <if test="num4 != null" > f_num4 = #{num4,jdbcType=INTEGER}, </if>
+      <if test="num5 != null" > f_num5 = #{num5,jdbcType=INTEGER}, </if>
+      <if test="order != null" > f_order = #{order,jdbcType=VARCHAR}, </if>
+      <if test="sysFlag != null" > f_sys_flag = #{sysFlag,jdbcType=VARCHAR}, </if>
+      <if test="remark != null" > f_remark = #{remark,jdbcType=VARCHAR}, </if>
+      <if test="lastModifier != null" > f_last_modifier = #{lastModifier,jdbcType=VARCHAR}, </if>
+      <if test="lastModifiedTime != null" > f_last_modified_time = #{lastModifiedTime,jdbcType=VARCHAR}, </if>
+      <if test="creator != null" > f_creator = #{creator,jdbcType=VARCHAR}, </if>
+      <if test="createTime != null" > f_create_time = #{createTime,jdbcType=VARCHAR}, </if>
+    </set>
+    where f_pid = #{id,jdbcType=VARCHAR}
+  </update>
+  
+  <update id="batchUpdate" parameterType="java.util.List">
+		<foreach collection="list" item="entity" separator=";">
+			update t_pub_dic
+			<set>
+			  <if test="id != null" > f_pid = #{entity.id,jdbcType=VARCHAR}, </if>
+			  <if test="code != null" > f_code = #{entity.code,jdbcType=VARCHAR}, </if>
+			  <if test="name != null" > f_name = #{entity.name,jdbcType=VARCHAR}, </if>
+			  <if test="base_pid != null" > f_base_pid = #{entity.base_pid,jdbcType=VARCHAR}, </if>
+			  <if test="value1 != null" > f_value1 = #{entity.value1,jdbcType=VARCHAR}, </if>
+			  <if test="value2 != null" > f_value2 = #{entity.value2,jdbcType=VARCHAR}, </if>
+			  <if test="value3 != null" > f_value3 = #{entity.value3,jdbcType=VARCHAR}, </if>
+			  <if test="value4 != null" > f_value4 = #{entity.value4,jdbcType=VARCHAR}, </if>
+			  <if test="value5 != null" > f_value5 = #{entity.value5,jdbcType=VARCHAR}, </if>
+			  <if test="other_pid1 != null" > f_other_pid1 = #{entity.other_pid1,jdbcType=VARCHAR}, </if>
+			  <if test="other_pid2 != null" > f_other_pid2 = #{entity.other_pid2,jdbcType=VARCHAR}, </if>
+			  <if test="other_pid3 != null" > f_other_pid3 = #{entity.other_pid3,jdbcType=VARCHAR}, </if>
+			  <if test="other_pid4 != null" > f_other_pid4 = #{entity.other_pid4,jdbcType=VARCHAR}, </if>
+			  <if test="other_pid5 != null" > f_other_pid5 = #{entity.other_pid5,jdbcType=VARCHAR}, </if>
+			  <if test="double1 != null" > f_double1 = #{entity.double1,jdbcType=DECIMAL}, </if>
+			  <if test="double2 != null" > f_double2 = #{entity.double2,jdbcType=DECIMAL}, </if>
+			  <if test="double3 != null" > f_double3 = #{entity.double3,jdbcType=DECIMAL}, </if>
+			  <if test="double4 != null" > f_double4 = #{entity.double4,jdbcType=DECIMAL}, </if>
+			  <if test="double5 != null" > f_double5 = #{entity.double5,jdbcType=DECIMAL}, </if>
+			  <if test="num1 != null" > f_num1 = #{entity.num1,jdbcType=INTEGER}, </if>
+			  <if test="num2 != null" > f_num2 = #{entity.num2,jdbcType=INTEGER}, </if>
+			  <if test="num3 != null" > f_num3 = #{entity.num3,jdbcType=INTEGER}, </if>
+			  <if test="num4 != null" > f_num4 = #{entity.num4,jdbcType=INTEGER}, </if>
+			  <if test="num5 != null" > f_num5 = #{entity.num5,jdbcType=INTEGER}, </if>
+			  <if test="order != null" > f_order = #{entity.order,jdbcType=VARCHAR}, </if>
+			  <if test="sysFlag != null" > f_sys_flag = #{entity.sysFlag,jdbcType=VARCHAR}, </if>
+			  <if test="remark != null" > f_remark = #{entity.remark,jdbcType=VARCHAR}, </if>
+			  <if test="lastModifier != null" > f_last_modifier = #{entity.lastModifier,jdbcType=VARCHAR}, </if>
+			  <if test="lastModifiedTime != null" > f_last_modified_time = #{entity.lastModifiedTime,jdbcType=VARCHAR}, </if>
+			  <if test="creator != null" > f_creator = #{entity.creator,jdbcType=VARCHAR}, </if>
+			  <if test="createTime != null" > f_create_time = #{entity.createTime,jdbcType=VARCHAR}, </if>
+			</set>
+			where f_pid = #{id,jdbcType=VARCHAR}
+		</foreach>
+  </update>
+  
+  
+  <update id="delete" parameterType="java.lang.String" >
+    update t_pub_dic set
+		F_SYS_FLAG='0',
+	    F_LAST_MODIFIER = #{lastModifier,jdbcType=VARCHAR},
+		F_LAST_MODIFIED_TIME = #{lastModifiedTime,jdbcType=VARCHAR} 
+	where f_pid = #{id,jdbcType=VARCHAR}
+  </update>
+  
+  <update id="deleteAll" parameterType="map">
+	update t_pub_dic set 
+		F_SYS_FLAG='0',
+	    F_LAST_MODIFIER = #{lastModifier,jdbcType=VARCHAR},
+		F_LAST_MODIFIED_TIME = #{lastModifiedTime,jdbcType=VARCHAR} 
+	where f_pid in
+	<foreach item="item" collection="ids" open="(" separator="," close=")">
+        #{item}
+    </foreach>
+  </update>
+  
+  <update id="deleteAllByBasePid" parameterType="map">
+	update t_pub_dic set 
+		F_SYS_FLAG='0',
+	    F_LAST_MODIFIER = #{lastModifier,jdbcType=VARCHAR},
+		F_LAST_MODIFIED_TIME = #{lastModifiedTime,jdbcType=VARCHAR} 
+	where f_pid in
+	<foreach item="item" collection="ids" open="(" separator="," close=")">
+        #{item}
+    </foreach>
+  </update>
+  
+  <!-- 查询条件 模糊查询用concat函数 ：name like concat(concat('%',#{bean.name,jdbcType=VARCHAR}),'%')，
+  	         这样做主要是为了支持mysql和oracle以及防止sql注入 -->
+  <select id="listRelation" resultMap="BaseResultMap" parameterType="map">
+    select t.*,
+    t1.f_name as f_other_name1,
+    t2.f_name as f_other_name2,
+    t3.f_name as f_other_name3,
+    t4.f_name as f_other_name4,
+    t5.f_name as f_other_name5,
+    r.f_pid as f_structure_relation_pid
+    from t_pub_dic t
+    left join t_pub_base b on t.f_base_pid = b.f_pid and b.f_sys_flag = '1'
+    left join t_pub_dic t1 on t.f_other_pid1 = t1.f_pid and t1.f_sys_flag = '1'
+    left join t_pub_dic t2 on t.f_other_pid2 = t2.f_pid and t2.f_sys_flag = '1'
+    left join t_pub_dic t3 on t.f_other_pid3 = t3.f_pid and t3.f_sys_flag = '1'
+    left join t_pub_dic t4 on t.f_other_pid4 = t4.f_pid and t4.f_sys_flag = '1'
+    left join t_pub_dic t5 on t.f_other_pid5 = t5.f_pid and t5.f_sys_flag = '1'
+    left join t_pub_structure_relation r on t.f_pid = r.F_CHILDDIC_PID and r.f_sys_flag = '1' 
+    and r.F_STRUCTURE_PID = #{structure_pid,jdbcType=VARCHAR}
+    where t.f_sys_flag = '1'
+    and r.f_pid is <if test="isExistence != null and isExistence != ''" > not </if> null
+	<if test="parentdic_pid != null and parentdic_pid != ''" >
+		and r.F_PARENTDIC_PID = #{parentdic_pid,jdbcType=VARCHAR}
+	</if>
+    and t.f_base_pid = #{parentbase_pid,jdbcType=VARCHAR}
+	order by t.f_order, t.f_create_time desc
+  </select>
+  <select id="list" resultMap="BaseResultMap" parameterType="map">
+    select t.*,
+    t1.f_name as f_other_name1,
+    t2.f_name as f_other_name2,
+    t3.f_name as f_other_name3,
+    t4.f_name as f_other_name4,
+    t5.f_name as f_other_name5
+    from t_pub_dic t
+    left join t_pub_base b on t.f_base_pid = b.f_pid and b.f_sys_flag = '1'
+    left join t_pub_dic t1 on t.f_other_pid1 = t1.f_pid and t1.f_sys_flag = '1'
+    left join t_pub_dic t2 on t.f_other_pid2 = t2.f_pid and t2.f_sys_flag = '1'
+    left join t_pub_dic t3 on t.f_other_pid3 = t3.f_pid and t3.f_sys_flag = '1'
+    left join t_pub_dic t4 on t.f_other_pid4 = t4.f_pid and t4.f_sys_flag = '1'
+    left join t_pub_dic t5 on t.f_other_pid5 = t5.f_pid and t5.f_sys_flag = '1'
+    where 1 = 1
+	<if test="not_id != null and not_id != ''" > and t.f_pid != #{not_id,jdbcType=VARCHAR}</if>
+	<if test="id != null and id != ''" > and t.f_pid = #{id,jdbcType=VARCHAR}</if>
+	<if test="codeEq != null and codeEq != ''" > and t.f_code = #{codeEq,jdbcType=VARCHAR}</if>
+	<if test="code != null and code != ''" > 
+		and t.f_code like concat(concat('%',#{code,jdbcType=VARCHAR}),'%')
+	</if>
+	<if test="name != null and name != ''" > 
+		and t.f_name like concat(concat('%',#{name,jdbcType=VARCHAR}),'%')
+	</if>
+	<if test="base_pid != null and base_pid != ''" > and t.f_base_pid = #{base_pid,jdbcType=VARCHAR}</if>
+	<if test="base_code != null and base_code != ''" > and b.f_code = #{base_code,jdbcType=VARCHAR}</if>
+	<if test="value1 != null and value1 != ''" > and t.f_value1 = #{value1,jdbcType=VARCHAR}</if>
+	<if test="value2 != null and value2 != ''" > and t.f_value2 = #{value2,jdbcType=VARCHAR}</if>
+	<if test="value3 != null and value3 != ''" > and t.f_value3 = #{value3,jdbcType=VARCHAR}</if>
+	<if test="value4 != null and value4 != ''" > and t.f_value4 = #{value4,jdbcType=VARCHAR}</if>
+	<if test="value5 != null and value5 != ''" > and t.f_value5 = #{value5,jdbcType=VARCHAR}</if>
+	<if test="other_pid1 != null and other_pid1 != ''" > and t.f_other_pid1 = #{other_pid1,jdbcType=VARCHAR}</if>
+	<if test="other_pid2 != null and other_pid2 != ''" > and t.f_other_pid2 = #{other_pid2,jdbcType=VARCHAR}</if>
+	<if test="other_pid3 != null and other_pid3 != ''" > and t.f_other_pid3 = #{other_pid3,jdbcType=VARCHAR}</if>
+	<if test="other_pid4 != null and other_pid4 != ''" > and t.f_other_pid4 = #{other_pid4,jdbcType=VARCHAR}</if>
+	<if test="other_pid5 != null and other_pid5 != ''" > and t.f_other_pid5 = #{other_pid5,jdbcType=VARCHAR}</if>
+	<if test="double1 != null and double1 != ''" > and t.f_double1 = #{double1,jdbcType=DECIMAL}</if>
+	<if test="double2 != null and double2 != ''" > and t.f_double2 = #{double2,jdbcType=DECIMAL}</if>
+	<if test="double3 != null and double3 != ''" > and t.f_double3 = #{double3,jdbcType=DECIMAL}</if>
+	<if test="double4 != null and double4 != ''" > and t.f_double4 = #{double4,jdbcType=DECIMAL}</if>
+	<if test="double5 != null and double5 != ''" > and t.f_double5 = #{double5,jdbcType=DECIMAL}</if>
+	<if test="num1 != null and num1 != ''" > and t.f_num1 = #{num1,jdbcType=INTEGER}</if>
+	<if test="num2 != null and num2 != ''" > and t.f_num2 = #{num2,jdbcType=INTEGER}</if>
+	<if test="num3 != null and num3 != ''" > and t.f_num3 = #{num3,jdbcType=INTEGER}</if>
+	<if test="num4 != null and num4 != ''" > and t.f_num4 = #{num4,jdbcType=INTEGER}</if>
+	<if test="num5 != null and num5 != ''" > and t.f_num5 = #{num5,jdbcType=INTEGER}</if>
+	<if test="order != null and order != ''" > and t.f_order = #{order,jdbcType=VARCHAR}</if>
+	<if test="sysFlag != null and sysFlag != ''" > and t.f_sys_flag = #{sysFlag,jdbcType=VARCHAR}</if>
+	<if test="remark != null and remark != ''" > and t.f_remark = #{remark,jdbcType=VARCHAR}</if>
+	<if test="lastModifier != null and lastModifier != ''" > and t.f_last_modifier = #{lastModifier,jdbcType=VARCHAR}</if>
+	<if test="lastModifiedTime != null and lastModifiedTime != ''" > and t.f_last_modified_time = #{lastModifiedTime,jdbcType=VARCHAR}</if>
+	<if test="creator != null and creator != ''" > and t.f_creator = #{creator,jdbcType=VARCHAR}</if>
+	<if test="createTime != null and createTime != ''" > and t.f_create_time = #{createTime,jdbcType=VARCHAR}</if>
+	<if test="other_name1 != null and other_name1 != ''" > 
+		and t1.f_name like concat(concat('%',#{other_name1,jdbcType=VARCHAR}),'%')
+	</if>
+	<if test="other_name2 != null and other_name2 != ''" > 
+		and t2.f_name like concat(concat('%',#{other_name2,jdbcType=VARCHAR}),'%')
+	</if>
+	<if test="other_name3 != null and other_name3 != ''" > 
+		and t3.f_name like concat(concat('%',#{other_name3,jdbcType=VARCHAR}),'%')
+	</if>
+	<if test="other_name4 != null and other_name4 != ''" > 
+		and t4.f_name like concat(concat('%',#{other_name4,jdbcType=VARCHAR}),'%')
+	</if>
+	<if test="other_name5 != null and other_name5 != ''" > 
+		and t5.f_name like concat(concat('%',#{other_name5,jdbcType=VARCHAR}),'%')
+	</if>
+	order by t.f_order, t.f_create_time desc
+  </select>
+  
+  <select id="listByBase" resultMap="BaseResultMap" parameterType="map">
+   	select t.*
+    from t_pub_dic t
+    left join t_pub_base b on t.f_base_pid = b.f_pid and b.f_sys_flag = '1'
+    where t.f_sys_flag = '1'
+	<if test="id != null and id != ''" > and t.f_pid = #{id,jdbcType=VARCHAR}</if>
+	<if test="codeEq != null and codeEq != ''" > and t.f_code = #{codeEq,jdbcType=VARCHAR}</if>
+	<if test="code != null and code != ''" > 
+		and t.f_code like concat(concat('%',#{code,jdbcType=VARCHAR}),'%')
+	</if>
+	<if test="name != null and name != ''" > 
+		and t.f_name like concat(concat('%',#{name,jdbcType=VARCHAR}),'%')
+	</if>
+	<if test="base_code != null and base_code != ''" > and b.f_code = #{base_code,jdbcType=VARCHAR}</if>
+	<if test="base_pid != null and base_pid != ''" > and t.f_base_pid = #{base_pid,jdbcType=VARCHAR}</if>
+	<if test="value1 != null and value1 != ''" > and t.f_value1 = #{value1,jdbcType=VARCHAR}</if>
+	<if test="value2 != null and value2 != ''" > and t.f_value2 = #{value2,jdbcType=VARCHAR}</if>
+	<if test="value3 != null and value3 != ''" > and t.f_value3 = #{value3,jdbcType=VARCHAR}</if>
+	<if test="value4 != null and value4 != ''" > and t.f_value4 = #{value4,jdbcType=VARCHAR}</if>
+	<if test="value5 != null and value5 != ''" > and t.f_value5 = #{value5,jdbcType=VARCHAR}</if>
+	<if test="other_pid1 != null and other_pid1 != ''" > and t.f_other_pid1 = #{other_pid1,jdbcType=VARCHAR}</if>
+	<if test="other_pid2 != null and other_pid2 != ''" > and t.f_other_pid2 = #{other_pid2,jdbcType=VARCHAR}</if>
+	<if test="other_pid3 != null and other_pid3 != ''" > and t.f_other_pid3 = #{other_pid3,jdbcType=VARCHAR}</if>
+	<if test="other_pid4 != null and other_pid4 != ''" > and t.f_other_pid4 = #{other_pid4,jdbcType=VARCHAR}</if>
+	<if test="other_pid5 != null and other_pid5 != ''" > and t.f_other_pid5 = #{other_pid5,jdbcType=VARCHAR}</if>
+	<if test="double1 != null and double1 != ''" > and t.f_double1 = #{double1,jdbcType=DECIMAL}</if>
+	<if test="double2 != null and double2 != ''" > and t.f_double2 = #{double2,jdbcType=DECIMAL}</if>
+	<if test="double3 != null and double3 != ''" > and t.f_double3 = #{double3,jdbcType=DECIMAL}</if>
+	<if test="double4 != null and double4 != ''" > and t.f_double4 = #{double4,jdbcType=DECIMAL}</if>
+	<if test="double5 != null and double5 != ''" > and t.f_double5 = #{double5,jdbcType=DECIMAL}</if>
+	<if test="num1 != null and num1 != ''" > and t.f_num1 = #{num1,jdbcType=INTEGER}</if>
+	<if test="num2 != null and num2 != ''" > and t.f_num2 = #{num2,jdbcType=INTEGER}</if>
+	<if test="num3 != null and num3 != ''" > and t.f_num3 = #{num3,jdbcType=INTEGER}</if>
+	<if test="num4 != null and num4 != ''" > and t.f_num4 = #{num4,jdbcType=INTEGER}</if>
+	<if test="num5 != null and num5 != ''" > and t.f_num5 = #{num5,jdbcType=INTEGER}</if>
+	<if test="order != null and order != ''" > and t.f_order = #{order,jdbcType=VARCHAR}</if>
+	order by t.f_order, t.f_create_time desc
+  </select>
+  <select id="get" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from t_pub_dic t
+    where t.f_pid = #{id,jdbcType=VARCHAR}
+  </select>
+  
+</mapper>

@@ -1,0 +1,410 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- @Automatically generate by Coder in 2020-10-19 09:52:36 -->
+<mapper namespace="com.taro.dao.device.DeviceExtDao">
+
+  	<resultMap id="BaseResultMap" type="com.taro.entity.device.DeviceExtEntity">
+	  	<id column="F_PID" property="id" jdbcType="VARCHAR" />
+  		<result column="F_PID" property="id" jdbcType="VARCHAR" />
+  		<result column="F_TENANTS_PID" property="tenants_pid" jdbcType="VARCHAR" />
+  		<result column="F_ACCOUNT_PID" property="account_pid" jdbcType="VARCHAR" />
+  		<result column="F_DEVICE_PID" property="device_pid" jdbcType="VARCHAR" />
+  		<result column="F_DEVICE_DID" property="device_did" jdbcType="VARCHAR" />
+  		<result column="F_OUTLETS_PID" property="outlets_pid" jdbcType="VARCHAR" />
+  		<result column="F_DEVICE_ADDRESS" property="device_address" jdbcType="VARCHAR" />
+  		<result column="F_LONGITUDE" property="longitude" jdbcType="FLOAT" />
+  		<result column="F_LATITUDE" property="latitude" jdbcType="FLOAT" />
+  		<result column="F_TER_PID" property="ter_pid" jdbcType="VARCHAR" />
+  		<result column="F_ONLINE_TIME" property="online_time" jdbcType="VARCHAR" />
+  		<result column="F_DUE_TIME" property="due_time" jdbcType="VARCHAR" />
+  		<result column="F_NUMBER_4G" property="number_4g" jdbcType="VARCHAR" />
+  		<result column="F_STATUS" property="status" jdbcType="CHAR" />
+	  	<result column="F_SYS_FLAG" property="sysFlag" jdbcType="VARCHAR" />
+	  	<result column="F_REMARK" property="remark" jdbcType="VARCHAR" />
+	  	<result column="F_LAST_MODIFIER" property="lastModifier" jdbcType="VARCHAR" />
+	  	<result column="F_LAST_MODIFIED_TIME" property="lastModifiedTime" jdbcType="VARCHAR" />
+	  	<result column="F_CREATOR" property="creator" jdbcType="VARCHAR" />
+	  	<result column="F_CREATE_TIME" property="createTime" jdbcType="VARCHAR" />
+	  	
+	  	<result column="f_tenants_name" property="tenants_name" jdbcType="VARCHAR" />
+	  	<result column="f_account_name" property="account_name" jdbcType="VARCHAR" />
+	  	<result column="f_device_info_id" property="device_info_id" jdbcType="VARCHAR" />
+	  	<result column="f_device_info_did" property="device_info_did" jdbcType="VARCHAR" />
+	  	<result column="f_device_info_dialias" property="device_info_dialias" jdbcType="VARCHAR" />
+	  	<result column="f_device_info_tenants" property="device_info_tenants" jdbcType="VARCHAR" />
+	  	<result column="f_device_info_version" property="device_info_version" jdbcType="VARCHAR" />
+	  	<result column="f_outlets_name" property="outlets_name" jdbcType="VARCHAR" />
+	  	<result column="f_outlets_address" property="outlets_address" jdbcType="VARCHAR" />
+	  	<result column="f_outlets_contacts" property="outlets_contacts" jdbcType="VARCHAR" />
+	  	<result column="f_outlets_phone" property="outlets_phone" jdbcType="VARCHAR" />
+	  	<result column="f_outlets_telephone" property="outlets_telephone" jdbcType="VARCHAR" />
+	  	<result column="f_ter_name" property="ter_name" jdbcType="VARCHAR" />
+  	</resultMap>
+
+  	<sql id="Base_Column_List" >
+		t.F_PID, T.F_TENANTS_PID, T.F_ACCOUNT_PID, T.F_DEVICE_PID, T.F_DEVICE_DID, T.F_OUTLETS_PID, T.F_DEVICE_ADDRESS, T.F_LONGITUDE,
+		T.F_LATITUDE, T.F_TER_PID, T.F_ONLINE_TIME, T.F_DUE_TIME, T.F_NUMBER_4G, T.F_STATUS, 
+		t.F_SYS_FLAG, t.F_REMARK, t.F_LAST_MODIFIER, t.F_LAST_MODIFIED_TIME, t.F_CREATOR, t.F_CREATE_TIME
+  	</sql>
+
+  	<sql id="where_sql">
+		<if test="id != null and id != ''" > 
+			and t.F_PID = #{id, jdbcType=VARCHAR}
+		</if>
+		<if test="tenants_pid != null and tenants_pid != ''" > 
+			and T.F_TENANTS_PID = #{tenants_pid, jdbcType=VARCHAR}
+		</if>
+		<if test="account_pid != null and account_pid != ''" > 
+			and T.F_ACCOUNT_PID = #{account_pid, jdbcType=VARCHAR}
+		</if>
+		<if test="device_pid != null and device_pid != ''" > 
+			and T.F_DEVICE_PID = #{device_pid, jdbcType=VARCHAR}
+		</if>
+		<if test="device_did != null and device_did != ''" > 
+			and T.F_DEVICE_DID = #{device_did, jdbcType=VARCHAR}
+		</if>
+		<if test="outlets_pid != null and outlets_pid != ''" > 
+			and T.F_OUTLETS_PID = #{outlets_pid, jdbcType=VARCHAR}
+		</if>
+		<if test="device_address != null and device_address != ''" > 
+			and T.F_DEVICE_ADDRESS = #{device_address, jdbcType=VARCHAR}
+		</if>
+		<if test="longitude != null and longitude != ''" > 
+			and T.F_LONGITUDE = #{longitude, jdbcType=FLOAT}
+		</if>
+		<if test="latitude != null and latitude != ''" > 
+			and T.F_LATITUDE = #{latitude, jdbcType=FLOAT}
+		</if>
+		<if test="ter_pid != null and ter_pid != ''" > 
+			and T.F_TER_PID = #{ter_pid, jdbcType=VARCHAR}
+		</if>
+		<if test="online_time != null and online_time != ''" > 
+			and T.F_ONLINE_TIME = #{online_time, jdbcType=VARCHAR}
+		</if>
+		<if test="due_time != null and due_time != ''" > 
+			and T.F_DUE_TIME = #{due_time, jdbcType=VARCHAR}
+		</if>
+		<if test="number_4g != null and number_4g != ''" > 
+			and T.F_NUMBER_4G = #{number_4g, jdbcType=VARCHAR}
+		</if>
+		<if test="status != null and status != ''" > 
+			and T.F_STATUS = #{status, jdbcType=CHAR}
+		</if>
+		<if test="sysFlag != null and sysFlag != ''" > 
+			and t.F_SYS_FLAG = #{sysFlag, jdbcType=VARCHAR}
+		</if>
+		<if test="remark != null and remark != ''" > 
+			and t.F_REMARK = #{remark, jdbcType=VARCHAR}
+		</if>
+		<if test="lastModifier != null and lastModifier != ''" > 
+			and t.F_LAST_MODIFIER = #{lastModifier, jdbcType=VARCHAR}
+		</if>
+		<if test="lastModifiedTime != null and lastModifiedTime != ''" > 
+			and t.F_LAST_MODIFIED_TIME = #{lastModifiedTime, jdbcType=VARCHAR}
+		</if>
+		<if test="creator != null and creator != ''" > 
+			and t.F_CREATOR = #{creator, jdbcType=VARCHAR}
+		</if>
+		<if test="createTime != null and createTime != ''" > 
+			and t.F_CREATE_TIME = #{createTime, jdbcType=VARCHAR}
+		</if>
+  	</sql>
+
+	<!-- 新增 -->
+  	<insert id="insert" parameterType="com.taro.entity.device.DeviceExtEntity" >
+    	INSERT INTO T_DEVICE_EXT (
+    		F_PID, F_TENANTS_PID, F_ACCOUNT_PID, F_DEVICE_PID, F_DEVICE_DID, F_OUTLETS_PID,
+			F_DEVICE_ADDRESS, F_LONGITUDE, F_LATITUDE,
+			F_TER_PID, F_ONLINE_TIME, F_DUE_TIME,
+			F_NUMBER_4G, F_STATUS, 
+		  	F_SYS_FLAG, F_REMARK, F_LAST_MODIFIER,
+		  	F_LAST_MODIFIED_TIME, F_CREATOR, F_CREATE_TIME
+    	) VALUES (
+    		#{id, jdbcType=VARCHAR}, #{tenants_pid, jdbcType=VARCHAR}, #{account_pid, jdbcType=VARCHAR}, #{device_pid, jdbcType=VARCHAR}, #{device_did, jdbcType=VARCHAR}, #{outlets_pid, jdbcType=VARCHAR},
+			#{device_address, jdbcType=VARCHAR}, #{longitude, jdbcType=FLOAT}, #{latitude, jdbcType=FLOAT},
+			#{ter_pid, jdbcType=VARCHAR}, #{online_time, jdbcType=VARCHAR}, #{due_time, jdbcType=VARCHAR},
+			#{number_4g,jdbcType=VARCHAR} , #{status, jdbcType=CHAR}, 
+		  	#{sysFlag, jdbcType=VARCHAR}, #{remark, jdbcType=VARCHAR}, #{lastModifier, jdbcType=VARCHAR},
+		  	#{lastModifiedTime, jdbcType=VARCHAR}, #{creator, jdbcType=VARCHAR}, #{createTime, jdbcType=VARCHAR} 
+    	)
+  	</insert>
+
+	<!-- 批量新增 -->
+  	<insert id="insertObjects" parameterType="list">
+		INSERT INTO T_DEVICE_EXT (
+    		F_PID, F_TENANTS_PID, F_ACCOUNT_PID, F_DEVICE_PID, F_DEVICE_DID, F_OUTLETS_PID,
+			F_DEVICE_ADDRESS, F_LONGITUDE, F_LATITUDE,
+			F_TER_PID, F_ONLINE_TIME, F_DUE_TIME,
+			F_NUMBER_4G, F_STATUS, 
+		  	F_SYS_FLAG, F_REMARK, F_LAST_MODIFIER,
+		  	F_LAST_MODIFIED_TIME, F_CREATOR, F_CREATE_TIME
+		)
+		<foreach collection="list" item="entity" index="index" separator="union all">
+			SELECT
+    		#{entity.id, jdbcType=VARCHAR}, #{entity.tenants_pid, jdbcType=VARCHAR}, #{entity.account_pid, jdbcType=VARCHAR}, #{entity.device_pid, jdbcType=VARCHAR}, #{entity.device_did, jdbcType=VARCHAR}, #{entity.outlets_pid, jdbcType=VARCHAR},
+			#{entity.device_address, jdbcType=VARCHAR}, #{entity.longitude, jdbcType=FLOAT}, #{entity.latitude, jdbcType=FLOAT},
+			#{entity.ter_pid, jdbcType=VARCHAR}, #{entity.online_time, jdbcType=VARCHAR}, #{entity.due_time, jdbcType=VARCHAR},
+			#{entity.number_4g,jdbcType=VARCHAR} , #{entity.status, jdbcType=CHAR}, 
+  			#{entity.sysFlag,jdbcType=VARCHAR}, #{entity.remark,jdbcType=VARCHAR}, #{entity.lastModifier,jdbcType=VARCHAR},
+  			#{entity.lastModifiedTime,jdbcType=VARCHAR}, #{entity.creator,jdbcType=VARCHAR}, #{entity.createTime,jdbcType=VARCHAR} 
+			FROM DUAL
+		</foreach>
+  	</insert>
+
+	<!-- 更新 -->
+  	<update id="update" parameterType="com.taro.entity.device.DeviceExtEntity">
+    	UPDATE T_DEVICE_EXT
+	    <set>
+      		<if test="id != null" > F_PID = #{id, jdbcType=VARCHAR}, </if>
+      		<if test="tenants_pid != null" > F_TENANTS_PID = #{tenants_pid, jdbcType=VARCHAR}, </if>
+      		<if test="account_pid != null" > F_ACCOUNT_PID = #{account_pid, jdbcType=VARCHAR}, </if>
+      		<if test="device_pid != null" > F_DEVICE_PID = #{device_pid, jdbcType=VARCHAR}, </if>
+      		<if test="device_did != null" > F_DEVICE_DID = #{device_did, jdbcType=VARCHAR}, </if>
+      		<if test="outlets_pid != null" > F_OUTLETS_PID = #{outlets_pid, jdbcType=VARCHAR}, </if>
+      		<if test="device_address != null" > F_DEVICE_ADDRESS = #{device_address, jdbcType=VARCHAR}, </if>
+      		<if test="longitude != null" > F_LONGITUDE = #{longitude, jdbcType=FLOAT}, </if>
+      		<if test="latitude != null" > F_LATITUDE = #{latitude, jdbcType=FLOAT}, </if>
+      		<if test="ter_pid != null" > F_TER_PID = #{ter_pid, jdbcType=VARCHAR}, </if>
+      		<if test="online_time != null" > F_ONLINE_TIME = #{online_time, jdbcType=VARCHAR}, </if>
+      		<if test="due_time != null" > F_DUE_TIME = #{due_time, jdbcType=VARCHAR}, </if>
+      		<if test="number_4g != null" > F_NUMBER_4G = #{number_4g, jdbcType=VARCHAR}, </if>
+      		<if test="status != null" > F_STATUS = #{status, jdbcType=CHAR}, </if>
+	      	<if test="sysFlag != null" > F_SYS_FLAG = #{sysFlag, jdbcType=VARCHAR}, </if>
+	      	<if test="remark != null" > F_REMARK = #{remark, jdbcType=VARCHAR}, </if>
+	      	<if test="lastModifier != null" > F_LAST_MODIFIER = #{lastModifier, jdbcType=VARCHAR}, </if>
+	      	<if test="lastModifiedTime != null" > F_LAST_MODIFIED_TIME = #{lastModifiedTime, jdbcType=VARCHAR}, </if>
+	      	<if test="creator != null" > F_CREATOR = #{creator, jdbcType=VARCHAR}, </if>
+	      	<if test="createTime != null" > F_CREATE_TIME = #{createTime, jdbcType=VARCHAR}, </if>
+	    </set>
+    	WHERE F_PID = #{id, jdbcType=VARCHAR}
+  	</update>
+
+	<!-- 批量更新 -->
+  	<update id="batchUpdate" parameterType="java.util.List">
+		<foreach collection="list" item="entity" separator=";">
+			UPDATE T_DEVICE_EXT
+			<set>
+		      	<if test="id != null" > F_PID = #{entity.id, jdbcType=VARCHAR}, </if>
+	      		<if test="tenants_pid != null" > F_TENANTS_PID = #{entity.tenants_pid, jdbcType=VARCHAR}, </if>
+      			<if test="account_pid != null" > F_ACCOUNT_PID = #{entity.account_pid, jdbcType=VARCHAR}, </if>
+	      		<if test="device_pid != null" > F_DEVICE_PID = #{entity.device_pid, jdbcType=VARCHAR}, </if>
+	      		<if test="device_did != null" > F_DEVICE_DID = #{entity.device_did, jdbcType=VARCHAR}, </if>
+	      		<if test="outlets_pid != null" > F_OUTLETS_PID = #{entity.outlets_pid, jdbcType=VARCHAR}, </if>
+	      		<if test="device_address != null" > F_DEVICE_ADDRESS = #{entity.device_address, jdbcType=VARCHAR}, </if>
+	      		<if test="longitude != null" > F_LONGITUDE = #{entity.longitude, jdbcType=FLOAT}, </if>
+	      		<if test="latitude != null" > F_LATITUDE = #{entity.latitude, jdbcType=FLOAT}, </if>
+	      		<if test="ter_pid != null" > F_TER_PID = #{entity.ter_pid, jdbcType=VARCHAR}, </if>
+	      		<if test="online_time != null" > F_ONLINE_TIME = #{entity.online_time, jdbcType=VARCHAR}, </if>
+	      		<if test="due_time != null" > F_DUE_TIME = #{entity.due_time, jdbcType=VARCHAR}, </if>
+	      		<if test="number_4g != null" > F_NUMBER_4G = #{entity.number_4g, jdbcType=VARCHAR}, </if>
+	      		<if test="status != null" > F_STATUS = #{entity.status, jdbcType=CHAR}, </if>
+		      	<if test="sysFlag != null" > F_SYS_FLAG = #{entity.sysFlag, jdbcType=VARCHAR}, </if>
+		      	<if test="remark != null" > F_REMARK = #{entity.remark, jdbcType=VARCHAR}, </if>
+		      	<if test="lastModifier != null" > F_LAST_MODIFIER = #{entity.lastModifier, jdbcType=VARCHAR}, </if>
+		      	<if test="lastModifiedTime != null" > F_LAST_MODIFIED_TIME = #{entity.lastModifiedTime, jdbcType=VARCHAR}, </if>
+		      	<if test="creator != null" > F_CREATOR = #{entity.creator, jdbcType=VARCHAR}, </if>
+		      	<if test="createTime != null" > F_CREATE_TIME = #{entity.createTime, jdbcType=VARCHAR}, </if>
+			</set>
+    		WHERE F_PID = #{id, jdbcType=VARCHAR}
+		</foreach>
+  	</update>
+
+	<!-- 逻辑删除 -->
+  	<update id="delete" parameterType="java.lang.String" >
+    	UPDATE T_DEVICE_EXT SET
+			F_SYS_FLAG = '0',
+		    F_LAST_MODIFIER = #{lastModifier, jdbcType=VARCHAR},
+			F_LAST_MODIFIED_TIME = #{lastModifiedTime, jdbcType=VARCHAR}
+    	WHERE F_PID = #{id, jdbcType=VARCHAR}
+  	</update>
+
+	<!-- 逻辑删除所有 -->
+  	<update id="deleteAll" parameterType="map">
+		UPDATE T_DEVICE_EXT SET 
+			F_SYS_FLAG = '0',
+		    F_LAST_MODIFIER = #{lastModifier, jdbcType=VARCHAR},
+			F_LAST_MODIFIED_TIME = #{lastModifiedTime, jdbcType=VARCHAR}
+		WHERE F_PID IN
+		<foreach item="item" collection="ids" open="(" separator="," close=")">
+        	#{item}
+    	</foreach>
+  	</update>
+
+	<!-- 查询条件 模糊查询用concat函数:name like concat(concat('%',#{bean.name,jdbcType=VARCHAR}),'%'),	这样做主要是为了支持mysql和oracle以及防止sql注入 -->
+  	<!-- 列表查询 -->
+  	<select id="list" resultMap="BaseResultMap" parameterType="map">
+	    SELECT 
+	    	<include refid="Base_Column_List" />
+	    FROM T_DEVICE_EXT T
+	    <where>
+			<include refid="where_sql"/>
+		</where>
+  	</select>
+
+	<select id="listDevice" resultMap="BaseResultMap" parameterType="map">
+	    select t.*,
+		st.f_name as f_tenants_name,
+		st2.f_name as f_account_name,
+		d.id as f_device_info_id,
+		d.f_did as f_device_info_did,
+		d.F_DiAlias as f_device_info_dialias,
+		d.F_DiBelongUser as f_device_info_tenants,
+		d.Version as f_device_info_version,
+		o.F_NAME as f_outlets_name,
+		o.F_ADDRESS as f_outlets_address,
+		o.F_CONTACTS as f_outlets_contacts,
+		o.F_PHONE as f_outlets_phone,
+		o.F_TELEPHONE as f_outlets_telephone,
+		umt.F_TER_NUMBER as f_ter_name
+		from TDEVICEINFO d
+		left join t_device_ext t on d.F_DId = t.F_DEVICE_DID and t.F_SYS_FLAG = '1'
+		left join t_device_outlets o on t.F_OUTLETS_PID = o.f_pid and o.F_SYS_FLAG = '1'
+		left join t_sec_tenants st on t.f_tenants_pid = st.f_pid and st.f_sys_flag = '1' 
+		left join t_sec_tenants st2 on t.f_account_pid = st2.f_pid and st2.f_sys_flag = '1' 
+		left join t_pay_unionpay_mer_ter umt on t.F_TER_PID = umt.F_PID
+		where 1 = 1
+		<if test="isAllocation != null and isAllocation != ''" > 
+			and (d.F_DiBelongUser is null or d.F_DiBelongUser = '')
+		</if>
+		<if test="isOperate != null and isOperate != ''" > 
+			and d.F_DiBelongUser is not null and d.F_DiBelongUser != ''
+		</if>
+		<if test="id != null and id != ''" > 
+			and t.F_PID = #{id, jdbcType=VARCHAR}
+		</if>
+		<if test="tenants_pid != null and tenants_pid != ''" > 
+			and T.F_TENANTS_PID = #{tenants_pid, jdbcType=VARCHAR}
+		</if>
+		<if test="account_pid != null and account_pid != ''" > 
+			and T.F_ACCOUNT_PID = #{account_pid, jdbcType=VARCHAR}
+		</if>
+		<if test="device_pid != null and device_pid != ''" > 
+			and T.F_DEVICE_PID = #{device_pid, jdbcType=VARCHAR}
+		</if>
+		<if test="device_did != null and device_did != ''" > 
+			and T.F_DEVICE_DID = #{device_did, jdbcType=VARCHAR}
+		</if>
+		<if test="outlets_pid != null and outlets_pid != ''" > 
+			and T.F_OUTLETS_PID = #{outlets_pid, jdbcType=VARCHAR}
+		</if>
+		<if test="device_address != null and device_address != ''" > 
+			and T.F_DEVICE_ADDRESS like concat(concat('%',#{device_address,jdbcType=VARCHAR}),'%')
+		</if>
+		<if test="longitude != null and longitude != ''" > 
+			and T.F_LONGITUDE = #{longitude, jdbcType=FLOAT}
+		</if>
+		<if test="latitude != null and latitude != ''" > 
+			and T.F_LATITUDE = #{latitude, jdbcType=FLOAT}
+		</if>
+		<if test="ter_pid != null and ter_pid != ''" > 
+			and T.F_TER_PID = #{ter_pid, jdbcType=VARCHAR}
+		</if>
+		<if test="online_time != null and online_time != ''" > 
+			and T.F_ONLINE_TIME = #{online_time, jdbcType=VARCHAR}
+		</if>
+		<if test="online_start_time != null and online_start_time != ''" > 
+			and T.F_ONLINE_TIME &gt;= #{online_start_time, jdbcType=VARCHAR}
+		</if>
+		<if test="online_end_time != null and online_end_time != ''" > 
+			and T.F_ONLINE_TIME &lt;= #{online_end_time, jdbcType=VARCHAR}
+		</if>
+		<if test="due_time != null and due_time != ''" > 
+			and T.F_DUE_TIME = #{due_time, jdbcType=VARCHAR}
+		</if>
+		<if test="due_start_time != null and due_start_time != ''" > 
+			and T.F_DUE_TIME &gt;= #{due_start_time, jdbcType=VARCHAR}
+		</if>
+		<if test="due_end_time != null and due_end_time != ''" > 
+			and T.F_DUE_TIME &lt;= #{due_end_time, jdbcType=VARCHAR}
+		</if>
+		<if test="number_4g != null and number_4g != ''" > 
+			and T.F_NUMBER_4G = #{number_4g, jdbcType=VARCHAR}
+		</if>
+		<if test="status != null and status != ''" > 
+			and T.F_STATUS = #{status, jdbcType=CHAR}
+		</if>
+		<if test="sysFlag != null and sysFlag != ''" > 
+			and t.F_SYS_FLAG = #{sysFlag, jdbcType=VARCHAR}
+		</if>
+		<if test="sysFlag != null and sysFlag != ''" > 
+			and t.F_SYS_FLAG = #{sysFlag, jdbcType=VARCHAR}
+		</if>
+		<if test="remark != null and remark != ''" > 
+			and t.F_REMARK = #{remark, jdbcType=VARCHAR}
+		</if>
+		<if test="lastModifier != null and lastModifier != ''" > 
+			and t.F_LAST_MODIFIER = #{lastModifier, jdbcType=VARCHAR}
+		</if>
+		<if test="lastModifiedTime != null and lastModifiedTime != ''" > 
+			and t.F_LAST_MODIFIED_TIME = #{lastModifiedTime, jdbcType=VARCHAR}
+		</if>
+		<if test="creator != null and creator != ''" > 
+			and t.F_CREATOR = #{creator, jdbcType=VARCHAR}
+		</if>
+		<if test="createTime != null and createTime != ''" > 
+			and t.F_CREATE_TIME = #{createTime, jdbcType=VARCHAR}
+		</if>
+		<if test="device_info_id != null and device_info_id != ''" > 
+			and D.id = #{device_info_id, jdbcType=VARCHAR}
+		</if>
+		<if test="device_info_did != null and device_info_did != ''" > 
+			and D.f_did like concat(concat('%',#{device_info_did,jdbcType=VARCHAR}),'%')
+		</if>
+		<if test="device_info_tenants != null and device_info_tenants != ''" > 
+			and D.F_DiBelongUser = #{device_info_tenants, jdbcType=VARCHAR}
+		</if>
+		<if test="outlets_name != null and outlets_name != ''" > 
+			and O.F_NAME like concat(concat('%',#{outlets_name,jdbcType=VARCHAR}),'%')
+		</if>
+		<if test="outlets_address != null and outlets_address != ''" > 
+			and O.F_ADDRESS like concat(concat('%',#{outlets_address,jdbcType=VARCHAR}),'%')
+		</if>
+		<if test="outlets_contacts != null and outlets_contacts != ''" > 
+			and O.F_CONTACTS like concat(concat('%',#{outlets_contacts,jdbcType=VARCHAR}),'%')
+		</if>
+		<if test="outlets_phone != null and outlets_phone != ''" > 
+			and O.F_PHONE like concat(concat('%',#{outlets_phone,jdbcType=VARCHAR}),'%')
+		</if>
+		<if test="outlets_telephone != null and outlets_telephone != ''" > 
+			and O.F_TELEPHONE = #{outlets_telephone, jdbcType=VARCHAR}
+		</if>
+  	</select>
+
+  	<select id="listSelectDevice" resultMap="BaseResultMap" parameterType="map">
+	    SELECT t.F_DEVICE_PID,
+		t.F_DEVICE_DID
+		FROM T_DEVICE_EXT T
+		where t.F_SYS_FLAG = '1'
+		and t.F_TENANTS_PID = #{tenants_pid, jdbcType=VARCHAR}
+  	</select>
+  	
+	<!-- 根据ID查询单条记录 -->
+  	<select id="get" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    	SELECT 
+    		<include refid="Base_Column_List" />
+    	FROM T_DEVICE_EXT T
+    	WHERE T.F_PID = #{id,jdbcType=VARCHAR}
+  	</select>
+
+	<!-- 根据ID查询单条记录 -->
+  	<select id="getDeviceExt" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    	select t.*,
+		d.id as f_device_info_id,
+		d.f_did as f_device_info_did,
+		d.F_DiAlias as f_device_info_dialias,
+		d.F_DiBelongUser as f_device_info_tenants,
+		d.Version as f_device_info_version,
+		o.F_NAME as f_outlets_name,
+		o.F_ADDRESS as f_outlets_address,
+		o.F_CONTACTS as f_outlets_contacts,
+		o.F_PHONE as f_outlets_phone,
+		o.F_TELEPHONE as f_outlets_telephone,
+		umt.F_TER_NUMBER as f_ter_name
+		from t_device_ext t
+		left join tdeviceinfo d on t.F_DEVICE_PID = d.Id and t.F_DEVICE_DID = d.F_DId
+		left join t_device_outlets o on t.F_OUTLETS_PID = o.f_pid and o.F_SYS_FLAG = '1'
+		left join t_pay_unionpay_mer_ter umt on t.F_TER_PID = umt.F_PID
+    	WHERE T.F_PID = #{id,jdbcType=VARCHAR}
+  	</select>
+
+</mapper>

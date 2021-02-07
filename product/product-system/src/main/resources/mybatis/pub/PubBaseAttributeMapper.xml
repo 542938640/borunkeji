@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- @Automatically generate by Coder in 2019-07-31 10:57 -->
+<mapper namespace="com.taro.dao.pub.PubBaseAttributeDao">
+  <resultMap id="BaseResultMap" type="com.taro.entity.pub.PubBaseAttributeEntity">
+  	<id column="f_pid" property="id" jdbcType="VARCHAR" />
+  	<result column="f_pid" property="id" jdbcType="VARCHAR" />
+  	<result column="f_base_pid" property="base_pid" jdbcType="VARCHAR" />
+  	<result column="f_name" property="name" jdbcType="VARCHAR" />
+  	<result column="f_refbase_pid" property="refbase_pid" jdbcType="VARCHAR" />
+  	<result column="f_storage_column" property="storage_column" jdbcType="VARCHAR" />
+  	<result column="f_input_control" property="input_control" jdbcType="VARCHAR" />
+  	<result column="f_order" property="order" jdbcType="INTEGER" />
+  	<result column="f_required_flag" property="required_flag" jdbcType="VARCHAR" />
+  	<result column="f_condition_flag" property="condition_flag" jdbcType="VARCHAR" />
+  	<result column="f_sys_flag" property="sysFlag" jdbcType="VARCHAR" />
+  	<result column="f_remark" property="remark" jdbcType="VARCHAR" />
+  	<result column="f_last_modifier" property="lastModifier" jdbcType="VARCHAR" />
+  	<result column="f_last_modified_time" property="lastModifiedTime" jdbcType="VARCHAR" />
+  	<result column="f_creator" property="creator" jdbcType="VARCHAR" />
+  	<result column="f_create_time" property="createTime" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+  	t.f_pid, t.f_base_pid, t.f_name, t.f_refbase_pid, t.f_storage_column, t.f_input_control,
+t.f_order, t.f_required_flag, t.f_condition_flag, t.f_sys_flag, t.f_remark, t.f_last_modifier,
+t.f_last_modified_time, t.f_creator, t.f_create_time
+  </sql>
+  
+  <sql id="where_sql">
+	<if test="id != null and id != ''" > and t.f_pid = #{id,jdbcType=VARCHAR}</if>
+	<if test="base_pid != null and base_pid != ''" > and t.f_base_pid = #{base_pid,jdbcType=VARCHAR}</if>
+	<if test="name != null and name != ''" > and t.f_name = #{name,jdbcType=VARCHAR}</if>
+	<if test="refbase_pid != null and refbase_pid != ''" > and t.f_refbase_pid = #{refbase_pid,jdbcType=VARCHAR}</if>
+	<if test="storage_column != null and storage_column != ''" > and t.f_storage_column = #{storage_column,jdbcType=VARCHAR}</if>
+	<if test="input_control != null and input_control != ''" > and t.f_input_control = #{input_control,jdbcType=VARCHAR}</if>
+	<if test="order != null and order != ''" > and t.f_order = #{order,jdbcType=INTEGER}</if>
+	<if test="required_flag != null and required_flag != ''" > and t.f_required_flag = #{required_flag,jdbcType=VARCHAR}</if>
+	<if test="condition_flag != null and condition_flag != ''" > and t.f_condition_flag = #{condition_flag,jdbcType=VARCHAR}</if>
+	<if test="sysFlag != null and sysFlag != ''" > and t.f_sys_flag = #{sysFlag,jdbcType=VARCHAR}</if>
+	<if test="remark != null and remark != ''" > and t.f_remark = #{remark,jdbcType=VARCHAR}</if>
+	<if test="lastModifier != null and lastModifier != ''" > and t.f_last_modifier = #{lastModifier,jdbcType=VARCHAR}</if>
+	<if test="lastModifiedTime != null and lastModifiedTime != ''" > and t.f_last_modified_time = #{lastModifiedTime,jdbcType=VARCHAR}</if>
+	<if test="creator != null and creator != ''" > and t.f_creator = #{creator,jdbcType=VARCHAR}</if>
+	<if test="createTime != null and createTime != ''" > and t.f_create_time = #{createTime,jdbcType=VARCHAR}</if>
+  </sql>
+  
+  <insert id="insert" parameterType="com.taro.entity.pub.PubBaseAttributeEntity" >
+    insert into t_pub_base_attribute (
+      f_pid, f_base_pid, f_name,
+  f_refbase_pid, f_storage_column, f_input_control,
+  f_order, f_required_flag, f_condition_flag,
+  f_sys_flag, f_remark, f_last_modifier,
+  f_last_modified_time, f_creator, f_create_time
+    ) values (
+      #{id,jdbcType=VARCHAR}, #{base_pid,jdbcType=VARCHAR}, #{name,jdbcType=VARCHAR},
+  #{refbase_pid,jdbcType=VARCHAR}, #{storage_column,jdbcType=VARCHAR}, #{input_control,jdbcType=VARCHAR},
+  #{order,jdbcType=INTEGER}, #{required_flag,jdbcType=VARCHAR}, #{condition_flag,jdbcType=VARCHAR},
+  #{sysFlag,jdbcType=VARCHAR}, #{remark,jdbcType=VARCHAR}, #{lastModifier,jdbcType=VARCHAR},
+  #{lastModifiedTime,jdbcType=VARCHAR}, #{creator,jdbcType=VARCHAR}, #{createTime,jdbcType=VARCHAR} 
+    )
+  </insert>
+  
+  <insert id="insertObjects" parameterType="list">
+		insert into t_pub_base_attribute (
+		  f_pid, f_base_pid, f_name,
+  f_refbase_pid, f_storage_column, f_input_control,
+  f_order, f_required_flag, f_condition_flag,
+  f_sys_flag, f_remark, f_last_modifier,
+  f_last_modified_time, f_creator, f_create_time
+		)
+		<foreach collection="list" item="entity" index="index" separator="union all">
+			select
+		  		#{entity.id,jdbcType=VARCHAR}, #{entity.base_pid,jdbcType=VARCHAR}, #{entity.name,jdbcType=VARCHAR},
+  #{entity.refbase_pid,jdbcType=VARCHAR}, #{entity.storage_column,jdbcType=VARCHAR}, #{entity.input_control,jdbcType=VARCHAR},
+  #{entity.order,jdbcType=INTEGER}, #{entity.required_flag,jdbcType=VARCHAR}, #{entity.condition_flag,jdbcType=VARCHAR},
+  #{entity.sysFlag,jdbcType=VARCHAR}, #{entity.remark,jdbcType=VARCHAR}, #{entity.lastModifier,jdbcType=VARCHAR},
+  #{entity.lastModifiedTime,jdbcType=VARCHAR}, #{entity.creator,jdbcType=VARCHAR}, #{entity.createTime,jdbcType=VARCHAR} 
+			from dual
+		</foreach>
+  </insert>
+  
+  <update id="update" parameterType="com.taro.entity.pub.PubBaseAttributeEntity">
+    update t_pub_base_attribute 
+    <set>
+      <if test="id != null" > f_pid = #{id,jdbcType=VARCHAR}, </if>
+      <if test="base_pid != null" > f_base_pid = #{base_pid,jdbcType=VARCHAR}, </if>
+      <if test="name != null" > f_name = #{name,jdbcType=VARCHAR}, </if>
+      <if test="refbase_pid != null" > f_refbase_pid = #{refbase_pid,jdbcType=VARCHAR}, </if>
+      <if test="storage_column != null" > f_storage_column = #{storage_column,jdbcType=VARCHAR}, </if>
+      <if test="input_control != null" > f_input_control = #{input_control,jdbcType=VARCHAR}, </if>
+      <if test="order != null" > f_order = #{order,jdbcType=INTEGER}, </if>
+      <if test="required_flag != null" > f_required_flag = #{required_flag,jdbcType=VARCHAR}, </if>
+      <if test="condition_flag != null" > f_condition_flag = #{condition_flag,jdbcType=VARCHAR}, </if>
+      <if test="sysFlag != null" > f_sys_flag = #{sysFlag,jdbcType=VARCHAR}, </if>
+      <if test="remark != null" > f_remark = #{remark,jdbcType=VARCHAR}, </if>
+      <if test="lastModifier != null" > f_last_modifier = #{lastModifier,jdbcType=VARCHAR}, </if>
+      <if test="lastModifiedTime != null" > f_last_modified_time = #{lastModifiedTime,jdbcType=VARCHAR}, </if>
+      <if test="creator != null" > f_creator = #{creator,jdbcType=VARCHAR}, </if>
+      <if test="createTime != null" > f_create_time = #{createTime,jdbcType=VARCHAR}, </if>
+    </set>
+    where f_pid = #{id,jdbcType=VARCHAR}
+  </update>
+  
+  <update id="batchUpdate" parameterType="java.util.List">
+		<foreach collection="list" item="entity" separator=";">
+			update t_pub_base_attribute
+			<set>
+			  <if test="id != null" > f_pid = #{entity.id,jdbcType=VARCHAR}, </if>
+			  <if test="base_pid != null" > f_base_pid = #{entity.base_pid,jdbcType=VARCHAR}, </if>
+			  <if test="name != null" > f_name = #{entity.name,jdbcType=VARCHAR}, </if>
+			  <if test="refbase_pid != null" > f_refbase_pid = #{entity.refbase_pid,jdbcType=VARCHAR}, </if>
+			  <if test="storage_column != null" > f_storage_column = #{entity.storage_column,jdbcType=VARCHAR}, </if>
+			  <if test="input_control != null" > f_input_control = #{entity.input_control,jdbcType=VARCHAR}, </if>
+			  <if test="order != null" > f_order = #{entity.order,jdbcType=INTEGER}, </if>
+			  <if test="required_flag != null" > f_required_flag = #{entity.required_flag,jdbcType=VARCHAR}, </if>
+			  <if test="condition_flag != null" > f_condition_flag = #{entity.condition_flag,jdbcType=VARCHAR}, </if>
+			  <if test="sysFlag != null" > f_sys_flag = #{entity.sysFlag,jdbcType=VARCHAR}, </if>
+			  <if test="remark != null" > f_remark = #{entity.remark,jdbcType=VARCHAR}, </if>
+			  <if test="lastModifier != null" > f_last_modifier = #{entity.lastModifier,jdbcType=VARCHAR}, </if>
+			  <if test="lastModifiedTime != null" > f_last_modified_time = #{entity.lastModifiedTime,jdbcType=VARCHAR}, </if>
+			  <if test="creator != null" > f_creator = #{entity.creator,jdbcType=VARCHAR}, </if>
+			  <if test="createTime != null" > f_create_time = #{entity.createTime,jdbcType=VARCHAR}, </if>
+			</set>
+			where f_pid = #{id,jdbcType=VARCHAR}
+		</foreach>
+  </update>
+  
+  
+  <update id="delete" parameterType="java.lang.String" >
+    update t_pub_base_attribute set
+		F_SYS_FLAG='0',
+	    F_LAST_MODIFIER = #{lastModifier,jdbcType=VARCHAR},
+		F_LAST_MODIFIED_TIME = #{lastModifiedTime,jdbcType=VARCHAR} 
+	where f_pid = #{id,jdbcType=VARCHAR}
+  </update>
+  
+  <update id="deleteAll" parameterType="map">
+	update t_pub_base_attribute set 
+		F_SYS_FLAG='0',
+	    F_LAST_MODIFIER = #{lastModifier,jdbcType=VARCHAR},
+		F_LAST_MODIFIED_TIME = #{lastModifiedTime,jdbcType=VARCHAR} 
+	where f_pid in
+	<foreach item="item" collection="ids" open="(" separator="," close=")">
+        #{item}
+    </foreach>
+  </update>
+  
+  <update id="deleteAllByBasePid" parameterType="map">
+	update t_pub_base_attribute set 
+		F_SYS_FLAG='0',
+	    F_LAST_MODIFIER = #{lastModifier,jdbcType=VARCHAR},
+		F_LAST_MODIFIED_TIME = #{lastModifiedTime,jdbcType=VARCHAR} 
+	where f_base_pid in
+	<foreach item="item" collection="ids" open="(" separator="," close=")">
+        #{item}
+    </foreach>
+  </update>
+  
+  <!-- 查询条件 模糊查询用concat函数 ：name like concat(concat('%',#{bean.name,jdbcType=VARCHAR}),'%')，
+  	         这样做主要是为了支持mysql和oracle以及防止sql注入 -->
+  <select id="list" resultMap="BaseResultMap" parameterType="map">
+    select 
+    <include refid="Base_Column_List" />
+    from t_pub_base_attribute t
+    <where>
+		<include refid="where_sql"/>
+	</where>
+	order by t.f_order, t.f_create_time desc
+  </select>
+  
+  <select id="get" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from t_pub_base_attribute t
+    where t.f_pid = #{id,jdbcType=VARCHAR}
+  </select>
+  
+</mapper>

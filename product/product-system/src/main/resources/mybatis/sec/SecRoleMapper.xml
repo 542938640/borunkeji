@@ -1,0 +1,212 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- @Automatically generate by Coder in 2019-08-16 15:33 -->
+<mapper namespace="com.taro.dao.sec.SecRoleDao">
+  <resultMap id="BaseResultMap" type="com.taro.entity.sec.SecRoleEntity">
+  	<id column="f_pid" property="id" jdbcType="VARCHAR" />
+  	<result column="f_pid" property="id" jdbcType="VARCHAR" />
+  	<result column="f_name" property="name" jdbcType="VARCHAR" />
+  	<result column="f_code" property="code" jdbcType="VARCHAR" />
+  	<result column="f_describe" property="describe" jdbcType="VARCHAR" />
+  	<result column="f_parent_pid" property="parent_pid" jdbcType="VARCHAR" />
+  	<result column="f_status" property="status" jdbcType="VARCHAR" />
+ 	<result column="f_tenants_pid" property="tenants_pid" jdbcType="VARCHAR" />
+	<result column="F_TENANTS_LEVEL_PID" property="tenants_level_pid" jdbcType="VARCHAR" />
+	<result column="F_IS_SYSTEM" property="is_system" jdbcType="CHAR" />
+	<result column="F_C1" property="c1" jdbcType="VARCHAR" />
+	<result column="F_C2" property="c2" jdbcType="VARCHAR" />
+	<result column="F_C3" property="c3" jdbcType="VARCHAR" />
+	<result column="F_C4" property="c4" jdbcType="VARCHAR" />
+	<result column="F_C5" property="c5" jdbcType="VARCHAR" />
+  	<result column="f_sys_flag" property="sysFlag" jdbcType="VARCHAR" />
+  	<result column="f_remark" property="remark" jdbcType="VARCHAR" />
+  	<result column="f_last_modifier" property="lastModifier" jdbcType="VARCHAR" />
+  	<result column="f_last_modified_time" property="lastModifiedTime" jdbcType="VARCHAR" />
+  	<result column="f_creator" property="creator" jdbcType="VARCHAR" />
+  	<result column="f_create_time" property="createTime" jdbcType="VARCHAR" />
+  	
+  	<result column="f_parent_name" property="parent_name" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+  	t.f_pid, t.f_name, t.f_code, t.f_describe, t.f_parent_pid, t.f_status, t.f_tenants_pid, 
+  	T.F_TENANTS_LEVEL_PID, T.F_IS_SYSTEM, T.F_C1, T.F_C2,
+	T.F_C3, T.F_C4, T.F_C5, 
+	t.f_sys_flag, t.f_remark, t.f_last_modifier, t.f_last_modified_time, t.f_creator, t.f_create_time
+  </sql>
+  
+  <sql id="where_sql">
+	<if test="not_id != null and not_id != ''" > and t.f_pid != #{not_id,jdbcType=VARCHAR}</if>
+	<if test="id != null and id != ''" > and t.f_pid = #{id,jdbcType=VARCHAR}</if>
+	<if test="name != null and name != ''" > and t.f_name =#{name,jdbcType=VARCHAR}</if>
+	<if test="code != null and code != ''" > and t.f_code =#{code,jdbcType=VARCHAR}</if>
+	<if test="describe != null and describe != ''" > and t.f_describe =#{describe,jdbcType=VARCHAR}</if>
+	<if test="parent_pid != null and parent_pid != ''" > and t.f_parent_pid =#{parent_pid,jdbcType=VARCHAR}</if>
+	<if test="status != null and status != ''" > and t.f_status =#{status,jdbcType=VARCHAR}</if>
+	<if test="tenants_pid != null and tenants_pid != ''" > and t.f_tenants_pid =#{tenants_pid,jdbcType=VARCHAR}</if>
+	<if test="tenants_level_pid != null and tenants_level_pid != ''" >and T.F_TENANTS_LEVEL_PID = #{tenants_level_pid, jdbcType=VARCHAR}</if>
+	<if test="is_system != null and is_system != ''" >and T.F_IS_SYSTEM = #{is_system, jdbcType=CHAR}</if>
+	<if test="c1 != null and c1 != ''" >and T.F_C1 = #{c1, jdbcType=VARCHAR}</if>
+	<if test="c2 != null and c2 != ''" >and T.F_C2 = #{c2, jdbcType=VARCHAR}</if>
+	<if test="c3 != null and c3 != ''" >and T.F_C3 = #{c3, jdbcType=VARCHAR}</if>
+	<if test="c4 != null and c4 != ''" >and T.F_C4 = #{c4, jdbcType=VARCHAR}</if>
+	<if test="c5 != null and c5 != ''" >and T.F_C5 = #{c5, jdbcType=VARCHAR}</if>
+	<if test="sysFlag != null and sysFlag != ''" > and t.f_sys_flag = #{sysFlag,jdbcType=VARCHAR}</if>
+	<if test="remark != null and remark != ''" > and t.f_remark = #{remark,jdbcType=VARCHAR}</if>
+	<if test="lastModifier != null and lastModifier != ''" > and t.f_last_modifier = #{lastModifier,jdbcType=VARCHAR}</if>
+	<if test="lastModifiedTime != null and lastModifiedTime != ''" > and t.f_last_modified_time = #{lastModifiedTime,jdbcType=VARCHAR}</if>
+	<if test="creator != null and creator != ''" > and t.f_creator = #{creator,jdbcType=VARCHAR}</if>
+	<if test="createTime != null and createTime != ''" > and t.f_create_time = #{createTime,jdbcType=VARCHAR}</if>
+  </sql>
+  
+  <insert id="insert" parameterType="com.taro.entity.sec.SecRoleEntity" >
+    insert into t_sec_role (
+  		f_pid, f_name, f_code, f_describe, f_parent_pid, f_status, f_tenants_pid, 
+		F_TENANTS_LEVEL_PID, F_IS_SYSTEM, F_C1,
+		F_C2, F_C3, F_C4, F_C5, 
+  		f_sys_flag, f_remark, f_last_modifier,
+  		f_last_modified_time, f_creator, f_create_time
+    ) values (
+      	#{id,jdbcType=VARCHAR}, #{name,jdbcType=VARCHAR}, #{code,jdbcType=VARCHAR}, #{describe,jdbcType=VARCHAR}, 
+      	#{parent_pid,jdbcType=VARCHAR}, #{status,jdbcType=VARCHAR}, #{tenants_pid,jdbcType=VARCHAR}, 
+	  	#{tenants_level_pid, jdbcType=VARCHAR}, #{is_system, jdbcType=CHAR}, #{c1, jdbcType=VARCHAR},
+	  	#{c2, jdbcType=VARCHAR}, #{c3, jdbcType=VARCHAR}, #{c4, jdbcType=VARCHAR}, #{c5,jdbcType=VARCHAR} , 
+  	  	#{sysFlag,jdbcType=VARCHAR}, #{remark,jdbcType=VARCHAR}, #{lastModifier,jdbcType=VARCHAR},
+  	  	#{lastModifiedTime,jdbcType=VARCHAR}, #{creator,jdbcType=VARCHAR}, #{createTime,jdbcType=VARCHAR} 
+    )
+  </insert>
+  
+  <insert id="insertObjects" parameterType="list">
+	insert into t_sec_role (
+ 		f_pid, f_name, f_code, f_describe, f_parent_pid, f_status, f_tenants_pid, 
+		F_TENANTS_LEVEL_PID, F_IS_SYSTEM, F_C1,
+		F_C2, F_C3, F_C4, F_C5, 
+ 		f_sys_flag, f_remark, f_last_modifier,
+ 		f_last_modified_time, f_creator, f_create_time
+	)
+	<foreach collection="list" item="entity" index="index" separator="union all">
+	select
+      	#{entity.id,jdbcType=VARCHAR}, #{entity.name,jdbcType=VARCHAR}, #{entity.code,jdbcType=VARCHAR}, #{entity.describe,jdbcType=VARCHAR}, 
+      	#{entity.parent_pid,jdbcType=VARCHAR}, #{entity.status,jdbcType=VARCHAR}, #{entity.tenants_pid,jdbcType=VARCHAR}, 
+		#{entity.tenants_level_pid, jdbcType=VARCHAR}, #{entity.is_system, jdbcType=CHAR}, #{entity.c1, jdbcType=VARCHAR},
+		#{entity.c2, jdbcType=VARCHAR}, #{entity.c3, jdbcType=VARCHAR}, #{entity.c4, jdbcType=VARCHAR}, #{entity.c5,jdbcType=VARCHAR} , 
+  		#{entity.sysFlag,jdbcType=VARCHAR}, #{entity.remark,jdbcType=VARCHAR}, #{entity.lastModifier,jdbcType=VARCHAR},
+  		#{entity.lastModifiedTime,jdbcType=VARCHAR}, #{entity.creator,jdbcType=VARCHAR}, #{entity.createTime,jdbcType=VARCHAR} 
+	from dual
+	</foreach>
+  </insert>
+  
+  <update id="update" parameterType="com.taro.entity.sec.SecRoleEntity">
+    update t_sec_role 
+    <set>
+      <if test="id != null" > f_pid = #{id,jdbcType=VARCHAR}, </if>
+      <if test="name != null" > f_name = #{name,jdbcType=VARCHAR}, </if>
+      <if test="code != null" > f_code = #{code,jdbcType=VARCHAR}, </if>
+      <if test="describe != null" > f_describe = #{describe,jdbcType=VARCHAR}, </if>
+      <if test="parent_pid != null" > f_parent_pid = #{parent_pid,jdbcType=VARCHAR}, </if>
+      <if test="status != null" > f_status = #{status,jdbcType=VARCHAR}, </if>
+      <if test="tenants_pid != null" > f_tenants_pid = #{tenants_pid,jdbcType=VARCHAR}, </if>>
+      <if test="tenants_level_pid != null" > F_TENANTS_LEVEL_PID = #{tenants_level_pid, jdbcType=VARCHAR}, </if>
+      <if test="is_system != null" > F_IS_SYSTEM = #{is_system, jdbcType=CHAR}, </if>
+      <if test="c1 != null" > F_C1 = #{c1, jdbcType=VARCHAR}, </if>
+      <if test="c2 != null" > F_C2 = #{c2, jdbcType=VARCHAR}, </if>
+      <if test="c3 != null" > F_C3 = #{c3, jdbcType=VARCHAR}, </if>
+      <if test="c4 != null" > F_C4 = #{c4, jdbcType=VARCHAR}, </if>
+      <if test="c5 != null" > F_C5 = #{c5, jdbcType=VARCHAR}, </if>
+      <if test="sysFlag != null" > f_sys_flag = #{sysFlag,jdbcType=VARCHAR}, </if>
+      <if test="remark != null" > f_remark = #{remark,jdbcType=VARCHAR}, </if>
+      <if test="lastModifier != null" > f_last_modifier = #{lastModifier,jdbcType=VARCHAR}, </if>
+      <if test="lastModifiedTime != null" > f_last_modified_time = #{lastModifiedTime,jdbcType=VARCHAR}, </if>
+      <if test="creator != null" > f_creator = #{creator,jdbcType=VARCHAR}, </if>
+      <if test="createTime != null" > f_create_time = #{createTime,jdbcType=VARCHAR}, </if>
+    </set>
+    where f_pid = #{id,jdbcType=VARCHAR}
+  </update>
+  
+  <update id="batchUpdate" parameterType="java.util.List">
+		<foreach collection="list" item="entity" separator=";">
+			update t_sec_role
+			<set>
+		      <if test="id != null" > f_pid = #{entity.id,jdbcType=VARCHAR}, </if>
+		      <if test="name != null" > f_name = #{entity.name,jdbcType=VARCHAR}, </if>
+		      <if test="code != null" > f_code = #{entity.code,jdbcType=VARCHAR}, </if>
+		      <if test="describe != null" > f_describe = #{entity.describe,jdbcType=VARCHAR}, </if>
+		      <if test="parent_pid != null" > f_parent_pid = #{entity.parent_pid,jdbcType=VARCHAR}, </if>
+		      <if test="status != null" > f_status = #{entity.status,jdbcType=VARCHAR}, </if>
+		      <if test="tenants_pid != null" > f_tenants_pid = #{entity.tenants_pid,jdbcType=VARCHAR}, </if>
+	      	  <if test="tenants_level_pid != null" > F_TENANTS_LEVEL_PID = #{entity.tenants_level_pid, jdbcType=VARCHAR}, </if>
+	      	  <if test="is_system != null" > F_IS_SYSTEM = #{entity.is_system, jdbcType=CHAR}, </if>
+	      	  <if test="c1 != null" > F_C1 = #{entity.c1, jdbcType=VARCHAR}, </if>
+	      	  <if test="c2 != null" > F_C2 = #{entity.c2, jdbcType=VARCHAR}, </if>
+	      	  <if test="c3 != null" > F_C3 = #{entity.c3, jdbcType=VARCHAR}, </if>
+	      	  <if test="c4 != null" > F_C4 = #{entity.c4, jdbcType=VARCHAR}, </if>
+	      	  <if test="c5 != null" > F_C5 = #{entity.c5, jdbcType=VARCHAR}, </if>
+		      <if test="sysFlag != null" > f_sys_flag = #{entity.sysFlag,jdbcType=VARCHAR}, </if>
+		      <if test="remark != null" > f_remark = #{entity.remark,jdbcType=VARCHAR}, </if>
+		      <if test="lastModifier != null" > f_last_modifier = #{entity.lastModifier,jdbcType=VARCHAR}, </if>
+		      <if test="lastModifiedTime != null" > f_last_modified_time = #{entity.lastModifiedTime,jdbcType=VARCHAR}, </if>
+		      <if test="creator != null" > f_creator = #{entity.creator,jdbcType=VARCHAR}, </if>
+		      <if test="createTime != null" > f_create_time = #{entity.createTime,jdbcType=VARCHAR}, </if>
+			</set>
+			where f_pid = #{id,jdbcType=VARCHAR}
+		</foreach>
+  </update>
+  
+  
+  <update id="delete" parameterType="java.lang.String" >
+    update t_sec_role set
+		F_SYS_FLAG='0',
+	    F_LAST_MODIFIER = #{lastModifier,jdbcType=VARCHAR},
+		F_LAST_MODIFIED_TIME = #{lastModifiedTime,jdbcType=VARCHAR} 
+	where f_pid = #{id,jdbcType=VARCHAR}
+  </update>
+  
+  <update id="deleteAll" parameterType="map">
+	update t_sec_role set 
+		F_SYS_FLAG='0',
+	    F_LAST_MODIFIER = #{lastModifier,jdbcType=VARCHAR},
+		F_LAST_MODIFIED_TIME = #{lastModifiedTime,jdbcType=VARCHAR} 
+	where f_pid in
+	<foreach item="item" collection="ids" open="(" separator="," close=")">
+        #{item}
+    </foreach>
+  </update>
+  
+  <!-- 查询条件 模糊查询用concat函数 ：name like concat(concat('%',#{bean.name,jdbcType=VARCHAR}),'%')，
+  	         这样做主要是为了支持mysql和oracle以及防止sql注入 -->
+  <select id="list" resultMap="BaseResultMap" parameterType="map">
+    select t.*,
+	p.f_name as f_parent_name
+    from t_sec_role t
+	left join t_sec_role p on t.f_parent_pid = t.f_pid and p.f_sys_flag = '1'
+    where 1 = 1
+	<if test="not_id != null and not_id != ''" > and t.f_pid != #{not_id,jdbcType=VARCHAR}</if>
+	<if test="id != null and id != ''" > and t.f_pid = #{id,jdbcType=VARCHAR}</if>
+	<if test="name != null and name != ''" > and t.f_name like concat(concat('%',#{name,jdbcType=VARCHAR}),'%')</if>
+	<if test="code != null and code != ''" > and t.f_code =#{code,jdbcType=VARCHAR}</if>
+	<if test="describe != null and describe != ''" > and t.f_describe like concat(concat('%',#{describe,jdbcType=VARCHAR}),'%')</if>
+	<if test="parent_pid != null and parent_pid != ''" > and t.f_parent_pid =#{parent_pid,jdbcType=VARCHAR}</if>
+	<if test="status != null and status != ''" > and t.f_status =#{status,jdbcType=VARCHAR}</if>
+	<if test="tenants_pid != null and tenants_pid != ''" > and t.f_tenants_pid =#{tenants_pid,jdbcType=VARCHAR}</if>
+	<if test="tenants_level_pid != null and tenants_level_pid != ''" >and T.F_TENANTS_LEVEL_PID = #{tenants_level_pid, jdbcType=VARCHAR}</if>
+	<if test="is_system != null and is_system != ''" >and T.F_IS_SYSTEM = #{is_system, jdbcType=CHAR}</if>
+	<if test="c1 != null and c1 != ''" >and T.F_C1 = #{c1, jdbcType=VARCHAR}</if>
+	<if test="c2 != null and c2 != ''" >and T.F_C2 = #{c2, jdbcType=VARCHAR}</if>
+	<if test="c3 != null and c3 != ''" >and T.F_C3 = #{c3, jdbcType=VARCHAR}</if>
+	<if test="c4 != null and c4 != ''" >and T.F_C4 = #{c4, jdbcType=VARCHAR}</if>
+	<if test="c5 != null and c5 != ''" >and T.F_C5 = #{c5, jdbcType=VARCHAR}</if>
+	<if test="sysFlag != null and sysFlag != ''" > and t.f_sys_flag = #{sysFlag,jdbcType=VARCHAR}</if>
+	<if test="remark != null and remark != ''" > and t.f_remark = #{remark,jdbcType=VARCHAR}</if>
+	<if test="lastModifier != null and lastModifier != ''" > and t.f_last_modifier = #{lastModifier,jdbcType=VARCHAR}</if>
+	<if test="lastModifiedTime != null and lastModifiedTime != ''" > and t.f_last_modified_time = #{lastModifiedTime,jdbcType=VARCHAR}</if>
+	<if test="creator != null and creator != ''" > and t.f_creator = #{creator,jdbcType=VARCHAR}</if>
+	<if test="createTime != null and createTime != ''" > and t.f_create_time = #{createTime,jdbcType=VARCHAR}</if>
+  </select>
+  
+  <select id="get" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from t_sec_role t
+    where t.f_pid = #{id,jdbcType=VARCHAR}
+  </select>
+  
+</mapper>

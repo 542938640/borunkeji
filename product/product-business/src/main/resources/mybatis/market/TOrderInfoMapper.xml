@@ -1,0 +1,202 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- @Automatically generate by Coder in 2020-10-28 11:25:00 -->
+<mapper namespace="com.taro.dao.market.TOrderInfoDao">
+
+  	<resultMap id="BaseResultMap" type="com.taro.entity.market.TOrderInfoEntity">
+	  	<id column="ID" property="id" jdbcType="INTEGER" />
+  		<result column="ID" property="id" jdbcType="INTEGER" />
+  		<result column="F_ORMACHINEID" property="ormachineid" jdbcType="VARCHAR" />
+  		<result column="F_ORPAYTYPE" property="orpaytype" jdbcType="INTEGER" />
+  		<result column="F_ORORDERNO" property="ororderno" jdbcType="VARCHAR" />
+  		<result column="F_ORCARDID" property="orcardid" jdbcType="VARCHAR" />
+  		<result column="F_ORCOILID" property="orcoilid" jdbcType="VARCHAR" />
+  		<result column="F_ORBARCODE" property="orbarcode" jdbcType="VARCHAR" />
+  		<result column="F_ORSALEPRICE" property="orsaleprice" jdbcType="DOUBLE" />
+  		<result column="F_ORRESULT" property="orresult" jdbcType="INTEGER" />
+  		<result column="F_ORSALE" property="orsale" jdbcType="INTEGER" />
+  		<result column="F_ORTIME" property="ortime" jdbcType="DATE" />
+  		<result column="F_ORPROFIT" property="orprofit" jdbcType="DOUBLE" />
+  		<result column="F_ORACCOUNT" property="oraccount" jdbcType="VARCHAR" />
+  		<result column="F_OROPENID" property="oropenid" jdbcType="VARCHAR" />
+  	</resultMap>
+
+  	<sql id="Base_Column_List" >
+		T.ID, T.F_ORMACHINEID, T.F_ORPAYTYPE, T.F_ORORDERNO, T.F_ORCARDID,
+		T.F_ORCOILID, T.F_ORBARCODE, T.F_ORSALEPRICE, T.F_ORRESULT, T.F_ORSALE,
+		T.F_ORTIME, T.F_ORPROFIT, T.F_ORACCOUNT, T.F_OROPENID
+  	</sql>
+
+  	<sql id="where_sql">
+		<if test="id != null and id != ''" > 
+			and T.ID = #{id, jdbcType=INTEGER}
+		</if>
+		<if test="ormachineid != null and ormachineid != ''" > 
+			and T.F_ORMACHINEID = #{ormachineid, jdbcType=VARCHAR}
+		</if>
+		<if test="orpaytype != null and orpaytype != ''" > 
+			and T.F_ORPAYTYPE = #{orpaytype, jdbcType=INTEGER}
+		</if>
+		<if test="ororderno != null and ororderno != ''" > 
+			and T.F_ORORDERNO = #{ororderno, jdbcType=VARCHAR}
+		</if>
+		<if test="orcardid != null and orcardid != ''" > 
+			and T.F_ORCARDID = #{orcardid, jdbcType=VARCHAR}
+		</if>
+		<if test="orcoilid != null and orcoilid != ''" > 
+			and T.F_ORCOILID = #{orcoilid, jdbcType=VARCHAR}
+		</if>
+		<if test="orbarcode != null and orbarcode != ''" > 
+			and T.F_ORBARCODE = #{orbarcode, jdbcType=VARCHAR}
+		</if>
+		<if test="orsaleprice != null and orsaleprice != ''" > 
+			and T.F_ORSALEPRICE = #{orsaleprice, jdbcType=DOUBLE}
+		</if>
+		<if test="orresult != null and orresult != ''" > 
+			and T.F_ORRESULT = #{orresult, jdbcType=INTEGER}
+		</if>
+		<if test="orsale != null and orsale != ''" > 
+			and T.F_ORSALE = #{orsale, jdbcType=INTEGER}
+		</if>
+		<if test="ortime != null and ortime != ''" > 
+			and T.F_ORTIME = #{ortime, jdbcType=DATE}
+		</if>
+		<if test="orprofit != null and orprofit != ''" > 
+			and T.F_ORPROFIT = #{orprofit, jdbcType=DOUBLE}
+		</if>
+		<if test="oraccount != null and oraccount != ''" > 
+			and T.F_ORACCOUNT = #{oraccount, jdbcType=VARCHAR}
+		</if>
+		<if test="oropenid != null and oropenid != ''" > 
+			and T.F_OROPENID = #{oropenid, jdbcType=VARCHAR}
+		</if>
+  	</sql>
+
+	<!-- 新增 -->
+  	<insert id="insert" parameterType="com.taro.entity.market.TOrderInfoEntity" >
+    	INSERT INTO TORDERINFO (
+    		F_ORMACHINEID, F_ORPAYTYPE,
+			F_ORORDERNO, F_ORCARDID, F_ORCOILID,
+			F_ORBARCODE, F_ORSALEPRICE, F_ORRESULT,
+			F_ORSALE, F_ORTIME, F_ORPROFIT,
+			F_ORACCOUNT, F_OROPENID
+    	) VALUES (
+    		#{ormachineid, jdbcType=VARCHAR}, #{orpaytype, jdbcType=INTEGER},
+			#{ororderno, jdbcType=VARCHAR}, #{orcardid, jdbcType=VARCHAR}, #{orcoilid, jdbcType=VARCHAR},
+			#{orbarcode, jdbcType=VARCHAR}, #{orsaleprice, jdbcType=DOUBLE}, #{orresult, jdbcType=INTEGER},
+			#{orsale, jdbcType=INTEGER}, #{ortime, jdbcType=DATE}, #{orprofit, jdbcType=DOUBLE},
+			#{oraccount, jdbcType=VARCHAR}, #{oropenid,jdbcType=VARCHAR}
+    	)
+  	</insert>
+
+	<!-- 批量新增 -->
+  	<insert id="insertObjects" parameterType="list">
+		INSERT INTO TORDERINFO (
+    		F_ORMACHINEID, F_ORPAYTYPE,
+			F_ORORDERNO, F_ORCARDID, F_ORCOILID,
+			F_ORBARCODE, F_ORSALEPRICE, F_ORRESULT,
+			F_ORSALE, F_ORTIME, F_ORPROFIT,
+			F_ORACCOUNT, F_OROPENID
+		)
+		<foreach collection="list" item="entity" index="index" separator="union all">
+			SELECT
+    		#{entity.ormachineid, jdbcType=VARCHAR}, #{entity.orpaytype, jdbcType=INTEGER},
+			#{entity.ororderno, jdbcType=VARCHAR}, #{entity.orcardid, jdbcType=VARCHAR}, #{entity.orcoilid, jdbcType=VARCHAR},
+			#{entity.orbarcode, jdbcType=VARCHAR}, #{entity.orsaleprice, jdbcType=DOUBLE}, #{entity.orresult, jdbcType=INTEGER},
+			#{entity.orsale, jdbcType=INTEGER}, #{entity.ortime, jdbcType=DATE}, #{entity.orprofit, jdbcType=DOUBLE},
+			#{entity.oraccount, jdbcType=VARCHAR}, #{entity.oropenid,jdbcType=VARCHAR}
+			FROM DUAL
+		</foreach>
+  	</insert>
+
+	<!-- 更新 -->
+  	<update id="update" parameterType="com.taro.entity.market.TOrderInfoEntity">
+    	UPDATE TORDERINFO
+	    <set>
+      		<if test="id != null" > ID = #{id, jdbcType=INTEGER}, </if>
+      		<if test="ormachineid != null" > F_ORMACHINEID = #{ormachineid, jdbcType=VARCHAR}, </if>
+      		<if test="orpaytype != null" > F_ORPAYTYPE = #{orpaytype, jdbcType=INTEGER}, </if>
+      		<if test="ororderno != null" > F_ORORDERNO = #{ororderno, jdbcType=VARCHAR}, </if>
+      		<if test="orcardid != null" > F_ORCARDID = #{orcardid, jdbcType=VARCHAR}, </if>
+      		<if test="orcoilid != null" > F_ORCOILID = #{orcoilid, jdbcType=VARCHAR}, </if>
+      		<if test="orbarcode != null" > F_ORBARCODE = #{orbarcode, jdbcType=VARCHAR}, </if>
+      		<if test="orsaleprice != null" > F_ORSALEPRICE = #{orsaleprice, jdbcType=DOUBLE}, </if>
+      		<if test="orresult != null" > F_ORRESULT = #{orresult, jdbcType=INTEGER}, </if>
+      		<if test="orsale != null" > F_ORSALE = #{orsale, jdbcType=INTEGER}, </if>
+      		<if test="ortime != null" > F_ORTIME = #{ortime, jdbcType=DATE}, </if>
+      		<if test="orprofit != null" > F_ORPROFIT = #{orprofit, jdbcType=DOUBLE}, </if>
+      		<if test="oraccount != null" > F_ORACCOUNT = #{oraccount, jdbcType=VARCHAR}, </if>
+      		<if test="oropenid != null" > F_OROPENID = #{oropenid, jdbcType=VARCHAR}, </if>
+	      	<if test="sysFlag != null" > F_SYS_FLAG = #{sysFlag, jdbcType=VARCHAR}, </if>
+	      	<if test="remark != null" > F_REMARK = #{remark, jdbcType=VARCHAR}, </if>
+	      	<if test="lastModifier != null" > F_LAST_MODIFIER = #{lastModifier, jdbcType=VARCHAR}, </if>
+	      	<if test="lastModifiedTime != null" > F_LAST_MODIFIED_TIME = #{lastModifiedTime, jdbcType=VARCHAR}, </if>
+	      	<if test="creator != null" > F_CREATOR = #{creator, jdbcType=VARCHAR}, </if>
+	      	<if test="createTime != null" > F_CREATE_TIME = #{createTime, jdbcType=VARCHAR}, </if>
+	    </set>
+    	WHERE Id = #{id, jdbcType=INTEGER}
+  	</update>
+
+	<!-- 批量更新 -->
+  	<update id="batchUpdate" parameterType="java.util.List">
+		<foreach collection="list" item="entity" separator=";">
+			UPDATE TORDERINFO
+			<set>
+	      		<if test="id != null" > ID = #{entity.id, jdbcType=INTEGER}, </if>
+	      		<if test="ormachineid != null" > F_ORMACHINEID = #{entity.ormachineid, jdbcType=VARCHAR}, </if>
+	      		<if test="orpaytype != null" > F_ORPAYTYPE = #{entity.orpaytype, jdbcType=INTEGER}, </if>
+	      		<if test="ororderno != null" > F_ORORDERNO = #{entity.ororderno, jdbcType=VARCHAR}, </if>
+	      		<if test="orcardid != null" > F_ORCARDID = #{entity.orcardid, jdbcType=VARCHAR}, </if>
+	      		<if test="orcoilid != null" > F_ORCOILID = #{entity.orcoilid, jdbcType=VARCHAR}, </if>
+	      		<if test="orbarcode != null" > F_ORBARCODE = #{entity.orbarcode, jdbcType=VARCHAR}, </if>
+	      		<if test="orsaleprice != null" > F_ORSALEPRICE = #{entity.orsaleprice, jdbcType=DOUBLE}, </if>
+	      		<if test="orresult != null" > F_ORRESULT = #{entity.orresult, jdbcType=INTEGER}, </if>
+	      		<if test="orsale != null" > F_ORSALE = #{entity.orsale, jdbcType=INTEGER}, </if>
+	      		<if test="ortime != null" > F_ORTIME = #{entity.ortime, jdbcType=DATE}, </if>
+	      		<if test="orprofit != null" > F_ORPROFIT = #{entity.orprofit, jdbcType=DOUBLE}, </if>
+	      		<if test="oraccount != null" > F_ORACCOUNT = #{entity.oraccount, jdbcType=VARCHAR}, </if>
+	      		<if test="oropenid != null" > F_OROPENID = #{entity.oropenid, jdbcType=VARCHAR}, </if>
+		      	<if test="sysFlag != null" > F_SYS_FLAG = #{entity.sysFlag, jdbcType=VARCHAR}, </if>
+		      	<if test="remark != null" > F_REMARK = #{entity.remark, jdbcType=VARCHAR}, </if>
+		      	<if test="lastModifier != null" > F_LAST_MODIFIER = #{entity.lastModifier, jdbcType=VARCHAR}, </if>
+		      	<if test="lastModifiedTime != null" > F_LAST_MODIFIED_TIME = #{entity.lastModifiedTime, jdbcType=VARCHAR}, </if>
+		      	<if test="creator != null" > F_CREATOR = #{entity.creator, jdbcType=VARCHAR}, </if>
+		      	<if test="createTime != null" > F_CREATE_TIME = #{entity.createTime, jdbcType=VARCHAR}, </if>
+			</set>
+    		WHERE Id = #{id, jdbcType=INTEGER}
+		</foreach>
+  	</update>
+
+	<!-- 逻辑删除 -->
+  	<update id="delete" parameterType="java.lang.String" >
+    	DELETE FROM TORDERINFO WHERE Id = #{id, jdbcType=INTEGER}
+  	</update>
+
+	<!-- 逻辑删除所有 -->
+  	<update id="deleteAll" parameterType="map">
+		DELETE FROM TORDERINFO WHERE Id IN
+		<foreach item="item" collection="ids" open="(" separator="," close=")">
+        	#{item}
+    	</foreach>
+  	</update>
+
+	<!-- 查询条件 模糊查询用concat函数:name like concat(concat('%',#{bean.name,jdbcType=VARCHAR}),'%'),	这样做主要是为了支持mysql和oracle以及防止sql注入 -->
+  	<!-- 列表查询 -->
+  	<select id="list" resultMap="BaseResultMap" parameterType="map">
+	    SELECT 
+	    	<include refid="Base_Column_List" />
+	    FROM TORDERINFO_${year}_${month} T
+	    <where>
+			<include refid="where_sql"/>
+		</where>
+  	</select>
+
+	<!-- 根据ID查询单条记录 -->
+  	<select id="get" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    	SELECT 
+    		<include refid="Base_Column_List" />
+    	FROM TORDERINFO T
+    	WHERE T.Id = #{id,jdbcType=INTEGER}
+  	</select>
+
+</mapper>

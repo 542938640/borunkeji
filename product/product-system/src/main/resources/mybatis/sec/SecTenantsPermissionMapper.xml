@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- @Automatically generate by Coder in 2020-10-11 23:14:15 -->
+<mapper namespace="com.taro.dao.sec.SecTenantsPermissionDao">
+
+  	<resultMap id="BaseResultMap" type="com.taro.entity.sec.SecTenantsPermissionEntity">
+	  	<id column="F_PID" property="id" jdbcType="VARCHAR" />
+  		<result column="F_PID" property="id" jdbcType="VARCHAR" />
+  		<result column="F_TENANTS_PID" property="tenants_pid" jdbcType="VARCHAR" />
+  		<result column="F_RESOURCE_PID" property="resource_pid" jdbcType="VARCHAR" />
+  		<result column="F_TYPE" property="type" jdbcType="VARCHAR" />
+	  	<result column="F_SYS_FLAG" property="sysFlag" jdbcType="VARCHAR" />
+	  	<result column="F_REMARK" property="remark" jdbcType="VARCHAR" />
+	  	<result column="F_LAST_MODIFIER" property="lastModifier" jdbcType="VARCHAR" />
+	  	<result column="F_LAST_MODIFIED_TIME" property="lastModifiedTime" jdbcType="VARCHAR" />
+	  	<result column="F_CREATOR" property="creator" jdbcType="VARCHAR" />
+	  	<result column="F_CREATE_TIME" property="createTime" jdbcType="VARCHAR" />
+  	</resultMap>
+
+  	<sql id="Base_Column_List" >
+		t.F_PID, T.F_TENANTS_PID, T.F_RESOURCE_PID, T.F_TYPE
+  	</sql>
+
+  	<sql id="where_sql">
+		<if test="id != null and id != ''" > 
+			and t.F_PID = #{id, jdbcType=VARCHAR}
+		</if>
+		<if test="tenants_pid != null and tenants_pid != ''" > 
+			and T.F_TENANTS_PID = #{tenants_pid, jdbcType=VARCHAR}
+		</if>
+		<if test="resource_pid != null and resource_pid != ''" > 
+			and T.F_RESOURCE_PID = #{resource_pid, jdbcType=VARCHAR}
+		</if>
+		<if test="type != null and type != ''" > 
+			and T.F_TYPE = #{type, jdbcType=VARCHAR}
+		</if>
+  	</sql>
+
+	<!-- 新增 -->
+  	<insert id="insert" parameterType="com.taro.entity.sec.SecTenantsPermissionEntity" >
+    	INSERT INTO T_SEC_TENANTS_PERMISSION (
+    		F_PID, F_TENANTS_PID, F_RESOURCE_PID, F_TYPE
+    	) VALUES (
+    		#{id, jdbcType=VARCHAR}, #{tenants_pid, jdbcType=VARCHAR}, #{resource_pid, jdbcType=VARCHAR}, #{type,jdbcType=VARCHAR}
+    	)
+  	</insert>
+
+	<!-- 批量新增 -->
+  	<insert id="insertObjects" parameterType="list">
+		INSERT INTO T_SEC_TENANTS_PERMISSION (
+    		F_PID, F_TENANTS_PID, F_RESOURCE_PID, F_TYPE
+		)
+		<foreach collection="list" item="entity" index="index" separator="union all">
+			SELECT
+    		#{entity.id, jdbcType=VARCHAR}, #{entity.tenants_pid, jdbcType=VARCHAR}, #{entity.resource_pid, jdbcType=VARCHAR}, #{entity.type,jdbcType=VARCHAR}
+			FROM DUAL
+		</foreach>
+  	</insert>
+
+	<!-- 更新 -->
+  	<update id="update" parameterType="com.taro.entity.sec.SecTenantsPermissionEntity">
+    	UPDATE T_SEC_TENANTS_PERMISSION
+	    <set>
+      		<if test="id != null" > F_PID = #{id, jdbcType=VARCHAR}, </if>
+      		<if test="tenants_pid != null" > F_TENANTS_PID = #{tenants_pid, jdbcType=VARCHAR}, </if>
+      		<if test="resource_pid != null" > F_RESOURCE_PID = #{resource_pid, jdbcType=VARCHAR}, </if>
+      		<if test="type != null" > F_TYPE = #{type, jdbcType=VARCHAR}, </if>
+	    </set>
+    	WHERE F_PID = #{id, jdbcType=VARCHAR}
+  	</update>
+
+	<!-- 批量更新 -->
+  	<update id="batchUpdate" parameterType="java.util.List">
+		<foreach collection="list" item="entity" separator=";">
+			UPDATE T_SEC_TENANTS_PERMISSION
+			<set>
+		      	<if test="id != null" > F_PID = #{entity.id, jdbcType=VARCHAR}, </if>
+	      		<if test="tenants_pid != null" > F_TENANTS_PID = #{entity.tenants_pid, jdbcType=VARCHAR}, </if>
+	      		<if test="resource_pid != null" > F_RESOURCE_PID = #{entity.resource_pid, jdbcType=VARCHAR}, </if>
+	      		<if test="type != null" > F_TYPE = #{entity.type, jdbcType=VARCHAR}, </if>
+			</set>
+    		WHERE F_PID = #{id, jdbcType=VARCHAR}
+		</foreach>
+  	</update>
+
+	<!-- 逻辑删除 -->
+  	<delete id="delete" parameterType="java.lang.String" >
+    	delete from T_SEC_TENANTS_PERMISSION 
+    	WHERE F_PID = #{id, jdbcType=VARCHAR}
+  	</delete>
+
+	<!-- 逻辑删除所有 -->
+  	<delete id="deleteAll" parameterType="map">
+		delete from T_SEC_TENANTS_PERMISSION
+		WHERE F_PID IN
+		<foreach item="item" collection="ids" open="(" separator="," close=")">
+        	#{item}
+    	</foreach>
+  	</delete>
+
+	<!-- 查询条件 模糊查询用concat函数:name like concat(concat('%',#{bean.name,jdbcType=VARCHAR}),'%'),	这样做主要是为了支持mysql和oracle以及防止sql注入 -->
+  	<!-- 列表查询 -->
+  	<select id="list" resultMap="BaseResultMap" parameterType="map">
+	    SELECT 
+	    	<include refid="Base_Column_List" />
+	    FROM T_SEC_TENANTS_PERMISSION T
+	    <where>
+			<include refid="where_sql"/>
+		</where>
+  	</select>
+
+	<!-- 根据ID查询单条记录 -->
+  	<select id="get" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    	SELECT 
+    		<include refid="Base_Column_List" />
+    	FROM T_SEC_TENANTS_PERMISSION T
+    	WHERE T.F_PID = #{id,jdbcType=VARCHAR}
+  	</select>
+
+  	<!-- 删除用户下的资源 -->  
+	<delete id="deleteTenantsPerm" parameterType="com.taro.entity.sec.SecTenantsPermissionEntity">  
+        DELETE FROM t_sec_tenants_permission WHERE f_tenants_pid = #{tenants_pid}  
+	</delete> 
+</mapper>

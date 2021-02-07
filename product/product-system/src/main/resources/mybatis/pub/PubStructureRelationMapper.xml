@@ -1,0 +1,238 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- @Automatically generate by Coder in 2019-07-31 10:56 -->
+<mapper namespace="com.taro.dao.pub.PubStructureRelationDao">
+  <resultMap id="BaseResultMap" type="com.taro.entity.pub.PubStructureRelationEntity">
+  	<id column="f_pid" property="id" jdbcType="VARCHAR" />
+  	<result column="f_pid" property="id" jdbcType="VARCHAR" />
+  	<result column="f_structure_pid" property="structure_pid" jdbcType="VARCHAR" />
+  	<result column="f_structure_detail_pid" property="structure_detail_pid" jdbcType="VARCHAR" />
+  	<result column="f_parentdic_pid" property="parentdic_pid" jdbcType="VARCHAR" />
+  	<result column="f_childdic_pid" property="childdic_pid" jdbcType="VARCHAR" />
+  	<result column="f_sys_flag" property="sysFlag" jdbcType="VARCHAR" />
+  	<result column="f_remark" property="remark" jdbcType="VARCHAR" />
+  	<result column="f_last_modifier" property="lastModifier" jdbcType="VARCHAR" />
+  	<result column="f_last_modified_time" property="lastModifiedTime" jdbcType="VARCHAR" />
+  	<result column="f_creator" property="creator" jdbcType="VARCHAR" />
+  	<result column="f_create_time" property="createTime" jdbcType="VARCHAR" />
+  	
+  	<result column="F_PARENTDIC_NAME" property="parentdic_name" jdbcType="VARCHAR" />
+  	<result column="F_CHILDDIC_NAME" property="childdic_name" jdbcType="VARCHAR" />
+  	<result column="F_PARENTBASE_PID" property="parentbase_pid" jdbcType="VARCHAR" />
+  	<result column="F_CHILDBASE_PID" property="childbase_pid" jdbcType="VARCHAR" />
+  	<result column="F_PARENTBASE_NAME" property="parentbase_name" jdbcType="VARCHAR" />
+  	<result column="F_CHILDBASE_NAME" property="childbase_name" jdbcType="VARCHAR" />
+  	
+  	<result column="F_VALUE1" property="value1" jdbcType="VARCHAR" />
+  	<result column="F_VALUE2" property="value2" jdbcType="VARCHAR" />
+  	<result column="F_VALUE3" property="value3" jdbcType="VARCHAR" />
+  	<result column="F_VALUE4" property="value4" jdbcType="VARCHAR" />
+  	<result column="F_VALUE5" property="value5" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+  	t.f_pid, t.f_structure_pid, t.f_structure_detail_pid, t.f_parentdic_pid, t.f_childdic_pid, t.f_sys_flag,
+t.f_remark, t.f_last_modifier, t.f_last_modified_time, t.f_creator, t.f_create_time
+  </sql>
+  
+  <sql id="where_sql">
+	<if test="id != null and id != ''" > and t.f_pid = #{id,jdbcType=VARCHAR}</if>
+	<if test="structure_pid != null and structure_pid != ''" > and t.f_structure_pid = #{structure_pid,jdbcType=VARCHAR}</if>
+	<if test="structure_detail_pid != null and structure_detail_pid != ''" > and t.f_structure_detail_pid = #{structure_detail_pid,jdbcType=VARCHAR}</if>
+	<if test="parentdic_pid != null and parentdic_pid != ''" > and t.f_parentdic_pid = #{parentdic_pid,jdbcType=VARCHAR}</if>
+	<if test="childdic_pid != null and childdic_pid != ''" > and t.f_childdic_pid = #{childdic_pid,jdbcType=VARCHAR}</if>
+	<if test="sysFlag != null and sysFlag != ''" > and t.f_sys_flag = #{sysFlag,jdbcType=VARCHAR}</if>
+	<if test="remark != null and remark != ''" > and t.f_remark = #{remark,jdbcType=VARCHAR}</if>
+	<if test="lastModifier != null and lastModifier != ''" > and t.f_last_modifier = #{lastModifier,jdbcType=VARCHAR}</if>
+	<if test="lastModifiedTime != null and lastModifiedTime != ''" > and t.f_last_modified_time = #{lastModifiedTime,jdbcType=VARCHAR}</if>
+	<if test="creator != null and creator != ''" > and t.f_creator = #{creator,jdbcType=VARCHAR}</if>
+	<if test="createTime != null and createTime != ''" > and t.f_create_time = #{createTime,jdbcType=VARCHAR}</if>
+  </sql>
+  
+  <insert id="insert" parameterType="com.taro.entity.pub.PubStructureRelationEntity" >
+    insert into t_pub_structure_relation (
+      f_pid, f_structure_pid, f_structure_detail_pid,
+  f_parentdic_pid, f_childdic_pid, f_sys_flag,
+  f_remark, f_last_modifier, f_last_modified_time,
+  f_creator, f_create_time
+    ) values (
+      #{id,jdbcType=VARCHAR}, #{structure_pid,jdbcType=VARCHAR}, #{structure_detail_pid,jdbcType=VARCHAR},
+  #{parentdic_pid,jdbcType=VARCHAR}, #{childdic_pid,jdbcType=VARCHAR}, #{sysFlag,jdbcType=VARCHAR},
+  #{remark,jdbcType=VARCHAR}, #{lastModifier,jdbcType=VARCHAR}, #{lastModifiedTime,jdbcType=VARCHAR},
+  #{creator,jdbcType=VARCHAR}, #{createTime,jdbcType=VARCHAR} 
+    )
+  </insert>
+  
+  <insert id="insertObjects" parameterType="list">
+		insert into t_pub_structure_relation (
+		  f_pid, f_structure_pid, f_structure_detail_pid,
+  f_parentdic_pid, f_childdic_pid, f_sys_flag,
+  f_remark, f_last_modifier, f_last_modified_time,
+  f_creator, f_create_time
+		)
+		<foreach collection="list" item="entity" index="index" separator="union all">
+			select
+		  		#{entity.id,jdbcType=VARCHAR}, #{entity.structure_pid,jdbcType=VARCHAR}, #{entity.structure_detail_pid,jdbcType=VARCHAR},
+  #{entity.parentdic_pid,jdbcType=VARCHAR}, #{entity.childdic_pid,jdbcType=VARCHAR}, #{entity.sysFlag,jdbcType=VARCHAR},
+  #{entity.remark,jdbcType=VARCHAR}, #{entity.lastModifier,jdbcType=VARCHAR}, #{entity.lastModifiedTime,jdbcType=VARCHAR},
+  #{entity.creator,jdbcType=VARCHAR}, #{entity.createTime,jdbcType=VARCHAR} 
+			from dual
+		</foreach>
+  </insert>
+  
+  <update id="update" parameterType="com.taro.entity.pub.PubStructureRelationEntity">
+    update t_pub_structure_relation 
+    <set>
+      <if test="id != null" > f_pid = #{id,jdbcType=VARCHAR}, </if>
+      <if test="structure_pid != null" > f_structure_pid = #{structure_pid,jdbcType=VARCHAR}, </if>
+      <if test="structure_detail_pid != null" > f_structure_detail_pid = #{structure_detail_pid,jdbcType=VARCHAR}, </if>
+      <if test="parentdic_pid != null" > f_parentdic_pid = #{parentdic_pid,jdbcType=VARCHAR}, </if>
+      <if test="childdic_pid != null" > f_childdic_pid = #{childdic_pid,jdbcType=VARCHAR}, </if>
+      <if test="sysFlag != null" > f_sys_flag = #{sysFlag,jdbcType=VARCHAR}, </if>
+      <if test="remark != null" > f_remark = #{remark,jdbcType=VARCHAR}, </if>
+      <if test="lastModifier != null" > f_last_modifier = #{lastModifier,jdbcType=VARCHAR}, </if>
+      <if test="lastModifiedTime != null" > f_last_modified_time = #{lastModifiedTime,jdbcType=VARCHAR}, </if>
+      <if test="creator != null" > f_creator = #{creator,jdbcType=VARCHAR}, </if>
+      <if test="createTime != null" > f_create_time = #{createTime,jdbcType=VARCHAR}, </if>
+    </set>
+    where f_pid = #{id,jdbcType=VARCHAR}
+  </update>
+  
+  <update id="batchUpdate" parameterType="java.util.List">
+		<foreach collection="list" item="entity" separator=";">
+			update t_pub_structure_relation
+			<set>
+			  <if test="id != null" > f_pid = #{entity.id,jdbcType=VARCHAR}, </if>
+			  <if test="structure_pid != null" > f_structure_pid = #{entity.structure_pid,jdbcType=VARCHAR}, </if>
+			  <if test="structure_detail_pid != null" > f_structure_detail_pid = #{entity.structure_detail_pid,jdbcType=VARCHAR}, </if>
+			  <if test="parentdic_pid != null" > f_parentdic_pid = #{entity.parentdic_pid,jdbcType=VARCHAR}, </if>
+			  <if test="childdic_pid != null" > f_childdic_pid = #{entity.childdic_pid,jdbcType=VARCHAR}, </if>
+			  <if test="sysFlag != null" > f_sys_flag = #{entity.sysFlag,jdbcType=VARCHAR}, </if>
+			  <if test="remark != null" > f_remark = #{entity.remark,jdbcType=VARCHAR}, </if>
+			  <if test="lastModifier != null" > f_last_modifier = #{entity.lastModifier,jdbcType=VARCHAR}, </if>
+			  <if test="lastModifiedTime != null" > f_last_modified_time = #{entity.lastModifiedTime,jdbcType=VARCHAR}, </if>
+			  <if test="creator != null" > f_creator = #{entity.creator,jdbcType=VARCHAR}, </if>
+			  <if test="createTime != null" > f_create_time = #{entity.createTime,jdbcType=VARCHAR}, </if>
+			</set>
+			where f_pid = #{id,jdbcType=VARCHAR}
+		</foreach>
+  </update>
+  
+  
+  <update id="delete" parameterType="java.lang.String" >
+    update t_pub_structure_relation set
+		F_SYS_FLAG='0',
+	    F_LAST_MODIFIER = #{lastModifier,jdbcType=VARCHAR},
+		F_LAST_MODIFIED_TIME = #{lastModifiedTime,jdbcType=VARCHAR} 
+	where f_pid = #{id,jdbcType=VARCHAR}
+  </update>
+  
+  <update id="deleteAll" parameterType="map">
+	update t_pub_structure_relation set 
+		F_SYS_FLAG='0',
+	    F_LAST_MODIFIER = #{lastModifier,jdbcType=VARCHAR},
+		F_LAST_MODIFIED_TIME = #{lastModifiedTime,jdbcType=VARCHAR} 
+	where f_pid in
+	<foreach item="item" collection="ids" open="(" separator="," close=")">
+        #{item}
+    </foreach>
+  </update>
+  
+  <update id="deleteAllByStructurePid" parameterType="map">
+	update t_pub_structure_relation set 
+		F_SYS_FLAG='0',
+	    F_LAST_MODIFIER = #{lastModifier,jdbcType=VARCHAR},
+		F_LAST_MODIFIED_TIME = #{lastModifiedTime,jdbcType=VARCHAR} 
+	where f_structure_pid in
+	<foreach item="item" collection="ids" open="(" separator="," close=")">
+        #{item}
+    </foreach>
+  </update>
+  
+  <update id="deleteAllByStructureDetailPid" parameterType="map">
+	update t_pub_structure_relation set 
+		F_SYS_FLAG='0',
+	    F_LAST_MODIFIER = #{lastModifier,jdbcType=VARCHAR},
+		F_LAST_MODIFIED_TIME = #{lastModifiedTime,jdbcType=VARCHAR} 
+	where f_structure_detail_pid in
+	<foreach item="item" collection="ids" open="(" separator="," close=")">
+        #{item}
+    </foreach>
+  </update>
+  
+  <!-- 查询条件 模糊查询用concat函数 ：name like concat(concat('%',#{bean.name,jdbcType=VARCHAR}),'%')，
+  	         这样做主要是为了支持mysql和oracle以及防止sql注入 -->
+  <select id="list" resultMap="BaseResultMap" parameterType="map">
+	select t.*,
+	d1.F_NAME as F_PARENTDIC_NAME,
+	d2.F_NAME as F_CHILDDIC_NAME,
+	b1.F_PID as F_PARENTBASE_PID,
+	b2.F_PID as F_CHILDBASE_PID,
+	b1.F_NAME as F_PARENTBASE_NAME,
+	b2.F_NAME as F_CHILDBASE_NAME
+	from t_pub_structure_relation t
+	left join t_pub_dic d1 on d1.F_PID = t.F_PARENTDIC_PID and d1.F_SYS_FLAG = '1'
+	left join t_pub_dic d2 on d2.F_PID = t.F_CHILDDIC_PID and d2.F_SYS_FLAG = '1'
+    left join t_pub_base b1 on d1.f_base_pid = b1.f_pid and b1.f_sys_flag = '1'
+    left join t_pub_base b2 on d2.f_base_pid = b2.f_pid and b2.f_sys_flag = '1'
+    where 1 = 1
+	<if test="id != null and id != ''" > and t.f_pid = #{id,jdbcType=VARCHAR}</if>
+	<if test="structure_pid != null and structure_pid != ''" > and t.f_structure_pid = #{structure_pid,jdbcType=VARCHAR}</if>
+	<if test="structure_detail_pid != null and structure_detail_pid != ''" > and t.f_structure_detail_pid = #{structure_detail_pid,jdbcType=VARCHAR}</if>
+	<if test="parentdic_pid != null and parentdic_pid != ''" > and t.f_parentdic_pid = #{parentdic_pid,jdbcType=VARCHAR}</if>
+	<if test="childdic_pid != null and childdic_pid != ''" > and t.f_childdic_pid = #{childdic_pid,jdbcType=VARCHAR}</if>
+	<if test="sysFlag != null and sysFlag != ''" > and t.f_sys_flag = #{sysFlag,jdbcType=VARCHAR}</if>
+	<if test="remark != null and remark != ''" > and t.f_remark = #{remark,jdbcType=VARCHAR}</if>
+	<if test="lastModifier != null and lastModifier != ''" > and t.f_last_modifier = #{lastModifier,jdbcType=VARCHAR}</if>
+	<if test="lastModifiedTime != null and lastModifiedTime != ''" > and t.f_last_modified_time = #{lastModifiedTime,jdbcType=VARCHAR}</if>
+	<if test="creator != null and creator != ''" > and t.f_creator = #{creator,jdbcType=VARCHAR}</if>
+	<if test="createTime != null and createTime != ''" > and t.f_create_time = #{createTime,jdbcType=VARCHAR}</if>
+	<if test="parentdic_name != null and parentdic_name != ''" > 
+		and d1.F_NAME like concat(concat('%',#{parentdic_name,jdbcType=VARCHAR}),'%')
+	</if>
+	<if test="childdic_name != null and childdic_name != ''" > 
+		and d2.F_NAME like concat(concat('%',#{childdic_name,jdbcType=VARCHAR}),'%')
+	</if>
+	<if test="parentbase_pid != null and parentbase_pid != ''" > and b1.F_PID = #{parentbase_pid,jdbcType=VARCHAR}</if>
+	<if test="childbase_pid != null and childbase_pid != ''" > and b2.F_PID = #{childbase_pid,jdbcType=VARCHAR}</if>
+	<if test="parentbase_name != null and parentbase_name != ''" > 
+		and b1.F_NAME like concat(concat('%',#{parentbase_name,jdbcType=VARCHAR}),'%')
+	</if>
+	<if test="childbase_name != null and childbase_name != ''" > 
+		and b2.F_NAME like concat(concat('%',#{childbase_name,jdbcType=VARCHAR}),'%')
+	</if>
+	<if test="dicIds != null and dicIds != ''" > 
+		and t.f_parentdic_pid in 
+		<foreach item="item" collection="dicIds" open="(" separator="," close=")">
+	        #{item}
+	    </foreach>
+	</if>
+	order by d2.f_order, d2.f_create_time desc
+  </select>
+  
+  <select id="listMenu" resultMap="BaseResultMap" parameterType="map">
+	select t.f_pid, t.F_PARENTDIC_PID, t.F_CHILDDIC_PID,
+	d1.F_NAME as F_PARENTDIC_NAME,
+	d2.F_NAME as F_CHILDDIC_NAME,
+	b2.F_PID as F_CHILDBASE_PID
+	from t_pub_structure_relation t
+	left join t_pub_dic d1 on d1.F_PID = t.F_PARENTDIC_PID and d1.F_SYS_FLAG = '1'
+	left join t_pub_dic d2 on d2.F_PID = t.F_CHILDDIC_PID and d2.F_SYS_FLAG = '1'
+    left join t_pub_base b2 on d2.f_base_pid = b2.f_pid and b2.f_sys_flag = '1'
+    where t.f_sys_flag = '1' and t.f_structure_pid = 'menuStructure'
+	<if test="tenants_pid != '1001'" >
+	and t.F_CHILDDIC_PID in (
+		select tp.F_RESOURCE_PID 
+		from t_sec_tenants_permission tp
+		where tp.F_TENANTS_PID = #{tenants_pid,jdbcType=VARCHAR}
+	)
+	</if>
+  </select>
+  
+  <select id="get" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from t_pub_structure_relation t
+    where t.f_pid = #{id,jdbcType=VARCHAR}
+  </select>
+  
+</mapper>

@@ -1,0 +1,333 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- @Automatically generate by Coder in 2021-01-27 15:08:34 -->
+<mapper namespace="com.taro.dao.pay.PayRefundDao">
+
+  	<resultMap id="BaseResultMap" type="com.taro.entity.pay.PayRefundEntity">
+	  	<id column="F_PID" property="id" jdbcType="VARCHAR" />
+  		<result column="F_PID" property="id" jdbcType="VARCHAR" />
+  		<result column="F_TENANTS_PID" property="tenants_pid" jdbcType="VARCHAR" />
+  		<result column="F_CODE" property="code" jdbcType="VARCHAR" />
+  		<result column="F_USER_PHONE" property="user_phone" jdbcType="VARCHAR" />
+  		<result column="F_USER_NAME" property="user_name" jdbcType="VARCHAR" />
+  		<result column="F_PAY_TIME" property="pay_time" jdbcType="VARCHAR" />
+  		<result column="F_PAY_IMAGE" property="pay_image" jdbcType="VARCHAR" />
+  		<result column="F_STATUS" property="status" jdbcType="CHAR" />
+  		<result column="F_C1" property="c1" jdbcType="VARCHAR" />
+  		<result column="F_C2" property="c2" jdbcType="VARCHAR" />
+  		<result column="F_C3" property="c3" jdbcType="VARCHAR" />
+  		<result column="F_C4" property="c4" jdbcType="VARCHAR" />
+  		<result column="F_C5" property="c5" jdbcType="VARCHAR" />
+  		<result column="F_FLOW_STATE" property="flow_state" jdbcType="CHAR" />
+  		<result column="F_FLOW_TASK_ID" property="flow_task_id" jdbcType="VARCHAR" />
+  		<result column="F_FLOW_TASK_DEF" property="flow_task_def" jdbcType="VARCHAR" />
+  		<result column="F_FLOW_TASK_NAME" property="flow_task_name" jdbcType="VARCHAR" />
+  		<result column="F_FLOW_CHECK_RESULT" property="flow_check_result" jdbcType="CHAR" />
+  		<result column="F_FLOW_CHECK_USER" property="flow_check_user" jdbcType="VARCHAR" />
+  		<result column="F_FLOW_CHECK_OPINION" property="flow_check_opinion" jdbcType="VARCHAR" />
+  		<result column="F_FLOW_CHECK_TIME" property="flow_check_time" jdbcType="VARCHAR" />
+	  	<result column="F_SYS_FLAG" property="sysFlag" jdbcType="VARCHAR" />
+	  	<result column="F_REMARK" property="remark" jdbcType="VARCHAR" />
+	  	<result column="F_LAST_MODIFIER" property="lastModifier" jdbcType="VARCHAR" />
+	  	<result column="F_LAST_MODIFIED_TIME" property="lastModifiedTime" jdbcType="VARCHAR" />
+	  	<result column="F_CREATOR" property="creator" jdbcType="VARCHAR" />
+	  	<result column="F_CREATE_TIME" property="createTime" jdbcType="VARCHAR" />
+	  	
+  		<result column="f_first_check_user_name" property="first_check_user_name" jdbcType="VARCHAR" />
+  		<result column="f_first_check_user_tenants" property="first_check_user_tenants" jdbcType="VARCHAR" />
+  		<result column="f_flow_check_user_name" property="flow_check_user_name" jdbcType="VARCHAR" />
+  		<result column="f_flow_check_user_tenants" property="flow_check_user_tenants" jdbcType="VARCHAR" />
+  	</resultMap>
+
+  	<sql id="Base_Column_List" >
+		t.F_PID, T.F_TENANTS_PID, T.F_CODE, T.F_USER_PHONE, T.F_USER_NAME, T.F_PAY_TIME,
+		T.F_PAY_IMAGE, T.F_STATUS, T.F_C1, T.F_C2, T.F_C3,
+		T.F_C4, T.F_C5, T.F_FLOW_STATE, T.F_FLOW_TASK_ID, T.F_FLOW_TASK_DEF,
+		T.F_FLOW_TASK_NAME, T.F_FLOW_CHECK_RESULT, T.F_FLOW_CHECK_USER, T.F_FLOW_CHECK_OPINION, T.F_FLOW_CHECK_TIME, 
+		t.F_SYS_FLAG, t.F_REMARK, t.F_LAST_MODIFIER, t.F_LAST_MODIFIED_TIME, t.F_CREATOR, t.F_CREATE_TIME
+  	</sql>
+
+  	<sql id="where_sql">
+		<if test="id != null and id != ''" > 
+			and t.F_PID = #{id, jdbcType=VARCHAR}
+		</if>
+		<if test="tenants_pid != null and tenants_pid != ''" > 
+			and T.F_TENANTS_PID = #{tenants_pid, jdbcType=VARCHAR}
+		</if>
+		<if test="code != null and code != ''" > 
+			and T.F_CODE = #{code, jdbcType=VARCHAR}
+		</if>
+		<if test="user_phone != null and user_phone != ''" > 
+			and T.F_USER_PHONE = #{user_phone, jdbcType=VARCHAR}
+		</if>
+		<if test="user_name != null and user_name != ''" > 
+			and T.F_USER_NAME = #{user_name, jdbcType=VARCHAR}
+		</if>
+		<if test="user_phone_like != null and user_phone_like != ''" > 
+			and T.F_USER_PHONE like concat(concat('%',#{user_phone_like,jdbcType=VARCHAR}),'%')
+		</if>
+		<if test="user_name_like != null and user_name_like != ''" > 
+			and T.F_USER_NAME like concat(concat('%',#{user_name_like,jdbcType=VARCHAR}),'%')
+		</if>
+		<if test="pay_time != null and pay_time != ''" > 
+			and T.F_PAY_TIME = #{pay_time, jdbcType=VARCHAR}
+		</if>
+		<if test="pay_image != null and pay_image != ''" > 
+			and T.F_PAY_IMAGE = #{pay_image, jdbcType=VARCHAR}
+		</if>
+		<if test="status != null and status != ''" > 
+			and T.F_STATUS = #{status, jdbcType=CHAR}
+		</if>
+		<if test="c1 != null and c1 != ''" > 
+			and T.F_C1 = #{c1, jdbcType=VARCHAR}
+		</if>
+		<if test="c2 != null and c2 != ''" > 
+			and T.F_C2 = #{c2, jdbcType=VARCHAR}
+		</if>
+		<if test="c3 != null and c3 != ''" > 
+			and T.F_C3 = #{c3, jdbcType=VARCHAR}
+		</if>
+		<if test="c4 != null and c4 != ''" > 
+			and T.F_C4 = #{c4, jdbcType=VARCHAR}
+		</if>
+		<if test="c5 != null and c5 != ''" > 
+			and T.F_C5 = #{c5, jdbcType=VARCHAR}
+		</if>
+		<if test="flow_state != null and flow_state != ''" > 
+			and T.F_FLOW_STATE = #{flow_state, jdbcType=CHAR}
+		</if>
+		<if test="flow_task_id != null and flow_task_id != ''" > 
+			and T.F_FLOW_TASK_ID = #{flow_task_id, jdbcType=VARCHAR}
+		</if>
+		<if test="flow_task_def != null and flow_task_def != ''" > 
+			and T.F_FLOW_TASK_DEF = #{flow_task_def, jdbcType=VARCHAR}
+		</if>
+		<if test="flow_task_name != null and flow_task_name != ''" > 
+			and T.F_FLOW_TASK_NAME = #{flow_task_name, jdbcType=VARCHAR}
+		</if>
+		<if test="flow_check_result != null and flow_check_result != ''" > 
+			and T.F_FLOW_CHECK_RESULT = #{flow_check_result, jdbcType=CHAR}
+		</if>
+		<if test="flow_check_user != null and flow_check_user != ''" > 
+			and T.F_FLOW_CHECK_USER = #{flow_check_user, jdbcType=VARCHAR}
+		</if>
+		<if test="flow_check_opinion != null and flow_check_opinion != ''" > 
+			and T.F_FLOW_CHECK_OPINION = #{flow_check_opinion, jdbcType=VARCHAR}
+		</if>
+		<if test="flow_check_time != null and flow_check_time != ''" > 
+			and T.F_FLOW_CHECK_TIME = #{flow_check_time, jdbcType=VARCHAR}
+		</if>
+		<if test="sysFlag != null and sysFlag != ''" > 
+			and t.F_SYS_FLAG = #{sysFlag, jdbcType=VARCHAR}
+		</if>
+		<if test="remark != null and remark != ''" > 
+			and t.F_REMARK = #{remark, jdbcType=VARCHAR}
+		</if>
+		<if test="lastModifier != null and lastModifier != ''" > 
+			and t.F_LAST_MODIFIER = #{lastModifier, jdbcType=VARCHAR}
+		</if>
+		<if test="lastModifiedTime != null and lastModifiedTime != ''" > 
+			and t.F_LAST_MODIFIED_TIME = #{lastModifiedTime, jdbcType=VARCHAR}
+		</if>
+		<if test="creator != null and creator != ''" > 
+			and t.F_CREATOR = #{creator, jdbcType=VARCHAR}
+		</if>
+		<if test="createTime != null and createTime != ''" > 
+			and t.F_CREATE_TIME = #{createTime, jdbcType=VARCHAR}
+		</if>
+  	</sql>
+
+	<!-- 新增 -->
+  	<insert id="insert" parameterType="com.taro.entity.pay.PayRefundEntity" >
+    	INSERT INTO T_PAY_REFUND (
+    		F_PID, F_TENANTS_PID, F_CODE, F_USER_PHONE,
+			F_USER_NAME, F_PAY_TIME, F_PAY_IMAGE,
+			F_STATUS, F_C1, F_C2,
+			F_C3, F_C4, F_C5,
+			F_FLOW_STATE, F_FLOW_TASK_ID, F_FLOW_TASK_DEF,
+			F_FLOW_TASK_NAME, F_FLOW_CHECK_RESULT, F_FLOW_CHECK_USER,
+			F_FLOW_CHECK_OPINION, F_FLOW_CHECK_TIME, 
+		  	F_SYS_FLAG, F_REMARK, F_LAST_MODIFIER,
+		  	F_LAST_MODIFIED_TIME, F_CREATOR, F_CREATE_TIME
+    	) VALUES (
+    		#{id, jdbcType=VARCHAR}, #{tenants_pid, jdbcType=VARCHAR}, #{code, jdbcType=VARCHAR}, #{user_phone, jdbcType=VARCHAR},
+			#{user_name, jdbcType=VARCHAR}, #{pay_time, jdbcType=VARCHAR}, #{pay_image, jdbcType=VARCHAR},
+			#{status, jdbcType=CHAR}, #{c1, jdbcType=VARCHAR}, #{c2, jdbcType=VARCHAR},
+			#{c3, jdbcType=VARCHAR}, #{c4, jdbcType=VARCHAR}, #{c5, jdbcType=VARCHAR},
+			#{flow_state, jdbcType=CHAR}, #{flow_task_id, jdbcType=VARCHAR}, #{flow_task_def, jdbcType=VARCHAR},
+			#{flow_task_name, jdbcType=VARCHAR}, #{flow_check_result, jdbcType=CHAR}, #{flow_check_user, jdbcType=VARCHAR},
+			#{flow_check_opinion, jdbcType=VARCHAR}, #{flow_check_time,jdbcType=VARCHAR} , 
+		  	#{sysFlag, jdbcType=VARCHAR}, #{remark, jdbcType=VARCHAR}, #{lastModifier, jdbcType=VARCHAR},
+		  	#{lastModifiedTime, jdbcType=VARCHAR}, #{creator, jdbcType=VARCHAR}, #{createTime, jdbcType=VARCHAR} 
+    	)
+  	</insert>
+
+	<!-- 批量新增 -->
+  	<insert id="insertObjects" parameterType="list">
+		INSERT INTO T_PAY_REFUND (
+    		F_PID, F_TENANTS_PID, F_CODE, F_USER_PHONE,
+			F_USER_NAME, F_PAY_TIME, F_PAY_IMAGE,
+			F_STATUS, F_C1, F_C2,
+			F_C3, F_C4, F_C5,
+			F_FLOW_STATE, F_FLOW_TASK_ID, F_FLOW_TASK_DEF,
+			F_FLOW_TASK_NAME, F_FLOW_CHECK_RESULT, F_FLOW_CHECK_USER,
+			F_FLOW_CHECK_OPINION, F_FLOW_CHECK_TIME, 
+		  	F_SYS_FLAG, F_REMARK, F_LAST_MODIFIER,
+		  	F_LAST_MODIFIED_TIME, F_CREATOR, F_CREATE_TIME
+		)
+		<foreach collection="list" item="entity" index="index" separator="union all">
+			SELECT
+    		#{entity.id, jdbcType=VARCHAR}, #{entity.tenants_pid, jdbcType=VARCHAR}, #{entity.code, jdbcType=VARCHAR}, #{entity.user_phone, jdbcType=VARCHAR},
+			#{entity.user_name, jdbcType=VARCHAR}, #{entity.pay_time, jdbcType=VARCHAR}, #{entity.pay_image, jdbcType=VARCHAR},
+			#{entity.status, jdbcType=CHAR}, #{entity.c1, jdbcType=VARCHAR}, #{entity.c2, jdbcType=VARCHAR},
+			#{entity.c3, jdbcType=VARCHAR}, #{entity.c4, jdbcType=VARCHAR}, #{entity.c5, jdbcType=VARCHAR},
+			#{entity.flow_state, jdbcType=CHAR}, #{entity.flow_task_id, jdbcType=VARCHAR}, #{entity.flow_task_def, jdbcType=VARCHAR},
+			#{entity.flow_task_name, jdbcType=VARCHAR}, #{entity.flow_check_result, jdbcType=CHAR}, #{entity.flow_check_user, jdbcType=VARCHAR},
+			#{entity.flow_check_opinion, jdbcType=VARCHAR}, #{entity.flow_check_time,jdbcType=VARCHAR} , 
+  			#{entity.sysFlag,jdbcType=VARCHAR}, #{entity.remark,jdbcType=VARCHAR}, #{entity.lastModifier,jdbcType=VARCHAR},
+  			#{entity.lastModifiedTime,jdbcType=VARCHAR}, #{entity.creator,jdbcType=VARCHAR}, #{entity.createTime,jdbcType=VARCHAR} 
+			FROM DUAL
+		</foreach>
+  	</insert>
+
+	<!-- 更新 -->
+  	<update id="update" parameterType="com.taro.entity.pay.PayRefundEntity">
+    	UPDATE T_PAY_REFUND
+	    <set>
+      		<if test="id != null" > F_PID = #{id, jdbcType=VARCHAR}, </if>
+      		<if test="tenants_pid != null" > F_TENANTS_PID = #{tenants_pid, jdbcType=VARCHAR}, </if>
+      		<if test="code != null" > F_CODE = #{code, jdbcType=VARCHAR}, </if>
+      		<if test="user_phone != null" > F_USER_PHONE = #{user_phone, jdbcType=VARCHAR}, </if>
+      		<if test="user_name != null" > F_USER_NAME = #{user_name, jdbcType=VARCHAR}, </if>
+      		<if test="pay_time != null" > F_PAY_TIME = #{pay_time, jdbcType=VARCHAR}, </if>
+      		<if test="pay_image != null" > F_PAY_IMAGE = #{pay_image, jdbcType=VARCHAR}, </if>
+      		<if test="status != null" > F_STATUS = #{status, jdbcType=CHAR}, </if>
+      		<if test="c1 != null" > F_C1 = #{c1, jdbcType=VARCHAR}, </if>
+      		<if test="c2 != null" > F_C2 = #{c2, jdbcType=VARCHAR}, </if>
+      		<if test="c3 != null" > F_C3 = #{c3, jdbcType=VARCHAR}, </if>
+      		<if test="c4 != null" > F_C4 = #{c4, jdbcType=VARCHAR}, </if>
+      		<if test="c5 != null" > F_C5 = #{c5, jdbcType=VARCHAR}, </if>
+      		<if test="flow_state != null" > F_FLOW_STATE = #{flow_state, jdbcType=CHAR}, </if>
+      		<if test="flow_task_id != null" > F_FLOW_TASK_ID = #{flow_task_id, jdbcType=VARCHAR}, </if>
+      		<if test="flow_task_def != null" > F_FLOW_TASK_DEF = #{flow_task_def, jdbcType=VARCHAR}, </if>
+      		<if test="flow_task_name != null" > F_FLOW_TASK_NAME = #{flow_task_name, jdbcType=VARCHAR}, </if>
+      		<if test="flow_check_result != null" > F_FLOW_CHECK_RESULT = #{flow_check_result, jdbcType=CHAR}, </if>
+      		<if test="flow_check_user != null" > F_FLOW_CHECK_USER = #{flow_check_user, jdbcType=VARCHAR}, </if>
+      		<if test="flow_check_opinion != null" > F_FLOW_CHECK_OPINION = #{flow_check_opinion, jdbcType=VARCHAR}, </if>
+      		<if test="flow_check_time != null" > F_FLOW_CHECK_TIME = #{flow_check_time, jdbcType=VARCHAR}, </if>
+	      	<if test="sysFlag != null" > F_SYS_FLAG = #{sysFlag, jdbcType=VARCHAR}, </if>
+	      	<if test="remark != null" > F_REMARK = #{remark, jdbcType=VARCHAR}, </if>
+	      	<if test="lastModifier != null" > F_LAST_MODIFIER = #{lastModifier, jdbcType=VARCHAR}, </if>
+	      	<if test="lastModifiedTime != null" > F_LAST_MODIFIED_TIME = #{lastModifiedTime, jdbcType=VARCHAR}, </if>
+	      	<if test="creator != null" > F_CREATOR = #{creator, jdbcType=VARCHAR}, </if>
+	      	<if test="createTime != null" > F_CREATE_TIME = #{createTime, jdbcType=VARCHAR}, </if>
+	    </set>
+    	WHERE F_PID = #{id, jdbcType=VARCHAR}
+  	</update>
+
+	<!-- 批量更新 -->
+  	<update id="batchUpdate" parameterType="java.util.List">
+		<foreach collection="list" item="entity" separator=";">
+			UPDATE T_PAY_REFUND
+			<set>
+		      	<if test="id != null" > F_PID = #{entity.id, jdbcType=VARCHAR}, </if>
+	      		<if test="tenants_pid != null" > F_TENANTS_PID = #{entity.tenants_pid, jdbcType=VARCHAR}, </if>
+	      		<if test="code != null" > F_CODE = #{entity.code, jdbcType=VARCHAR}, </if>
+	      		<if test="user_phone != null" > F_USER_PHONE = #{entity.user_phone, jdbcType=VARCHAR}, </if>
+	      		<if test="user_name != null" > F_USER_NAME = #{entity.user_name, jdbcType=VARCHAR}, </if>
+	      		<if test="pay_time != null" > F_PAY_TIME = #{entity.pay_time, jdbcType=VARCHAR}, </if>
+	      		<if test="pay_image != null" > F_PAY_IMAGE = #{entity.pay_image, jdbcType=VARCHAR}, </if>
+	      		<if test="status != null" > F_STATUS = #{entity.status, jdbcType=CHAR}, </if>
+	      		<if test="c1 != null" > F_C1 = #{entity.c1, jdbcType=VARCHAR}, </if>
+	      		<if test="c2 != null" > F_C2 = #{entity.c2, jdbcType=VARCHAR}, </if>
+	      		<if test="c3 != null" > F_C3 = #{entity.c3, jdbcType=VARCHAR}, </if>
+	      		<if test="c4 != null" > F_C4 = #{entity.c4, jdbcType=VARCHAR}, </if>
+	      		<if test="c5 != null" > F_C5 = #{entity.c5, jdbcType=VARCHAR}, </if>
+	      		<if test="flow_state != null" > F_FLOW_STATE = #{entity.flow_state, jdbcType=CHAR}, </if>
+	      		<if test="flow_task_id != null" > F_FLOW_TASK_ID = #{entity.flow_task_id, jdbcType=VARCHAR}, </if>
+	      		<if test="flow_task_def != null" > F_FLOW_TASK_DEF = #{entity.flow_task_def, jdbcType=VARCHAR}, </if>
+	      		<if test="flow_task_name != null" > F_FLOW_TASK_NAME = #{entity.flow_task_name, jdbcType=VARCHAR}, </if>
+	      		<if test="flow_check_result != null" > F_FLOW_CHECK_RESULT = #{entity.flow_check_result, jdbcType=CHAR}, </if>
+	      		<if test="flow_check_user != null" > F_FLOW_CHECK_USER = #{entity.flow_check_user, jdbcType=VARCHAR}, </if>
+	      		<if test="flow_check_opinion != null" > F_FLOW_CHECK_OPINION = #{entity.flow_check_opinion, jdbcType=VARCHAR}, </if>
+	      		<if test="flow_check_time != null" > F_FLOW_CHECK_TIME = #{entity.flow_check_time, jdbcType=VARCHAR}, </if>
+		      	<if test="sysFlag != null" > F_SYS_FLAG = #{entity.sysFlag, jdbcType=VARCHAR}, </if>
+		      	<if test="remark != null" > F_REMARK = #{entity.remark, jdbcType=VARCHAR}, </if>
+		      	<if test="lastModifier != null" > F_LAST_MODIFIER = #{entity.lastModifier, jdbcType=VARCHAR}, </if>
+		      	<if test="lastModifiedTime != null" > F_LAST_MODIFIED_TIME = #{entity.lastModifiedTime, jdbcType=VARCHAR}, </if>
+		      	<if test="creator != null" > F_CREATOR = #{entity.creator, jdbcType=VARCHAR}, </if>
+		      	<if test="createTime != null" > F_CREATE_TIME = #{entity.createTime, jdbcType=VARCHAR}, </if>
+			</set>
+    		WHERE F_PID = #{id, jdbcType=VARCHAR}
+		</foreach>
+  	</update>
+
+	<!-- 逻辑删除 -->
+  	<update id="delete" parameterType="java.lang.String" >
+    	UPDATE T_PAY_REFUND SET
+			F_SYS_FLAG = '0',
+		    F_LAST_MODIFIER = #{lastModifier, jdbcType=VARCHAR},
+			F_LAST_MODIFIED_TIME = #{lastModifiedTime, jdbcType=VARCHAR}
+    	WHERE F_PID = #{id, jdbcType=VARCHAR}
+  	</update>
+
+	<!-- 逻辑删除所有 -->
+  	<update id="deleteAll" parameterType="map">
+		UPDATE T_PAY_REFUND SET 
+			F_SYS_FLAG = '0',
+		    F_LAST_MODIFIER = #{lastModifier, jdbcType=VARCHAR},
+			F_LAST_MODIFIED_TIME = #{lastModifiedTime, jdbcType=VARCHAR}
+		WHERE F_PID IN
+		<foreach item="item" collection="ids" open="(" separator="," close=")">
+        	#{item}
+    	</foreach>
+  	</update>
+
+	<!-- 查询条件 模糊查询用concat函数:name like concat(concat('%',#{bean.name,jdbcType=VARCHAR}),'%'),	这样做主要是为了支持mysql和oracle以及防止sql注入 -->
+  	<!-- 列表查询 -->
+  	<select id="list" resultMap="BaseResultMap" parameterType="map">
+	    SELECT 
+	    	<include refid="Base_Column_List" />
+	    FROM T_PAY_REFUND T
+	    <where>
+			<include refid="where_sql"/>
+		</where>
+  	</select>
+  	
+  	<select id="listPayRefund" resultMap="BaseResultMap" parameterType="map">
+	    select t.*,
+		u.f_username as f_flow_check_user_name,
+		st.f_name as f_flow_check_user_tenants,
+		u2.f_username as f_first_check_user_name,
+		st2.f_name as f_first_check_user_tenants
+		from t_pay_refund t
+		left join t_sec_user u on t.f_flow_check_user = u.f_pid and u.f_sys_flag = '1'
+		left join t_sec_tenants st on u.f_tenants_pid = st.f_pid and st.f_sys_flag = '1'
+		left join t_sec_user u2 on t.f_c2 = u2.f_pid and u2.f_sys_flag = '1'
+		left join t_sec_tenants st2 on u2.f_tenants_pid = st2.f_pid and st2.f_sys_flag = '1'
+		where t.f_sys_flag = '1'
+		<if test="todo != null and todo != ''" > 
+			<include refid="com.taro.dao.activiti.ProcessDao.todoTaskIdSql">
+				<property name="todo_tenants_pid" value="#{todo_tenants_pid}"/>
+				<property name="todo_user_pid" value="#{todo_user_pid}"/>
+			</include>
+		</if>
+		<if test="query_tenants_pid != null and query_tenants_pid != ''" > 
+			and T.F_TENANTS_PID in (
+				select t.f_pid from t_sec_tenants t
+				where FIND_IN_SET(t.f_pid, getChildrenOrg(#{query_tenants_pid, jdbcType=VARCHAR}))
+				and t.f_sys_flag = '1'
+			)
+		</if>
+		<include refid="where_sql"/>
+  	</select>
+	
+	<!-- 根据ID查询单条记录 -->
+  	<select id="get" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    	SELECT 
+    		<include refid="Base_Column_List" />
+    	FROM T_PAY_REFUND T
+    	WHERE T.F_PID = #{id,jdbcType=VARCHAR}
+  	</select>
+
+</mapper>

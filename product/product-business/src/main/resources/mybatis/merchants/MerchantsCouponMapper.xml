@@ -1,0 +1,958 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- @Automatically generate by Coder in 2020-12-24 15:11:42 -->
+<mapper namespace="com.taro.dao.merchants.MerchantsCouponDao">
+
+  	<resultMap id="BaseResultMap" type="com.taro.entity.merchants.MerchantsCouponEntity">
+	  	<id column="F_PID" property="id" jdbcType="VARCHAR" />
+  		<result column="F_PID" property="id" jdbcType="VARCHAR" />
+  		<result column="F_TENANTS_PID" property="tenants_pid" jdbcType="VARCHAR" />
+  		<result column="F_MERCHANTS_PID" property="merchants_pid" jdbcType="VARCHAR" />
+  		<result column="F_COUPON_ID" property="coupon_id" jdbcType="VARCHAR" />
+  		<result column="F_COUPON_NAME" property="coupon_name" jdbcType="VARCHAR" />
+  		<result column="F_START_DATE" property="start_date" jdbcType="VARCHAR" />
+  		<result column="F_END_DATE" property="end_date" jdbcType="VARCHAR" />
+  		<result column="F_FACE_VALUE" property="face_value" jdbcType="FLOAT" />
+  		<result column="F_COUPON_TYPE" property="coupon_type" jdbcType="CHAR" />
+  		<result column="F_FULL_VALUE" property="full_value" jdbcType="FLOAT" />
+  		<result column="F_FRANT_NUM" property="frant_num" jdbcType="INTEGER" />
+  		<result column="F_REQ_NUM" property="req_num" jdbcType="INTEGER" />
+  		<result column="F_LOGOUT_NUM" property="logout_num" jdbcType="INTEGER" />
+  		<result column="F_IS_WRITE_OFF" property="is_write_off" jdbcType="CHAR" />
+  		<result column="F_DETAIL" property="detail" jdbcType="VARCHAR" />
+  		<result column="F_IMAGE1" property="image1" jdbcType="VARCHAR" />
+  		<result column="F_IMAGE2" property="image2" jdbcType="VARCHAR" />
+  		<result column="F_IMAGE3" property="image3" jdbcType="VARCHAR" />
+  		<result column="F_STATUS" property="status" jdbcType="CHAR" />
+  		<result column="F_ENABLE" property="enable" jdbcType="CHAR" />
+  		<result column="F_IS_SHARE" property="is_share" jdbcType="CHAR" />
+  		<result column="F_C1" property="c1" jdbcType="VARCHAR" />
+  		<result column="F_C2" property="c2" jdbcType="VARCHAR" />
+  		<result column="F_C3" property="c3" jdbcType="VARCHAR" />
+  		<result column="F_C4" property="c4" jdbcType="VARCHAR" />
+  		<result column="F_C5" property="c5" jdbcType="VARCHAR" />
+  		<result column="F_FLOW_STATE" property="flow_state" jdbcType="CHAR" />
+  		<result column="F_FLOW_TASK_ID" property="flow_task_id" jdbcType="VARCHAR" />
+  		<result column="F_FLOW_TASK_DEF" property="flow_task_def" jdbcType="VARCHAR" />
+  		<result column="F_FLOW_TASK_NAME" property="flow_task_name" jdbcType="VARCHAR" />
+  		<result column="F_FLOW_CHECK_RESULT" property="flow_check_result" jdbcType="CHAR" />
+  		<result column="F_FLOW_CHECK_USER" property="flow_check_user" jdbcType="VARCHAR" />
+  		<result column="F_FLOW_CHECK_OPINION" property="flow_check_opinion" jdbcType="VARCHAR" />
+  		<result column="F_FLOW_CHECK_TIME" property="flow_check_time" jdbcType="VARCHAR" />
+	  	<result column="F_SYS_FLAG" property="sysFlag" jdbcType="VARCHAR" />
+	  	<result column="F_REMARK" property="remark" jdbcType="VARCHAR" />
+	  	<result column="F_LAST_MODIFIER" property="lastModifier" jdbcType="VARCHAR" />
+	  	<result column="F_LAST_MODIFIED_TIME" property="lastModifiedTime" jdbcType="VARCHAR" />
+	  	<result column="F_CREATOR" property="creator" jdbcType="VARCHAR" />
+	  	<result column="F_CREATE_TIME" property="createTime" jdbcType="VARCHAR" />
+	  	
+	  	<result column="F_STORE_NAME" property="store_name" jdbcType="VARCHAR" />
+	  	<result column="F_STORE_PHONE" property="store_phone" jdbcType="VARCHAR" />
+	  	<result column="F_STORE_TRADE" property="store_trade" jdbcType="VARCHAR" />
+	  	<result column="F_STORE_ADDRESS" property="store_address" jdbcType="VARCHAR" />
+	  	<result column="F_STORE_SYNOPSIS" property="store_synopsis" jdbcType="VARCHAR" />
+	  	<result column="F_STORE_FRONT_IMAGE" property="store_front_image" jdbcType="VARCHAR" />
+  		<result column="F_STORE_IMAGE1" property="store_image1" jdbcType="VARCHAR" />
+  		<result column="F_STORE_IMAGE2" property="store_image2" jdbcType="VARCHAR" />
+  		<result column="F_STORE_IMAGE3" property="store_image3" jdbcType="VARCHAR" />
+  		<result column="F_STORE_LONGITUDE" property="store_longitude" jdbcType="FLOAT" />
+  		<result column="F_STORE_LATITUDE" property="store_latitude" jdbcType="FLOAT" />
+  		<result column="F_STORE_START_TIME" property="store_start_time" jdbcType="VARCHAR" />
+  		<result column="F_STORE_END_TIME" property="store_end_time" jdbcType="VARCHAR" />
+	  	
+	  	<result column="F_FROM_SHARE" property="from_share" jdbcType="VARCHAR" />
+	  	<result column="F_NOT_LOCAL" property="not_local" jdbcType="VARCHAR" />
+	  	
+  		<result column="F_TENANTS_NAME" property="tenants_name" jdbcType="VARCHAR" />
+  		<result column="F_USERNAME" property="username" jdbcType="VARCHAR" />
+  	</resultMap>
+
+  	<sql id="Base_Column_List" >
+		t.F_PID, T.F_TENANTS_PID, T.F_MERCHANTS_PID, T.F_COUPON_ID, T.F_COUPON_NAME, T.F_START_DATE,
+		T.F_END_DATE, T.F_FACE_VALUE, T.F_COUPON_TYPE, T.F_FULL_VALUE, T.F_FRANT_NUM,
+		T.F_REQ_NUM, T.F_LOGOUT_NUM, T.F_IS_WRITE_OFF, T.F_DETAIL, T.F_IMAGE1,
+		T.F_IMAGE2, T.F_IMAGE3, T.F_STATUS, T.F_ENABLE, T.F_IS_SHARE,
+		T.F_C1, T.F_C2, T.F_C3, T.F_C4, T.F_C5,
+		T.F_FLOW_STATE, T.F_FLOW_TASK_ID, T.F_FLOW_TASK_DEF, T.F_FLOW_TASK_NAME, T.F_FLOW_CHECK_RESULT,
+		T.F_FLOW_CHECK_USER, T.F_FLOW_CHECK_OPINION, T.F_FLOW_CHECK_TIME, 
+		t.F_SYS_FLAG, t.F_REMARK, t.F_LAST_MODIFIER, t.F_LAST_MODIFIED_TIME, t.F_CREATOR, t.F_CREATE_TIME
+  	</sql>
+
+  	<sql id="where_sql">
+		<if test="id != null and id != ''" > 
+			and t.F_PID = #{id, jdbcType=VARCHAR}
+		</if>
+		<if test="tenants_pid != null and tenants_pid != ''" > 
+			and T.F_TENANTS_PID = #{tenants_pid, jdbcType=VARCHAR}
+		</if>
+		<if test="merchants_pid != null and merchants_pid != ''" > 
+			and T.F_MERCHANTS_PID = #{merchants_pid, jdbcType=VARCHAR}
+		</if>
+		<if test="coupon_id != null and coupon_id != ''" > 
+			and T.F_COUPON_ID = #{coupon_id, jdbcType=VARCHAR}
+		</if>
+		<if test="coupon_name != null and coupon_name != ''" > 
+			and T.F_COUPON_NAME = #{coupon_name, jdbcType=VARCHAR}
+		</if>
+		<if test="start_date != null and start_date != ''" > 
+			and T.F_START_DATE = #{start_date, jdbcType=VARCHAR}
+		</if>
+		<if test="end_date != null and end_date != ''" > 
+			and T.F_END_DATE = #{end_date, jdbcType=VARCHAR}
+		</if>
+		<if test="face_value != null and face_value != ''" > 
+			and T.F_FACE_VALUE = #{face_value, jdbcType=FLOAT}
+		</if>
+		<if test="coupon_type != null and coupon_type != ''" > 
+			and T.F_COUPON_TYPE = #{coupon_type, jdbcType=CHAR}
+		</if>
+		<if test="full_value != null and full_value != ''" > 
+			and T.F_FULL_VALUE = #{full_value, jdbcType=FLOAT}
+		</if>
+		<if test="frant_num != null and frant_num != ''" > 
+			and T.F_FRANT_NUM = #{frant_num, jdbcType=INTEGER}
+		</if>
+		<if test="req_num != null and req_num != ''" > 
+			and T.F_REQ_NUM = #{req_num, jdbcType=INTEGER}
+		</if>
+		<if test="logout_num != null and logout_num != ''" > 
+			and T.F_LOGOUT_NUM = #{logout_num, jdbcType=INTEGER}
+		</if>
+		<if test="is_write_off != null and is_write_off != ''" > 
+			and T.F_IS_WRITE_OFF = #{is_write_off, jdbcType=CHAR}
+		</if>
+		<if test="detail != null and detail != ''" > 
+			and T.F_DETAIL = #{detail, jdbcType=VARCHAR}
+		</if>
+		<if test="image1 != null and image1 != ''" > 
+			and T.F_IMAGE1 = #{image1, jdbcType=VARCHAR}
+		</if>
+		<if test="image2 != null and image2 != ''" > 
+			and T.F_IMAGE2 = #{image2, jdbcType=VARCHAR}
+		</if>
+		<if test="image3 != null and image3 != ''" > 
+			and T.F_IMAGE3 = #{image3, jdbcType=VARCHAR}
+		</if>
+		<if test="status != null and status != ''" > 
+			and T.F_STATUS = #{status, jdbcType=CHAR}
+		</if>
+		<if test="enable != null and enable != ''" > 
+			and T.F_ENABLE = #{enable, jdbcType=CHAR}
+		</if>
+		<if test="is_share != null and is_share != ''" > 
+			and T.F_IS_SHARE = #{is_share, jdbcType=CHAR}
+		</if>
+		<if test="c1 != null and c1 != ''" > 
+			and T.F_C1 = #{c1, jdbcType=VARCHAR}
+		</if>
+		<if test="c2 != null and c2 != ''" > 
+			and T.F_C2 = #{c2, jdbcType=VARCHAR}
+		</if>
+		<if test="c3 != null and c3 != ''" > 
+			and T.F_C3 = #{c3, jdbcType=VARCHAR}
+		</if>
+		<if test="c4 != null and c4 != ''" > 
+			and T.F_C4 = #{c4, jdbcType=VARCHAR}
+		</if>
+		<if test="c5 != null and c5 != ''" > 
+			and T.F_C5 = #{c5, jdbcType=VARCHAR}
+		</if>
+		<if test="flow_state != null and flow_state != ''" > 
+			and T.F_FLOW_STATE = #{flow_state, jdbcType=CHAR}
+		</if>
+		<if test="flow_task_id != null and flow_task_id != ''" > 
+			and T.F_FLOW_TASK_ID = #{flow_task_id, jdbcType=VARCHAR}
+		</if>
+		<if test="flow_task_def != null and flow_task_def != ''" > 
+			and T.F_FLOW_TASK_DEF = #{flow_task_def, jdbcType=VARCHAR}
+		</if>
+		<if test="flow_task_name != null and flow_task_name != ''" > 
+			and T.F_FLOW_TASK_NAME = #{flow_task_name, jdbcType=VARCHAR}
+		</if>
+		<if test="flow_check_result != null and flow_check_result != ''" > 
+			and T.F_FLOW_CHECK_RESULT = #{flow_check_result, jdbcType=CHAR}
+		</if>
+		<if test="flow_check_user != null and flow_check_user != ''" > 
+			and T.F_FLOW_CHECK_USER = #{flow_check_user, jdbcType=VARCHAR}
+		</if>
+		<if test="flow_check_opinion != null and flow_check_opinion != ''" > 
+			and T.F_FLOW_CHECK_OPINION = #{flow_check_opinion, jdbcType=VARCHAR}
+		</if>
+		<if test="flow_check_time != null and flow_check_time != ''" > 
+			and T.F_FLOW_CHECK_TIME = #{flow_check_time, jdbcType=VARCHAR}
+		</if>
+		<if test="sysFlag != null and sysFlag != ''" > 
+			and t.F_SYS_FLAG = #{sysFlag, jdbcType=VARCHAR}
+		</if>
+		<if test="remark != null and remark != ''" > 
+			and t.F_REMARK = #{remark, jdbcType=VARCHAR}
+		</if>
+		<if test="lastModifier != null and lastModifier != ''" > 
+			and t.F_LAST_MODIFIER = #{lastModifier, jdbcType=VARCHAR}
+		</if>
+		<if test="lastModifiedTime != null and lastModifiedTime != ''" > 
+			and t.F_LAST_MODIFIED_TIME = #{lastModifiedTime, jdbcType=VARCHAR}
+		</if>
+		<if test="creator != null and creator != ''" > 
+			and t.F_CREATOR = #{creator, jdbcType=VARCHAR}
+		</if>
+		<if test="createTime != null and createTime != ''" > 
+			and t.F_CREATE_TIME = #{createTime, jdbcType=VARCHAR}
+		</if>
+  	</sql>
+
+	<!-- 新增 -->
+  	<insert id="insert" parameterType="com.taro.entity.merchants.MerchantsCouponEntity" >
+    	INSERT INTO T_MERCHANTS_COUPON (
+    		F_PID, F_TENANTS_PID, F_MERCHANTS_PID, F_COUPON_ID,
+			F_COUPON_NAME, F_START_DATE, F_END_DATE,
+			F_FACE_VALUE, F_COUPON_TYPE, F_FULL_VALUE,
+			F_FRANT_NUM, F_REQ_NUM, F_LOGOUT_NUM,
+			F_IS_WRITE_OFF, F_DETAIL, F_IMAGE1,
+			F_IMAGE2, F_IMAGE3, F_STATUS,
+			F_ENABLE, F_IS_SHARE, F_C1,
+			F_C2, F_C3, F_C4,
+			F_C5, F_FLOW_STATE, F_FLOW_TASK_ID,
+			F_FLOW_TASK_DEF, F_FLOW_TASK_NAME, F_FLOW_CHECK_RESULT,
+			F_FLOW_CHECK_USER, F_FLOW_CHECK_OPINION, F_FLOW_CHECK_TIME, 
+		  	F_SYS_FLAG, F_REMARK, F_LAST_MODIFIER,
+		  	F_LAST_MODIFIED_TIME, F_CREATOR, F_CREATE_TIME
+    	) VALUES (
+    		#{id, jdbcType=VARCHAR}, #{tenants_pid, jdbcType=VARCHAR}, #{merchants_pid, jdbcType=VARCHAR}, #{coupon_id, jdbcType=VARCHAR},
+			#{coupon_name, jdbcType=VARCHAR}, #{start_date, jdbcType=VARCHAR}, #{end_date, jdbcType=VARCHAR},
+			#{face_value, jdbcType=FLOAT}, #{coupon_type, jdbcType=CHAR}, #{full_value, jdbcType=FLOAT},
+			#{frant_num, jdbcType=INTEGER}, #{req_num, jdbcType=INTEGER}, #{logout_num, jdbcType=INTEGER},
+			#{is_write_off, jdbcType=CHAR}, #{detail, jdbcType=VARCHAR}, #{image1, jdbcType=VARCHAR},
+			#{image2, jdbcType=VARCHAR}, #{image3, jdbcType=VARCHAR}, #{status, jdbcType=CHAR},
+			#{enable, jdbcType=CHAR}, #{is_share, jdbcType=CHAR}, #{c1, jdbcType=VARCHAR},
+			#{c2, jdbcType=VARCHAR}, #{c3, jdbcType=VARCHAR}, #{c4, jdbcType=VARCHAR},
+			#{c5, jdbcType=VARCHAR}, #{flow_state, jdbcType=CHAR}, #{flow_task_id, jdbcType=VARCHAR},
+			#{flow_task_def, jdbcType=VARCHAR}, #{flow_task_name, jdbcType=VARCHAR}, #{flow_check_result, jdbcType=CHAR},
+			#{flow_check_user, jdbcType=VARCHAR}, #{flow_check_opinion, jdbcType=VARCHAR}, #{flow_check_time,jdbcType=VARCHAR} , 
+		  	#{sysFlag, jdbcType=VARCHAR}, #{remark, jdbcType=VARCHAR}, #{lastModifier, jdbcType=VARCHAR},
+		  	#{lastModifiedTime, jdbcType=VARCHAR}, #{creator, jdbcType=VARCHAR}, #{createTime, jdbcType=VARCHAR} 
+    	)
+  	</insert>
+
+	<!-- 批量新增 -->
+  	<insert id="insertObjects" parameterType="list">
+		INSERT INTO T_MERCHANTS_COUPON (
+    		F_PID, F_TENANTS_PID, F_MERCHANTS_PID, F_COUPON_ID,
+			F_COUPON_NAME, F_START_DATE, F_END_DATE,
+			F_FACE_VALUE, F_COUPON_TYPE, F_FULL_VALUE,
+			F_FRANT_NUM, F_REQ_NUM, F_LOGOUT_NUM,
+			F_IS_WRITE_OFF, F_DETAIL, F_IMAGE1,
+			F_IMAGE2, F_IMAGE3, F_STATUS,
+			F_ENABLE, F_IS_SHARE, F_C1,
+			F_C2, F_C3, F_C4,
+			F_C5, F_FLOW_STATE, F_FLOW_TASK_ID,
+			F_FLOW_TASK_DEF, F_FLOW_TASK_NAME, F_FLOW_CHECK_RESULT,
+			F_FLOW_CHECK_USER, F_FLOW_CHECK_OPINION, F_FLOW_CHECK_TIME, 
+		  	F_SYS_FLAG, F_REMARK, F_LAST_MODIFIER,
+		  	F_LAST_MODIFIED_TIME, F_CREATOR, F_CREATE_TIME
+		)
+		<foreach collection="list" item="entity" index="index" separator="union all">
+			SELECT
+    		#{entity.id, jdbcType=VARCHAR}, #{entity.tenants_pid, jdbcType=VARCHAR}, #{entity.merchants_pid, jdbcType=VARCHAR}, #{entity.coupon_id, jdbcType=VARCHAR},
+			#{entity.coupon_name, jdbcType=VARCHAR}, #{entity.start_date, jdbcType=VARCHAR}, #{entity.end_date, jdbcType=VARCHAR},
+			#{entity.face_value, jdbcType=FLOAT}, #{entity.coupon_type, jdbcType=CHAR}, #{entity.full_value, jdbcType=FLOAT},
+			#{entity.frant_num, jdbcType=INTEGER}, #{entity.req_num, jdbcType=INTEGER}, #{entity.logout_num, jdbcType=INTEGER},
+			#{entity.is_write_off, jdbcType=CHAR}, #{entity.detail, jdbcType=VARCHAR}, #{entity.image1, jdbcType=VARCHAR},
+			#{entity.image2, jdbcType=VARCHAR}, #{entity.image3, jdbcType=VARCHAR}, #{entity.status, jdbcType=CHAR},
+			#{entity.enable, jdbcType=CHAR}, #{entity.is_share, jdbcType=CHAR}, #{entity.c1, jdbcType=VARCHAR},
+			#{entity.c2, jdbcType=VARCHAR}, #{entity.c3, jdbcType=VARCHAR}, #{entity.c4, jdbcType=VARCHAR},
+			#{entity.c5, jdbcType=VARCHAR}, #{entity.flow_state, jdbcType=CHAR}, #{entity.flow_task_id, jdbcType=VARCHAR},
+			#{entity.flow_task_def, jdbcType=VARCHAR}, #{entity.flow_task_name, jdbcType=VARCHAR}, #{entity.flow_check_result, jdbcType=CHAR},
+			#{entity.flow_check_user, jdbcType=VARCHAR}, #{entity.flow_check_opinion, jdbcType=VARCHAR}, #{entity.flow_check_time,jdbcType=VARCHAR} , 
+  			#{entity.sysFlag,jdbcType=VARCHAR}, #{entity.remark,jdbcType=VARCHAR}, #{entity.lastModifier,jdbcType=VARCHAR},
+  			#{entity.lastModifiedTime,jdbcType=VARCHAR}, #{entity.creator,jdbcType=VARCHAR}, #{entity.createTime,jdbcType=VARCHAR} 
+			FROM DUAL
+		</foreach>
+  	</insert>
+
+	<!-- 更新 -->
+  	<update id="update" parameterType="com.taro.entity.merchants.MerchantsCouponEntity">
+    	UPDATE T_MERCHANTS_COUPON
+	    <set>
+      		<if test="id != null" > F_PID = #{id, jdbcType=VARCHAR}, </if>
+      		<if test="tenants_pid != null" > F_TENANTS_PID = #{tenants_pid, jdbcType=VARCHAR}, </if>
+      		<if test="merchants_pid != null" > F_MERCHANTS_PID = #{merchants_pid, jdbcType=VARCHAR}, </if>
+      		<if test="coupon_id != null" > F_COUPON_ID = #{coupon_id, jdbcType=VARCHAR}, </if>
+      		<if test="coupon_name != null" > F_COUPON_NAME = #{coupon_name, jdbcType=VARCHAR}, </if>
+      		<if test="start_date != null" > F_START_DATE = #{start_date, jdbcType=VARCHAR}, </if>
+      		<if test="end_date != null" > F_END_DATE = #{end_date, jdbcType=VARCHAR}, </if>
+      		<if test="face_value != null" > F_FACE_VALUE = #{face_value, jdbcType=FLOAT}, </if>
+      		<if test="coupon_type != null" > F_COUPON_TYPE = #{coupon_type, jdbcType=CHAR}, </if>
+      		<if test="full_value != null" > F_FULL_VALUE = #{full_value, jdbcType=FLOAT}, </if>
+      		<if test="frant_num != null" > F_FRANT_NUM = #{frant_num, jdbcType=INTEGER}, </if>
+      		<if test="req_num != null" > F_REQ_NUM = #{req_num, jdbcType=INTEGER}, </if>
+      		<if test="logout_num != null" > F_LOGOUT_NUM = #{logout_num, jdbcType=INTEGER}, </if>
+      		<if test="is_write_off != null" > F_IS_WRITE_OFF = #{is_write_off, jdbcType=CHAR}, </if>
+      		<if test="detail != null" > F_DETAIL = #{detail, jdbcType=VARCHAR}, </if>
+      		<if test="image1 != null" > F_IMAGE1 = #{image1, jdbcType=VARCHAR}, </if>
+      		<if test="image2 != null" > F_IMAGE2 = #{image2, jdbcType=VARCHAR}, </if>
+      		<if test="image3 != null" > F_IMAGE3 = #{image3, jdbcType=VARCHAR}, </if>
+      		<if test="status != null" > F_STATUS = #{status, jdbcType=CHAR}, </if>
+      		<if test="enable != null" > F_ENABLE = #{enable, jdbcType=CHAR}, </if>
+      		<if test="is_share != null" > F_IS_SHARE = #{is_share, jdbcType=CHAR}, </if>
+      		<if test="c1 != null" > F_C1 = #{c1, jdbcType=VARCHAR}, </if>
+      		<if test="c2 != null" > F_C2 = #{c2, jdbcType=VARCHAR}, </if>
+      		<if test="c3 != null" > F_C3 = #{c3, jdbcType=VARCHAR}, </if>
+      		<if test="c4 != null" > F_C4 = #{c4, jdbcType=VARCHAR}, </if>
+      		<if test="c5 != null" > F_C5 = #{c5, jdbcType=VARCHAR}, </if>
+      		<if test="flow_state != null" > F_FLOW_STATE = #{flow_state, jdbcType=CHAR}, </if>
+      		<if test="flow_task_id != null" > F_FLOW_TASK_ID = #{flow_task_id, jdbcType=VARCHAR}, </if>
+      		<if test="flow_task_def != null" > F_FLOW_TASK_DEF = #{flow_task_def, jdbcType=VARCHAR}, </if>
+      		<if test="flow_task_name != null" > F_FLOW_TASK_NAME = #{flow_task_name, jdbcType=VARCHAR}, </if>
+      		<if test="flow_check_result != null" > F_FLOW_CHECK_RESULT = #{flow_check_result, jdbcType=CHAR}, </if>
+      		<if test="flow_check_user != null" > F_FLOW_CHECK_USER = #{flow_check_user, jdbcType=VARCHAR}, </if>
+      		<if test="flow_check_opinion != null" > F_FLOW_CHECK_OPINION = #{flow_check_opinion, jdbcType=VARCHAR}, </if>
+      		<if test="flow_check_time != null" > F_FLOW_CHECK_TIME = #{flow_check_time, jdbcType=VARCHAR}, </if>
+	      	<if test="sysFlag != null" > F_SYS_FLAG = #{sysFlag, jdbcType=VARCHAR}, </if>
+	      	<if test="remark != null" > F_REMARK = #{remark, jdbcType=VARCHAR}, </if>
+	      	<if test="lastModifier != null" > F_LAST_MODIFIER = #{lastModifier, jdbcType=VARCHAR}, </if>
+	      	<if test="lastModifiedTime != null" > F_LAST_MODIFIED_TIME = #{lastModifiedTime, jdbcType=VARCHAR}, </if>
+	      	<if test="creator != null" > F_CREATOR = #{creator, jdbcType=VARCHAR}, </if>
+	      	<if test="createTime != null" > F_CREATE_TIME = #{createTime, jdbcType=VARCHAR}, </if>
+	    </set>
+    	WHERE F_PID = #{id, jdbcType=VARCHAR}
+  	</update>
+
+	<!-- 批量更新 -->
+  	<update id="batchUpdate" parameterType="java.util.List">
+		<foreach collection="list" item="entity" separator=";">
+			UPDATE T_MERCHANTS_COUPON
+			<set>
+		      	<if test="id != null" > F_PID = #{entity.id, jdbcType=VARCHAR}, </if>
+	      		<if test="tenants_pid != null" > F_TENANTS_PID = #{entity.tenants_pid, jdbcType=VARCHAR}, </if>
+	      		<if test="merchants_pid != null" > F_MERCHANTS_PID = #{entity.merchants_pid, jdbcType=VARCHAR}, </if>
+	      		<if test="coupon_id != null" > F_COUPON_ID = #{entity.coupon_id, jdbcType=VARCHAR}, </if>
+	      		<if test="coupon_name != null" > F_COUPON_NAME = #{entity.coupon_name, jdbcType=VARCHAR}, </if>
+	      		<if test="start_date != null" > F_START_DATE = #{entity.start_date, jdbcType=VARCHAR}, </if>
+	      		<if test="end_date != null" > F_END_DATE = #{entity.end_date, jdbcType=VARCHAR}, </if>
+	      		<if test="face_value != null" > F_FACE_VALUE = #{entity.face_value, jdbcType=FLOAT}, </if>
+	      		<if test="coupon_type != null" > F_COUPON_TYPE = #{entity.coupon_type, jdbcType=CHAR}, </if>
+	      		<if test="full_value != null" > F_FULL_VALUE = #{entity.full_value, jdbcType=FLOAT}, </if>
+	      		<if test="frant_num != null" > F_FRANT_NUM = #{entity.frant_num, jdbcType=INTEGER}, </if>
+	      		<if test="req_num != null" > F_REQ_NUM = #{entity.req_num, jdbcType=INTEGER}, </if>
+	      		<if test="logout_num != null" > F_LOGOUT_NUM = #{entity.logout_num, jdbcType=INTEGER}, </if>
+	      		<if test="is_write_off != null" > F_IS_WRITE_OFF = #{entity.is_write_off, jdbcType=CHAR}, </if>
+	      		<if test="detail != null" > F_DETAIL = #{entity.detail, jdbcType=VARCHAR}, </if>
+	      		<if test="image1 != null" > F_IMAGE1 = #{entity.image1, jdbcType=VARCHAR}, </if>
+	      		<if test="image2 != null" > F_IMAGE2 = #{entity.image2, jdbcType=VARCHAR}, </if>
+	      		<if test="image3 != null" > F_IMAGE3 = #{entity.image3, jdbcType=VARCHAR}, </if>
+	      		<if test="status != null" > F_STATUS = #{entity.status, jdbcType=CHAR}, </if>
+	      		<if test="enable != null" > F_ENABLE = #{entity.enable, jdbcType=CHAR}, </if>
+	      		<if test="is_share != null" > F_IS_SHARE = #{entity.is_share, jdbcType=CHAR}, </if>
+	      		<if test="c1 != null" > F_C1 = #{entity.c1, jdbcType=VARCHAR}, </if>
+	      		<if test="c2 != null" > F_C2 = #{entity.c2, jdbcType=VARCHAR}, </if>
+	      		<if test="c3 != null" > F_C3 = #{entity.c3, jdbcType=VARCHAR}, </if>
+	      		<if test="c4 != null" > F_C4 = #{entity.c4, jdbcType=VARCHAR}, </if>
+	      		<if test="c5 != null" > F_C5 = #{entity.c5, jdbcType=VARCHAR}, </if>
+	      		<if test="flow_state != null" > F_FLOW_STATE = #{entity.flow_state, jdbcType=CHAR}, </if>
+	      		<if test="flow_task_id != null" > F_FLOW_TASK_ID = #{entity.flow_task_id, jdbcType=VARCHAR}, </if>
+	      		<if test="flow_task_def != null" > F_FLOW_TASK_DEF = #{entity.flow_task_def, jdbcType=VARCHAR}, </if>
+	      		<if test="flow_task_name != null" > F_FLOW_TASK_NAME = #{entity.flow_task_name, jdbcType=VARCHAR}, </if>
+	      		<if test="flow_check_result != null" > F_FLOW_CHECK_RESULT = #{entity.flow_check_result, jdbcType=CHAR}, </if>
+	      		<if test="flow_check_user != null" > F_FLOW_CHECK_USER = #{entity.flow_check_user, jdbcType=VARCHAR}, </if>
+	      		<if test="flow_check_opinion != null" > F_FLOW_CHECK_OPINION = #{entity.flow_check_opinion, jdbcType=VARCHAR}, </if>
+	      		<if test="flow_check_time != null" > F_FLOW_CHECK_TIME = #{entity.flow_check_time, jdbcType=VARCHAR}, </if>
+		      	<if test="sysFlag != null" > F_SYS_FLAG = #{entity.sysFlag, jdbcType=VARCHAR}, </if>
+		      	<if test="remark != null" > F_REMARK = #{entity.remark, jdbcType=VARCHAR}, </if>
+		      	<if test="lastModifier != null" > F_LAST_MODIFIER = #{entity.lastModifier, jdbcType=VARCHAR}, </if>
+		      	<if test="lastModifiedTime != null" > F_LAST_MODIFIED_TIME = #{entity.lastModifiedTime, jdbcType=VARCHAR}, </if>
+		      	<if test="creator != null" > F_CREATOR = #{entity.creator, jdbcType=VARCHAR}, </if>
+		      	<if test="createTime != null" > F_CREATE_TIME = #{entity.createTime, jdbcType=VARCHAR}, </if>
+			</set>
+    		WHERE F_PID = #{id, jdbcType=VARCHAR}
+		</foreach>
+  	</update>
+
+  	<update id="updateReqNum" parameterType="java.lang.String">
+    	UPDATE T_MERCHANTS_COUPON
+	    set F_REQ_NUM = F_REQ_NUM + 1
+    	WHERE F_PID = #{id, jdbcType=VARCHAR}
+  	</update>
+
+  	<update id="updateLogoutNum" parameterType="java.lang.String">
+    	UPDATE T_MERCHANTS_COUPON
+	    set F_LOGOUT_NUM = F_LOGOUT_NUM + 1
+    	WHERE F_PID = #{id, jdbcType=VARCHAR}
+  	</update>
+  	
+	<!-- 逻辑删除 -->
+  	<update id="delete" parameterType="java.lang.String" >
+    	UPDATE T_MERCHANTS_COUPON SET
+			F_SYS_FLAG = '0',
+		    F_LAST_MODIFIER = #{lastModifier, jdbcType=VARCHAR},
+			F_LAST_MODIFIED_TIME = #{lastModifiedTime, jdbcType=VARCHAR}
+    	WHERE F_PID = #{id, jdbcType=VARCHAR}
+  	</update>
+
+	<!-- 逻辑删除所有 -->
+  	<update id="deleteAll" parameterType="map">
+		UPDATE T_MERCHANTS_COUPON SET 
+			F_SYS_FLAG = '0',
+		    F_LAST_MODIFIER = #{lastModifier, jdbcType=VARCHAR},
+			F_LAST_MODIFIED_TIME = #{lastModifiedTime, jdbcType=VARCHAR}
+		WHERE F_PID IN
+		<foreach item="item" collection="ids" open="(" separator="," close=")">
+        	#{item}
+    	</foreach>
+  	</update>
+
+	<!-- 查询条件 模糊查询用concat函数:name like concat(concat('%',#{bean.name,jdbcType=VARCHAR}),'%'),	这样做主要是为了支持mysql和oracle以及防止sql注入 -->
+  	<!-- 列表查询 -->
+  	<select id="list" resultMap="BaseResultMap" parameterType="map">
+	    SELECT 
+	    	<include refid="Base_Column_List" />
+	    FROM T_MERCHANTS_COUPON T
+	    <where>
+			<include refid="where_sql"/>
+		</where>
+  	</select>
+
+  	<select id="listCoupon" resultMap="BaseResultMap" parameterType="map">
+	    select t.*,
+		s.f_store_name,
+		s.f_store_phone,
+		d.f_name as f_store_trade,
+		s.f_store_address,
+		st.f_name as F_TENANTS_NAME,
+		u.F_USERNAME,
+		s.f_synopsis as f_store_synopsis,
+		s.f_front_image as f_store_front_image,
+		s.f_store_image1,
+		s.f_store_image2,
+		s.f_store_image3,
+		s.f_longitude as f_store_longitude,
+		s.f_latitude as f_store_latitude,
+		s.f_busi_start_time as f_store_start_time,
+		s.f_busi_end_time as f_store_end_time
+		from t_merchants_coupon t
+		left join t_merchants_store s on t.f_merchants_pid = s.f_merchants_pid and s.f_sys_flag = '1'
+		left join t_pub_dic d on d.f_pid = s.f_trade and d.f_sys_flag = '1'
+		left join t_sec_tenants st on st.f_pid = t.F_TENANTS_PID and st.f_sys_flag = '1'
+		left join t_sec_user u on u.f_c10 = t.f_pid and u.f_sys_flag = '1'
+		where t.f_sys_flag = '1'
+		<if test="todo != null and todo != ''" > 
+			<include refid="com.taro.dao.activiti.ProcessDao.todoTaskIdSql">
+				<property name="todo_tenants_pid" value="#{todo_tenants_pid}"/>
+				<property name="todo_user_pid" value="#{todo_user_pid}"/>
+			</include>
+		</if>
+		<if test="query_tenants_pid != null and query_tenants_pid != ''" > 
+			and T.F_TENANTS_PID in (
+				select t.f_pid from t_sec_tenants t
+				where FIND_IN_SET(t.f_pid, getChildrenOrg(#{query_tenants_pid, jdbcType=VARCHAR}))
+				and t.f_sys_flag = '1'
+			)
+		</if>
+		<if test="id != null and id != ''" > 
+			and t.F_PID = #{id, jdbcType=VARCHAR}
+		</if>
+		<if test="tenants_pid != null and tenants_pid != ''" > 
+			and T.F_TENANTS_PID = #{tenants_pid, jdbcType=VARCHAR}
+		</if>
+		<if test="merchants_pid != null and merchants_pid != ''" > 
+			and T.F_MERCHANTS_PID = #{merchants_pid, jdbcType=VARCHAR}
+		</if>
+		<if test="coupon_id != null and coupon_id != ''" > 
+			and T.F_COUPON_ID = #{coupon_id, jdbcType=VARCHAR}
+		</if>
+		<if test="coupon_name != null and coupon_name != ''" > 
+			and T.F_COUPON_NAME = #{coupon_name, jdbcType=VARCHAR}
+		</if>
+		<if test="coupon_name_like != null and coupon_name_like != ''" > 
+			and T.F_COUPON_NAME like concat(concat('%',#{coupon_name_like,jdbcType=VARCHAR}),'%')
+		</if>
+		<if test="start_date != null and start_date != ''" > 
+			and T.F_START_DATE = #{start_date, jdbcType=VARCHAR}
+		</if>
+		<if test="end_date != null and end_date != ''" > 
+			and T.F_END_DATE = #{end_date, jdbcType=VARCHAR}
+		</if>
+		<if test="face_value != null and face_value != ''" > 
+			and T.F_FACE_VALUE = #{face_value, jdbcType=FLOAT}
+		</if>
+		<if test="coupon_type != null and coupon_type != ''" > 
+			and T.F_COUPON_TYPE = #{coupon_type, jdbcType=CHAR}
+		</if>
+		<if test="full_value != null and full_value != ''" > 
+			and T.F_FULL_VALUE = #{full_value, jdbcType=FLOAT}
+		</if>
+		<if test="frant_num != null and frant_num != ''" > 
+			and T.F_FRANT_NUM = #{frant_num, jdbcType=INTEGER}
+		</if>
+		<if test="req_num != null and req_num != ''" > 
+			and T.F_REQ_NUM = #{req_num, jdbcType=INTEGER}
+		</if>
+		<if test="logout_num != null and logout_num != ''" > 
+			and T.F_LOGOUT_NUM = #{logout_num, jdbcType=INTEGER}
+		</if>
+		<if test="is_write_off != null and is_write_off != ''" > 
+			and T.F_IS_WRITE_OFF = #{is_write_off, jdbcType=CHAR}
+		</if>
+		<if test="detail != null and detail != ''" > 
+			and T.F_DETAIL = #{detail, jdbcType=VARCHAR}
+		</if>
+		<if test="image1 != null and image1 != ''" > 
+			and T.F_IMAGE1 = #{image1, jdbcType=VARCHAR}
+		</if>
+		<if test="image2 != null and image2 != ''" > 
+			and T.F_IMAGE2 = #{image2, jdbcType=VARCHAR}
+		</if>
+		<if test="image3 != null and image3 != ''" > 
+			and T.F_IMAGE3 = #{image3, jdbcType=VARCHAR}
+		</if>
+		<if test="status != null and status != ''" > 
+			and T.F_STATUS = #{status, jdbcType=CHAR}
+		</if>
+		<if test="enable != null and enable != ''" > 
+			and T.F_ENABLE = #{enable, jdbcType=CHAR}
+		</if>
+		<if test="is_share != null and is_share != ''" > 
+			and T.F_IS_SHARE = #{is_share, jdbcType=CHAR}
+		</if>
+		<if test="c1 != null and c1 != ''" > 
+			and T.F_C1 = #{c1, jdbcType=VARCHAR}
+		</if>
+		<if test="c2 != null and c2 != ''" > 
+			and T.F_C2 = #{c2, jdbcType=VARCHAR}
+		</if>
+		<if test="c3 != null and c3 != ''" > 
+			and T.F_C3 = #{c3, jdbcType=VARCHAR}
+		</if>
+		<if test="c4 != null and c4 != ''" > 
+			and T.F_C4 = #{c4, jdbcType=VARCHAR}
+		</if>
+		<if test="c5 != null and c5 != ''" > 
+			and T.F_C5 = #{c5, jdbcType=VARCHAR}
+		</if>
+		<if test="flow_state != null and flow_state != ''" > 
+			and T.F_FLOW_STATE = #{flow_state, jdbcType=CHAR}
+		</if>
+		<if test="flow_task_id != null and flow_task_id != ''" > 
+			and T.F_FLOW_TASK_ID = #{flow_task_id, jdbcType=VARCHAR}
+		</if>
+		<if test="flow_task_def != null and flow_task_def != ''" > 
+			and T.F_FLOW_TASK_DEF = #{flow_task_def, jdbcType=VARCHAR}
+		</if>
+		<if test="flow_task_name != null and flow_task_name != ''" > 
+			and T.F_FLOW_TASK_NAME = #{flow_task_name, jdbcType=VARCHAR}
+		</if>
+		<if test="flow_check_result != null and flow_check_result != ''" > 
+			and T.F_FLOW_CHECK_RESULT = #{flow_check_result, jdbcType=CHAR}
+		</if>
+		<if test="flow_check_user != null and flow_check_user != ''" > 
+			and T.F_FLOW_CHECK_USER = #{flow_check_user, jdbcType=VARCHAR}
+		</if>
+		<if test="flow_check_opinion != null and flow_check_opinion != ''" > 
+			and T.F_FLOW_CHECK_OPINION = #{flow_check_opinion, jdbcType=VARCHAR}
+		</if>
+		<if test="flow_check_time != null and flow_check_time != ''" > 
+			and T.F_FLOW_CHECK_TIME = #{flow_check_time, jdbcType=VARCHAR}
+		</if>
+		<if test="sysFlag != null and sysFlag != ''" > 
+			and t.F_SYS_FLAG = #{sysFlag, jdbcType=VARCHAR}
+		</if>
+		<if test="remark != null and remark != ''" > 
+			and t.F_REMARK = #{remark, jdbcType=VARCHAR}
+		</if>
+		<if test="lastModifier != null and lastModifier != ''" > 
+			and t.F_LAST_MODIFIER = #{lastModifier, jdbcType=VARCHAR}
+		</if>
+		<if test="lastModifiedTime != null and lastModifiedTime != ''" > 
+			and t.F_LAST_MODIFIED_TIME = #{lastModifiedTime, jdbcType=VARCHAR}
+		</if>
+		<if test="creator != null and creator != ''" > 
+			and t.F_CREATOR = #{creator, jdbcType=VARCHAR}
+		</if>
+		<if test="createTime != null and createTime != ''" > 
+			and t.F_CREATE_TIME = #{createTime, jdbcType=VARCHAR}
+		</if>
+		<if test="store_name != null and store_name != ''" > 
+			and s.F_STORE_NAME = #{store_name, jdbcType=VARCHAR}
+		</if>
+		<if test="store_phone != null and store_phone != ''" > 
+			and s.F_STORE_PHONE = #{store_phone, jdbcType=VARCHAR}
+		</if>
+		<if test="store_trade != null and store_trade != ''" > 
+			and s.F_TRADE = #{store_trade, jdbcType=VARCHAR}
+		</if>
+		<if test="store_name_like != null and store_name_like != ''" > 
+			and s.F_STORE_NAME like concat(concat('%',#{store_name_like,jdbcType=VARCHAR}),'%')
+		</if>
+		<if test="store_phone_like != null and store_phone_like != ''" > 
+			and s.F_STORE_PHONE like concat(concat('%',#{store_phone_like,jdbcType=VARCHAR}),'%')
+		</if>
+  	</select>
+  	
+  	<select id="listLocalCoupon" resultMap="BaseResultMap" parameterType="map">
+	  	select t.*,
+		s.f_store_name,
+		s.f_store_phone,
+		d.f_name as f_store_trade,
+		s.f_store_address,
+		s.f_synopsis as f_store_synopsis,
+		s.f_front_image as f_store_front_image,
+		s.f_store_image1,
+		s.f_store_image2,
+		s.f_store_image3,
+		s.f_longitude as f_store_longitude,
+		s.f_latitude as f_store_latitude,
+		s.f_busi_start_time as f_store_start_time,
+		s.f_busi_end_time as f_store_end_time
+	  	from(
+		    select t.*,
+			'0' as F_FROM_SHARE
+			from t_merchants_coupon t
+			where t.f_sys_flag = '1'
+			and t.f_tenants_pid = #{tenants_pid, jdbcType=VARCHAR}
+			union all
+			select t.*,
+			'1' as F_FROM_SHARE
+			from t_merchants_coupon_share s
+			left join t_merchants_coupon t on t.f_pid = s.f_coupon_pid and t.f_sys_flag = '1'
+			where s.f_sys_flag = '1'
+			and s.f_tenants_pid = #{tenants_pid, jdbcType=VARCHAR}
+	  	) t
+		left join t_merchants_store s on t.f_merchants_pid = s.f_merchants_pid and s.f_sys_flag = '1'
+		left join t_pub_dic d on d.f_pid = s.f_trade and d.f_sys_flag = '1'
+	  	where t.f_sys_flag = '1' and t.f_flow_state = '3'
+		<if test="id != null and id != ''" > 
+			and t.F_PID = #{id, jdbcType=VARCHAR}
+		</if>
+		<if test="tenants_pid != null and tenants_pid != ''" > 
+			and T.F_TENANTS_PID = #{tenants_pid, jdbcType=VARCHAR}
+		</if>
+		<if test="merchants_pid != null and merchants_pid != ''" > 
+			and T.F_MERCHANTS_PID = #{merchants_pid, jdbcType=VARCHAR}
+		</if>
+		<if test="coupon_id != null and coupon_id != ''" > 
+			and T.F_COUPON_ID = #{coupon_id, jdbcType=VARCHAR}
+		</if>
+		<if test="coupon_name != null and coupon_name != ''" > 
+			and T.F_COUPON_NAME = #{coupon_name, jdbcType=VARCHAR}
+		</if>
+		<if test="coupon_name_like != null and coupon_name_like != ''" > 
+			and T.F_COUPON_NAME like concat(concat('%',#{coupon_name_like,jdbcType=VARCHAR}),'%')
+		</if>
+		<if test="start_date != null and start_date != ''" > 
+			and T.F_START_DATE = #{start_date, jdbcType=VARCHAR}
+		</if>
+		<if test="end_date != null and end_date != ''" > 
+			and T.F_END_DATE = #{end_date, jdbcType=VARCHAR}
+		</if>
+		<if test="face_value != null and face_value != ''" > 
+			and T.F_FACE_VALUE = #{face_value, jdbcType=FLOAT}
+		</if>
+		<if test="coupon_type != null and coupon_type != ''" > 
+			and T.F_COUPON_TYPE = #{coupon_type, jdbcType=CHAR}
+		</if>
+		<if test="full_value != null and full_value != ''" > 
+			and T.F_FULL_VALUE = #{full_value, jdbcType=FLOAT}
+		</if>
+		<if test="frant_num != null and frant_num != ''" > 
+			and T.F_FRANT_NUM = #{frant_num, jdbcType=INTEGER}
+		</if>
+		<if test="req_num != null and req_num != ''" > 
+			and T.F_REQ_NUM = #{req_num, jdbcType=INTEGER}
+		</if>
+		<if test="logout_num != null and logout_num != ''" > 
+			and T.F_LOGOUT_NUM = #{logout_num, jdbcType=INTEGER}
+		</if>
+		<if test="is_write_off != null and is_write_off != ''" > 
+			and T.F_IS_WRITE_OFF = #{is_write_off, jdbcType=CHAR}
+		</if>
+		<if test="detail != null and detail != ''" > 
+			and T.F_DETAIL = #{detail, jdbcType=VARCHAR}
+		</if>
+		<if test="image1 != null and image1 != ''" > 
+			and T.F_IMAGE1 = #{image1, jdbcType=VARCHAR}
+		</if>
+		<if test="image2 != null and image2 != ''" > 
+			and T.F_IMAGE2 = #{image2, jdbcType=VARCHAR}
+		</if>
+		<if test="image3 != null and image3 != ''" > 
+			and T.F_IMAGE3 = #{image3, jdbcType=VARCHAR}
+		</if>
+		<if test="status != null and status != ''" > 
+			and T.F_STATUS = #{status, jdbcType=CHAR}
+		</if>
+		<if test="enable != null and enable != ''" > 
+			and T.F_ENABLE = #{enable, jdbcType=CHAR}
+		</if>
+		<if test="is_share != null and is_share != ''" > 
+			and T.F_IS_SHARE = #{is_share, jdbcType=CHAR}
+		</if>
+		<if test="c1 != null and c1 != ''" > 
+			and T.F_C1 = #{c1, jdbcType=VARCHAR}
+		</if>
+		<if test="c2 != null and c2 != ''" > 
+			and T.F_C2 = #{c2, jdbcType=VARCHAR}
+		</if>
+		<if test="c3 != null and c3 != ''" > 
+			and T.F_C3 = #{c3, jdbcType=VARCHAR}
+		</if>
+		<if test="c4 != null and c4 != ''" > 
+			and T.F_C4 = #{c4, jdbcType=VARCHAR}
+		</if>
+		<if test="c5 != null and c5 != ''" > 
+			and T.F_C5 = #{c5, jdbcType=VARCHAR}
+		</if>
+		<if test="flow_state != null and flow_state != ''" > 
+			and T.F_FLOW_STATE = #{flow_state, jdbcType=CHAR}
+		</if>
+		<if test="flow_task_id != null and flow_task_id != ''" > 
+			and T.F_FLOW_TASK_ID = #{flow_task_id, jdbcType=VARCHAR}
+		</if>
+		<if test="flow_task_def != null and flow_task_def != ''" > 
+			and T.F_FLOW_TASK_DEF = #{flow_task_def, jdbcType=VARCHAR}
+		</if>
+		<if test="flow_task_name != null and flow_task_name != ''" > 
+			and T.F_FLOW_TASK_NAME = #{flow_task_name, jdbcType=VARCHAR}
+		</if>
+		<if test="flow_check_result != null and flow_check_result != ''" > 
+			and T.F_FLOW_CHECK_RESULT = #{flow_check_result, jdbcType=CHAR}
+		</if>
+		<if test="flow_check_user != null and flow_check_user != ''" > 
+			and T.F_FLOW_CHECK_USER = #{flow_check_user, jdbcType=VARCHAR}
+		</if>
+		<if test="flow_check_opinion != null and flow_check_opinion != ''" > 
+			and T.F_FLOW_CHECK_OPINION = #{flow_check_opinion, jdbcType=VARCHAR}
+		</if>
+		<if test="flow_check_time != null and flow_check_time != ''" > 
+			and T.F_FLOW_CHECK_TIME = #{flow_check_time, jdbcType=VARCHAR}
+		</if>
+		<if test="sysFlag != null and sysFlag != ''" > 
+			and t.F_SYS_FLAG = #{sysFlag, jdbcType=VARCHAR}
+		</if>
+		<if test="remark != null and remark != ''" > 
+			and t.F_REMARK = #{remark, jdbcType=VARCHAR}
+		</if>
+		<if test="lastModifier != null and lastModifier != ''" > 
+			and t.F_LAST_MODIFIER = #{lastModifier, jdbcType=VARCHAR}
+		</if>
+		<if test="lastModifiedTime != null and lastModifiedTime != ''" > 
+			and t.F_LAST_MODIFIED_TIME = #{lastModifiedTime, jdbcType=VARCHAR}
+		</if>
+		<if test="creator != null and creator != ''" > 
+			and t.F_CREATOR = #{creator, jdbcType=VARCHAR}
+		</if>
+		<if test="createTime != null and createTime != ''" > 
+			and t.F_CREATE_TIME = #{createTime, jdbcType=VARCHAR}
+		</if>
+		<if test="store_name != null and store_name != ''" > 
+			and s.F_STORE_NAME = #{store_name, jdbcType=VARCHAR}
+		</if>
+		<if test="store_phone != null and store_phone != ''" > 
+			and s.F_STORE_PHONE = #{store_phone, jdbcType=VARCHAR}
+		</if>
+		<if test="store_trade != null and store_trade != ''" > 
+			and s.F_TRADE = #{store_trade, jdbcType=VARCHAR}
+		</if>
+		<if test="store_name_like != null and store_name_like != ''" > 
+			and s.F_STORE_NAME like concat(concat('%',#{store_name_like,jdbcType=VARCHAR}),'%')
+		</if>
+		<if test="store_phone_like != null and store_phone_like != ''" > 
+			and s.F_STORE_PHONE like concat(concat('%',#{store_phone_like,jdbcType=VARCHAR}),'%')
+		</if>
+		<if test="from_share != null and from_share != ''" > 
+			and t.F_FROM_SHARE = #{from_share, jdbcType=VARCHAR}
+		</if>
+	</select>
+  	
+  	<select id="listShareCoupon" resultMap="BaseResultMap" parameterType="map">
+	  	select t.*,
+		ISNULL(s.f_pid) as F_NOT_LOCAL
+		from t_merchants_coupon t
+		left join t_merchants_coupon_share s on t.f_pid = s.f_coupon_pid and s.f_sys_flag = '1' and s.f_share_pid = #{tenants_pid, jdbcType=VARCHAR}
+	  	where t.f_sys_flag = '1' and t.f_is_share = '1' and t.f_flow_state = '3'
+		<if test="id != null and id != ''" > 
+			and t.F_PID = #{id, jdbcType=VARCHAR}
+		</if>
+		<if test="parent_tenants_pid != null and parent_tenants_pid != ''" > 
+			and T.F_TENANTS_PID in (
+				select t.f_pid from t_sec_tenants t
+				where FIND_IN_SET(t.f_pid, getChildrenOrg(#{parent_tenants_pid, jdbcType=VARCHAR}))
+				and t.f_pid != #{tenants_pid, jdbcType=VARCHAR}
+				and t.f_sys_flag = '1'
+			)
+		</if>
+		<if test="query_tenants_pid != null and query_tenants_pid != ''" > 
+			and T.F_TENANTS_PID in (
+				select t.f_pid from t_sec_tenants t
+				where FIND_IN_SET(t.f_pid, getChildrenOrg(#{query_tenants_pid, jdbcType=VARCHAR}))
+				and t.f_pid != #{tenants_pid, jdbcType=VARCHAR}
+				and t.f_sys_flag = '1'
+			)
+		</if>
+		<if test="merchants_pid != null and merchants_pid != ''" > 
+			and T.F_MERCHANTS_PID = #{merchants_pid, jdbcType=VARCHAR}
+		</if>
+		<if test="coupon_id != null and coupon_id != ''" > 
+			and T.F_COUPON_ID = #{coupon_id, jdbcType=VARCHAR}
+		</if>
+		<if test="coupon_name != null and coupon_name != ''" > 
+			and T.F_COUPON_NAME = #{coupon_name, jdbcType=VARCHAR}
+		</if>
+		<if test="coupon_name_like != null and coupon_name_like != ''" > 
+			and T.F_COUPON_NAME like concat(concat('%',#{coupon_name_like,jdbcType=VARCHAR}),'%')
+		</if>
+		<if test="start_date != null and start_date != ''" > 
+			and T.F_START_DATE = #{start_date, jdbcType=VARCHAR}
+		</if>
+		<if test="end_date != null and end_date != ''" > 
+			and T.F_END_DATE = #{end_date, jdbcType=VARCHAR}
+		</if>
+		<if test="face_value != null and face_value != ''" > 
+			and T.F_FACE_VALUE = #{face_value, jdbcType=FLOAT}
+		</if>
+		<if test="coupon_type != null and coupon_type != ''" > 
+			and T.F_COUPON_TYPE = #{coupon_type, jdbcType=CHAR}
+		</if>
+		<if test="full_value != null and full_value != ''" > 
+			and T.F_FULL_VALUE = #{full_value, jdbcType=FLOAT}
+		</if>
+		<if test="frant_num != null and frant_num != ''" > 
+			and T.F_FRANT_NUM = #{frant_num, jdbcType=INTEGER}
+		</if>
+		<if test="req_num != null and req_num != ''" > 
+			and T.F_REQ_NUM = #{req_num, jdbcType=INTEGER}
+		</if>
+		<if test="logout_num != null and logout_num != ''" > 
+			and T.F_LOGOUT_NUM = #{logout_num, jdbcType=INTEGER}
+		</if>
+		<if test="is_write_off != null and is_write_off != ''" > 
+			and T.F_IS_WRITE_OFF = #{is_write_off, jdbcType=CHAR}
+		</if>
+		<if test="detail != null and detail != ''" > 
+			and T.F_DETAIL = #{detail, jdbcType=VARCHAR}
+		</if>
+		<if test="image1 != null and image1 != ''" > 
+			and T.F_IMAGE1 = #{image1, jdbcType=VARCHAR}
+		</if>
+		<if test="image2 != null and image2 != ''" > 
+			and T.F_IMAGE2 = #{image2, jdbcType=VARCHAR}
+		</if>
+		<if test="image3 != null and image3 != ''" > 
+			and T.F_IMAGE3 = #{image3, jdbcType=VARCHAR}
+		</if>
+		<if test="status != null and status != ''" > 
+			and T.F_STATUS = #{status, jdbcType=CHAR}
+		</if>
+		<if test="enable != null and enable != ''" > 
+			and T.F_ENABLE = #{enable, jdbcType=CHAR}
+		</if>
+		<if test="is_share != null and is_share != ''" > 
+			and T.F_IS_SHARE = #{is_share, jdbcType=CHAR}
+		</if>
+		<if test="c1 != null and c1 != ''" > 
+			and T.F_C1 = #{c1, jdbcType=VARCHAR}
+		</if>
+		<if test="c2 != null and c2 != ''" > 
+			and T.F_C2 = #{c2, jdbcType=VARCHAR}
+		</if>
+		<if test="c3 != null and c3 != ''" > 
+			and T.F_C3 = #{c3, jdbcType=VARCHAR}
+		</if>
+		<if test="c4 != null and c4 != ''" > 
+			and T.F_C4 = #{c4, jdbcType=VARCHAR}
+		</if>
+		<if test="c5 != null and c5 != ''" > 
+			and T.F_C5 = #{c5, jdbcType=VARCHAR}
+		</if>
+		<if test="flow_state != null and flow_state != ''" > 
+			and T.F_FLOW_STATE = #{flow_state, jdbcType=CHAR}
+		</if>
+		<if test="flow_task_id != null and flow_task_id != ''" > 
+			and T.F_FLOW_TASK_ID = #{flow_task_id, jdbcType=VARCHAR}
+		</if>
+		<if test="flow_task_def != null and flow_task_def != ''" > 
+			and T.F_FLOW_TASK_DEF = #{flow_task_def, jdbcType=VARCHAR}
+		</if>
+		<if test="flow_task_name != null and flow_task_name != ''" > 
+			and T.F_FLOW_TASK_NAME = #{flow_task_name, jdbcType=VARCHAR}
+		</if>
+		<if test="flow_check_result != null and flow_check_result != ''" > 
+			and T.F_FLOW_CHECK_RESULT = #{flow_check_result, jdbcType=CHAR}
+		</if>
+		<if test="flow_check_user != null and flow_check_user != ''" > 
+			and T.F_FLOW_CHECK_USER = #{flow_check_user, jdbcType=VARCHAR}
+		</if>
+		<if test="flow_check_opinion != null and flow_check_opinion != ''" > 
+			and T.F_FLOW_CHECK_OPINION = #{flow_check_opinion, jdbcType=VARCHAR}
+		</if>
+		<if test="flow_check_time != null and flow_check_time != ''" > 
+			and T.F_FLOW_CHECK_TIME = #{flow_check_time, jdbcType=VARCHAR}
+		</if>
+		<if test="sysFlag != null and sysFlag != ''" > 
+			and t.F_SYS_FLAG = #{sysFlag, jdbcType=VARCHAR}
+		</if>
+		<if test="remark != null and remark != ''" > 
+			and t.F_REMARK = #{remark, jdbcType=VARCHAR}
+		</if>
+		<if test="lastModifier != null and lastModifier != ''" > 
+			and t.F_LAST_MODIFIER = #{lastModifier, jdbcType=VARCHAR}
+		</if>
+		<if test="lastModifiedTime != null and lastModifiedTime != ''" > 
+			and t.F_LAST_MODIFIED_TIME = #{lastModifiedTime, jdbcType=VARCHAR}
+		</if>
+		<if test="creator != null and creator != ''" > 
+			and t.F_CREATOR = #{creator, jdbcType=VARCHAR}
+		</if>
+		<if test="createTime != null and createTime != ''" > 
+			and t.F_CREATE_TIME = #{createTime, jdbcType=VARCHAR}
+		</if>
+		<if test="store_name != null and store_name != ''" > 
+			and s.F_STORE_NAME = #{store_name, jdbcType=VARCHAR}
+		</if>
+		<if test="store_phone != null and store_phone != ''" > 
+			and s.F_STORE_PHONE = #{store_phone, jdbcType=VARCHAR}
+		</if>
+		<if test="store_trade != null and store_trade != ''" > 
+			and s.F_TRADE = #{store_trade, jdbcType=VARCHAR}
+		</if>
+		<if test="store_name_like != null and store_name_like != ''" > 
+			and s.F_STORE_NAME like concat(concat('%',#{store_name_like,jdbcType=VARCHAR}),'%')
+		</if>
+		<if test="store_phone_like != null and store_phone_like != ''" > 
+			and s.F_STORE_PHONE like concat(concat('%',#{store_phone_like,jdbcType=VARCHAR}),'%')
+		</if>
+		<if test="from_share != null and from_share != ''" > 
+			and t.F_FROM_SHARE = #{from_share, jdbcType=VARCHAR}
+		</if>
+	</select>
+	
+	<!-- 根据ID查询单条记录 -->
+  	<select id="get" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    	SELECT 
+    		<include refid="Base_Column_List" />
+    	FROM T_MERCHANTS_COUPON T
+    	WHERE T.F_PID = #{id,jdbcType=VARCHAR}
+  	</select>
+
+  	<select id="getCoupon" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    	select t.*,
+		s.f_store_name,
+		s.f_store_phone,
+		d.f_name as f_store_trade,
+		s.f_store_address,
+		s.f_synopsis as f_store_synopsis,
+		s.f_front_image as f_store_front_image,
+		s.f_store_image1,
+		s.f_store_image2,
+		s.f_store_image3,
+		s.f_longitude as f_store_longitude,
+		s.f_latitude as f_store_latitude,
+		s.f_busi_start_time as f_store_start_time,
+		s.f_busi_end_time as f_store_end_time
+		from t_merchants_coupon t
+		left join t_merchants_store s on t.f_merchants_pid = s.f_merchants_pid and s.f_sys_flag = '1'
+		left join t_pub_dic d on d.f_pid = s.f_trade and d.f_sys_flag = '1'
+		where t.f_sys_flag = '1'
+		and T.F_PID = #{id,jdbcType=VARCHAR}
+  	</select>
+  	
+</mapper>

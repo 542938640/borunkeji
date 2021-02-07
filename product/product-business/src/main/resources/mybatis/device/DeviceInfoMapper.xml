@@ -1,0 +1,467 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- @Automatically generate by Coder in 2020-10-17 11:47:03 -->
+<mapper namespace="com.taro.dao.device.DeviceInfoDao">
+
+  	<resultMap id="BaseResultMap" type="com.taro.entity.device.DeviceInfoEntity">
+	  	<id column="Id" property="id" jdbcType="VARCHAR" />
+  		<result column="Id" property="id" jdbcType="VARCHAR" />
+  		<result column="ID" property="id" jdbcType="VARCHAR" />
+  		<result column="F_DID" property="did" jdbcType="VARCHAR" />
+  		<result column="ADVERTISINGSWITCH" property="advertisingswitch" jdbcType="INTEGER" />
+  		<result column="ALICLOUDCODE" property="alicloudcode" jdbcType="TINYINT" />
+  		<result column="CITY" property="city" jdbcType="VARCHAR" />
+  		<result column="COUNTRY" property="country" jdbcType="VARCHAR" />
+  		<result column="ENABLE" property="enable" jdbcType="TINYINT" />
+  		<result column="F_DIADDRESS" property="diaddress" jdbcType="VARCHAR" />
+  		<result column="F_DIALIAS" property="dialias" jdbcType="VARCHAR" />
+  		<result column="F_DIASSETSID" property="diassetsid" jdbcType="VARCHAR" />
+  		<result column="F_DIBELONGUSER" property="dibelonguser" jdbcType="VARCHAR" />
+  		<result column="F_DIBUSINESSID" property="dibusinessid" jdbcType="VARCHAR" />
+  		<result column="F_DIBUYTIME" property="dibuytime" jdbcType="DATE" />
+  		<result column="F_DIGROUP" property="digroup" jdbcType="VARCHAR" />
+  		<result column="F_DIINSIDETEMP" property="diinsidetemp" jdbcType="VARCHAR" />
+  		<result column="F_DILLATITUDE" property="dillatitude" jdbcType="FLOAT" />
+  		<result column="F_DILONGITUDE" property="dilongitude" jdbcType="FLOAT" />
+  		<result column="F_DINOLINE" property="dinoline" jdbcType="INTEGER" />
+  		<result column="F_DIPWD" property="dipwd" jdbcType="VARCHAR" />
+  		<result column="F_DISCENEID" property="disceneid" jdbcType="VARCHAR" />
+  		<result column="F_DISIZE" property="disize" jdbcType="INTEGER" />
+  		<result column="F_DIWORK" property="diwork" jdbcType="INTEGER" />
+  		<result column="INTERNALADDRESS" property="internaladdress" jdbcType="VARCHAR" />
+  		<result column="ISCART" property="iscart" jdbcType="TINYINT" />
+  		<result column="MAXTEMPERATURE" property="maxtemperature" jdbcType="FLOAT" />
+  		<result column="MIBUYPRICE" property="mibuyprice" jdbcType="INTEGER" />
+  		<result column="MICCLIMIT" property="micclimit" jdbcType="INTEGER" />
+  		<result column="MICVS" property="micvs" jdbcType="TINYINT" />
+  		<result column="MIISDEPLOY" property="miisdeploy" jdbcType="TINYINT" />
+  		<result column="MINTEMPERATURE" property="mintemperature" jdbcType="FLOAT" />
+  		<result column="MIOUT" property="miout" jdbcType="TINYINT" />
+  		<result column="MIOUTER_TEMP" property="miouter_temp" jdbcType="VARCHAR" />
+  		<result column="MIPOWEROFF" property="mipoweroff" jdbcType="VARCHAR" />
+  		<result column="MIQRCTYPE" property="miqrctype" jdbcType="INTEGER" />
+  		<result column="MISERIALNUMBER" property="miserialnumber" jdbcType="INTEGER" />
+  		<result column="MISIZETYPE" property="misizetype" jdbcType="INTEGER" />
+  		<result column="POSTURL" property="posturl" jdbcType="VARCHAR" />
+  		<result column="PROVINCE" property="province" jdbcType="VARCHAR" />
+  		<result column="PUREELECTRON" property="pureelectron" jdbcType="INTEGER" />
+  		<result column="REFUNDCOUNT" property="refundcount" jdbcType="INTEGER" />
+  		<result column="REFUNDVERIFY" property="refundverify" jdbcType="TINYINT" />
+  		<result column="SCHEDULEDSTATE" property="scheduledstate" jdbcType="TINYINT" />
+  		<result column="SCHEDULEDTIME" property="scheduledtime" jdbcType="VARCHAR" />
+  		<result column="SPELLLUCK" property="spellluck" jdbcType="TINYINT" />
+  		<result column="THREETIERCITY" property="threetiercity" jdbcType="VARCHAR" />
+  		<result column="VERSION" property="version" jdbcType="VARCHAR" />
+  		<result column="WXSINGLEDISCOUNT" property="wxsinglediscount" jdbcType="TINYINT" />
+  		
+  		<result column="F_DINOLINE_NUM" property="dinoline_num" jdbcType="INTEGER" />
+  	</resultMap>
+
+  	<sql id="Base_Column_List" >
+		t.Id, T.F_DID, T.ADVERTISINGSWITCH, T.ALICLOUDCODE, T.CITY,
+		T.COUNTRY, T.ENABLE, T.F_DIADDRESS, T.F_DIALIAS, T.F_DIASSETSID,
+		T.F_DIBELONGUSER, T.F_DIBUSINESSID, T.F_DIBUYTIME, T.F_DIGROUP, T.F_DIINSIDETEMP,
+		T.F_DILLATITUDE, T.F_DILONGITUDE, T.F_DINOLINE, T.F_DIPWD, T.F_DISCENEID,
+		T.F_DISIZE, T.F_DIWORK, T.INTERNALADDRESS, T.ISCART, T.MAXTEMPERATURE,
+		T.MIBUYPRICE, T.MICCLIMIT, T.MICVS, T.MIISDEPLOY, T.MINTEMPERATURE,
+		T.MIOUT, T.MIOUTER_TEMP, T.MIPOWEROFF, T.MIQRCTYPE, T.MISERIALNUMBER,
+		T.MISIZETYPE, T.POSTURL, T.PROVINCE, T.PUREELECTRON, T.REFUNDCOUNT,
+		T.REFUNDVERIFY, T.SCHEDULEDSTATE, T.SCHEDULEDTIME, T.SPELLLUCK, T.THREETIERCITY,
+		T.VERSION, T.WXSINGLEDISCOUNT
+  	</sql>
+
+  	<sql id="where_sql">
+		<if test="id != null and id != ''" > 
+			and t.Id = #{id, jdbcType=VARCHAR}
+		</if>
+		<if test="did != null and did != ''" > 
+			and T.F_DID = #{did, jdbcType=VARCHAR}
+		</if>
+		<if test="advertisingswitch != null and advertisingswitch != ''" > 
+			and T.ADVERTISINGSWITCH = #{advertisingswitch, jdbcType=INTEGER}
+		</if>
+		<if test="alicloudcode != null and alicloudcode != ''" > 
+			and T.ALICLOUDCODE = #{alicloudcode, jdbcType=TINYINT}
+		</if>
+		<if test="city != null and city != ''" > 
+			and T.CITY = #{city, jdbcType=VARCHAR}
+		</if>
+		<if test="country != null and country != ''" > 
+			and T.COUNTRY = #{country, jdbcType=VARCHAR}
+		</if>
+		<if test="enable != null and enable != ''" > 
+			and T.ENABLE = #{enable, jdbcType=TINYINT}
+		</if>
+		<if test="diaddress != null and diaddress != ''" > 
+			and T.F_DIADDRESS = #{diaddress, jdbcType=VARCHAR}
+		</if>
+		<if test="dialias != null and dialias != ''" > 
+			and T.F_DIALIAS = #{dialias, jdbcType=VARCHAR}
+		</if>
+		<if test="diassetsid != null and diassetsid != ''" > 
+			and T.F_DIASSETSID = #{diassetsid, jdbcType=VARCHAR}
+		</if>
+		<if test="dibelonguser != null and dibelonguser != ''" > 
+			and T.F_DIBELONGUSER = #{dibelonguser, jdbcType=VARCHAR}
+		</if>
+		<if test="dibusinessid != null and dibusinessid != ''" > 
+			and T.F_DIBUSINESSID = #{dibusinessid, jdbcType=VARCHAR}
+		</if>
+		<if test="dibuytime != null and dibuytime != ''" > 
+			and T.F_DIBUYTIME = #{dibuytime, jdbcType=DATE}
+		</if>
+		<if test="digroup != null and digroup != ''" > 
+			and T.F_DIGROUP = #{digroup, jdbcType=VARCHAR}
+		</if>
+		<if test="diinsidetemp != null and diinsidetemp != ''" > 
+			and T.F_DIINSIDETEMP = #{diinsidetemp, jdbcType=VARCHAR}
+		</if>
+		<if test="dillatitude != null and dillatitude != ''" > 
+			and T.F_DILLATITUDE = #{dillatitude, jdbcType=FLOAT}
+		</if>
+		<if test="dilongitude != null and dilongitude != ''" > 
+			and T.F_DILONGITUDE = #{dilongitude, jdbcType=FLOAT}
+		</if>
+		<if test="dinoline != null and dinoline != ''" > 
+			and T.F_DINOLINE = #{dinoline, jdbcType=INTEGER}
+		</if>
+		<if test="dipwd != null and dipwd != ''" > 
+			and T.F_DIPWD = #{dipwd, jdbcType=VARCHAR}
+		</if>
+		<if test="disceneid != null and disceneid != ''" > 
+			and T.F_DISCENEID = #{disceneid, jdbcType=VARCHAR}
+		</if>
+		<if test="disize != null and disize != ''" > 
+			and T.F_DISIZE = #{disize, jdbcType=INTEGER}
+		</if>
+		<if test="diwork != null and diwork != ''" > 
+			and T.F_DIWORK = #{diwork, jdbcType=INTEGER}
+		</if>
+		<if test="internaladdress != null and internaladdress != ''" > 
+			and T.INTERNALADDRESS = #{internaladdress, jdbcType=VARCHAR}
+		</if>
+		<if test="iscart != null and iscart != ''" > 
+			and T.ISCART = #{iscart, jdbcType=TINYINT}
+		</if>
+		<if test="maxtemperature != null and maxtemperature != ''" > 
+			and T.MAXTEMPERATURE = #{maxtemperature, jdbcType=FLOAT}
+		</if>
+		<if test="mibuyprice != null and mibuyprice != ''" > 
+			and T.MIBUYPRICE = #{mibuyprice, jdbcType=INTEGER}
+		</if>
+		<if test="micclimit != null and micclimit != ''" > 
+			and T.MICCLIMIT = #{micclimit, jdbcType=INTEGER}
+		</if>
+		<if test="micvs != null and micvs != ''" > 
+			and T.MICVS = #{micvs, jdbcType=TINYINT}
+		</if>
+		<if test="miisdeploy != null and miisdeploy != ''" > 
+			and T.MIISDEPLOY = #{miisdeploy, jdbcType=TINYINT}
+		</if>
+		<if test="mintemperature != null and mintemperature != ''" > 
+			and T.MINTEMPERATURE = #{mintemperature, jdbcType=FLOAT}
+		</if>
+		<if test="miout != null and miout != ''" > 
+			and T.MIOUT = #{miout, jdbcType=TINYINT}
+		</if>
+		<if test="miouter_temp != null and miouter_temp != ''" > 
+			and T.MIOUTER_TEMP = #{miouter_temp, jdbcType=VARCHAR}
+		</if>
+		<if test="mipoweroff != null and mipoweroff != ''" > 
+			and T.MIPOWEROFF = #{mipoweroff, jdbcType=VARCHAR}
+		</if>
+		<if test="miqrctype != null and miqrctype != ''" > 
+			and T.MIQRCTYPE = #{miqrctype, jdbcType=INTEGER}
+		</if>
+		<if test="miserialnumber != null and miserialnumber != ''" > 
+			and T.MISERIALNUMBER = #{miserialnumber, jdbcType=INTEGER}
+		</if>
+		<if test="misizetype != null and misizetype != ''" > 
+			and T.MISIZETYPE = #{misizetype, jdbcType=INTEGER}
+		</if>
+		<if test="posturl != null and posturl != ''" > 
+			and T.POSTURL = #{posturl, jdbcType=VARCHAR}
+		</if>
+		<if test="province != null and province != ''" > 
+			and T.PROVINCE = #{province, jdbcType=VARCHAR}
+		</if>
+		<if test="pureelectron != null and pureelectron != ''" > 
+			and T.PUREELECTRON = #{pureelectron, jdbcType=INTEGER}
+		</if>
+		<if test="refundcount != null and refundcount != ''" > 
+			and T.REFUNDCOUNT = #{refundcount, jdbcType=INTEGER}
+		</if>
+		<if test="refundverify != null and refundverify != ''" > 
+			and T.REFUNDVERIFY = #{refundverify, jdbcType=TINYINT}
+		</if>
+		<if test="scheduledstate != null and scheduledstate != ''" > 
+			and T.SCHEDULEDSTATE = #{scheduledstate, jdbcType=TINYINT}
+		</if>
+		<if test="scheduledtime != null and scheduledtime != ''" > 
+			and T.SCHEDULEDTIME = #{scheduledtime, jdbcType=VARCHAR}
+		</if>
+		<if test="spellluck != null and spellluck != ''" > 
+			and T.SPELLLUCK = #{spellluck, jdbcType=TINYINT}
+		</if>
+		<if test="threetiercity != null and threetiercity != ''" > 
+			and T.THREETIERCITY = #{threetiercity, jdbcType=VARCHAR}
+		</if>
+		<if test="version != null and version != ''" > 
+			and T.VERSION = #{version, jdbcType=VARCHAR}
+		</if>
+		<if test="wxsinglediscount != null and wxsinglediscount != ''" > 
+			and T.WXSINGLEDISCOUNT = #{wxsinglediscount, jdbcType=TINYINT}
+		</if>
+  	</sql>
+
+	<!-- 新增 -->
+  	<insert id="insert" parameterType="com.taro.entity.device.DeviceInfoEntity" >
+    	INSERT INTO TDEVICEINFO (
+    		Id, F_DID, ADVERTISINGSWITCH,
+			ALICLOUDCODE, CITY, COUNTRY,
+			ENABLE, F_DIADDRESS, F_DIALIAS,
+			F_DIASSETSID, F_DIBELONGUSER, F_DIBUSINESSID,
+			F_DIBUYTIME, F_DIGROUP, F_DIINSIDETEMP,
+			F_DILLATITUDE, F_DILONGITUDE, F_DINOLINE,
+			F_DIPWD, F_DISCENEID, F_DISIZE,
+			F_DIWORK, INTERNALADDRESS, ISCART,
+			MAXTEMPERATURE, MIBUYPRICE, MICCLIMIT,
+			MICVS, MIISDEPLOY, MINTEMPERATURE,
+			MIOUT, MIOUTER_TEMP, MIPOWEROFF,
+			MIQRCTYPE, MISERIALNUMBER, MISIZETYPE,
+			POSTURL, PROVINCE, PUREELECTRON,
+			REFUNDCOUNT, REFUNDVERIFY, SCHEDULEDSTATE,
+			SCHEDULEDTIME, SPELLLUCK, THREETIERCITY,
+			VERSION, WXSINGLEDISCOUNT
+    	) VALUES (
+    		#{id, jdbcType=VARCHAR}, #{did, jdbcType=VARCHAR}, #{advertisingswitch, jdbcType=INTEGER},
+			#{alicloudcode, jdbcType=TINYINT}, #{city, jdbcType=VARCHAR}, #{country, jdbcType=VARCHAR},
+			#{enable, jdbcType=TINYINT}, #{diaddress, jdbcType=VARCHAR}, #{dialias, jdbcType=VARCHAR},
+			#{diassetsid, jdbcType=VARCHAR}, #{dibelonguser, jdbcType=VARCHAR}, #{dibusinessid, jdbcType=VARCHAR},
+			#{dibuytime, jdbcType=DATE}, #{digroup, jdbcType=VARCHAR}, #{diinsidetemp, jdbcType=VARCHAR},
+			#{dillatitude, jdbcType=FLOAT}, #{dilongitude, jdbcType=FLOAT}, #{dinoline, jdbcType=INTEGER},
+			#{dipwd, jdbcType=VARCHAR}, #{disceneid, jdbcType=VARCHAR}, #{disize, jdbcType=INTEGER},
+			#{diwork, jdbcType=INTEGER}, #{internaladdress, jdbcType=VARCHAR}, #{iscart, jdbcType=TINYINT},
+			#{maxtemperature, jdbcType=FLOAT}, #{mibuyprice, jdbcType=INTEGER}, #{micclimit, jdbcType=INTEGER},
+			#{micvs, jdbcType=TINYINT}, #{miisdeploy, jdbcType=TINYINT}, #{mintemperature, jdbcType=FLOAT},
+			#{miout, jdbcType=TINYINT}, #{miouter_temp, jdbcType=VARCHAR}, #{mipoweroff, jdbcType=VARCHAR},
+			#{miqrctype, jdbcType=INTEGER}, #{miserialnumber, jdbcType=INTEGER}, #{misizetype, jdbcType=INTEGER},
+			#{posturl, jdbcType=VARCHAR}, #{province, jdbcType=VARCHAR}, #{pureelectron, jdbcType=INTEGER},
+			#{refundcount, jdbcType=INTEGER}, #{refundverify, jdbcType=TINYINT}, #{scheduledstate, jdbcType=TINYINT},
+			#{scheduledtime, jdbcType=VARCHAR}, #{spellluck, jdbcType=TINYINT}, #{threetiercity, jdbcType=VARCHAR},
+			#{version, jdbcType=VARCHAR}, #{wxsinglediscount,jdbcType=TINYINT}
+    	)
+  	</insert>
+
+	<!-- 批量新增 -->
+  	<insert id="insertObjects" parameterType="list">
+		INSERT INTO TDEVICEINFO (
+    		Id, F_DID, ADVERTISINGSWITCH,
+			ALICLOUDCODE, CITY, COUNTRY,
+			ENABLE, F_DIADDRESS, F_DIALIAS,
+			F_DIASSETSID, F_DIBELONGUSER, F_DIBUSINESSID,
+			F_DIBUYTIME, F_DIGROUP, F_DIINSIDETEMP,
+			F_DILLATITUDE, F_DILONGITUDE, F_DINOLINE,
+			F_DIPWD, F_DISCENEID, F_DISIZE,
+			F_DIWORK, INTERNALADDRESS, ISCART,
+			MAXTEMPERATURE, MIBUYPRICE, MICCLIMIT,
+			MICVS, MIISDEPLOY, MINTEMPERATURE,
+			MIOUT, MIOUTER_TEMP, MIPOWEROFF,
+			MIQRCTYPE, MISERIALNUMBER, MISIZETYPE,
+			POSTURL, PROVINCE, PUREELECTRON,
+			REFUNDCOUNT, REFUNDVERIFY, SCHEDULEDSTATE,
+			SCHEDULEDTIME, SPELLLUCK, THREETIERCITY,
+			VERSION, WXSINGLEDISCOUNT
+		)
+		<foreach collection="list" item="entity" index="index" separator="union all">
+			SELECT
+    		#{entity.id, jdbcType=VARCHAR}, #{entity.did, jdbcType=VARCHAR}, #{entity.advertisingswitch, jdbcType=INTEGER},
+			#{entity.alicloudcode, jdbcType=TINYINT}, #{entity.city, jdbcType=VARCHAR}, #{entity.country, jdbcType=VARCHAR},
+			#{entity.enable, jdbcType=TINYINT}, #{entity.diaddress, jdbcType=VARCHAR}, #{entity.dialias, jdbcType=VARCHAR},
+			#{entity.diassetsid, jdbcType=VARCHAR}, #{entity.dibelonguser, jdbcType=VARCHAR}, #{entity.dibusinessid, jdbcType=VARCHAR},
+			#{entity.dibuytime, jdbcType=DATE}, #{entity.digroup, jdbcType=VARCHAR}, #{entity.diinsidetemp, jdbcType=VARCHAR},
+			#{entity.dillatitude, jdbcType=FLOAT}, #{entity.dilongitude, jdbcType=FLOAT}, #{entity.dinoline, jdbcType=INTEGER},
+			#{entity.dipwd, jdbcType=VARCHAR}, #{entity.disceneid, jdbcType=VARCHAR}, #{entity.disize, jdbcType=INTEGER},
+			#{entity.diwork, jdbcType=INTEGER}, #{entity.internaladdress, jdbcType=VARCHAR}, #{entity.iscart, jdbcType=TINYINT},
+			#{entity.maxtemperature, jdbcType=FLOAT}, #{entity.mibuyprice, jdbcType=INTEGER}, #{entity.micclimit, jdbcType=INTEGER},
+			#{entity.micvs, jdbcType=TINYINT}, #{entity.miisdeploy, jdbcType=TINYINT}, #{entity.mintemperature, jdbcType=FLOAT},
+			#{entity.miout, jdbcType=TINYINT}, #{entity.miouter_temp, jdbcType=VARCHAR}, #{entity.mipoweroff, jdbcType=VARCHAR},
+			#{entity.miqrctype, jdbcType=INTEGER}, #{entity.miserialnumber, jdbcType=INTEGER}, #{entity.misizetype, jdbcType=INTEGER},
+			#{entity.posturl, jdbcType=VARCHAR}, #{entity.province, jdbcType=VARCHAR}, #{entity.pureelectron, jdbcType=INTEGER},
+			#{entity.refundcount, jdbcType=INTEGER}, #{entity.refundverify, jdbcType=TINYINT}, #{entity.scheduledstate, jdbcType=TINYINT},
+			#{entity.scheduledtime, jdbcType=VARCHAR}, #{entity.spellluck, jdbcType=TINYINT}, #{entity.threetiercity, jdbcType=VARCHAR},
+			#{entity.version, jdbcType=VARCHAR}, #{entity.wxsinglediscount,jdbcType=TINYINT}
+			FROM DUAL
+		</foreach>
+  	</insert>
+
+	<!-- 更新 -->
+  	<update id="update" parameterType="com.taro.entity.device.DeviceInfoEntity">
+    	UPDATE TDEVICEINFO
+	    <set>
+      		<if test="id != null" > Id = #{id, jdbcType=VARCHAR}, </if>
+      		<if test="did != null" > F_DID = #{did, jdbcType=VARCHAR}, </if>
+      		<if test="advertisingswitch != null" > ADVERTISINGSWITCH = #{advertisingswitch, jdbcType=INTEGER}, </if>
+      		<if test="alicloudcode != null" > ALICLOUDCODE = #{alicloudcode, jdbcType=TINYINT}, </if>
+      		<if test="city != null" > CITY = #{city, jdbcType=VARCHAR}, </if>
+      		<if test="country != null" > COUNTRY = #{country, jdbcType=VARCHAR}, </if>
+      		<if test="enable != null" > ENABLE = #{enable, jdbcType=TINYINT}, </if>
+      		<if test="diaddress != null" > F_DIADDRESS = #{diaddress, jdbcType=VARCHAR}, </if>
+      		<if test="dialias != null" > F_DIALIAS = #{dialias, jdbcType=VARCHAR}, </if>
+      		<if test="diassetsid != null" > F_DIASSETSID = #{diassetsid, jdbcType=VARCHAR}, </if>
+      		<if test="dibelonguser != null" > F_DIBELONGUSER = #{dibelonguser, jdbcType=VARCHAR}, </if>
+      		<if test="dibusinessid != null" > F_DIBUSINESSID = #{dibusinessid, jdbcType=VARCHAR}, </if>
+      		<if test="dibuytime != null" > F_DIBUYTIME = #{dibuytime, jdbcType=DATE}, </if>
+      		<if test="digroup != null" > F_DIGROUP = #{digroup, jdbcType=VARCHAR}, </if>
+      		<if test="diinsidetemp != null" > F_DIINSIDETEMP = #{diinsidetemp, jdbcType=VARCHAR}, </if>
+      		<if test="dillatitude != null" > F_DILLATITUDE = #{dillatitude, jdbcType=FLOAT}, </if>
+      		<if test="dilongitude != null" > F_DILONGITUDE = #{dilongitude, jdbcType=FLOAT}, </if>
+      		<if test="dinoline != null" > F_DINOLINE = #{dinoline, jdbcType=INTEGER}, </if>
+      		<if test="dipwd != null" > F_DIPWD = #{dipwd, jdbcType=VARCHAR}, </if>
+      		<if test="disceneid != null" > F_DISCENEID = #{disceneid, jdbcType=VARCHAR}, </if>
+      		<if test="disize != null" > F_DISIZE = #{disize, jdbcType=INTEGER}, </if>
+      		<if test="diwork != null" > F_DIWORK = #{diwork, jdbcType=INTEGER}, </if>
+      		<if test="internaladdress != null" > INTERNALADDRESS = #{internaladdress, jdbcType=VARCHAR}, </if>
+      		<if test="iscart != null" > ISCART = #{iscart, jdbcType=TINYINT}, </if>
+      		<if test="maxtemperature != null" > MAXTEMPERATURE = #{maxtemperature, jdbcType=FLOAT}, </if>
+      		<if test="mibuyprice != null" > MIBUYPRICE = #{mibuyprice, jdbcType=INTEGER}, </if>
+      		<if test="micclimit != null" > MICCLIMIT = #{micclimit, jdbcType=INTEGER}, </if>
+      		<if test="micvs != null" > MICVS = #{micvs, jdbcType=TINYINT}, </if>
+      		<if test="miisdeploy != null" > MIISDEPLOY = #{miisdeploy, jdbcType=TINYINT}, </if>
+      		<if test="mintemperature != null" > MINTEMPERATURE = #{mintemperature, jdbcType=FLOAT}, </if>
+      		<if test="miout != null" > MIOUT = #{miout, jdbcType=TINYINT}, </if>
+      		<if test="miouter_temp != null" > MIOUTER_TEMP = #{miouter_temp, jdbcType=VARCHAR}, </if>
+      		<if test="mipoweroff != null" > MIPOWEROFF = #{mipoweroff, jdbcType=VARCHAR}, </if>
+      		<if test="miqrctype != null" > MIQRCTYPE = #{miqrctype, jdbcType=INTEGER}, </if>
+      		<if test="miserialnumber != null" > MISERIALNUMBER = #{miserialnumber, jdbcType=INTEGER}, </if>
+      		<if test="misizetype != null" > MISIZETYPE = #{misizetype, jdbcType=INTEGER}, </if>
+      		<if test="posturl != null" > POSTURL = #{posturl, jdbcType=VARCHAR}, </if>
+      		<if test="province != null" > PROVINCE = #{province, jdbcType=VARCHAR}, </if>
+      		<if test="pureelectron != null" > PUREELECTRON = #{pureelectron, jdbcType=INTEGER}, </if>
+      		<if test="refundcount != null" > REFUNDCOUNT = #{refundcount, jdbcType=INTEGER}, </if>
+      		<if test="refundverify != null" > REFUNDVERIFY = #{refundverify, jdbcType=TINYINT}, </if>
+      		<if test="scheduledstate != null" > SCHEDULEDSTATE = #{scheduledstate, jdbcType=TINYINT}, </if>
+      		<if test="scheduledtime != null" > SCHEDULEDTIME = #{scheduledtime, jdbcType=VARCHAR}, </if>
+      		<if test="spellluck != null" > SPELLLUCK = #{spellluck, jdbcType=TINYINT}, </if>
+      		<if test="threetiercity != null" > THREETIERCITY = #{threetiercity, jdbcType=VARCHAR}, </if>
+      		<if test="version != null" > VERSION = #{version, jdbcType=VARCHAR}, </if>
+      		<if test="wxsinglediscount != null" > WXSINGLEDISCOUNT = #{wxsinglediscount, jdbcType=TINYINT}, </if>
+	    </set>
+    	WHERE Id = #{id, jdbcType=VARCHAR}
+  	</update>
+
+	<!-- 批量更新 -->
+  	<update id="batchUpdate" parameterType="java.util.List">
+		<foreach collection="list" item="entity" separator=";">
+			UPDATE TDEVICEINFO
+			<set>
+		      	<if test="id != null" > Id = #{entity.id, jdbcType=VARCHAR}, </if>
+	      		<if test="did != null" > F_DID = #{entity.did, jdbcType=VARCHAR}, </if>
+	      		<if test="advertisingswitch != null" > ADVERTISINGSWITCH = #{entity.advertisingswitch, jdbcType=INTEGER}, </if>
+	      		<if test="alicloudcode != null" > ALICLOUDCODE = #{entity.alicloudcode, jdbcType=TINYINT}, </if>
+	      		<if test="city != null" > CITY = #{entity.city, jdbcType=VARCHAR}, </if>
+	      		<if test="country != null" > COUNTRY = #{entity.country, jdbcType=VARCHAR}, </if>
+	      		<if test="enable != null" > ENABLE = #{entity.enable, jdbcType=TINYINT}, </if>
+	      		<if test="diaddress != null" > F_DIADDRESS = #{entity.diaddress, jdbcType=VARCHAR}, </if>
+	      		<if test="dialias != null" > F_DIALIAS = #{entity.dialias, jdbcType=VARCHAR}, </if>
+	      		<if test="diassetsid != null" > F_DIASSETSID = #{entity.diassetsid, jdbcType=VARCHAR}, </if>
+	      		<if test="dibelonguser != null" > F_DIBELONGUSER = #{entity.dibelonguser, jdbcType=VARCHAR}, </if>
+	      		<if test="dibusinessid != null" > F_DIBUSINESSID = #{entity.dibusinessid, jdbcType=VARCHAR}, </if>
+	      		<if test="dibuytime != null" > F_DIBUYTIME = #{entity.dibuytime, jdbcType=DATE}, </if>
+	      		<if test="digroup != null" > F_DIGROUP = #{entity.digroup, jdbcType=VARCHAR}, </if>
+	      		<if test="diinsidetemp != null" > F_DIINSIDETEMP = #{entity.diinsidetemp, jdbcType=VARCHAR}, </if>
+	      		<if test="dillatitude != null" > F_DILLATITUDE = #{entity.dillatitude, jdbcType=FLOAT}, </if>
+	      		<if test="dilongitude != null" > F_DILONGITUDE = #{entity.dilongitude, jdbcType=FLOAT}, </if>
+	      		<if test="dinoline != null" > F_DINOLINE = #{entity.dinoline, jdbcType=INTEGER}, </if>
+	      		<if test="dipwd != null" > F_DIPWD = #{entity.dipwd, jdbcType=VARCHAR}, </if>
+	      		<if test="disceneid != null" > F_DISCENEID = #{entity.disceneid, jdbcType=VARCHAR}, </if>
+	      		<if test="disize != null" > F_DISIZE = #{entity.disize, jdbcType=INTEGER}, </if>
+	      		<if test="diwork != null" > F_DIWORK = #{entity.diwork, jdbcType=INTEGER}, </if>
+	      		<if test="internaladdress != null" > INTERNALADDRESS = #{entity.internaladdress, jdbcType=VARCHAR}, </if>
+	      		<if test="iscart != null" > ISCART = #{entity.iscart, jdbcType=TINYINT}, </if>
+	      		<if test="maxtemperature != null" > MAXTEMPERATURE = #{entity.maxtemperature, jdbcType=FLOAT}, </if>
+	      		<if test="mibuyprice != null" > MIBUYPRICE = #{entity.mibuyprice, jdbcType=INTEGER}, </if>
+	      		<if test="micclimit != null" > MICCLIMIT = #{entity.micclimit, jdbcType=INTEGER}, </if>
+	      		<if test="micvs != null" > MICVS = #{entity.micvs, jdbcType=TINYINT}, </if>
+	      		<if test="miisdeploy != null" > MIISDEPLOY = #{entity.miisdeploy, jdbcType=TINYINT}, </if>
+	      		<if test="mintemperature != null" > MINTEMPERATURE = #{entity.mintemperature, jdbcType=FLOAT}, </if>
+	      		<if test="miout != null" > MIOUT = #{entity.miout, jdbcType=TINYINT}, </if>
+	      		<if test="miouter_temp != null" > MIOUTER_TEMP = #{entity.miouter_temp, jdbcType=VARCHAR}, </if>
+	      		<if test="mipoweroff != null" > MIPOWEROFF = #{entity.mipoweroff, jdbcType=VARCHAR}, </if>
+	      		<if test="miqrctype != null" > MIQRCTYPE = #{entity.miqrctype, jdbcType=INTEGER}, </if>
+	      		<if test="miserialnumber != null" > MISERIALNUMBER = #{entity.miserialnumber, jdbcType=INTEGER}, </if>
+	      		<if test="misizetype != null" > MISIZETYPE = #{entity.misizetype, jdbcType=INTEGER}, </if>
+	      		<if test="posturl != null" > POSTURL = #{entity.posturl, jdbcType=VARCHAR}, </if>
+	      		<if test="province != null" > PROVINCE = #{entity.province, jdbcType=VARCHAR}, </if>
+	      		<if test="pureelectron != null" > PUREELECTRON = #{entity.pureelectron, jdbcType=INTEGER}, </if>
+	      		<if test="refundcount != null" > REFUNDCOUNT = #{entity.refundcount, jdbcType=INTEGER}, </if>
+	      		<if test="refundverify != null" > REFUNDVERIFY = #{entity.refundverify, jdbcType=TINYINT}, </if>
+	      		<if test="scheduledstate != null" > SCHEDULEDSTATE = #{entity.scheduledstate, jdbcType=TINYINT}, </if>
+	      		<if test="scheduledtime != null" > SCHEDULEDTIME = #{entity.scheduledtime, jdbcType=VARCHAR}, </if>
+	      		<if test="spellluck != null" > SPELLLUCK = #{entity.spellluck, jdbcType=TINYINT}, </if>
+	      		<if test="threetiercity != null" > THREETIERCITY = #{entity.threetiercity, jdbcType=VARCHAR}, </if>
+	      		<if test="version != null" > VERSION = #{entity.version, jdbcType=VARCHAR}, </if>
+	      		<if test="wxsinglediscount != null" > WXSINGLEDISCOUNT = #{entity.wxsinglediscount, jdbcType=TINYINT}, </if>
+			</set>
+    		WHERE Id = #{id, jdbcType=VARCHAR}
+		</foreach>
+  	</update>
+
+	<!-- 逻辑删除 -->
+  	<update id="delete" parameterType="java.lang.String" >
+    	UPDATE TDEVICEINFO SET
+			F_SYS_FLAG = '0',
+		    F_LAST_MODIFIER = #{lastModifier, jdbcType=VARCHAR},
+			F_LAST_MODIFIED_TIME = #{lastModifiedTime, jdbcType=VARCHAR}
+    	WHERE Id = #{id, jdbcType=VARCHAR}
+  	</update>
+
+	<!-- 逻辑删除所有 -->
+  	<update id="deleteAll" parameterType="map">
+		UPDATE TDEVICEINFO SET 
+			F_SYS_FLAG = '0',
+		    F_LAST_MODIFIER = #{lastModifier, jdbcType=VARCHAR},
+			F_LAST_MODIFIED_TIME = #{lastModifiedTime, jdbcType=VARCHAR}
+		WHERE Id IN
+		<foreach item="item" collection="ids" open="(" separator="," close=")">
+        	#{item}
+    	</foreach>
+  	</update>
+
+	<!-- 查询条件 模糊查询用concat函数:name like concat(concat('%',#{bean.name,jdbcType=VARCHAR}),'%'),	这样做主要是为了支持mysql和oracle以及防止sql注入 -->
+  	<!-- 列表查询 -->
+  	<select id="list" resultMap="BaseResultMap" parameterType="map">
+	    SELECT 
+	    	<include refid="Base_Column_List" />
+	    FROM TDEVICEINFO T
+	    <where>
+			<include refid="where_sql"/>
+		</where>
+  	</select>
+
+  	<select id="listHomeNum" resultMap="BaseResultMap" parameterType="map">
+	    select t.F_DINOLINE, count(t.F_DINOLINE) as F_DINOLINE_NUM
+		from tdeviceinfo t
+		where FIND_IN_SET(t.F_DiBelongUser, getChildrenOrg(#{tenants_pid, jdbcType=VARCHAR}))
+		group by t.F_DINOLINE
+  	</select>
+  	
+  	<select id="listHomeOrgNum" resultType="java.lang.Long" parameterType="map">
+	    select count(0)
+		from (
+		select t.F_DiBelongUser
+		from tdeviceinfo t
+		where FIND_IN_SET(t.F_DiBelongUser, getChildrenOrg(#{tenants_pid, jdbcType=VARCHAR}))
+		group by t.F_DiBelongUser
+		) t
+  	</select>
+  	
+	<!-- 根据ID查询单条记录 -->
+  	<select id="get" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    	SELECT 
+    		<include refid="Base_Column_List" />
+    	FROM TDEVICEINFO T
+    	WHERE T.Id = #{id,jdbcType=VARCHAR}
+  	</select>
+
+</mapper>

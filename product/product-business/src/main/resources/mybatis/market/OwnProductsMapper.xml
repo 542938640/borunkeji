@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- @Automatically generate by Coder in 2020-10-25 22:46:55 -->
+<mapper namespace="com.taro.dao.market.OwnProductsDao">
+
+  	<resultMap id="BaseResultMap" type="com.taro.entity.market.OwnProductsEntity">
+	  	<id column="ID" property="id" jdbcType="VARCHAR" />
+  		<result column="ID" property="id" jdbcType="VARCHAR" />
+  		<result column="PRODUCTID" property="productid" jdbcType="VARCHAR" />
+  		<result column="TENANTID" property="tenantid" jdbcType="VARCHAR" />
+  		<result column="ISDELETED" property="isdeleted" jdbcType="INTEGER" />
+  		<result column="REMARK" property="remark" jdbcType="VARCHAR" />
+  		<result column="CREATIONTIME" property="creationtime" jdbcType="DATE" />
+  		<result column="CREATORID" property="creatorid" jdbcType="VARCHAR" />
+  		<result column="LASTMODIFICATIONTIME" property="lastmodificationtime" jdbcType="DATE" />
+  		<result column="LASTMODIFIERID" property="lastmodifierid" jdbcType="VARCHAR" />
+  	</resultMap>
+
+  	<sql id="Base_Column_List" >
+		T.ID, T.PRODUCTID, T.TENANTID, T.ISDELETED, T.REMARK,
+		T.CREATIONTIME, T.CREATORID, T.LASTMODIFICATIONTIME, T.LASTMODIFIERID
+  	</sql>
+
+  	<sql id="where_sql">
+		<if test="id != null and id != ''" > 
+			and T.ID = #{id, jdbcType=VARCHAR}
+		</if>
+		<if test="productid != null and productid != ''" > 
+			and T.PRODUCTID = #{productid, jdbcType=VARCHAR}
+		</if>
+		<if test="tenantid != null and tenantid != ''" > 
+			and T.TENANTID = #{tenantid, jdbcType=VARCHAR}
+		</if>
+		<if test="isdeleted != null and isdeleted != ''" > 
+			and T.ISDELETED = #{isdeleted, jdbcType=INTEGER}
+		</if>
+		<if test="remark != null and remark != ''" > 
+			and T.REMARK = #{remark, jdbcType=VARCHAR}
+		</if>
+		<if test="creationtime != null and creationtime != ''" > 
+			and T.CREATIONTIME = #{creationtime, jdbcType=DATE}
+		</if>
+		<if test="creatorid != null and creatorid != ''" > 
+			and T.CREATORID = #{creatorid, jdbcType=VARCHAR}
+		</if>
+		<if test="lastmodificationtime != null and lastmodificationtime != ''" > 
+			and T.LASTMODIFICATIONTIME = #{lastmodificationtime, jdbcType=DATE}
+		</if>
+		<if test="lastmodifierid != null and lastmodifierid != ''" > 
+			and T.LASTMODIFIERID = #{lastmodifierid, jdbcType=VARCHAR}
+		</if>
+  	</sql>
+
+	<!-- 新增 -->
+  	<insert id="insert" parameterType="com.taro.entity.market.OwnProductsEntity" >
+    	INSERT INTO OWNPRODUCTS (
+    		ID, PRODUCTID, TENANTID,
+			ISDELETED, REMARK, CREATIONTIME,
+			CREATORID, LASTMODIFICATIONTIME, LASTMODIFIERID
+    	) VALUES (
+    		#{id, jdbcType=VARCHAR}, #{productid, jdbcType=VARCHAR}, #{tenantid, jdbcType=VARCHAR},
+			#{isdeleted, jdbcType=INTEGER}, #{remark, jdbcType=VARCHAR}, #{creationtime, jdbcType=DATE},
+			#{creatorid, jdbcType=VARCHAR}, #{lastmodificationtime, jdbcType=DATE}, #{lastmodifierid,jdbcType=VARCHAR}
+    	)
+  	</insert>
+
+	<!-- 批量新增 -->
+  	<insert id="insertObjects" parameterType="list">
+		INSERT INTO OWNPRODUCTS (
+    		ID, PRODUCTID, TENANTID,
+			ISDELETED, REMARK, CREATIONTIME,
+			CREATORID, LASTMODIFICATIONTIME, LASTMODIFIERID
+		)
+		<foreach collection="list" item="entity" index="index" separator="union all">
+			SELECT
+    		#{entity.id, jdbcType=VARCHAR}, #{entity.productid, jdbcType=VARCHAR}, #{entity.tenantid, jdbcType=VARCHAR},
+			#{entity.isdeleted, jdbcType=INTEGER}, #{entity.remark, jdbcType=VARCHAR}, #{entity.creationtime, jdbcType=DATE},
+			#{entity.creatorid, jdbcType=VARCHAR}, #{entity.lastmodificationtime, jdbcType=DATE}, #{entity.lastmodifierid,jdbcType=VARCHAR} 
+			FROM DUAL
+		</foreach>
+  	</insert>
+
+	<!-- 更新 -->
+  	<update id="update" parameterType="com.taro.entity.market.OwnProductsEntity">
+    	UPDATE OWNPRODUCTS
+	    <set>
+      		<if test="id != null" > ID = #{id, jdbcType=VARCHAR}, </if>
+      		<if test="productid != null" > PRODUCTID = #{productid, jdbcType=VARCHAR}, </if>
+      		<if test="tenantid != null" > TENANTID = #{tenantid, jdbcType=VARCHAR}, </if>
+      		<if test="isdeleted != null" > ISDELETED = #{isdeleted, jdbcType=INTEGER}, </if>
+      		<if test="remark != null" > REMARK = #{remark, jdbcType=VARCHAR}, </if>
+      		<if test="creationtime != null" > CREATIONTIME = #{creationtime, jdbcType=DATE}, </if>
+      		<if test="creatorid != null" > CREATORID = #{creatorid, jdbcType=VARCHAR}, </if>
+      		<if test="lastmodificationtime != null" > LASTMODIFICATIONTIME = #{lastmodificationtime, jdbcType=DATE}, </if>
+      		<if test="lastmodifierid != null" > LASTMODIFIERID = #{lastmodifierid, jdbcType=VARCHAR}, </if>
+	    </set>
+    	WHERE Id = #{id, jdbcType=VARCHAR}
+  	</update>
+
+	<!-- 批量更新 -->
+  	<update id="batchUpdate" parameterType="java.util.List">
+		<foreach collection="list" item="entity" separator=";">
+			UPDATE OWNPRODUCTS
+			<set>
+	      		<if test="id != null" > ID = #{entity.id, jdbcType=VARCHAR}, </if>
+	      		<if test="productid != null" > PRODUCTID = #{entity.productid, jdbcType=VARCHAR}, </if>
+	      		<if test="tenantid != null" > TENANTID = #{entity.tenantid, jdbcType=VARCHAR}, </if>
+	      		<if test="isdeleted != null" > ISDELETED = #{entity.isdeleted, jdbcType=INTEGER}, </if>
+	      		<if test="remark != null" > REMARK = #{entity.remark, jdbcType=VARCHAR}, </if>
+	      		<if test="creationtime != null" > CREATIONTIME = #{entity.creationtime, jdbcType=DATE}, </if>
+	      		<if test="creatorid != null" > CREATORID = #{entity.creatorid, jdbcType=VARCHAR}, </if>
+	      		<if test="lastmodificationtime != null" > LASTMODIFICATIONTIME = #{entity.lastmodificationtime, jdbcType=DATE}, </if>
+	      		<if test="lastmodifierid != null" > LASTMODIFIERID = #{entity.lastmodifierid, jdbcType=VARCHAR}, </if>
+			</set>
+    		WHERE Id = #{id, jdbcType=VARCHAR}
+		</foreach>
+  	</update>
+
+	<!-- 逻辑删除 -->
+  	<update id="delete" parameterType="java.lang.String" >
+    	UPDATE OWNPRODUCTS SET
+			F_SYS_FLAG = '0',
+		    F_LAST_MODIFIER = #{lastModifier, jdbcType=VARCHAR},
+			F_LAST_MODIFIED_TIME = #{lastModifiedTime, jdbcType=VARCHAR}
+    	WHERE Id = #{id, jdbcType=VARCHAR}
+  	</update>
+
+	<!-- 逻辑删除所有 -->
+  	<update id="deleteAll" parameterType="map">
+		UPDATE OWNPRODUCTS SET 
+			F_SYS_FLAG = '0',
+		    F_LAST_MODIFIER = #{lastModifier, jdbcType=VARCHAR},
+			F_LAST_MODIFIED_TIME = #{lastModifiedTime, jdbcType=VARCHAR}
+		WHERE Id IN
+		<foreach item="item" collection="ids" open="(" separator="," close=")">
+        	#{item}
+    	</foreach>
+  	</update>
+
+	<!-- 查询条件 模糊查询用concat函数:name like concat(concat('%',#{bean.name,jdbcType=VARCHAR}),'%'),	这样做主要是为了支持mysql和oracle以及防止sql注入 -->
+  	<!-- 列表查询 -->
+  	<select id="list" resultMap="BaseResultMap" parameterType="map">
+	    SELECT 
+	    	<include refid="Base_Column_List" />
+	    FROM OWNPRODUCTS T
+	    <where>
+			<include refid="where_sql"/>
+		</where>
+  	</select>
+
+	<!-- 根据ID查询单条记录 -->
+  	<select id="get" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    	SELECT 
+    		<include refid="Base_Column_List" />
+    	FROM OWNPRODUCTS T
+    	WHERE T.Id = #{id,jdbcType=VARCHAR}
+  	</select>
+
+</mapper>

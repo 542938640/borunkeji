@@ -1,0 +1,287 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- @Automatically generate by Coder in 2019-01-20 18:34 -->
+<mapper namespace="com.taro.dao.activiti.ProcessTaskDao">
+  <resultMap id="BaseResultMap" type="com.taro.entity.activiti.ProcessTaskEntity">
+  	<id column="f_pid" property="id" jdbcType="VARCHAR" />
+  	<result column="f_pid" property="id" jdbcType="VARCHAR" />
+  	<result column="f_process_pid" property="process_pid" jdbcType="VARCHAR" />
+  	<result column="f_task_name" property="task_name" jdbcType="VARCHAR" />
+  	<result column="f_task_id" property="task_id" jdbcType="VARCHAR" />
+  	<result column="f_company" property="company" jdbcType="VARCHAR" />
+  	<result column="f_role_pid" property="role_pid" jdbcType="VARCHAR" />
+  	<result column="f_user_pid" property="user_pid" jdbcType="VARCHAR" />
+  	<result column="f_role_name" property="role_name" jdbcType="VARCHAR" />
+  	<result column="f_user_name" property="user_name" jdbcType="VARCHAR" />
+  	<result column="f_pc_url" property="pc_url" jdbcType="VARCHAR" />
+  	<result column="f_app_url" property="app_url" jdbcType="VARCHAR" />
+  	<result column="f_remark" property="remark" jdbcType="VARCHAR" />
+  	<result column="f_sys_flag" property="sysFlag" jdbcType="VARCHAR" />
+  	<result column="f_creator" property="creator" jdbcType="VARCHAR" />
+  	<result column="f_create_time" property="createTime" jdbcType="VARCHAR" />
+  	<result column="f_last_modifier" property="lastModifier" jdbcType="VARCHAR" />
+  	<result column="f_last_modified_time" property="lastModifiedTime" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+  	t.f_pid, t.f_process_pid, t.f_task_name, t.f_task_id, t.f_company, t.f_role_pid, t.f_user_pid, t.f_role_name, t.f_user_name,
+  	t.f_pc_url,t.f_app_url,
+t.f_remark, t.f_sys_flag, t.f_creator, t.f_create_time, t.f_last_modifier, t.f_last_modified_time
+  </sql>
+  
+  <sql id="where_sql">
+	<if test="id != null and id != ''" > and t.f_pid = #{id,jdbcType=VARCHAR}</if>
+	<if test="process_pid != null and process_pid != ''" > and t.f_process_pid = #{process_pid,jdbcType=VARCHAR}</if>
+	<if test="task_name != null and task_name != ''" > and t.f_task_name = #{task_name,jdbcType=VARCHAR}</if>
+	<if test="task_id != null and task_id != ''" > and t.f_task_id = #{task_id,jdbcType=VARCHAR}</if>
+	<if test="check_task != null and check_task != ''" > and t.f_task_id like '%check%'</if>
+	<if test="company != null and company != ''" > and t.f_company = #{company,jdbcType=VARCHAR}</if>
+	<if test="role_pid != null and role_pid != ''" > and t.f_role_pid = #{role_pid,jdbcType=VARCHAR}</if>
+	<if test="user_pid != null and user_pid != ''" > and t.f_user_pid = #{user_pid,jdbcType=VARCHAR}</if>
+	<if test="role_name != null and role_name != ''" > and t.f_role_name = #{role_name,jdbcType=VARCHAR}</if>
+	<if test="user_name != null and user_name != ''" > and t.f_user_name = #{user_name,jdbcType=VARCHAR}</if>
+	<if test="pc_url != null and pc_url != ''" > and t.f_pc_url = #{pc_url,jdbcType=VARCHAR}</if>
+	<if test="app_url != null and app_url != ''" > and t.f_app_url = #{app_url,jdbcType=VARCHAR}</if>
+	<if test="remark != null and remark != ''" > and t.f_remark = #{remark,jdbcType=VARCHAR}</if>
+	<if test="sysFlag != null and sysFlag != ''" > and t.f_sys_flag = #{sysFlag,jdbcType=VARCHAR}</if>
+	<if test="creator != null and creator != ''" > and t.f_creator = #{creator,jdbcType=VARCHAR}</if>
+	<if test="createTime != null and createTime != ''" > and t.f_create_time = #{createTime,jdbcType=VARCHAR}</if>
+	<if test="lastModifier != null and lastModifier != ''" > and t.f_last_modifier = #{lastModifier,jdbcType=VARCHAR}</if>
+	<if test="lastModifiedTime != null and lastModifiedTime != ''" > and t.f_last_modified_time = #{lastModifiedTime,jdbcType=VARCHAR}</if>
+  </sql>
+  
+  <insert id="insert" parameterType="com.taro.entity.activiti.ProcessTaskEntity" >
+    insert into t_process_task (
+      f_pid, f_process_pid, f_task_name,
+  f_task_id, f_company, f_role_pid, f_user_pid, f_role_name, f_user_name,f_pc_url, f_app_url,
+  f_remark, f_sys_flag, f_creator,
+  f_create_time, f_last_modifier, f_last_modified_time
+    ) values (
+      #{id,jdbcType=VARCHAR}, #{process_pid,jdbcType=VARCHAR}, #{task_name,jdbcType=VARCHAR},
+  #{task_id,jdbcType=VARCHAR}, #{company,jdbcType=VARCHAR}, #{role_pid,jdbcType=VARCHAR}, #{user_pid,jdbcType=VARCHAR}, 
+  #{role_name,jdbcType=VARCHAR}, #{user_name,jdbcType=VARCHAR},#{pc_url,jdbcType=VARCHAR}, #{app_url,jdbcType=VARCHAR},
+  #{remark,jdbcType=VARCHAR}, #{sysFlag,jdbcType=VARCHAR}, #{creator,jdbcType=VARCHAR},
+  #{createTime,jdbcType=VARCHAR}, #{lastModifier,jdbcType=VARCHAR}, #{lastModifiedTime,jdbcType=VARCHAR} 
+    )
+  </insert>
+  
+  <insert id="insertObjects" parameterType="list">
+		insert into t_process_task (
+		  f_pid, f_process_pid, f_task_name,
+  f_task_id, f_company, f_role_pid, f_user_pid, f_role_name, f_user_name,f_pc_url, f_app_url,
+  f_remark, f_sys_flag, f_creator,
+  f_create_time, f_last_modifier, f_last_modified_time
+		)
+		<foreach collection="list" item="entity" index="index" separator="union all">
+			select
+		  		#{entity.id,jdbcType=VARCHAR}, #{entity.process_pid,jdbcType=VARCHAR}, #{entity.task_name,jdbcType=VARCHAR},
+  #{entity.task_id,jdbcType=VARCHAR}, #{entity.company,jdbcType=VARCHAR}, #{entity.role_pid,jdbcType=VARCHAR}, #{entity.user_pid,jdbcType=VARCHAR},
+  #{entity.role_name,jdbcType=VARCHAR}, #{entity.user_name,jdbcType=VARCHAR},
+  #{entity.pc_url,jdbcType=VARCHAR}, #{entity.app_url,jdbcType=VARCHAR},
+  #{entity.remark,jdbcType=VARCHAR}, #{entity.sysFlag,jdbcType=VARCHAR}, #{entity.creator,jdbcType=VARCHAR},
+  #{entity.createTime,jdbcType=VARCHAR}, #{entity.lastModifier,jdbcType=VARCHAR}, #{entity.lastModifiedTime,jdbcType=VARCHAR} 
+			from dual
+		</foreach>
+  </insert>
+  
+  <update id="update" parameterType="com.taro.entity.activiti.ProcessTaskEntity">
+    update t_process_task 
+    <set>
+      <if test="id != null" > f_pid = #{id,jdbcType=VARCHAR}, </if>
+      <if test="process_pid != null" > f_process_pid = #{process_pid,jdbcType=VARCHAR}, </if>
+      <if test="task_name != null" > f_task_name = #{task_name,jdbcType=VARCHAR}, </if>
+      <if test="task_id != null" > f_task_id = #{task_id,jdbcType=VARCHAR}, </if>
+      <if test="company != null" > f_company = #{company,jdbcType=VARCHAR}, </if>
+      <if test="role_pid != null" > f_role_pid = #{role_pid,jdbcType=VARCHAR}, </if>
+      <if test="user_pid != null" > f_user_pid = #{user_pid,jdbcType=VARCHAR}, </if>
+      <if test="role_name != null" > f_role_name = #{role_name,jdbcType=VARCHAR}, </if>
+      <if test="user_name != null" > f_user_name = #{user_name,jdbcType=VARCHAR}, </if>
+      <if test="pc_url != null" > f_pc_url = #{pc_url,jdbcType=VARCHAR}, </if>
+      <if test="app_url != null" > f_app_url = #{app_url,jdbcType=VARCHAR}, </if>
+      <if test="remark != null" > f_remark = #{remark,jdbcType=VARCHAR}, </if>
+      <if test="sysFlag != null" > f_sys_flag = #{sysFlag,jdbcType=VARCHAR}, </if>
+      <if test="creator != null" > f_creator = #{creator,jdbcType=VARCHAR}, </if>
+      <if test="createTime != null" > f_create_time = #{createTime,jdbcType=VARCHAR}, </if>
+      <if test="lastModifier != null" > f_last_modifier = #{lastModifier,jdbcType=VARCHAR}, </if>
+      <if test="lastModifiedTime != null" > f_last_modified_time = #{lastModifiedTime,jdbcType=VARCHAR}, </if>
+    </set>
+    where f_pid = #{id,jdbcType=VARCHAR}
+  </update>
+  
+  <update id="batchUpdate" parameterType="java.util.List">
+		<foreach collection="list" item="entity" separator=";">
+			update t_process_task
+			<set>
+			  <if test="id != null" > f_pid = #{entity.id,jdbcType=VARCHAR}, </if>
+			  <if test="process_pid != null" > f_process_pid = #{entity.process_pid,jdbcType=VARCHAR}, </if>
+			  <if test="task_name != null" > f_task_name = #{entity.task_name,jdbcType=VARCHAR}, </if>
+			  <if test="task_id != null" > f_task_id = #{entity.task_id,jdbcType=VARCHAR}, </if>
+			  <if test="company != null" > f_company = #{entity.company,jdbcType=VARCHAR}, </if>
+			  <if test="role_pid != null" > f_role_pid = #{entity.role_pid,jdbcType=VARCHAR}, </if>
+			  <if test="user_pid != null" > f_user_pid = #{entity.user_pid,jdbcType=VARCHAR}, </if>
+			  <if test="role_name != null" > f_role_name = #{entity.role_name,jdbcType=VARCHAR}, </if>
+			  <if test="user_name != null" > f_user_name = #{entity.user_name,jdbcType=VARCHAR}, </if>
+			  <if test="pc_url != null" > f_pc_url = #{entity.pc_url,jdbcType=VARCHAR}, </if>
+			  <if test="app_url != null" > f_app_url = #{entity.app_url,jdbcType=VARCHAR}, </if>
+			  <if test="remark != null" > f_remark = #{entity.remark,jdbcType=VARCHAR}, </if>
+			  <if test="sysFlag != null" > f_sys_flag = #{entity.sysFlag,jdbcType=VARCHAR}, </if>
+			  <if test="creator != null" > f_creator = #{entity.creator,jdbcType=VARCHAR}, </if>
+			  <if test="createTime != null" > f_create_time = #{entity.createTime,jdbcType=VARCHAR}, </if>
+			  <if test="lastModifier != null" > f_last_modifier = #{entity.lastModifier,jdbcType=VARCHAR}, </if>
+			  <if test="lastModifiedTime != null" > f_last_modified_time = #{entity.lastModifiedTime,jdbcType=VARCHAR}, </if>
+			</set>
+			where f_pid = #{id,jdbcType=VARCHAR}
+		</foreach>
+  </update>
+  
+  
+  <update id="delete" parameterType="java.lang.String" >
+    update t_process_task set
+		F_SYS_FLAG='0',
+	    F_LAST_MODIFIER = #{lastModifier,jdbcType=VARCHAR},
+		F_LAST_MODIFIED_TIME = #{lastModifiedTime,jdbcType=VARCHAR} 
+	where f_pid = #{id,jdbcType=VARCHAR}
+  </update>
+  
+  <update id="deleteByProcess" parameterType="java.lang.String" >
+    update t_process_task set
+		F_SYS_FLAG='0',
+	    F_LAST_MODIFIER = #{lastModifier,jdbcType=VARCHAR},
+		F_LAST_MODIFIED_TIME = #{lastModifiedTime,jdbcType=VARCHAR} 
+	where f_process_pid = #{id,jdbcType=VARCHAR}
+  </update>
+  
+  <update id="deleteAll" parameterType="map">
+	update t_process_task set 
+		F_SYS_FLAG='0',
+	    F_LAST_MODIFIER = #{lastModifier,jdbcType=VARCHAR},
+		F_LAST_MODIFIED_TIME = #{lastModifiedTime,jdbcType=VARCHAR} 
+	where f_pid in
+	<foreach item="item" collection="ids" open="(" separator="," close=")">
+        #{item}
+    </foreach>
+  </update>
+  
+  <select id="list" resultMap="BaseResultMap" parameterType="map">
+    select 
+    <include refid="Base_Column_List" />
+    from t_process_task t
+    <where>
+		<include refid="where_sql"/>
+	</where>
+	order by t.f_task_id
+  </select>
+  
+  <!-- 查询条件 模糊查询用concat函数 ：name like concat(concat('%',#{bean.name,jdbcType=VARCHAR}),'%')，
+  	         这样做主要是为了支持mysql和oracle以及防止sql注入 -->
+  <select id="listUser" resultType="com.taro.entity.activiti.UserEntity" parameterType="map">
+    select t.f_pid as id,
+    	   t.f_name as name
+    from v_user t
+    where 1 = 1
+	<if test="id != null and id != ''" > and t.f_pid = #{id,jdbcType=VARCHAR}</if>
+	<if test="name != null and name != ''" > and t.f_name = #{name,jdbcType=VARCHAR}</if>
+  </select>
+  
+  <select id="listRole" resultType="com.taro.entity.activiti.RoleEntity" parameterType="map">
+    select t.f_pid as id,
+    	   t.f_name as name
+    from v_role t
+    where 1 = 1
+	<if test="id != null and id != ''" > and t.f_pid = #{id,jdbcType=VARCHAR}</if>
+	<if test="name != null and name != ''" > and t.f_name = #{name,jdbcType=VARCHAR}</if>
+  </select>
+  
+  <select id="listRoleUser" resultType="com.taro.entity.activiti.RoleUserEntity" parameterType="map">
+    select t.f_pid as id,
+    	   t.f_role_pid as role_pid,
+    	   t.f_user_pid as user_pid
+    from v_role_user t
+    where 1 = 1
+	<if test="id != null and id != ''" > and t.f_pid = #{id,jdbcType=VARCHAR}</if>
+	<if test="role_pid != null and role_pid != ''" > and t.f_role_pid = #{role_pid,jdbcType=VARCHAR}</if>
+	<if test="user_pid != null and user_pid != ''" > and t.f_user_pid = #{user_pid,jdbcType=VARCHAR}</if>
+	<if test="role_pids !=null and role_pids !=''">
+		and t.f_role_pid in
+		<foreach collection="role_pids" item="item" index="index" open="(" close=")" separator=",">
+			'${item}'
+		</foreach>
+	</if>
+  </select>
+  
+  <select id="get" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from t_process_task t
+    where t.f_pid = #{id,jdbcType=VARCHAR}
+  </select>
+  
+  <select id="listUserByTask" resultType="java.lang.String" parameterType="map">
+    select t.f_pid
+	from t_sec_user t
+	left join t_sec_user_role_rel rel on t.f_pid = rel.f_user_pid and rel.f_sys_flag = '1'
+	where t.f_sys_flag = '1'
+	and (
+		1 = 1
+		<if test="org_ids != null" >
+		or t.F_TENANTS_PID in (
+			select t.f_pid
+			from t_sec_tenants t
+			where FIND_IN_SET(f_pid, getParentOrg(#{tenants_pid,jdbcType=VARCHAR}))
+			and t.f_sys_flag = '1'
+			and t.f_level in
+			<foreach item="org" collection="org_ids" open="(" separator="," close=")">
+		        #{org}
+		    </foreach>
+		)
+		</if>
+		<if test="role_ids != null" >
+		or rel.f_role_pid in (
+			select t.f_pid 
+			from t_sec_role t
+			where t.f_sys_flag = '1'
+			and t.f_tenants_pid in (
+				select t.f_pid
+				from t_sec_tenants t
+				where FIND_IN_SET(f_pid, getParentOrg(#{tenants_pid,jdbcType=VARCHAR}))
+				and t.f_sys_flag = '1'
+			)
+			and t.f_tenants_level_pid in
+			<foreach item="role" collection="role_ids" open="(" separator="," close=")">
+		        '#{role}'
+		    </foreach>
+		)
+		</if>
+	)
+  </select>
+  
+  <select id="listTaskRole" resultType="com.taro.entity.activiti.RoleEntity" parameterType="map">
+    select t.f_pid as id,
+	CONCAT_WS(' - ', t.f_tenants_name, t.f_role_name) as name
+	from t_sec_tenants_level_role t
+	where t.f_sys_flag = '1'
+	order by t.f_tenants_level, t.f_create_time desc
+  </select>
+  
+  <select id="listCandidateOrg" resultType="java.lang.String" parameterType="map">
+    select concat('org_', t.f_pid) as id
+	from t_sec_tenants t
+	where FIND_IN_SET(t.f_pid, getParentOrg(#{tenants_pid,jdbcType=VARCHAR}))
+	and t.f_sys_flag = '1'
+	and t.f_level in
+	<foreach collection="org_ids" item="item" index="index" open="(" close=")" separator=",">
+		${item}
+	</foreach>
+  </select>
+  
+  <select id="listCandidateRole" resultType="java.lang.String" parameterType="map">
+    select concat('role_', t.f_pid) as id
+	from t_sec_role t
+	where FIND_IN_SET(t.f_tenants_pid, getParentOrg(#{tenants_pid,jdbcType=VARCHAR}))
+	and t.f_sys_flag = '1'
+	and t.f_tenants_level_pid in
+	<foreach collection="role_ids" item="item" index="index" open="(" close=")" separator=",">
+		'${item}'
+	</foreach>
+  </select>
+  
+</mapper>

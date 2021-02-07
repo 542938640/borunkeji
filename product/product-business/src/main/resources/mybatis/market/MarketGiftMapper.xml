@@ -1,0 +1,333 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- @Automatically generate by Coder in 2020-10-27 00:20:40 -->
+<mapper namespace="com.taro.dao.market.MarketGiftDao">
+
+  	<resultMap id="BaseResultMap" type="com.taro.entity.market.MarketGiftEntity">
+	  	<id column="F_PID" property="id" jdbcType="VARCHAR" />
+  		<result column="F_PID" property="id" jdbcType="VARCHAR" />
+  		<result column="F_TENANTS_PID" property="tenants_pid" jdbcType="VARCHAR" />
+  		<result column="F_DEVICE_PID" property="device_pid" jdbcType="VARCHAR" />
+  		<result column="F_DEVICE_DID" property="device_did" jdbcType="VARCHAR" />
+  		<result column="F_IMAGE" property="image" jdbcType="VARCHAR" />
+  		<result column="F_NAME" property="name" jdbcType="VARCHAR" />
+  		<result column="F_BRAND" property="brand" jdbcType="VARCHAR" />
+  		<result column="F_SPECS" property="specs" jdbcType="VARCHAR" />
+  		<result column="F_STOCK" property="stock" jdbcType="INTEGER" />
+  		<result column="F_POINTS" property="points" jdbcType="INTEGER" />
+  		<result column="F_C1" property="c1" jdbcType="VARCHAR" />
+  		<result column="F_C2" property="c2" jdbcType="VARCHAR" />
+  		<result column="F_C3" property="c3" jdbcType="VARCHAR" />
+  		<result column="F_C4" property="c4" jdbcType="VARCHAR" />
+  		<result column="F_C5" property="c5" jdbcType="VARCHAR" />
+	  	<result column="F_SYS_FLAG" property="sysFlag" jdbcType="VARCHAR" />
+	  	<result column="F_REMARK" property="remark" jdbcType="VARCHAR" />
+	  	<result column="F_LAST_MODIFIER" property="lastModifier" jdbcType="VARCHAR" />
+	  	<result column="F_LAST_MODIFIED_TIME" property="lastModifiedTime" jdbcType="VARCHAR" />
+	  	<result column="F_CREATOR" property="creator" jdbcType="VARCHAR" />
+	  	<result column="F_CREATE_TIME" property="createTime" jdbcType="VARCHAR" />
+	  	
+  		<result column="F_COUPON_ID" property="coupon_id" jdbcType="VARCHAR" />
+  		<result column="F_COUPON_NAME" property="coupon_name" jdbcType="VARCHAR" />
+  		<result column="F_START_DATE" property="start_date" jdbcType="VARCHAR" />
+  		<result column="F_END_DATE" property="end_date" jdbcType="VARCHAR" />
+  		<result column="F_FACE_VALUE" property="face_value" jdbcType="FLOAT" />
+  		<result column="F_COUPON_TYPE" property="coupon_type" jdbcType="CHAR" />
+  		<result column="F_FULL_VALUE" property="full_value" jdbcType="FLOAT" />
+  		<result column="F_FRANT_NUM" property="frant_num" jdbcType="INTEGER" />
+  		<result column="F_REQ_NUM" property="req_num" jdbcType="INTEGER" />
+	  	<result column="F_STORE_NAME" property="store_name" jdbcType="VARCHAR" />
+	  	<result column="F_STORE_PHONE" property="store_phone" jdbcType="VARCHAR" />
+	  	<result column="F_STORE_TRADE" property="store_trade" jdbcType="VARCHAR" />
+	  	<result column="F_STORE_ADDRESS" property="store_address" jdbcType="VARCHAR" />
+  	</resultMap>
+
+  	<sql id="Base_Column_List" >
+		t.F_PID, T.F_TENANTS_PID, T.F_DEVICE_PID, T.F_DEVICE_DID, T.F_IMAGE, T.F_NAME,
+		T.F_BRAND, T.F_SPECS, T.F_STOCK, T.F_POINTS, T.F_C1,
+		T.F_C2, T.F_C3, T.F_C4, T.F_C5, 
+		t.F_SYS_FLAG, t.F_REMARK, t.F_LAST_MODIFIER, t.F_LAST_MODIFIED_TIME, t.F_CREATOR, t.F_CREATE_TIME
+  	</sql>
+
+  	<sql id="where_sql">
+		<if test="id != null and id != ''" > 
+			and t.F_PID = #{id, jdbcType=VARCHAR}
+		</if>
+		<if test="tenants_pid != null and tenants_pid != ''" > 
+			and T.F_TENANTS_PID = #{tenants_pid, jdbcType=VARCHAR}
+		</if>
+		<if test="device_pid != null and device_pid != ''" > 
+			and T.F_DEVICE_PID = #{device_pid, jdbcType=VARCHAR}
+		</if>
+		<if test="device_did != null and device_did != ''" > 
+			and T.F_DEVICE_DID = #{device_did, jdbcType=VARCHAR}
+		</if>
+		<if test="image != null and image != ''" > 
+			and T.F_IMAGE = #{image, jdbcType=VARCHAR}
+		</if>
+		<if test="name != null and name != ''" > 
+			and T.F_NAME = #{name, jdbcType=VARCHAR}
+		</if>
+		<if test="name_like != null and name_like != ''" > 
+			and T.F_NAME like concat(concat('%',#{name_like,jdbcType=VARCHAR}),'%')
+		</if>
+		<if test="brand != null and brand != ''" > 
+			and T.F_BRAND = #{brand, jdbcType=VARCHAR}
+		</if>
+		<if test="specs != null and specs != ''" > 
+			and T.F_SPECS = #{specs, jdbcType=VARCHAR}
+		</if>
+		<if test="stock != null and stock != ''" > 
+			and T.F_STOCK = #{stock, jdbcType=INTEGER}
+		</if>
+		<if test="points != null and points != ''" > 
+			and T.F_POINTS = #{points, jdbcType=INTEGER}
+		</if>
+		<if test="c1 != null and c1 != ''" > 
+			and T.F_C1 = #{c1, jdbcType=VARCHAR}
+		</if>
+		<if test="c2 != null and c2 != ''" > 
+			and T.F_C2 = #{c2, jdbcType=VARCHAR}
+		</if>
+		<if test="c3 != null and c3 != ''" > 
+			and T.F_C3 = #{c3, jdbcType=VARCHAR}
+		</if>
+		<if test="c4 != null and c4 != ''" > 
+			and T.F_C4 = #{c4, jdbcType=VARCHAR}
+		</if>
+		<if test="c5 != null and c5 != ''" > 
+			and T.F_C5 = #{c5, jdbcType=VARCHAR}
+		</if>
+		<if test="sysFlag != null and sysFlag != ''" > 
+			and t.F_SYS_FLAG = #{sysFlag, jdbcType=VARCHAR}
+		</if>
+		<if test="remark != null and remark != ''" > 
+			and t.F_REMARK = #{remark, jdbcType=VARCHAR}
+		</if>
+		<if test="lastModifier != null and lastModifier != ''" > 
+			and t.F_LAST_MODIFIER = #{lastModifier, jdbcType=VARCHAR}
+		</if>
+		<if test="lastModifiedTime != null and lastModifiedTime != ''" > 
+			and t.F_LAST_MODIFIED_TIME = #{lastModifiedTime, jdbcType=VARCHAR}
+		</if>
+		<if test="creator != null and creator != ''" > 
+			and t.F_CREATOR = #{creator, jdbcType=VARCHAR}
+		</if>
+		<if test="createTime != null and createTime != ''" > 
+			and t.F_CREATE_TIME = #{createTime, jdbcType=VARCHAR}
+		</if>
+  	</sql>
+
+	<!-- 新增 -->
+  	<insert id="insert" parameterType="com.taro.entity.market.MarketGiftEntity" >
+    	INSERT INTO T_MARKET_GIFT (
+    		F_PID, F_TENANTS_PID, F_DEVICE_PID, F_DEVICE_DID,
+			F_IMAGE, F_NAME, F_BRAND,
+			F_SPECS, F_STOCK, F_POINTS,
+			F_C1, F_C2, F_C3,
+			F_C4, F_C5, 
+		  	F_SYS_FLAG, F_REMARK, F_LAST_MODIFIER,
+		  	F_LAST_MODIFIED_TIME, F_CREATOR, F_CREATE_TIME
+    	) VALUES (
+    		#{id, jdbcType=VARCHAR}, #{tenants_pid, jdbcType=VARCHAR}, #{device_pid, jdbcType=VARCHAR}, #{device_did, jdbcType=VARCHAR},
+			#{image, jdbcType=VARCHAR}, #{name, jdbcType=VARCHAR}, #{brand, jdbcType=VARCHAR},
+			#{specs, jdbcType=VARCHAR}, #{stock, jdbcType=INTEGER}, #{points, jdbcType=INTEGER},
+			#{c1, jdbcType=VARCHAR}, #{c2, jdbcType=VARCHAR}, #{c3, jdbcType=VARCHAR},
+			#{c4, jdbcType=VARCHAR}, #{c5,jdbcType=VARCHAR} , 
+		  	#{sysFlag, jdbcType=VARCHAR}, #{remark, jdbcType=VARCHAR}, #{lastModifier, jdbcType=VARCHAR},
+		  	#{lastModifiedTime, jdbcType=VARCHAR}, #{creator, jdbcType=VARCHAR}, #{createTime, jdbcType=VARCHAR} 
+    	)
+  	</insert>
+
+	<!-- 批量新增 -->
+  	<insert id="insertObjects" parameterType="list">
+		INSERT INTO T_MARKET_GIFT (
+    		F_PID, F_TENANTS_PID, F_DEVICE_PID, F_DEVICE_DID,
+			F_IMAGE, F_NAME, F_BRAND,
+			F_SPECS, F_STOCK, F_POINTS,
+			F_C1, F_C2, F_C3,
+			F_C4, F_C5, 
+		  	F_SYS_FLAG, F_REMARK, F_LAST_MODIFIER,
+		  	F_LAST_MODIFIED_TIME, F_CREATOR, F_CREATE_TIME
+		)
+		<foreach collection="list" item="entity" index="index" separator="union all">
+			SELECT
+    		#{entity.id, jdbcType=VARCHAR}, #{entity.tenants_pid, jdbcType=VARCHAR}, #{entity.device_pid, jdbcType=VARCHAR}, #{entity.device_did, jdbcType=VARCHAR},
+			#{entity.image, jdbcType=VARCHAR}, #{entity.name, jdbcType=VARCHAR}, #{entity.brand, jdbcType=VARCHAR},
+			#{entity.specs, jdbcType=VARCHAR}, #{entity.stock, jdbcType=INTEGER}, #{entity.points, jdbcType=INTEGER},
+			#{entity.c1, jdbcType=VARCHAR}, #{entity.c2, jdbcType=VARCHAR}, #{entity.c3, jdbcType=VARCHAR},
+			#{entity.c4, jdbcType=VARCHAR}, #{entity.c5,jdbcType=VARCHAR} , 
+  			#{entity.sysFlag,jdbcType=VARCHAR}, #{entity.remark,jdbcType=VARCHAR}, #{entity.lastModifier,jdbcType=VARCHAR},
+  			#{entity.lastModifiedTime,jdbcType=VARCHAR}, #{entity.creator,jdbcType=VARCHAR}, #{entity.createTime,jdbcType=VARCHAR} 
+			FROM DUAL
+		</foreach>
+  	</insert>
+
+	<!-- 更新 -->
+  	<update id="update" parameterType="com.taro.entity.market.MarketGiftEntity">
+    	UPDATE T_MARKET_GIFT
+	    <set>
+      		<if test="id != null" > F_PID = #{id, jdbcType=VARCHAR}, </if>
+      		<if test="tenants_pid != null" > F_TENANTS_PID = #{tenants_pid, jdbcType=VARCHAR}, </if>
+      		<if test="device_pid != null" > F_DEVICE_PID = #{device_pid, jdbcType=VARCHAR}, </if>
+      		<if test="device_did != null" > F_DEVICE_DID = #{device_did, jdbcType=VARCHAR}, </if>
+      		<if test="image != null" > F_IMAGE = #{image, jdbcType=VARCHAR}, </if>
+      		<if test="name != null" > F_NAME = #{name, jdbcType=VARCHAR}, </if>
+      		<if test="brand != null" > F_BRAND = #{brand, jdbcType=VARCHAR}, </if>
+      		<if test="specs != null" > F_SPECS = #{specs, jdbcType=VARCHAR}, </if>
+      		<if test="stock != null" > F_STOCK = #{stock, jdbcType=INTEGER}, </if>
+      		<if test="points != null" > F_POINTS = #{points, jdbcType=INTEGER}, </if>
+      		<if test="c1 != null" > F_C1 = #{c1, jdbcType=VARCHAR}, </if>
+      		<if test="c2 != null" > F_C2 = #{c2, jdbcType=VARCHAR}, </if>
+      		<if test="c3 != null" > F_C3 = #{c3, jdbcType=VARCHAR}, </if>
+      		<if test="c4 != null" > F_C4 = #{c4, jdbcType=VARCHAR}, </if>
+      		<if test="c5 != null" > F_C5 = #{c5, jdbcType=VARCHAR}, </if>
+	      	<if test="sysFlag != null" > F_SYS_FLAG = #{sysFlag, jdbcType=VARCHAR}, </if>
+	      	<if test="remark != null" > F_REMARK = #{remark, jdbcType=VARCHAR}, </if>
+	      	<if test="lastModifier != null" > F_LAST_MODIFIER = #{lastModifier, jdbcType=VARCHAR}, </if>
+	      	<if test="lastModifiedTime != null" > F_LAST_MODIFIED_TIME = #{lastModifiedTime, jdbcType=VARCHAR}, </if>
+	      	<if test="creator != null" > F_CREATOR = #{creator, jdbcType=VARCHAR}, </if>
+	      	<if test="createTime != null" > F_CREATE_TIME = #{createTime, jdbcType=VARCHAR}, </if>
+	    </set>
+    	WHERE F_PID = #{id, jdbcType=VARCHAR}
+  	</update>
+
+	<!-- 批量更新 -->
+  	<update id="batchUpdate" parameterType="java.util.List">
+		<foreach collection="list" item="entity" separator=";">
+			UPDATE T_MARKET_GIFT
+			<set>
+		      	<if test="id != null" > F_PID = #{entity.id, jdbcType=VARCHAR}, </if>
+	      		<if test="tenants_pid != null" > F_TENANTS_PID = #{entity.tenants_pid, jdbcType=VARCHAR}, </if>
+	      		<if test="device_pid != null" > F_DEVICE_PID = #{entity.device_pid, jdbcType=VARCHAR}, </if>
+	      		<if test="device_did != null" > F_DEVICE_DID = #{entity.device_did, jdbcType=VARCHAR}, </if>
+	      		<if test="image != null" > F_IMAGE = #{entity.image, jdbcType=VARCHAR}, </if>
+	      		<if test="name != null" > F_NAME = #{entity.name, jdbcType=VARCHAR}, </if>
+	      		<if test="brand != null" > F_BRAND = #{entity.brand, jdbcType=VARCHAR}, </if>
+	      		<if test="specs != null" > F_SPECS = #{entity.specs, jdbcType=VARCHAR}, </if>
+	      		<if test="stock != null" > F_STOCK = #{entity.stock, jdbcType=INTEGER}, </if>
+	      		<if test="points != null" > F_POINTS = #{entity.points, jdbcType=INTEGER}, </if>
+	      		<if test="c1 != null" > F_C1 = #{entity.c1, jdbcType=VARCHAR}, </if>
+	      		<if test="c2 != null" > F_C2 = #{entity.c2, jdbcType=VARCHAR}, </if>
+	      		<if test="c3 != null" > F_C3 = #{entity.c3, jdbcType=VARCHAR}, </if>
+	      		<if test="c4 != null" > F_C4 = #{entity.c4, jdbcType=VARCHAR}, </if>
+	      		<if test="c5 != null" > F_C5 = #{entity.c5, jdbcType=VARCHAR}, </if>
+		      	<if test="sysFlag != null" > F_SYS_FLAG = #{entity.sysFlag, jdbcType=VARCHAR}, </if>
+		      	<if test="remark != null" > F_REMARK = #{entity.remark, jdbcType=VARCHAR}, </if>
+		      	<if test="lastModifier != null" > F_LAST_MODIFIER = #{entity.lastModifier, jdbcType=VARCHAR}, </if>
+		      	<if test="lastModifiedTime != null" > F_LAST_MODIFIED_TIME = #{entity.lastModifiedTime, jdbcType=VARCHAR}, </if>
+		      	<if test="creator != null" > F_CREATOR = #{entity.creator, jdbcType=VARCHAR}, </if>
+		      	<if test="createTime != null" > F_CREATE_TIME = #{entity.createTime, jdbcType=VARCHAR}, </if>
+			</set>
+    		WHERE F_PID = #{id, jdbcType=VARCHAR}
+		</foreach>
+  	</update>
+
+	<!-- 逻辑删除 -->
+  	<update id="delete" parameterType="java.lang.String" >
+    	UPDATE T_MARKET_GIFT SET
+			F_SYS_FLAG = '0',
+		    F_LAST_MODIFIER = #{lastModifier, jdbcType=VARCHAR},
+			F_LAST_MODIFIED_TIME = #{lastModifiedTime, jdbcType=VARCHAR}
+    	WHERE F_PID = #{id, jdbcType=VARCHAR}
+  	</update>
+
+	<!-- 逻辑删除所有 -->
+  	<update id="deleteAll" parameterType="map">
+		UPDATE T_MARKET_GIFT SET 
+			F_SYS_FLAG = '0',
+		    F_LAST_MODIFIER = #{lastModifier, jdbcType=VARCHAR},
+			F_LAST_MODIFIED_TIME = #{lastModifiedTime, jdbcType=VARCHAR}
+		WHERE F_PID IN
+		<foreach item="item" collection="ids" open="(" separator="," close=")">
+        	#{item}
+    	</foreach>
+  	</update>
+
+	<!-- 查询条件 模糊查询用concat函数:name like concat(concat('%',#{bean.name,jdbcType=VARCHAR}),'%'),	这样做主要是为了支持mysql和oracle以及防止sql注入 -->
+  	<!-- 列表查询 -->
+  	<select id="list" resultMap="BaseResultMap" parameterType="map">
+	    select t.*,
+		c.F_COUPON_ID,
+		c.F_COUPON_NAME,
+		c.F_COUPON_TYPE,
+		c.F_START_DATE,
+		c.F_END_DATE,
+		c.F_FULL_VALUE,
+		c.F_FRANT_NUM,
+		c.F_REQ_NUM,
+		s.f_store_name,
+		s.f_store_phone,
+		d.f_name as f_store_trade,
+		s.f_store_address
+		from t_market_gift t
+		left join t_merchants_coupon c on t.F_C2 = c.F_PID and c.F_SYS_FLAG = '1'
+		left join t_merchants_store s on c.f_merchants_pid = s.f_merchants_pid and s.f_sys_flag = '1'
+		left join t_pub_dic d on d.f_pid = s.f_trade and d.f_sys_flag = '1'
+		where t.f_sys_flag = '1'
+		<include refid="where_sql"/>
+		<if test="coupon_id != null and coupon_id != ''" > 
+			and c.F_COUPON_ID = #{coupon_id, jdbcType=VARCHAR}
+		</if>
+		<if test="coupon_name != null and coupon_name != ''" > 
+			and c.F_COUPON_NAME = #{coupon_name, jdbcType=VARCHAR}
+		</if>
+		<if test="coupon_name_like != null and coupon_name_like != ''" > 
+			and c.F_COUPON_NAME like concat(concat('%',#{coupon_name_like,jdbcType=VARCHAR}),'%')
+		</if>
+		<if test="start_date != null and start_date != ''" > 
+			and c.F_START_DATE = #{start_date, jdbcType=VARCHAR}
+		</if>
+		<if test="end_date != null and end_date != ''" > 
+			and c.F_END_DATE = #{end_date, jdbcType=VARCHAR}
+		</if>
+		<if test="face_value != null and face_value != ''" > 
+			and c.F_FACE_VALUE = #{face_value, jdbcType=FLOAT}
+		</if>
+		<if test="coupon_type != null and coupon_type != ''" > 
+			and c.F_COUPON_TYPE = #{coupon_type, jdbcType=CHAR}
+		</if>
+		<if test="full_value != null and full_value != ''" > 
+			and c.F_FULL_VALUE = #{full_value, jdbcType=FLOAT}
+		</if>
+		<if test="frant_num != null and frant_num != ''" > 
+			and c.F_FRANT_NUM = #{frant_num, jdbcType=INTEGER}
+		</if>
+		<if test="req_num != null and req_num != ''" > 
+			and c.F_REQ_NUM = #{req_num, jdbcType=INTEGER}
+		</if>
+		<if test="store_name != null and store_name != ''" > 
+			and s.F_STORE_NAME = #{store_name, jdbcType=VARCHAR}
+		</if>
+		<if test="store_phone != null and store_phone != ''" > 
+			and s.F_STORE_PHONE = #{store_phone, jdbcType=VARCHAR}
+		</if>
+		<if test="store_trade != null and store_trade != ''" > 
+			and s.F_TRADE = #{store_trade, jdbcType=VARCHAR}
+		</if>
+		<if test="store_name_like != null and store_name_like != ''" > 
+			and s.F_STORE_NAME like concat(concat('%',#{store_name_like,jdbcType=VARCHAR}),'%')
+		</if>
+		<if test="store_phone_like != null and store_phone_like != ''" > 
+			and s.F_STORE_PHONE like concat(concat('%',#{store_phone_like,jdbcType=VARCHAR}),'%')
+		</if>
+  	</select>
+
+	<!-- 根据ID查询单条记录 -->
+  	<select id="get" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    	SELECT 
+    		<include refid="Base_Column_List" />
+    	FROM T_MARKET_GIFT T
+    	WHERE T.F_PID = #{id,jdbcType=VARCHAR}
+  	</select>
+
+	<!-- 根据ID查询单条记录 -->
+  	<select id="getAndLock" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    	SELECT 
+    		<include refid="Base_Column_List" />
+    	FROM T_MARKET_GIFT T
+    	WHERE T.F_PID = #{id,jdbcType=VARCHAR}
+    	for update
+  	</select>
+  	
+</mapper>

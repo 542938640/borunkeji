@@ -1,0 +1,252 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- @Automatically generate by Coder in 2020-10-22 21:18:59 -->
+<mapper namespace="com.taro.dao.device.TSlotInfoDao">
+
+  	<resultMap id="BaseResultMap" type="com.taro.entity.device.TSlotInfoEntity">
+	  	<id column="ID" property="id" jdbcType="BIGINT" />
+  		<result column="ID" property="id" jdbcType="BIGINT" />
+  		<result column="ALIDISCOUNT" property="alidiscount" jdbcType="VARCHAR" />
+  		<result column="APPDISCOUNT" property="appdiscount" jdbcType="VARCHAR" />
+  		<result column="F_SIBARCODE" property="sibarcode" jdbcType="VARCHAR" />
+  		<result column="F_SICAPACITY" property="sicapacity" jdbcType="INTEGER" />
+  		<result column="F_SICOILID" property="sicoilid" jdbcType="INTEGER" />
+  		<result column="F_SICOILMAXSIZE" property="sicoilmaxsize" jdbcType="VARCHAR" />
+  		<result column="F_SICOILMINSIZE" property="sicoilminsize" jdbcType="VARCHAR" />
+  		<result column="F_SICUSTOMPRICE" property="sicustomprice" jdbcType="FLOAT" />
+  		<result column="F_SIDID" property="sidid" jdbcType="VARCHAR" />
+  		<result column="F_SIDOWN" property="sidown" jdbcType="INTEGER" />
+  		<result column="F_SIDROPSENSOR" property="sidropsensor" jdbcType="VARCHAR" />
+  		<result column="F_SIEXTANTQUANTITY" property="siextantquantity" jdbcType="INTEGER" />
+  		<result column="F_SIFIELD" property="sifield" jdbcType="VARCHAR" />
+  		<result column="F_SIFLAG" property="siflag" jdbcType="VARCHAR" />
+  		<result column="F_SIPRICE" property="siprice" jdbcType="FLOAT" />
+  		<result column="F_SISTOCKQUANTITY" property="sistockquantity" jdbcType="INTEGER" />
+  		<result column="F_SITIME" property="sitime" jdbcType="DATE" />
+  		<result column="F_SIWORKSTATUS" property="siworkstatus" jdbcType="VARCHAR" />
+  		<result column="IDCARDDISCOUNT" property="idcarddiscount" jdbcType="VARCHAR" />
+  		<result column="SIBAKPRICE" property="sibakprice" jdbcType="VARCHAR" />
+  		<result column="SIKEYMAP" property="sikeymap" jdbcType="VARCHAR" />
+  		<result column="WARNINGQUANTITY" property="warningquantity" jdbcType="VARCHAR" />
+  		<result column="WXDISCOUNT" property="wxdiscount" jdbcType="VARCHAR" />
+  		<result column="F_SIINTEGRAL" property="siintegral" jdbcType="FLOAT" />
+  		
+  		<result column="F_SIBARNAME" property="sibarname" jdbcType="VARCHAR" />
+  		<result column="F_IMGURL" property="imgUrl" jdbcType="VARCHAR" />
+  	</resultMap>
+
+  	<sql id="Base_Column_List" >
+		T.ID, T.ALIDISCOUNT, T.APPDISCOUNT, T.F_SIBARCODE, T.F_SICAPACITY,		T.F_SICOILID, T.F_SICOILMAXSIZE, T.F_SICOILMINSIZE, T.F_SICUSTOMPRICE, T.F_SIDID,		T.F_SIDOWN, T.F_SIDROPSENSOR, T.F_SIEXTANTQUANTITY, T.F_SIFIELD, T.F_SIFLAG,		T.F_SIPRICE, T.F_SISTOCKQUANTITY, T.F_SITIME, T.F_SIWORKSTATUS, T.IDCARDDISCOUNT,		T.SIBAKPRICE, T.SIKEYMAP, T.WARNINGQUANTITY, T.WXDISCOUNT, T.F_SIINTEGRAL
+  	</sql>
+
+  	<sql id="where_sql">
+		<if test="id != null and id != ''" > 
+			and T.ID = #{id, jdbcType=BIGINT}
+		</if>
+		<if test="alidiscount != null and alidiscount != ''" > 
+			and T.ALIDISCOUNT = #{alidiscount, jdbcType=VARCHAR}
+		</if>
+		<if test="appdiscount != null and appdiscount != ''" > 
+			and T.APPDISCOUNT = #{appdiscount, jdbcType=VARCHAR}
+		</if>
+		<if test="sibarcode != null and sibarcode != ''" > 
+			and T.F_SIBARCODE = #{sibarcode, jdbcType=VARCHAR}
+		</if>
+		<if test="sicapacity != null and sicapacity != ''" > 
+			and T.F_SICAPACITY = #{sicapacity, jdbcType=INTEGER}
+		</if>
+		<if test="sicoilid != null and sicoilid != ''" > 
+			and T.F_SICOILID = #{sicoilid, jdbcType=INTEGER}
+		</if>
+		<if test="sicoilmaxsize != null and sicoilmaxsize != ''" > 
+			and T.F_SICOILMAXSIZE = #{sicoilmaxsize, jdbcType=VARCHAR}
+		</if>
+		<if test="sicoilminsize != null and sicoilminsize != ''" > 
+			and T.F_SICOILMINSIZE = #{sicoilminsize, jdbcType=VARCHAR}
+		</if>
+		<if test="sicustomprice != null and sicustomprice != ''" > 
+			and T.F_SICUSTOMPRICE = #{sicustomprice, jdbcType=FLOAT}
+		</if>
+		<if test="sidid != null and sidid != ''" > 
+			and T.F_SIDID = #{sidid, jdbcType=VARCHAR}
+		</if>
+		<if test="sidown != null and sidown != ''" > 
+			and T.F_SIDOWN = #{sidown, jdbcType=INTEGER}
+		</if>
+		<if test="sidropsensor != null and sidropsensor != ''" > 
+			and T.F_SIDROPSENSOR = #{sidropsensor, jdbcType=VARCHAR}
+		</if>
+		<if test="siextantquantity != null and siextantquantity != ''" > 
+			and T.F_SIEXTANTQUANTITY = #{siextantquantity, jdbcType=INTEGER}
+		</if>
+		<if test="sifield != null and sifield != ''" > 
+			and T.F_SIFIELD = #{sifield, jdbcType=VARCHAR}
+		</if>
+		<if test="siflag != null and siflag != ''" > 
+			and T.F_SIFLAG = #{siflag, jdbcType=VARCHAR}
+		</if>
+		<if test="siprice != null and siprice != ''" > 
+			and T.F_SIPRICE = #{siprice, jdbcType=FLOAT}
+		</if>
+		<if test="sistockquantity != null and sistockquantity != ''" > 
+			and T.F_SISTOCKQUANTITY = #{sistockquantity, jdbcType=INTEGER}
+		</if>
+		<if test="sitime != null and sitime != ''" > 
+			and T.F_SITIME = #{sitime, jdbcType=DATE}
+		</if>
+		<if test="siworkstatus != null and siworkstatus != ''" > 
+			and T.F_SIWORKSTATUS = #{siworkstatus, jdbcType=VARCHAR}
+		</if>
+		<if test="idcarddiscount != null and idcarddiscount != ''" > 
+			and T.IDCARDDISCOUNT = #{idcarddiscount, jdbcType=VARCHAR}
+		</if>
+		<if test="sibakprice != null and sibakprice != ''" > 
+			and T.SIBAKPRICE = #{sibakprice, jdbcType=VARCHAR}
+		</if>
+		<if test="sikeymap != null and sikeymap != ''" > 
+			and T.SIKEYMAP = #{sikeymap, jdbcType=VARCHAR}
+		</if>
+		<if test="warningquantity != null and warningquantity != ''" > 
+			and T.WARNINGQUANTITY = #{warningquantity, jdbcType=VARCHAR}
+		</if>
+		<if test="wxdiscount != null and wxdiscount != ''" > 
+			and T.WXDISCOUNT = #{wxdiscount, jdbcType=VARCHAR}
+		</if>
+		<if test="siintegral != null and siintegral != ''" > 
+			and T.F_SIINTEGRAL = #{siintegral, jdbcType=FLOAT}
+		</if>
+  	</sql>
+
+	<!-- 新增 -->
+  	<insert id="insert" parameterType="com.taro.entity.device.TSlotInfoEntity" >
+    	INSERT INTO TSLOTINFO (
+    		ALIDISCOUNT, APPDISCOUNT,			F_SIBARCODE, F_SICAPACITY, F_SICOILID,			F_SICOILMAXSIZE, F_SICOILMINSIZE, F_SICUSTOMPRICE,			F_SIDID, F_SIDOWN, F_SIDROPSENSOR,			F_SIEXTANTQUANTITY, F_SIFIELD, F_SIFLAG,			F_SIPRICE, F_SISTOCKQUANTITY, F_SITIME,			F_SIWORKSTATUS, IDCARDDISCOUNT, SIBAKPRICE,			SIKEYMAP, WARNINGQUANTITY, WXDISCOUNT,			F_SIINTEGRAL
+    	) VALUES (
+    		#{alidiscount, jdbcType=VARCHAR}, #{appdiscount, jdbcType=VARCHAR},			#{sibarcode, jdbcType=VARCHAR}, #{sicapacity, jdbcType=INTEGER}, #{sicoilid, jdbcType=INTEGER},			#{sicoilmaxsize, jdbcType=VARCHAR}, #{sicoilminsize, jdbcType=VARCHAR}, #{sicustomprice, jdbcType=FLOAT},			#{sidid, jdbcType=VARCHAR}, #{sidown, jdbcType=INTEGER}, #{sidropsensor, jdbcType=VARCHAR},			#{siextantquantity, jdbcType=INTEGER}, #{sifield, jdbcType=VARCHAR}, #{siflag, jdbcType=VARCHAR},			#{siprice, jdbcType=FLOAT}, #{sistockquantity, jdbcType=INTEGER}, #{sitime, jdbcType=DATE},			#{siworkstatus, jdbcType=VARCHAR}, #{idcarddiscount, jdbcType=VARCHAR}, #{sibakprice, jdbcType=VARCHAR},			#{sikeymap, jdbcType=VARCHAR}, #{warningquantity, jdbcType=VARCHAR}, #{wxdiscount, jdbcType=VARCHAR},			#{siintegral,jdbcType=FLOAT}
+    	)
+  	</insert>
+
+	<!-- 批量新增 -->
+  	<insert id="insertObjects" parameterType="list">
+		INSERT INTO TSLOTINFO (
+    		ALIDISCOUNT, APPDISCOUNT,			F_SIBARCODE, F_SICAPACITY, F_SICOILID,			F_SICOILMAXSIZE, F_SICOILMINSIZE, F_SICUSTOMPRICE,			F_SIDID, F_SIDOWN, F_SIDROPSENSOR,			F_SIEXTANTQUANTITY, F_SIFIELD, F_SIFLAG,			F_SIPRICE, F_SISTOCKQUANTITY, F_SITIME,			F_SIWORKSTATUS, IDCARDDISCOUNT, SIBAKPRICE,			SIKEYMAP, WARNINGQUANTITY, WXDISCOUNT,			F_SIINTEGRAL
+		)
+		<foreach collection="list" item="entity" index="index" separator="union all">
+			SELECT
+    		#{entity.alidiscount, jdbcType=VARCHAR}, #{entity.appdiscount, jdbcType=VARCHAR},			#{entity.sibarcode, jdbcType=VARCHAR}, #{entity.sicapacity, jdbcType=INTEGER}, #{entity.sicoilid, jdbcType=INTEGER},			#{entity.sicoilmaxsize, jdbcType=VARCHAR}, #{entity.sicoilminsize, jdbcType=VARCHAR}, #{entity.sicustomprice, jdbcType=FLOAT},			#{entity.sidid, jdbcType=VARCHAR}, #{entity.sidown, jdbcType=INTEGER}, #{entity.sidropsensor, jdbcType=VARCHAR},			#{entity.siextantquantity, jdbcType=INTEGER}, #{entity.sifield, jdbcType=VARCHAR}, #{entity.siflag, jdbcType=VARCHAR},			#{entity.siprice, jdbcType=FLOAT}, #{entity.sistockquantity, jdbcType=INTEGER}, #{entity.sitime, jdbcType=DATE},			#{entity.siworkstatus, jdbcType=VARCHAR}, #{entity.idcarddiscount, jdbcType=VARCHAR}, #{entity.sibakprice, jdbcType=VARCHAR},			#{entity.sikeymap, jdbcType=VARCHAR}, #{entity.warningquantity, jdbcType=VARCHAR}, #{entity.wxdiscount, jdbcType=VARCHAR},			#{entity.siintegral,jdbcType=FLOAT}
+			FROM DUAL
+		</foreach>
+  	</insert>
+
+	<!-- 更新 -->
+  	<update id="update" parameterType="com.taro.entity.device.TSlotInfoEntity">
+    	UPDATE TSLOTINFO
+	    <set>
+      		<if test="id != null" > ID = #{id, jdbcType=BIGINT}, </if>
+      		<if test="alidiscount != null" > ALIDISCOUNT = #{alidiscount, jdbcType=VARCHAR}, </if>
+      		<if test="appdiscount != null" > APPDISCOUNT = #{appdiscount, jdbcType=VARCHAR}, </if>
+      		<if test="sibarcode != null" > F_SIBARCODE = #{sibarcode, jdbcType=VARCHAR}, </if>
+      		<if test="sicapacity != null" > F_SICAPACITY = #{sicapacity, jdbcType=INTEGER}, </if>
+      		<if test="sicoilid != null" > F_SICOILID = #{sicoilid, jdbcType=INTEGER}, </if>
+      		<if test="sicoilmaxsize != null" > F_SICOILMAXSIZE = #{sicoilmaxsize, jdbcType=VARCHAR}, </if>
+      		<if test="sicoilminsize != null" > F_SICOILMINSIZE = #{sicoilminsize, jdbcType=VARCHAR}, </if>
+      		<if test="sicustomprice != null" > F_SICUSTOMPRICE = #{sicustomprice, jdbcType=FLOAT}, </if>
+      		<if test="sidid != null" > F_SIDID = #{sidid, jdbcType=VARCHAR}, </if>
+      		<if test="sidown != null" > F_SIDOWN = #{sidown, jdbcType=INTEGER}, </if>
+      		<if test="sidropsensor != null" > F_SIDROPSENSOR = #{sidropsensor, jdbcType=VARCHAR}, </if>
+      		<if test="siextantquantity != null" > F_SIEXTANTQUANTITY = #{siextantquantity, jdbcType=INTEGER}, </if>
+      		<if test="sifield != null" > F_SIFIELD = #{sifield, jdbcType=VARCHAR}, </if>
+      		<if test="siflag != null" > F_SIFLAG = #{siflag, jdbcType=VARCHAR}, </if>
+      		<if test="siprice != null" > F_SIPRICE = #{siprice, jdbcType=FLOAT}, </if>
+      		<if test="sistockquantity != null" > F_SISTOCKQUANTITY = #{sistockquantity, jdbcType=INTEGER}, </if>
+      		<if test="sitime != null" > F_SITIME = #{sitime, jdbcType=DATE}, </if>
+      		<if test="siworkstatus != null" > F_SIWORKSTATUS = #{siworkstatus, jdbcType=VARCHAR}, </if>
+      		<if test="idcarddiscount != null" > IDCARDDISCOUNT = #{idcarddiscount, jdbcType=VARCHAR}, </if>
+      		<if test="sibakprice != null" > SIBAKPRICE = #{sibakprice, jdbcType=VARCHAR}, </if>
+      		<if test="sikeymap != null" > SIKEYMAP = #{sikeymap, jdbcType=VARCHAR}, </if>
+      		<if test="warningquantity != null" > WARNINGQUANTITY = #{warningquantity, jdbcType=VARCHAR}, </if>
+      		<if test="wxdiscount != null" > WXDISCOUNT = #{wxdiscount, jdbcType=VARCHAR}, </if>
+      		<if test="siintegral != null" > F_SIINTEGRAL = #{siintegral, jdbcType=FLOAT}, </if>
+	    </set>
+    	WHERE Id = #{id, jdbcType=BIGINT}
+  	</update>
+
+	<!-- 批量更新 -->
+  	<update id="batchUpdate" parameterType="java.util.List">
+		<foreach collection="list" item="entity" separator=";">
+			UPDATE TSLOTINFO
+			<set>
+	      		<if test="id != null" > ID = #{entity.id, jdbcType=BIGINT}, </if>
+	      		<if test="alidiscount != null" > ALIDISCOUNT = #{entity.alidiscount, jdbcType=VARCHAR}, </if>
+	      		<if test="appdiscount != null" > APPDISCOUNT = #{entity.appdiscount, jdbcType=VARCHAR}, </if>
+	      		<if test="sibarcode != null" > F_SIBARCODE = #{entity.sibarcode, jdbcType=VARCHAR}, </if>
+	      		<if test="sicapacity != null" > F_SICAPACITY = #{entity.sicapacity, jdbcType=INTEGER}, </if>
+	      		<if test="sicoilid != null" > F_SICOILID = #{entity.sicoilid, jdbcType=INTEGER}, </if>
+	      		<if test="sicoilmaxsize != null" > F_SICOILMAXSIZE = #{entity.sicoilmaxsize, jdbcType=VARCHAR}, </if>
+	      		<if test="sicoilminsize != null" > F_SICOILMINSIZE = #{entity.sicoilminsize, jdbcType=VARCHAR}, </if>
+	      		<if test="sicustomprice != null" > F_SICUSTOMPRICE = #{entity.sicustomprice, jdbcType=FLOAT}, </if>
+	      		<if test="sidid != null" > F_SIDID = #{entity.sidid, jdbcType=VARCHAR}, </if>
+	      		<if test="sidown != null" > F_SIDOWN = #{entity.sidown, jdbcType=INTEGER}, </if>
+	      		<if test="sidropsensor != null" > F_SIDROPSENSOR = #{entity.sidropsensor, jdbcType=VARCHAR}, </if>
+	      		<if test="siextantquantity != null" > F_SIEXTANTQUANTITY = #{entity.siextantquantity, jdbcType=INTEGER}, </if>
+	      		<if test="sifield != null" > F_SIFIELD = #{entity.sifield, jdbcType=VARCHAR}, </if>
+	      		<if test="siflag != null" > F_SIFLAG = #{entity.siflag, jdbcType=VARCHAR}, </if>
+	      		<if test="siprice != null" > F_SIPRICE = #{entity.siprice, jdbcType=FLOAT}, </if>
+	      		<if test="sistockquantity != null" > F_SISTOCKQUANTITY = #{entity.sistockquantity, jdbcType=INTEGER}, </if>
+	      		<if test="sitime != null" > F_SITIME = #{entity.sitime, jdbcType=DATE}, </if>
+	      		<if test="siworkstatus != null" > F_SIWORKSTATUS = #{entity.siworkstatus, jdbcType=VARCHAR}, </if>
+	      		<if test="idcarddiscount != null" > IDCARDDISCOUNT = #{entity.idcarddiscount, jdbcType=VARCHAR}, </if>
+	      		<if test="sibakprice != null" > SIBAKPRICE = #{entity.sibakprice, jdbcType=VARCHAR}, </if>
+	      		<if test="sikeymap != null" > SIKEYMAP = #{entity.sikeymap, jdbcType=VARCHAR}, </if>
+	      		<if test="warningquantity != null" > WARNINGQUANTITY = #{entity.warningquantity, jdbcType=VARCHAR}, </if>
+	      		<if test="wxdiscount != null" > WXDISCOUNT = #{entity.wxdiscount, jdbcType=VARCHAR}, </if>
+	      		<if test="siintegral != null" > F_SIINTEGRAL = #{entity.siintegral, jdbcType=FLOAT}, </if>
+			</set>
+    		WHERE Id = #{id, jdbcType=BIGINT}
+		</foreach>
+  	</update>
+
+	<!-- 逻辑删除 -->
+  	<delete id="delete" parameterType="java.lang.String" >
+    	DELETE FROM TSLOTINFO WHERE Id = #{id, jdbcType=BIGINT}
+  	</delete>
+
+	<!-- 逻辑删除所有 -->
+  	<delete id="deleteAll" parameterType="map">
+		DELETE FROM TSLOTINFO WHERE Id IN
+		<foreach item="item" collection="ids" open="(" separator="," close=")">
+        	#{item}
+    	</foreach>
+  	</delete>
+
+	<!-- 查询条件 模糊查询用concat函数:name like concat(concat('%',#{bean.name,jdbcType=VARCHAR}),'%'),	这样做主要是为了支持mysql和oracle以及防止sql注入 -->
+  	<!-- 列表查询 -->
+  	<select id="list" resultMap="BaseResultMap" parameterType="map">
+	    SELECT 
+	    	<include refid="Base_Column_List" />
+	    FROM TSLOTINFO T
+	    <where>
+			<include refid="where_sql"/>
+		</where>
+  	</select>
+  	
+  	<select id="listSlot" resultMap="BaseResultMap" parameterType="map">
+	    select t.*,
+		p.F_PdName as F_SiBarName,
+		p.F_PdImgUrl as F_IMGURL
+		from tslotinfo t 
+		left join tproduct p on t.F_SiBarCode = p.Id
+	    <where>
+			<include refid="where_sql"/>
+		</where>
+  	</select>
+
+	<!-- 根据ID查询单条记录 -->
+  	<select id="get" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    	SELECT 
+    		<include refid="Base_Column_List" />
+    	FROM TSLOTINFO T
+    	WHERE T.Id = #{id,jdbcType=BIGINT}
+  	</select>
+
+</mapper>

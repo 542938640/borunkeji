@@ -1,0 +1,1 @@
+package com.taro.dao.finance;import com.taro.dao.AbstractDao;import com.taro.entity.finance.FinanceRechargeEntity;/** *<p>Title:FinanceRechargeDao.java</p> *<p>Description:财务充值 Dao</p> *@author 张宇唯 *@version 1.0 *@Automatically generate by Coder in 2021-01-28 14:45:00 */public interface FinanceRechargeDao extends AbstractDao<FinanceRechargeEntity> {}

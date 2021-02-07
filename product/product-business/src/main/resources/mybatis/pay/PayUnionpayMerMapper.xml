@@ -1,0 +1,327 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- @Automatically generate by Coder in 2020-10-21 11:15:52 -->
+<mapper namespace="com.taro.dao.pay.PayUnionpayMerDao">
+
+  	<resultMap id="BaseResultMap" type="com.taro.entity.pay.PayUnionpayMerEntity">
+	  	<id column="F_PID" property="id" jdbcType="VARCHAR" />
+  		<result column="F_PID" property="id" jdbcType="VARCHAR" />
+  		<result column="F_UNIONPAY_PID" property="unionpay_pid" jdbcType="VARCHAR" />
+  		<result column="F_TENANTS_PID" property="tenants_pid" jdbcType="VARCHAR" />
+  		<result column="F_NAME" property="name" jdbcType="VARCHAR" />
+  		<result column="F_MER_NUMBER" property="mer_number" jdbcType="VARCHAR" />
+  		<result column="F_SOURCE" property="source" jdbcType="VARCHAR" />
+  		<result column="F_ORG" property="org" jdbcType="VARCHAR" />
+  		<result column="F_SOURCE_NUMBER" property="source_number" jdbcType="VARCHAR" />
+  		<result column="F_MD5" property="md5" jdbcType="VARCHAR" />
+  		<result column="F_IS_CUR" property="isCur" jdbcType="VARCHAR" />
+	  	<result column="F_SYS_FLAG" property="sysFlag" jdbcType="VARCHAR" />
+	  	<result column="F_REMARK" property="remark" jdbcType="VARCHAR" />
+	  	<result column="F_LAST_MODIFIER" property="lastModifier" jdbcType="VARCHAR" />
+	  	<result column="F_LAST_MODIFIED_TIME" property="lastModifiedTime" jdbcType="VARCHAR" />
+	  	<result column="F_CREATOR" property="creator" jdbcType="VARCHAR" />
+	  	<result column="F_CREATE_TIME" property="createTime" jdbcType="VARCHAR" />
+	  	
+  		<result column="F_GROUP_PID" property="group_pid" jdbcType="VARCHAR" />
+  		<result column="F_GROUP_NAME" property="group_name" jdbcType="VARCHAR" />
+  		<result column="F_UNIONPAY_NAME" property="unionpay_name" jdbcType="VARCHAR" />
+  		<result column="F_TENANTS_NAME" property="tenants_name" jdbcType="VARCHAR" />
+  		<result column="F_UNIONPAY_MER_PID" property="unionpay_mer_pid" jdbcType="VARCHAR" />
+  		<result column="F_UNIONPAY_MER_NAME" property="unionpay_mer_name" jdbcType="VARCHAR" />
+  	</resultMap>
+
+  	<sql id="Base_Column_List" >
+		t.F_PID, T.F_UNIONPAY_PID, T.F_TENANTS_PID, T.F_NAME, T.F_MER_NUMBER, T.F_SOURCE,
+		T.F_ORG, T.F_SOURCE_NUMBER, T.F_MD5, F_IS_CUR,
+		t.F_SYS_FLAG, t.F_REMARK, t.F_LAST_MODIFIER, t.F_LAST_MODIFIED_TIME, t.F_CREATOR, t.F_CREATE_TIME
+  	</sql>
+
+  	<sql id="where_sql">
+		<if test="not_id != null and not_id != ''" > and t.f_pid != #{not_id,jdbcType=VARCHAR}</if>
+		<if test="id != null and id != ''" > 
+			and t.F_PID = #{id, jdbcType=VARCHAR}
+		</if>
+		<if test="unionpay_pid != null and unionpay_pid != ''" > 
+			and T.F_UNIONPAY_PID = #{unionpay_pid, jdbcType=VARCHAR}
+		</if>
+		<if test="tenants_pid != null and tenants_pid != ''" > 
+			and T.F_TENANTS_PID = #{tenants_pid, jdbcType=VARCHAR}
+		</if>
+		<if test="name != null and name != ''" > 
+			and T.F_NAME like concat(concat('%',#{name,jdbcType=VARCHAR}),'%')
+		</if>
+		<if test="nameEq != null and nameEq != ''" > 
+			and T.F_NAME = #{nameEq, jdbcType=VARCHAR}
+		</if>
+		<if test="mer_number != null and mer_number != ''" > 
+			and T.F_MER_NUMBER = #{mer_number, jdbcType=VARCHAR}
+		</if>
+		<if test="source != null and source != ''" > 
+			and T.F_SOURCE = #{source, jdbcType=VARCHAR}
+		</if>
+		<if test="org != null and org != ''" > 
+			and T.F_ORG = #{org, jdbcType=VARCHAR}
+		</if>
+		<if test="source_number != null and source_number != ''" > 
+			and T.F_SOURCE_NUMBER = #{source_number, jdbcType=VARCHAR}
+		</if>
+		<if test="md5 != null and md5 != ''" > 
+			and T.F_MD5 = #{md5, jdbcType=VARCHAR}
+		</if>
+		<if test="isCur != null and isCur != ''" > 
+			and T.F_IS_CUR = #{isCur, jdbcType=VARCHAR}
+		</if>
+		<if test="sysFlag != null and sysFlag != ''" > 
+			and t.F_SYS_FLAG = #{sysFlag, jdbcType=VARCHAR}
+		</if>
+		<if test="remark != null and remark != ''" > 
+			and t.F_REMARK = #{remark, jdbcType=VARCHAR}
+		</if>
+		<if test="lastModifier != null and lastModifier != ''" > 
+			and t.F_LAST_MODIFIER = #{lastModifier, jdbcType=VARCHAR}
+		</if>
+		<if test="lastModifiedTime != null and lastModifiedTime != ''" > 
+			and t.F_LAST_MODIFIED_TIME = #{lastModifiedTime, jdbcType=VARCHAR}
+		</if>
+		<if test="creator != null and creator != ''" > 
+			and t.F_CREATOR = #{creator, jdbcType=VARCHAR}
+		</if>
+		<if test="createTime != null and createTime != ''" > 
+			and t.F_CREATE_TIME = #{createTime, jdbcType=VARCHAR}
+		</if>
+  	</sql>
+
+	<!-- 新增 -->
+  	<insert id="insert" parameterType="com.taro.entity.pay.PayUnionpayMerEntity" >
+    	INSERT INTO T_PAY_UNIONPAY_MER (
+    		F_PID, F_UNIONPAY_PID, F_TENANTS_PID, F_NAME,
+			F_MER_NUMBER, F_SOURCE, F_ORG,
+			F_SOURCE_NUMBER, F_MD5, F_IS_CUR,
+		  	F_SYS_FLAG, F_REMARK, F_LAST_MODIFIER,
+		  	F_LAST_MODIFIED_TIME, F_CREATOR, F_CREATE_TIME
+    	) VALUES (
+    		#{id, jdbcType=VARCHAR}, #{unionpay_pid, jdbcType=VARCHAR}, #{tenants_pid, jdbcType=VARCHAR}, #{name, jdbcType=VARCHAR},
+			#{mer_number, jdbcType=VARCHAR}, #{source, jdbcType=VARCHAR}, #{org, jdbcType=VARCHAR},
+			#{source_number, jdbcType=VARCHAR}, #{md5,jdbcType=VARCHAR} , #{isCur,jdbcType=VARCHAR} , 
+		  	#{sysFlag, jdbcType=VARCHAR}, #{remark, jdbcType=VARCHAR}, #{lastModifier, jdbcType=VARCHAR},
+		  	#{lastModifiedTime, jdbcType=VARCHAR}, #{creator, jdbcType=VARCHAR}, #{createTime, jdbcType=VARCHAR} 
+    	)
+  	</insert>
+
+	<!-- 批量新增 -->
+  	<insert id="insertObjects" parameterType="list">
+		INSERT INTO T_PAY_UNIONPAY_MER (
+    		F_PID, F_UNIONPAY_PID, F_TENANTS_PID, F_NAME,
+			F_MER_NUMBER, F_SOURCE, F_ORG,
+			F_SOURCE_NUMBER, F_MD5, F_IS_CUR,
+		  	F_SYS_FLAG, F_REMARK, F_LAST_MODIFIER,
+		  	F_LAST_MODIFIED_TIME, F_CREATOR, F_CREATE_TIME
+		)
+		<foreach collection="list" item="entity" index="index" separator="union all">
+			SELECT
+    		#{entity.id, jdbcType=VARCHAR}, #{entity.unionpay_pid, jdbcType=VARCHAR}, #{entity.tenants_pid, jdbcType=VARCHAR}, #{entity.name, jdbcType=VARCHAR},
+			#{entity.mer_number, jdbcType=VARCHAR}, #{entity.source, jdbcType=VARCHAR}, #{entity.org, jdbcType=VARCHAR},
+			#{entity.source_number, jdbcType=VARCHAR}, #{entity.md5,jdbcType=VARCHAR} , #{entity.isCur,jdbcType=VARCHAR} , 
+  			#{entity.sysFlag,jdbcType=VARCHAR}, #{entity.remark,jdbcType=VARCHAR}, #{entity.lastModifier,jdbcType=VARCHAR},
+  			#{entity.lastModifiedTime,jdbcType=VARCHAR}, #{entity.creator,jdbcType=VARCHAR}, #{entity.createTime,jdbcType=VARCHAR} 
+			FROM DUAL
+		</foreach>
+  	</insert>
+
+	<!-- 更新 -->
+  	<update id="update" parameterType="com.taro.entity.pay.PayUnionpayMerEntity">
+    	UPDATE T_PAY_UNIONPAY_MER
+	    <set>
+      		<if test="id != null" > F_PID = #{id, jdbcType=VARCHAR}, </if>
+      		<if test="unionpay_pid != null" > F_UNIONPAY_PID = #{unionpay_pid, jdbcType=VARCHAR}, </if>
+      		<if test="tenants_pid != null" > F_TENANTS_PID = #{tenants_pid, jdbcType=VARCHAR}, </if>
+      		<if test="name != null" > F_NAME = #{name, jdbcType=VARCHAR}, </if>
+      		<if test="mer_number != null" > F_MER_NUMBER = #{mer_number, jdbcType=VARCHAR}, </if>
+      		<if test="source != null" > F_SOURCE = #{source, jdbcType=VARCHAR}, </if>
+      		<if test="org != null" > F_ORG = #{org, jdbcType=VARCHAR}, </if>
+      		<if test="source_number != null" > F_SOURCE_NUMBER = #{source_number, jdbcType=VARCHAR}, </if>
+      		<if test="md5 != null" > F_MD5 = #{md5, jdbcType=VARCHAR}, </if>
+      		<if test="isCur != null" > F_IS_CUR = #{isCur, jdbcType=VARCHAR}, </if>
+	      	<if test="sysFlag != null" > F_SYS_FLAG = #{sysFlag, jdbcType=VARCHAR}, </if>
+	      	<if test="remark != null" > F_REMARK = #{remark, jdbcType=VARCHAR}, </if>
+	      	<if test="lastModifier != null" > F_LAST_MODIFIER = #{lastModifier, jdbcType=VARCHAR}, </if>
+	      	<if test="lastModifiedTime != null" > F_LAST_MODIFIED_TIME = #{lastModifiedTime, jdbcType=VARCHAR}, </if>
+	      	<if test="creator != null" > F_CREATOR = #{creator, jdbcType=VARCHAR}, </if>
+	      	<if test="createTime != null" > F_CREATE_TIME = #{createTime, jdbcType=VARCHAR}, </if>
+	    </set>
+    	WHERE F_PID = #{id, jdbcType=VARCHAR}
+  	</update>
+
+	<!-- 批量更新 -->
+  	<update id="batchUpdate" parameterType="java.util.List">
+		<foreach collection="list" item="entity" separator=";">
+			UPDATE T_PAY_UNIONPAY_MER
+			<set>
+		      	<if test="id != null" > F_PID = #{entity.id, jdbcType=VARCHAR}, </if>
+	      		<if test="unionpay_pid != null" > F_UNIONPAY_PID = #{entity.unionpay_pid, jdbcType=VARCHAR}, </if>
+	      		<if test="tenants_pid != null" > F_TENANTS_PID = #{entity.tenants_pid, jdbcType=VARCHAR}, </if>
+	      		<if test="name != null" > F_NAME = #{entity.name, jdbcType=VARCHAR}, </if>
+	      		<if test="mer_number != null" > F_MER_NUMBER = #{entity.mer_number, jdbcType=VARCHAR}, </if>
+	      		<if test="source != null" > F_SOURCE = #{entity.source, jdbcType=VARCHAR}, </if>
+	      		<if test="org != null" > F_ORG = #{entity.org, jdbcType=VARCHAR}, </if>
+	      		<if test="source_number != null" > F_SOURCE_NUMBER = #{entity.source_number, jdbcType=VARCHAR}, </if>
+	      		<if test="md5 != null" > F_MD5 = #{entity.md5, jdbcType=VARCHAR}, </if>
+	      		<if test="isCur != null" > F_IS_CUR = #{entity.isCur, jdbcType=VARCHAR}, </if>
+		      	<if test="sysFlag != null" > F_SYS_FLAG = #{entity.sysFlag, jdbcType=VARCHAR}, </if>
+		      	<if test="remark != null" > F_REMARK = #{entity.remark, jdbcType=VARCHAR}, </if>
+		      	<if test="lastModifier != null" > F_LAST_MODIFIER = #{entity.lastModifier, jdbcType=VARCHAR}, </if>
+		      	<if test="lastModifiedTime != null" > F_LAST_MODIFIED_TIME = #{entity.lastModifiedTime, jdbcType=VARCHAR}, </if>
+		      	<if test="creator != null" > F_CREATOR = #{entity.creator, jdbcType=VARCHAR}, </if>
+		      	<if test="createTime != null" > F_CREATE_TIME = #{entity.createTime, jdbcType=VARCHAR}, </if>
+			</set>
+    		WHERE F_PID = #{id, jdbcType=VARCHAR}
+		</foreach>
+  	</update>
+
+	<!-- 逻辑删除 -->
+  	<update id="delete" parameterType="java.lang.String" >
+    	UPDATE T_PAY_UNIONPAY_MER SET
+			F_SYS_FLAG = '0',
+		    F_LAST_MODIFIER = #{lastModifier, jdbcType=VARCHAR},
+			F_LAST_MODIFIED_TIME = #{lastModifiedTime, jdbcType=VARCHAR}
+    	WHERE F_PID = #{id, jdbcType=VARCHAR}
+  	</update>
+
+	<!-- 逻辑删除所有 -->
+  	<update id="deleteAll" parameterType="map">
+		UPDATE T_PAY_UNIONPAY_MER SET 
+			F_SYS_FLAG = '0',
+		    F_LAST_MODIFIER = #{lastModifier, jdbcType=VARCHAR},
+			F_LAST_MODIFIED_TIME = #{lastModifiedTime, jdbcType=VARCHAR}
+		WHERE F_PID IN
+		<foreach item="item" collection="ids" open="(" separator="," close=")">
+        	#{item}
+    	</foreach>
+  	</update>
+
+	<!-- 逻辑删除 -->
+  	<update id="deleteTenants" parameterType="java.lang.String" >
+    	UPDATE T_PAY_UNIONPAY_MER SET
+			F_TENANTS_PID = ''
+    	WHERE F_UNIONPAY_PID = #{unionpay_pid, jdbcType=VARCHAR}
+  	</update>
+
+	<!-- 逻辑删除所有 -->
+  	<update id="deleteAllByUnionpayPid" parameterType="map">
+		UPDATE T_PAY_UNIONPAY_MER SET 
+			F_SYS_FLAG = '0',
+		    F_LAST_MODIFIER = #{lastModifier, jdbcType=VARCHAR},
+			F_LAST_MODIFIED_TIME = #{lastModifiedTime, jdbcType=VARCHAR}
+		WHERE F_UNIONPAY_PID IN
+		<foreach item="item" collection="ids" open="(" separator="," close=")">
+        	#{item}
+    	</foreach>
+  	</update>
+  	
+	<!-- 查询条件 模糊查询用concat函数:name like concat(concat('%',#{bean.name,jdbcType=VARCHAR}),'%'),	这样做主要是为了支持mysql和oracle以及防止sql注入 -->
+  	<!-- 列表查询 -->
+  	<select id="list" resultMap="BaseResultMap" parameterType="map">
+	    SELECT 
+	    	<include refid="Base_Column_List" />
+	    FROM T_PAY_UNIONPAY_MER T
+	    <where>
+			<include refid="where_sql"/>
+		</where>
+		order by t.F_CREATE_TIME
+  	</select>
+  	
+  	<select id="listPayUnionpayMer" resultMap="BaseResultMap" parameterType="map">
+	    select t.*,
+		u.f_pid as unionpay_pid,
+		u.f_name as unionpay_name,
+		st.F_NAME as F_TENANTS_NAME
+		from t_pay_unionpay_mer t
+		left join t_pay_unionpay u on u.f_pid = t.f_unionpay_pid and u.f_sys_flag = '1'
+		left join t_sec_tenants st on t.F_TENANTS_PID = st.F_PID and st.F_SYS_FLAG = '1'
+		where t.F_SYS_FLAG = '1'
+		<if test="not_id != null and not_id != ''" > and t.f_pid != #{not_id,jdbcType=VARCHAR}</if>
+		<if test="id != null and id != ''" > 
+			and t.F_PID = #{id, jdbcType=VARCHAR}
+		</if>
+		<if test="unionpay_pid != null and unionpay_pid != ''" > 
+			and T.F_UNIONPAY_PID = #{unionpay_pid, jdbcType=VARCHAR}
+		</if>
+		<if test="tenants_pid != null and tenants_pid != ''" > 
+			and T.F_TENANTS_PID = #{tenants_pid, jdbcType=VARCHAR}
+		</if>
+		<if test="name != null and name != ''" > 
+			and T.F_NAME like concat(concat('%',#{name,jdbcType=VARCHAR}),'%')
+		</if>
+		<if test="nameEq != null and nameEq != ''" > 
+			and T.F_NAME = #{nameEq, jdbcType=VARCHAR}
+		</if>
+		<if test="mer_number != null and mer_number != ''" > 
+			and T.F_MER_NUMBER = #{mer_number, jdbcType=VARCHAR}
+		</if>
+		<if test="mer_number_like != null and mer_number_like != ''" > 
+			and T.F_MER_NUMBER like concat(concat('%',#{mer_number_like,jdbcType=VARCHAR}),'%')
+		</if>
+		<if test="source != null and source != ''" > 
+			and T.F_SOURCE = #{source, jdbcType=VARCHAR}
+		</if>
+		<if test="org != null and org != ''" > 
+			and T.F_ORG = #{org, jdbcType=VARCHAR}
+		</if>
+		<if test="source_number != null and source_number != ''" > 
+			and T.F_SOURCE_NUMBER = #{source_number, jdbcType=VARCHAR}
+		</if>
+		<if test="md5 != null and md5 != ''" > 
+			and T.F_MD5 = #{md5, jdbcType=VARCHAR}
+		</if>
+		<if test="isCur != null and isCur != ''" > 
+			and T.F_IS_CUR = #{isCur, jdbcType=VARCHAR}
+		</if>
+		<if test="sysFlag != null and sysFlag != ''" > 
+			and t.F_SYS_FLAG = #{sysFlag, jdbcType=VARCHAR}
+		</if>
+		<if test="remark != null and remark != ''" > 
+			and t.F_REMARK = #{remark, jdbcType=VARCHAR}
+		</if>
+		<if test="lastModifier != null and lastModifier != ''" > 
+			and t.F_LAST_MODIFIER = #{lastModifier, jdbcType=VARCHAR}
+		</if>
+		<if test="lastModifiedTime != null and lastModifiedTime != ''" > 
+			and t.F_LAST_MODIFIED_TIME = #{lastModifiedTime, jdbcType=VARCHAR}
+		</if>
+		<if test="creator != null and creator != ''" > 
+			and t.F_CREATOR = #{creator, jdbcType=VARCHAR}
+		</if>
+		<if test="createTime != null and createTime != ''" > 
+			and t.F_CREATE_TIME = #{createTime, jdbcType=VARCHAR}
+		</if>
+		order by t.F_CREATE_TIME
+  	</select>
+  	
+	<select id="listParentMer" resultMap="BaseResultMap" parameterType="map">
+	    select t.f_pid as f_tenants_pid,
+		t.f_name as f_tenants_name,
+		t.f_parent_pid as f_parent_tenants_pid,
+		g.f_pid as f_group_pid,
+		g.f_name as f_group_name,
+		u.f_pid as f_unionpay_pid,
+		u.f_name as f_unionpay_name,
+		um.f_pid as f_unionpay_mer_pid,
+		um.F_NAME as f_unionpay_mer_name
+		from t_sec_tenants t 
+		left join t_pay_unionpay g on t.f_pid = g.f_tenants_pid and g.f_sys_flag = '1'
+		left join t_pay_unionpay_mer um on t.f_pid = um.f_tenants_pid and um.f_sys_flag = '1'
+		left join t_pay_unionpay u on u.f_pid = um.f_unionpay_pid and u.f_sys_flag = '1'
+		where FIND_IN_SET(t.f_pid, getParentOrg(#{tenants_pid,jdbcType=VARCHAR}))
+		and t.f_sys_flag = '1'
+		order by t.F_LEVEL desc
+  	</select>
+  	
+	<!-- 根据ID查询单条记录 -->
+  	<select id="get" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    	SELECT 
+    		<include refid="Base_Column_List" />
+    	FROM T_PAY_UNIONPAY_MER T
+    	WHERE T.F_PID = #{id,jdbcType=VARCHAR}
+  	</select>
+
+</mapper>

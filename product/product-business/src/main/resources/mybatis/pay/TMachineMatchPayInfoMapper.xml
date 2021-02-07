@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- @Automatically generate by Coder in 2020-10-21 10:56:19 -->
+<mapper namespace="com.taro.dao.pay.TMachineMatchPayInfoDao">
+
+  	<resultMap id="BaseResultMap" type="com.taro.entity.pay.TMachineMatchPayInfoEntity">
+	  	<id column="ID" property="id" jdbcType="BIGINT" />
+  		<result column="ID" property="id" jdbcType="BIGINT" />
+  		<result column="F_MMPIMID" property="mmpimid" jdbcType="VARCHAR" />
+  		<result column="F_MMPISSTID" property="mmpisstid" jdbcType="BIGINT" />
+  		<result column="F_MMPICREATEUSER" property="mmpicreateuser" jdbcType="VARCHAR" />
+  		<result column="F_MMPITIME" property="mmpitime" jdbcType="DATE" />
+  	</resultMap>
+
+  	<sql id="Base_Column_List" >
+		T.ID, T.F_MMPIMID, T.F_MMPISSTID, T.F_MMPICREATEUSER, T.F_MMPITIME
+  	</sql>
+
+  	<sql id="where_sql">
+		<if test="id != null and id != ''" > 
+			and T.ID = #{id, jdbcType=BIGINT}
+		</if>
+		<if test="mmpimid != null and mmpimid != ''" > 
+			and T.F_MMPIMID = #{mmpimid, jdbcType=VARCHAR}
+		</if>
+		<if test="mmpisstid != null and mmpisstid != ''" > 
+			and T.F_MMPISSTID = #{mmpisstid, jdbcType=BIGINT}
+		</if>
+		<if test="mmpicreateuser != null and mmpicreateuser != ''" > 
+			and T.F_MMPICREATEUSER = #{mmpicreateuser, jdbcType=VARCHAR}
+		</if>
+		<if test="mmpitime != null and mmpitime != ''" > 
+			and T.F_MMPITIME = #{mmpitime, jdbcType=DATE}
+		</if>
+  	</sql>
+
+	<!-- 新增 -->
+  	<insert id="insert" parameterType="com.taro.entity.pay.TMachineMatchPayInfoEntity" >
+    	INSERT INTO TMACHINEMATCHPAYINFO (
+    		F_MMPIMID, F_MMPISSTID,
+			F_MMPICREATEUSER, F_MMPITIME
+    	) VALUES (
+    		#{mmpimid, jdbcType=VARCHAR}, #{mmpisstid, jdbcType=BIGINT},
+			#{mmpicreateuser, jdbcType=VARCHAR}, #{mmpitime,jdbcType=DATE}
+    	)
+  	</insert>
+
+	<!-- 批量新增 -->
+  	<insert id="insertObjects" parameterType="list">
+		INSERT INTO TMACHINEMATCHPAYINFO (
+    		F_MMPIMID, F_MMPISSTID,
+			F_MMPICREATEUSER, F_MMPITIME
+		)
+		<foreach collection="list" item="entity" index="index" separator="union all">
+			SELECT
+    		#{entity.mmpimid, jdbcType=VARCHAR}, #{entity.mmpisstid, jdbcType=BIGINT},
+			#{entity.mmpicreateuser, jdbcType=VARCHAR}, #{entity.mmpitime,jdbcType=DATE} 
+			FROM DUAL
+		</foreach>
+  	</insert>
+
+	<!-- 更新 -->
+  	<update id="update" parameterType="com.taro.entity.pay.TMachineMatchPayInfoEntity">
+    	UPDATE TMACHINEMATCHPAYINFO
+	    <set>
+      		<if test="id != null" > ID = #{id, jdbcType=BIGINT}, </if>
+      		<if test="mmpimid != null" > F_MMPIMID = #{mmpimid, jdbcType=VARCHAR}, </if>
+      		<if test="mmpisstid != null" > F_MMPISSTID = #{mmpisstid, jdbcType=BIGINT}, </if>
+      		<if test="mmpicreateuser != null" > F_MMPICREATEUSER = #{mmpicreateuser, jdbcType=VARCHAR}, </if>
+      		<if test="mmpitime != null" > F_MMPITIME = #{mmpitime, jdbcType=DATE}, </if>
+	    </set>
+    	WHERE ID = #{id, jdbcType=BIGINT}
+  	</update>
+
+	<!-- 批量更新 -->
+  	<update id="batchUpdate" parameterType="java.util.List">
+		<foreach collection="list" item="entity" separator=";">
+			UPDATE TMACHINEMATCHPAYINFO
+			<set>
+	      		<if test="id != null" > ID = #{entity.id, jdbcType=BIGINT}, </if>
+	      		<if test="mmpimid != null" > F_MMPIMID = #{entity.mmpimid, jdbcType=VARCHAR}, </if>
+	      		<if test="mmpisstid != null" > F_MMPISSTID = #{entity.mmpisstid, jdbcType=BIGINT}, </if>
+	      		<if test="mmpicreateuser != null" > F_MMPICREATEUSER = #{entity.mmpicreateuser, jdbcType=VARCHAR}, </if>
+	      		<if test="mmpitime != null" > F_MMPITIME = #{entity.mmpitime, jdbcType=DATE}, </if>
+			</set>
+    		WHERE ID = #{id, jdbcType=BIGINT}
+		</foreach>
+  	</update>
+
+	<!-- 逻辑删除 -->
+  	<delete id="delete" parameterType="java.lang.String" >
+    	DELETE FROM TMACHINEMATCHPAYINFO WHERE ID = #{id, jdbcType=BIGINT}
+  	</delete>
+
+	<!-- 逻辑删除所有 -->
+  	<delete id="deleteAll" parameterType="map">
+		DELETE FROM TMACHINEMATCHPAYINFO WHERE ID IN
+		<foreach item="item" collection="ids" open="(" separator="," close=")">
+        	#{item}
+    	</foreach>
+  	</delete>
+
+	<!-- 查询条件 模糊查询用concat函数:name like concat(concat('%',#{bean.name,jdbcType=VARCHAR}),'%'),	这样做主要是为了支持mysql和oracle以及防止sql注入 -->
+  	<!-- 列表查询 -->
+  	<select id="list" resultMap="BaseResultMap" parameterType="map">
+	    SELECT 
+	    	<include refid="Base_Column_List" />
+	    FROM TMACHINEMATCHPAYINFO T
+	    <where>
+			<include refid="where_sql"/>
+		</where>
+  	</select>
+
+	<!-- 根据ID查询单条记录 -->
+  	<select id="get" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    	SELECT 
+    		<include refid="Base_Column_List" />
+    	FROM TMACHINEMATCHPAYINFO T
+    	WHERE T.ID = #{id,jdbcType=BIGINT}
+  	</select>
+
+</mapper>

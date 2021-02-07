@@ -1,0 +1,256 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- @Automatically generate by Coder in 2020-11-03 15:14:16 -->
+<mapper namespace="com.taro.dao.advert.AdvertWaitDao">
+
+  	<resultMap id="BaseResultMap" type="com.taro.entity.advert.AdvertWaitEntity">
+	  	<id column="F_PID" property="id" jdbcType="VARCHAR" />
+  		<result column="F_PID" property="id" jdbcType="VARCHAR" />
+  		<result column="F_TENANTS_PID" property="tenants_pid" jdbcType="VARCHAR" />
+  		<result column="F_DEVICE_PID" property="device_pid" jdbcType="VARCHAR" />
+  		<result column="F_DEVICE_DID" property="device_did" jdbcType="VARCHAR" />
+  		<result column="F_USE_FLAG" property="use_flag" jdbcType="CHAR" />
+  		<result column="F_FILE_PID" property="file_pid" jdbcType="VARCHAR" />
+  		<result column="F_FILE_TYPE" property="file_type" jdbcType="CHAR" />
+  		<result column="F_CONTENT" property="content" jdbcType="VARCHAR" />
+  		<result column="F_STOP_TIME" property="stop_time" jdbcType="INTEGER" />
+  		<result column="F_STATUS" property="status" jdbcType="CHAR" />
+  		<result column="F_SORT" property="sort" jdbcType="INTEGER" />
+  		<result column="F_C1" property="c1" jdbcType="VARCHAR" />
+  		<result column="F_C2" property="c2" jdbcType="VARCHAR" />
+  		<result column="F_C3" property="c3" jdbcType="VARCHAR" />
+  		<result column="F_C4" property="c4" jdbcType="VARCHAR" />
+  		<result column="F_C5" property="c5" jdbcType="VARCHAR" />
+	  	<result column="F_SYS_FLAG" property="sysFlag" jdbcType="VARCHAR" />
+	  	<result column="F_REMARK" property="remark" jdbcType="VARCHAR" />
+	  	<result column="F_LAST_MODIFIER" property="lastModifier" jdbcType="VARCHAR" />
+	  	<result column="F_LAST_MODIFIED_TIME" property="lastModifiedTime" jdbcType="VARCHAR" />
+	  	<result column="F_CREATOR" property="creator" jdbcType="VARCHAR" />
+	  	<result column="F_CREATE_TIME" property="createTime" jdbcType="VARCHAR" />
+  	</resultMap>
+
+  	<sql id="Base_Column_List" >
+		t.F_PID, T.F_TENANTS_PID, T.F_DEVICE_PID, T.F_DEVICE_DID, T.F_USE_FLAG, T.F_FILE_PID,
+		T.F_FILE_TYPE, T.F_CONTENT, T.F_STOP_TIME, T.F_STATUS, T.F_SORT,
+		T.F_C1, T.F_C2, T.F_C3, T.F_C4, T.F_C5, 
+		t.F_SYS_FLAG, t.F_REMARK, t.F_LAST_MODIFIER, t.F_LAST_MODIFIED_TIME, t.F_CREATOR, t.F_CREATE_TIME
+  	</sql>
+
+  	<sql id="where_sql">
+		<if test="id != null and id != ''" > 
+			and t.F_PID = #{id, jdbcType=VARCHAR}
+		</if>
+		<if test="tenants_pid != null and tenants_pid != ''" > 
+			and T.F_TENANTS_PID = #{tenants_pid, jdbcType=VARCHAR}
+		</if>
+		<if test="device_pid != null and device_pid != ''" > 
+			and T.F_DEVICE_PID = #{device_pid, jdbcType=VARCHAR}
+		</if>
+		<if test="device_did != null and device_did != ''" > 
+			and T.F_DEVICE_DID = #{device_did, jdbcType=VARCHAR}
+		</if>
+		<if test="use_flag != null and use_flag != ''" > 
+			and T.F_USE_FLAG = #{use_flag, jdbcType=CHAR}
+		</if>
+		<if test="file_pid != null and file_pid != ''" > 
+			and T.F_FILE_PID = #{file_pid, jdbcType=VARCHAR}
+		</if>
+		<if test="file_type != null and file_type != ''" > 
+			and T.F_FILE_TYPE = #{file_type, jdbcType=CHAR}
+		</if>
+		<if test="content != null and content != ''" > 
+			and T.F_CONTENT = #{content, jdbcType=VARCHAR}
+		</if>
+		<if test="stop_time != null and stop_time != ''" > 
+			and T.F_STOP_TIME = #{stop_time, jdbcType=INTEGER}
+		</if>
+		<if test="status != null and status != ''" > 
+			and T.F_STATUS = #{status, jdbcType=CHAR}
+		</if>
+		<if test="sort != null and sort != ''" > 
+			and T.F_SORT = #{sort, jdbcType=INTEGER}
+		</if>
+		<if test="c1 != null and c1 != ''" > 
+			and T.F_C1 = #{c1, jdbcType=VARCHAR}
+		</if>
+		<if test="c2 != null and c2 != ''" > 
+			and T.F_C2 = #{c2, jdbcType=VARCHAR}
+		</if>
+		<if test="c3 != null and c3 != ''" > 
+			and T.F_C3 = #{c3, jdbcType=VARCHAR}
+		</if>
+		<if test="c4 != null and c4 != ''" > 
+			and T.F_C4 = #{c4, jdbcType=VARCHAR}
+		</if>
+		<if test="c5 != null and c5 != ''" > 
+			and T.F_C5 = #{c5, jdbcType=VARCHAR}
+		</if>
+		<if test="sysFlag != null and sysFlag != ''" > 
+			and t.F_SYS_FLAG = #{sysFlag, jdbcType=VARCHAR}
+		</if>
+		<if test="remark != null and remark != ''" > 
+			and t.F_REMARK = #{remark, jdbcType=VARCHAR}
+		</if>
+		<if test="lastModifier != null and lastModifier != ''" > 
+			and t.F_LAST_MODIFIER = #{lastModifier, jdbcType=VARCHAR}
+		</if>
+		<if test="lastModifiedTime != null and lastModifiedTime != ''" > 
+			and t.F_LAST_MODIFIED_TIME = #{lastModifiedTime, jdbcType=VARCHAR}
+		</if>
+		<if test="creator != null and creator != ''" > 
+			and t.F_CREATOR = #{creator, jdbcType=VARCHAR}
+		</if>
+		<if test="createTime != null and createTime != ''" > 
+			and t.F_CREATE_TIME = #{createTime, jdbcType=VARCHAR}
+		</if>
+  	</sql>
+
+	<!-- 新增 -->
+  	<insert id="insert" parameterType="com.taro.entity.advert.AdvertWaitEntity" >
+    	INSERT INTO T_ADVERT_WAIT (
+    		F_PID, F_TENANTS_PID, F_DEVICE_PID, F_DEVICE_DID,
+			F_USE_FLAG, F_FILE_PID, F_FILE_TYPE,
+			F_CONTENT, F_STOP_TIME, F_STATUS,
+			F_SORT, F_C1, F_C2,
+			F_C3, F_C4, F_C5, 
+		  	F_SYS_FLAG, F_REMARK, F_LAST_MODIFIER,
+		  	F_LAST_MODIFIED_TIME, F_CREATOR, F_CREATE_TIME
+    	) VALUES (
+    		#{id, jdbcType=VARCHAR}, #{tenants_pid, jdbcType=VARCHAR}, #{device_pid, jdbcType=VARCHAR}, #{device_did, jdbcType=VARCHAR},
+			#{use_flag, jdbcType=CHAR}, #{file_pid, jdbcType=VARCHAR}, #{file_type, jdbcType=CHAR},
+			#{content, jdbcType=VARCHAR}, #{stop_time, jdbcType=INTEGER}, #{status, jdbcType=CHAR},
+			#{sort, jdbcType=INTEGER}, #{c1, jdbcType=VARCHAR}, #{c2, jdbcType=VARCHAR},
+			#{c3, jdbcType=VARCHAR}, #{c4, jdbcType=VARCHAR}, #{c5,jdbcType=VARCHAR} , 
+		  	#{sysFlag, jdbcType=VARCHAR}, #{remark, jdbcType=VARCHAR}, #{lastModifier, jdbcType=VARCHAR},
+		  	#{lastModifiedTime, jdbcType=VARCHAR}, #{creator, jdbcType=VARCHAR}, #{createTime, jdbcType=VARCHAR} 
+    	)
+  	</insert>
+
+	<!-- 批量新增 -->
+  	<insert id="insertObjects" parameterType="list">
+		INSERT INTO T_ADVERT_WAIT (
+    		F_PID, F_TENANTS_PID, F_DEVICE_PID, F_DEVICE_DID,
+			F_USE_FLAG, F_FILE_PID, F_FILE_TYPE,
+			F_CONTENT, F_STOP_TIME, F_STATUS,
+			F_SORT, F_C1, F_C2,
+			F_C3, F_C4, F_C5, 
+		  	F_SYS_FLAG, F_REMARK, F_LAST_MODIFIER,
+		  	F_LAST_MODIFIED_TIME, F_CREATOR, F_CREATE_TIME
+		)
+		<foreach collection="list" item="entity" index="index" separator="union all">
+			SELECT
+    		#{entity.id, jdbcType=VARCHAR}, #{entity.tenants_pid, jdbcType=VARCHAR}, #{entity.device_pid, jdbcType=VARCHAR}, #{entity.device_did, jdbcType=VARCHAR},
+			#{entity.use_flag, jdbcType=CHAR}, #{entity.file_pid, jdbcType=VARCHAR}, #{entity.file_type, jdbcType=CHAR},
+			#{entity.content, jdbcType=VARCHAR}, #{entity.stop_time, jdbcType=INTEGER}, #{entity.status, jdbcType=CHAR},
+			#{entity.sort, jdbcType=INTEGER}, #{entity.c1, jdbcType=VARCHAR}, #{entity.c2, jdbcType=VARCHAR},
+			#{entity.c3, jdbcType=VARCHAR}, #{entity.c4, jdbcType=VARCHAR}, #{entity.c5,jdbcType=VARCHAR} , 
+  			#{entity.sysFlag,jdbcType=VARCHAR}, #{entity.remark,jdbcType=VARCHAR}, #{entity.lastModifier,jdbcType=VARCHAR},
+  			#{entity.lastModifiedTime,jdbcType=VARCHAR}, #{entity.creator,jdbcType=VARCHAR}, #{entity.createTime,jdbcType=VARCHAR} 
+			FROM DUAL
+		</foreach>
+  	</insert>
+
+	<!-- 更新 -->
+  	<update id="update" parameterType="com.taro.entity.advert.AdvertWaitEntity">
+    	UPDATE T_ADVERT_WAIT
+	    <set>
+      		<if test="id != null" > F_PID = #{id, jdbcType=VARCHAR}, </if>
+      		<if test="tenants_pid != null" > F_TENANTS_PID = #{tenants_pid, jdbcType=VARCHAR}, </if>
+      		<if test="device_pid != null" > F_DEVICE_PID = #{device_pid, jdbcType=VARCHAR}, </if>
+      		<if test="device_did != null" > F_DEVICE_DID = #{device_did, jdbcType=VARCHAR}, </if>
+      		<if test="use_flag != null" > F_USE_FLAG = #{use_flag, jdbcType=CHAR}, </if>
+      		<if test="file_pid != null" > F_FILE_PID = #{file_pid, jdbcType=VARCHAR}, </if>
+      		<if test="file_type != null" > F_FILE_TYPE = #{file_type, jdbcType=CHAR}, </if>
+      		<if test="content != null" > F_CONTENT = #{content, jdbcType=VARCHAR}, </if>
+      		<if test="stop_time != null" > F_STOP_TIME = #{stop_time, jdbcType=INTEGER}, </if>
+      		<if test="status != null" > F_STATUS = #{status, jdbcType=CHAR}, </if>
+      		<if test="sort != null" > F_SORT = #{sort, jdbcType=INTEGER}, </if>
+      		<if test="c1 != null" > F_C1 = #{c1, jdbcType=VARCHAR}, </if>
+      		<if test="c2 != null" > F_C2 = #{c2, jdbcType=VARCHAR}, </if>
+      		<if test="c3 != null" > F_C3 = #{c3, jdbcType=VARCHAR}, </if>
+      		<if test="c4 != null" > F_C4 = #{c4, jdbcType=VARCHAR}, </if>
+      		<if test="c5 != null" > F_C5 = #{c5, jdbcType=VARCHAR}, </if>
+	      	<if test="sysFlag != null" > F_SYS_FLAG = #{sysFlag, jdbcType=VARCHAR}, </if>
+	      	<if test="remark != null" > F_REMARK = #{remark, jdbcType=VARCHAR}, </if>
+	      	<if test="lastModifier != null" > F_LAST_MODIFIER = #{lastModifier, jdbcType=VARCHAR}, </if>
+	      	<if test="lastModifiedTime != null" > F_LAST_MODIFIED_TIME = #{lastModifiedTime, jdbcType=VARCHAR}, </if>
+	      	<if test="creator != null" > F_CREATOR = #{creator, jdbcType=VARCHAR}, </if>
+	      	<if test="createTime != null" > F_CREATE_TIME = #{createTime, jdbcType=VARCHAR}, </if>
+	    </set>
+    	WHERE F_PID = #{id, jdbcType=VARCHAR}
+  	</update>
+
+	<!-- 批量更新 -->
+  	<update id="batchUpdate" parameterType="java.util.List">
+		<foreach collection="list" item="entity" separator=";">
+			UPDATE T_ADVERT_WAIT
+			<set>
+		      	<if test="id != null" > F_PID = #{entity.id, jdbcType=VARCHAR}, </if>
+	      		<if test="tenants_pid != null" > F_TENANTS_PID = #{entity.tenants_pid, jdbcType=VARCHAR}, </if>
+	      		<if test="device_pid != null" > F_DEVICE_PID = #{entity.device_pid, jdbcType=VARCHAR}, </if>
+	      		<if test="device_did != null" > F_DEVICE_DID = #{entity.device_did, jdbcType=VARCHAR}, </if>
+	      		<if test="use_flag != null" > F_USE_FLAG = #{entity.use_flag, jdbcType=CHAR}, </if>
+	      		<if test="file_pid != null" > F_FILE_PID = #{entity.file_pid, jdbcType=VARCHAR}, </if>
+	      		<if test="file_type != null" > F_FILE_TYPE = #{entity.file_type, jdbcType=CHAR}, </if>
+	      		<if test="content != null" > F_CONTENT = #{entity.content, jdbcType=VARCHAR}, </if>
+	      		<if test="stop_time != null" > F_STOP_TIME = #{entity.stop_time, jdbcType=INTEGER}, </if>
+	      		<if test="status != null" > F_STATUS = #{entity.status, jdbcType=CHAR}, </if>
+	      		<if test="sort != null" > F_SORT = #{entity.sort, jdbcType=INTEGER}, </if>
+	      		<if test="c1 != null" > F_C1 = #{entity.c1, jdbcType=VARCHAR}, </if>
+	      		<if test="c2 != null" > F_C2 = #{entity.c2, jdbcType=VARCHAR}, </if>
+	      		<if test="c3 != null" > F_C3 = #{entity.c3, jdbcType=VARCHAR}, </if>
+	      		<if test="c4 != null" > F_C4 = #{entity.c4, jdbcType=VARCHAR}, </if>
+	      		<if test="c5 != null" > F_C5 = #{entity.c5, jdbcType=VARCHAR}, </if>
+		      	<if test="sysFlag != null" > F_SYS_FLAG = #{entity.sysFlag, jdbcType=VARCHAR}, </if>
+		      	<if test="remark != null" > F_REMARK = #{entity.remark, jdbcType=VARCHAR}, </if>
+		      	<if test="lastModifier != null" > F_LAST_MODIFIER = #{entity.lastModifier, jdbcType=VARCHAR}, </if>
+		      	<if test="lastModifiedTime != null" > F_LAST_MODIFIED_TIME = #{entity.lastModifiedTime, jdbcType=VARCHAR}, </if>
+		      	<if test="creator != null" > F_CREATOR = #{entity.creator, jdbcType=VARCHAR}, </if>
+		      	<if test="createTime != null" > F_CREATE_TIME = #{entity.createTime, jdbcType=VARCHAR}, </if>
+			</set>
+    		WHERE F_PID = #{id, jdbcType=VARCHAR}
+		</foreach>
+  	</update>
+
+	<!-- 逻辑删除 -->
+  	<update id="delete" parameterType="java.lang.String" >
+    	UPDATE T_ADVERT_WAIT SET
+			F_SYS_FLAG = '0',
+		    F_LAST_MODIFIER = #{lastModifier, jdbcType=VARCHAR},
+			F_LAST_MODIFIED_TIME = #{lastModifiedTime, jdbcType=VARCHAR}
+    	WHERE F_PID = #{id, jdbcType=VARCHAR}
+  	</update>
+
+	<!-- 逻辑删除所有 -->
+  	<update id="deleteAll" parameterType="map">
+		UPDATE T_ADVERT_WAIT SET 
+			F_SYS_FLAG = '0',
+		    F_LAST_MODIFIER = #{lastModifier, jdbcType=VARCHAR},
+			F_LAST_MODIFIED_TIME = #{lastModifiedTime, jdbcType=VARCHAR}
+		WHERE F_PID IN
+		<foreach item="item" collection="ids" open="(" separator="," close=")">
+        	#{item}
+    	</foreach>
+  	</update>
+
+	<!-- 查询条件 模糊查询用concat函数:name like concat(concat('%',#{bean.name,jdbcType=VARCHAR}),'%'),	这样做主要是为了支持mysql和oracle以及防止sql注入 -->
+  	<!-- 列表查询 -->
+  	<select id="list" resultMap="BaseResultMap" parameterType="map">
+	    SELECT 
+	    	<include refid="Base_Column_List" />
+	    FROM T_ADVERT_WAIT T
+	    <where>
+			<include refid="where_sql"/>
+		</where>
+		order by t.f_sort, t.F_CREATE_TIME desc
+  	</select>
+
+	<!-- 根据ID查询单条记录 -->
+  	<select id="get" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    	SELECT 
+    		<include refid="Base_Column_List" />
+    	FROM T_ADVERT_WAIT T
+    	WHERE T.F_PID = #{id,jdbcType=VARCHAR}
+  	</select>
+
+</mapper>

@@ -1,0 +1,195 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- @Automatically generate by Coder in 2019-01-20 16:55 -->
+<mapper namespace="com.taro.dao.activiti.ProcessDao">
+  <resultMap id="BaseResultMap" type="com.taro.entity.activiti.ProcessEntity">
+  	<id column="f_pid" property="id" jdbcType="VARCHAR" />
+  	<result column="f_pid" property="id" jdbcType="VARCHAR" />
+  	<result column="f_name" property="name" jdbcType="VARCHAR" />
+  	<result column="f_flow_key" property="flow_key" jdbcType="VARCHAR" />
+  	<result column="f_procdef_pid" property="procde_pid" jdbcType="VARCHAR" />
+  	<result column="f_deployment_pid" property="deployment_pid" jdbcType="VARCHAR" />
+  	<result column="f_remark" property="remark" jdbcType="VARCHAR" />
+  	<result column="f_sys_flag" property="sysFlag" jdbcType="VARCHAR" />
+  	<result column="f_creator" property="creator" jdbcType="VARCHAR" />
+  	<result column="f_create_time" property="createTime" jdbcType="VARCHAR" />
+  	<result column="f_last_modifier" property="lastModifier" jdbcType="VARCHAR" />
+  	<result column="f_last_modified_time" property="lastModifiedTime" jdbcType="VARCHAR" />
+  	
+  	<result column="f_pd_id" property="pd_id" jdbcType="VARCHAR" />
+  	<result column="f_pd_name" property="pd_name" jdbcType="VARCHAR" />
+  	<result column="f_pd_key" property="pd_key" jdbcType="VARCHAR" />
+  	<result column="f_pd_version" property="pd_version" jdbcType="VARCHAR" />
+  	<result column="f_pd_resourceName" property="pd_resourceName" jdbcType="VARCHAR" />
+  	<result column="f_pd_diagramResourceName" property="pd_diagramResourceName" jdbcType="VARCHAR" />
+  	<result column="f_pd_deploymentId" property="pd_deploymentId" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+  	t.f_pid, t.f_name, t.f_flow_key, t.f_procdef_pid, t.f_deployment_pid, t.f_remark,
+t.f_sys_flag, t.f_creator, t.f_create_time, t.f_last_modifier, t.f_last_modified_time
+  </sql>
+  
+  <sql id="where_sql">
+	<if test="id != null and id != ''" > and t.f_pid = #{id,jdbcType=VARCHAR}</if>
+	<if test="name != null and name != ''" > and t.f_name = #{name,jdbcType=VARCHAR}</if>
+	<if test="flow_key != null and flow_key != ''" > and t.f_flow_key = #{flow_key,jdbcType=VARCHAR}</if>
+	<if test="procde_pid != null and procde_pid != ''" > and t.f_procdef_pid = #{procde_pid,jdbcType=VARCHAR}</if>
+	<if test="deployment_pid != null and deployment_pid != ''" > and t.f_deployment_pid = #{deployment_pid,jdbcType=VARCHAR}</if>
+	<if test="remark != null and remark != ''" > and t.f_remark = #{remark,jdbcType=VARCHAR}</if>
+	<if test="sysFlag != null and sysFlag != ''" > and t.f_sys_flag = #{sysFlag,jdbcType=VARCHAR}</if>
+	<if test="creator != null and creator != ''" > and t.f_creator = #{creator,jdbcType=VARCHAR}</if>
+	<if test="createTime != null and createTime != ''" > and t.f_create_time = #{createTime,jdbcType=VARCHAR}</if>
+	<if test="lastModifier != null and lastModifier != ''" > and t.f_last_modifier = #{lastModifier,jdbcType=VARCHAR}</if>
+	<if test="lastModifiedTime != null and lastModifiedTime != ''" > and t.f_last_modified_time = #{lastModifiedTime,jdbcType=VARCHAR}</if>
+  </sql>
+  
+  <insert id="insert" parameterType="com.taro.entity.activiti.ProcessEntity" >
+    insert into t_process (
+      f_pid, f_name, f_flow_key,
+  f_procdef_pid, f_deployment_pid, f_remark,
+  f_sys_flag, f_creator, f_create_time,
+  f_last_modifier, f_last_modified_time
+    ) values (
+      #{id,jdbcType=VARCHAR}, #{name,jdbcType=VARCHAR}, #{flow_key,jdbcType=VARCHAR},
+  #{procde_pid,jdbcType=VARCHAR}, #{deployment_pid,jdbcType=VARCHAR}, #{remark,jdbcType=VARCHAR},
+  #{sysFlag,jdbcType=VARCHAR}, #{creator,jdbcType=VARCHAR}, #{createTime,jdbcType=VARCHAR},
+  #{lastModifier,jdbcType=VARCHAR}, #{lastModifiedTime,jdbcType=VARCHAR} 
+    )
+  </insert>
+  
+  <insert id="insertObjects" parameterType="list">
+		insert into t_process (
+		  f_pid, f_name, f_flow_key,
+  f_procdef_pid, f_deployment_pid, f_remark,
+  f_sys_flag, f_creator, f_create_time,
+  f_last_modifier, f_last_modified_time
+		)
+		<foreach collection="list" item="entity" index="index" separator="union all">
+			select
+		  		#{entity.id,jdbcType=VARCHAR}, #{entity.name,jdbcType=VARCHAR}, #{entity.flow_key,jdbcType=VARCHAR},
+  #{entity.procde_pid,jdbcType=VARCHAR}, #{entity.deployment_pid,jdbcType=VARCHAR}, #{entity.remark,jdbcType=VARCHAR},
+  #{entity.sysFlag,jdbcType=VARCHAR}, #{entity.creator,jdbcType=VARCHAR}, #{entity.createTime,jdbcType=VARCHAR},
+  #{entity.lastModifier,jdbcType=VARCHAR}, #{entity.lastModifiedTime,jdbcType=VARCHAR} 
+			from dual
+		</foreach>
+  </insert>
+  
+  <update id="update" parameterType="com.taro.entity.activiti.ProcessEntity">
+    update t_process 
+    <set>
+      <if test="id != null" > f_pid = #{id,jdbcType=VARCHAR}, </if>
+      <if test="name != null" > f_name = #{name,jdbcType=VARCHAR}, </if>
+      <if test="flow_key != null" > f_flow_key = #{flow_key,jdbcType=VARCHAR}, </if>
+      <if test="procde_pid != null" > f_procdef_pid = #{procde_pid,jdbcType=VARCHAR}, </if>
+      <if test="deployment_pid != null" > f_deployment_pid = #{deployment_pid,jdbcType=VARCHAR}, </if>
+      <if test="remark != null" > f_remark = #{remark,jdbcType=VARCHAR}, </if>
+      <if test="sysFlag != null" > f_sys_flag = #{sysFlag,jdbcType=VARCHAR}, </if>
+      <if test="creator != null" > f_creator = #{creator,jdbcType=VARCHAR}, </if>
+      <if test="createTime != null" > f_create_time = #{createTime,jdbcType=VARCHAR}, </if>
+      <if test="lastModifier != null" > f_last_modifier = #{lastModifier,jdbcType=VARCHAR}, </if>
+      <if test="lastModifiedTime != null" > f_last_modified_time = #{lastModifiedTime,jdbcType=VARCHAR}, </if>
+    </set>
+    where f_pid = #{id,jdbcType=VARCHAR}
+  </update>
+  
+  <update id="batchUpdate" parameterType="java.util.List">
+		<foreach collection="list" item="entity" separator=";">
+			update t_process
+			<set>
+			  <if test="id != null" > f_pid = #{entity.id,jdbcType=VARCHAR}, </if>
+			  <if test="name != null" > f_name = #{entity.name,jdbcType=VARCHAR}, </if>
+			  <if test="flow_key != null" > f_flow_key = #{entity.flow_key,jdbcType=VARCHAR}, </if>
+			  <if test="procde_pid != null" > f_procdef_pid = #{entity.procde_pid,jdbcType=VARCHAR}, </if>
+			  <if test="deployment_pid != null" > f_deployment_pid = #{entity.deployment_pid,jdbcType=VARCHAR}, </if>
+			  <if test="remark != null" > f_remark = #{entity.remark,jdbcType=VARCHAR}, </if>
+			  <if test="sysFlag != null" > f_sys_flag = #{entity.sysFlag,jdbcType=VARCHAR}, </if>
+			  <if test="creator != null" > f_creator = #{entity.creator,jdbcType=VARCHAR}, </if>
+			  <if test="createTime != null" > f_create_time = #{entity.createTime,jdbcType=VARCHAR}, </if>
+			  <if test="lastModifier != null" > f_last_modifier = #{entity.lastModifier,jdbcType=VARCHAR}, </if>
+			  <if test="lastModifiedTime != null" > f_last_modified_time = #{entity.lastModifiedTime,jdbcType=VARCHAR}, </if>
+			</set>
+			where f_pid = #{id,jdbcType=VARCHAR}
+		</foreach>
+  </update>
+  
+  
+  <update id="delete" parameterType="java.lang.String" >
+    update t_process set
+		F_SYS_FLAG='0',
+	    F_LAST_MODIFIER = #{lastModifier,jdbcType=VARCHAR},
+		F_LAST_MODIFIED_TIME = #{lastModifiedTime,jdbcType=VARCHAR} 
+	where f_pid = #{id,jdbcType=VARCHAR}
+  </update>
+  
+  <update id="deleteAll" parameterType="map">
+	update t_process set 
+		F_SYS_FLAG='0',
+	    F_LAST_MODIFIER = #{lastModifier,jdbcType=VARCHAR},
+		F_LAST_MODIFIED_TIME = #{lastModifiedTime,jdbcType=VARCHAR} 
+	where f_pid in
+	<foreach item="item" collection="ids" open="(" separator="," close=")">
+        #{item}
+    </foreach>
+  </update>
+  
+  <!-- 查询条件 模糊查询用concat函数 ：name like concat(concat('%',#{bean.name,jdbcType=VARCHAR}),'%')，
+  	         这样做主要是为了支持mysql和oracle以及防止sql注入 -->
+  <select id="list" resultMap="BaseResultMap" parameterType="map">
+    select t.*,
+		   arp.ID_ as f_pd_id,
+		   arp.NAME_ as f_pd_name,
+		   arp.KEY_ as f_pd_key,
+		   arp.VERSION_ as f_pd_version,
+		   arp.RESOURCE_NAME_ as f_pd_resourceName,
+		   arp.DGRM_RESOURCE_NAME_ as f_pd_diagramResourceName,
+		   arp.DEPLOYMENT_ID_ as f_pd_deploymentId
+	from t_process t
+	left join act_re_procdef arp on t.f_procdef_pid = arp.ID_
+    where t.f_sys_flag = '1'
+	<if test="id != null and id != ''" > and t.f_pid = #{id,jdbcType=VARCHAR}</if>
+	<if test="name != null and name != ''" >
+		and t.f_name like concat(concat('%',#{name,jdbcType=VARCHAR}),'%')
+	</if>
+	<if test="flow_key != null and flow_key != ''" > and t.f_flow_key = #{flow_key,jdbcType=VARCHAR}</if>
+	<if test="flow_key_like != null and flow_key_like != ''" >
+	 	and t.f_flow_key like concat(concat('%',#{flow_key_like,jdbcType=VARCHAR}),'%')
+	</if>
+	<if test="procde_pid != null and procde_pid != ''" > and t.f_procdef_pid = #{procde_pid,jdbcType=VARCHAR}</if>
+	<if test="deployment_pid != null and deployment_pid != ''" > and t.f_deployment_pid = #{deployment_pid,jdbcType=VARCHAR}</if>
+	<if test="remark != null and remark != ''" > and t.f_remark = #{remark,jdbcType=VARCHAR}</if>
+	<if test="sysFlag != null and sysFlag != ''" > and t.f_sys_flag = #{sysFlag,jdbcType=VARCHAR}</if>
+	<if test="creator != null and creator != ''" > and t.f_creator = #{creator,jdbcType=VARCHAR}</if>
+	<if test="createTime != null and createTime != ''" > and t.f_create_time = #{createTime,jdbcType=VARCHAR}</if>
+	<if test="lastModifier != null and lastModifier != ''" > and t.f_last_modifier = #{lastModifier,jdbcType=VARCHAR}</if>
+	<if test="lastModifiedTime != null and lastModifiedTime != ''" > and t.f_last_modified_time = #{lastModifiedTime,jdbcType=VARCHAR}</if>
+	order by t.f_create_time desc
+  </select>
+  
+  <select id="get" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select t.*,
+		   arp.ID_ as f_pd_id,
+		   arp.NAME_ as f_pd_name,
+		   arp.KEY_ as f_pd_key,
+		   arp.VERSION_ as f_pd_version,
+		   arp.RESOURCE_NAME_ as f_pd_resourceName,
+		   arp.DGRM_RESOURCE_NAME_ as f_pd_diagramResourceName,
+		   arp.DEPLOYMENT_ID_ as f_pd_deploymentId
+	from t_process t
+	left join act_re_procdef arp on t.f_procdef_pid = arp.ID_
+    where t.f_pid = #{id,jdbcType=VARCHAR} and t.f_sys_flag = '1'
+  </select>
+  
+  <sql id="todoTaskIdSql">
+  	and t.F_FLOW_TASK_ID in (
+	  	select v.f_task_id
+		from v_workflow_todo v
+		where v.f_todo_user = concat('org_', #{todo_tenants_pid})
+		or f_todo_user in (
+			select concat('role_',r.f_role_pid)
+			from t_sec_user_role_rel r
+			where r.f_user_pid = #{todo_user_pid} and r.f_sys_flag = '1'
+		)
+	)
+  </sql>
+  
+</mapper>

@@ -1,0 +1,342 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- @Automatically generate by Coder in 2020-12-11 17:21:05 -->
+<mapper namespace="com.taro.dao.help.HelpAdviseDao">
+
+  	<resultMap id="BaseResultMap" type="com.taro.entity.help.HelpAdviseEntity">
+	  	<id column="F_PID" property="id" jdbcType="VARCHAR" />
+  		<result column="F_PID" property="id" jdbcType="VARCHAR" />
+  		<result column="F_TENANTS_PID" property="tenants_pid" jdbcType="VARCHAR" />
+  		<result column="F_DEVICE_PID" property="device_pid" jdbcType="VARCHAR" />
+  		<result column="F_DEVICE_DID" property="device_did" jdbcType="VARCHAR" />
+  		<result column="F_ADVISE_TITLE" property="advise_title" jdbcType="VARCHAR" />
+  		<result column="F_ADVISE_CONTENT" property="advise_content" typeHandler="com.taro.utils.MyBlobTypeHandler" />
+  		<result column="F_ADVISE_USER" property="advise_user" jdbcType="VARCHAR" />
+  		<result column="F_ADVISE_PHONE" property="advise_phone" jdbcType="VARCHAR" />
+  		<result column="F_IS_SUBMIT" property="is_submit" jdbcType="CHAR" />
+  		<result column="F_SUBMIT_USER_PID" property="submit_user_pid" jdbcType="VARCHAR" />
+  		<result column="F_SUBMIT_TIME" property="submit_time" jdbcType="VARCHAR" />
+  		<result column="F_IS_REPLY" property="is_reply" jdbcType="CHAR" />
+  		<result column="F_REPLY_CONTENT" property="reply_content" typeHandler="com.taro.utils.MyBlobTypeHandler" />
+  		<result column="F_C1" property="c1" jdbcType="VARCHAR" />
+  		<result column="F_C2" property="c2" jdbcType="VARCHAR" />
+  		<result column="F_C3" property="c3" jdbcType="VARCHAR" />
+  		<result column="F_C4" property="c4" jdbcType="VARCHAR" />
+  		<result column="F_C5" property="c5" jdbcType="VARCHAR" />
+	  	<result column="F_SYS_FLAG" property="sysFlag" jdbcType="VARCHAR" />
+	  	<result column="F_REMARK" property="remark" jdbcType="VARCHAR" />
+	  	<result column="F_LAST_MODIFIER" property="lastModifier" jdbcType="VARCHAR" />
+	  	<result column="F_LAST_MODIFIED_TIME" property="lastModifiedTime" jdbcType="VARCHAR" />
+	  	<result column="F_CREATOR" property="creator" jdbcType="VARCHAR" />
+	  	<result column="F_CREATE_TIME" property="createTime" jdbcType="VARCHAR" />
+	  	<result column="F_TENANTS_NAME" property="tenants_name" jdbcType="VARCHAR" />
+	  	<result column="F_SUBMIT_USER_NAME" property="submit_user_name" jdbcType="VARCHAR" />
+  	</resultMap>
+
+  	<sql id="Base_Column_List" >
+		t.F_PID, T.F_TENANTS_PID, T.F_DEVICE_PID, T.F_DEVICE_DID, T.F_ADVISE_TITLE, T.F_ADVISE_CONTENT,		T.F_ADVISE_USER, T.F_ADVISE_PHONE, T.F_IS_SUBMIT, T.F_SUBMIT_USER_PID, T.F_SUBMIT_TIME,		T.F_IS_REPLY, T.F_REPLY_CONTENT, T.F_C1, T.F_C2, T.F_C3,		T.F_C4, T.F_C5, 
+		t.F_SYS_FLAG, t.F_REMARK, t.F_LAST_MODIFIER, t.F_LAST_MODIFIED_TIME, t.F_CREATOR, t.F_CREATE_TIME
+  	</sql>
+
+  	<sql id="where_sql">
+		<if test="id != null and id != ''" > 
+			and t.F_PID = #{id, jdbcType=VARCHAR}
+		</if>
+		<if test="tenants_pid != null and tenants_pid != ''" > 
+			and T.F_TENANTS_PID = #{tenants_pid, jdbcType=VARCHAR}
+		</if>
+		<if test="device_pid != null and device_pid != ''" > 
+			and T.F_DEVICE_PID = #{device_pid, jdbcType=VARCHAR}
+		</if>
+		<if test="device_did != null and device_did != ''" > 
+			and T.F_DEVICE_DID = #{device_did, jdbcType=VARCHAR}
+		</if>
+		<if test="advise_title != null and advise_title != ''" > 
+			and T.F_ADVISE_TITLE = #{advise_title, jdbcType=VARCHAR}
+		</if>
+		<if test="advise_content != null and advise_content != ''" > 
+			and T.F_ADVISE_CONTENT = #{advise_content, jdbcType=BLOB}
+		</if>
+		<if test="advise_user != null and advise_user != ''" > 
+			and T.F_ADVISE_USER = #{advise_user, jdbcType=VARCHAR}
+		</if>
+		<if test="advise_phone != null and advise_phone != ''" > 
+			and T.F_ADVISE_PHONE = #{advise_phone, jdbcType=VARCHAR}
+		</if>
+		<if test="is_submit != null and is_submit != ''" > 
+			and T.F_IS_SUBMIT = #{is_submit, jdbcType=CHAR}
+		</if>
+		<if test="submit_user_pid != null and submit_user_pid != ''" > 
+			and T.F_SUBMIT_USER_PID = #{submit_user_pid, jdbcType=VARCHAR}
+		</if>
+		<if test="submit_time != null and submit_time != ''" > 
+			and T.F_SUBMIT_TIME = #{submit_time, jdbcType=VARCHAR}
+		</if>
+		<if test="is_reply != null and is_reply != ''" > 
+			and T.F_IS_REPLY = #{is_reply, jdbcType=CHAR}
+		</if>
+		<if test="reply_content != null and reply_content != ''" > 
+			and T.F_REPLY_CONTENT = #{reply_content, jdbcType=BLOB}
+		</if>
+		<if test="c1 != null and c1 != ''" > 
+			and T.F_C1 = #{c1, jdbcType=VARCHAR}
+		</if>
+		<if test="c2 != null and c2 != ''" > 
+			and T.F_C2 = #{c2, jdbcType=VARCHAR}
+		</if>
+		<if test="c3 != null and c3 != ''" > 
+			and T.F_C3 = #{c3, jdbcType=VARCHAR}
+		</if>
+		<if test="c4 != null and c4 != ''" > 
+			and T.F_C4 = #{c4, jdbcType=VARCHAR}
+		</if>
+		<if test="c5 != null and c5 != ''" > 
+			and T.F_C5 = #{c5, jdbcType=VARCHAR}
+		</if>
+		<if test="sysFlag != null and sysFlag != ''" > 
+			and t.F_SYS_FLAG = #{sysFlag, jdbcType=VARCHAR}
+		</if>
+		<if test="remark != null and remark != ''" > 
+			and t.F_REMARK = #{remark, jdbcType=VARCHAR}
+		</if>
+		<if test="lastModifier != null and lastModifier != ''" > 
+			and t.F_LAST_MODIFIER = #{lastModifier, jdbcType=VARCHAR}
+		</if>
+		<if test="lastModifiedTime != null and lastModifiedTime != ''" > 
+			and t.F_LAST_MODIFIED_TIME = #{lastModifiedTime, jdbcType=VARCHAR}
+		</if>
+		<if test="creator != null and creator != ''" > 
+			and t.F_CREATOR = #{creator, jdbcType=VARCHAR}
+		</if>
+		<if test="createTime != null and createTime != ''" > 
+			and t.F_CREATE_TIME = #{createTime, jdbcType=VARCHAR}
+		</if>
+  	</sql>
+
+	<!-- 新增 -->
+  	<insert id="insert" parameterType="com.taro.entity.help.HelpAdviseEntity" >
+    	INSERT INTO T_HELP_ADVISE (
+    		F_PID, F_TENANTS_PID, F_DEVICE_PID, F_DEVICE_DID,			F_ADVISE_TITLE, F_ADVISE_CONTENT, F_ADVISE_USER,			F_ADVISE_PHONE, F_IS_SUBMIT, F_SUBMIT_USER_PID,			F_SUBMIT_TIME, F_IS_REPLY, F_REPLY_CONTENT,			F_C1, F_C2, F_C3,			F_C4, F_C5, 
+		  	F_SYS_FLAG, F_REMARK, F_LAST_MODIFIER,
+		  	F_LAST_MODIFIED_TIME, F_CREATOR, F_CREATE_TIME
+    	) VALUES (
+    		#{id, jdbcType=VARCHAR}, #{tenants_pid, jdbcType=VARCHAR}, #{device_pid, jdbcType=VARCHAR}, #{device_did, jdbcType=VARCHAR},			#{advise_title, jdbcType=VARCHAR}, #{advise_content, jdbcType=BLOB}, #{advise_user, jdbcType=VARCHAR},			#{advise_phone, jdbcType=VARCHAR}, #{is_submit, jdbcType=CHAR}, #{submit_user_pid, jdbcType=VARCHAR},			#{submit_time, jdbcType=VARCHAR}, #{is_reply, jdbcType=CHAR}, #{reply_content, jdbcType=BLOB},			#{c1, jdbcType=VARCHAR}, #{c2, jdbcType=VARCHAR}, #{c3, jdbcType=VARCHAR},			#{c4, jdbcType=VARCHAR}, #{c5,jdbcType=VARCHAR} , 
+		  	#{sysFlag, jdbcType=VARCHAR}, #{remark, jdbcType=VARCHAR}, #{lastModifier, jdbcType=VARCHAR},
+		  	#{lastModifiedTime, jdbcType=VARCHAR}, #{creator, jdbcType=VARCHAR}, #{createTime, jdbcType=VARCHAR} 
+    	)
+  	</insert>
+
+	<!-- 批量新增 -->
+  	<insert id="insertObjects" parameterType="list">
+		INSERT INTO T_HELP_ADVISE (
+    		F_PID, F_TENANTS_PID, F_DEVICE_PID, F_DEVICE_DID,			F_ADVISE_TITLE, F_ADVISE_CONTENT, F_ADVISE_USER,			F_ADVISE_PHONE, F_IS_SUBMIT, F_SUBMIT_USER_PID,			F_SUBMIT_TIME, F_IS_REPLY, F_REPLY_CONTENT,			F_C1, F_C2, F_C3,			F_C4, F_C5, 
+		  	F_SYS_FLAG, F_REMARK, F_LAST_MODIFIER,
+		  	F_LAST_MODIFIED_TIME, F_CREATOR, F_CREATE_TIME
+		)
+		<foreach collection="list" item="entity" index="index" separator="union all">
+			SELECT
+    		#{entity.id, jdbcType=VARCHAR}, #{entity.tenants_pid, jdbcType=VARCHAR}, #{entity.device_pid, jdbcType=VARCHAR}, #{entity.device_did, jdbcType=VARCHAR},			#{entity.advise_title, jdbcType=VARCHAR}, #{entity.advise_content, jdbcType=BLOB}, #{entity.advise_user, jdbcType=VARCHAR},			#{entity.advise_phone, jdbcType=VARCHAR}, #{entity.is_submit, jdbcType=CHAR}, #{entity.submit_user_pid, jdbcType=VARCHAR},			#{entity.submit_time, jdbcType=VARCHAR}, #{entity.is_reply, jdbcType=CHAR}, #{entity.reply_content, jdbcType=BLOB},			#{entity.c1, jdbcType=VARCHAR}, #{entity.c2, jdbcType=VARCHAR}, #{entity.c3, jdbcType=VARCHAR},			#{entity.c4, jdbcType=VARCHAR}, #{entity.c5,jdbcType=VARCHAR} , 
+  			#{entity.sysFlag,jdbcType=VARCHAR}, #{entity.remark,jdbcType=VARCHAR}, #{entity.lastModifier,jdbcType=VARCHAR},
+  			#{entity.lastModifiedTime,jdbcType=VARCHAR}, #{entity.creator,jdbcType=VARCHAR}, #{entity.createTime,jdbcType=VARCHAR} 
+			FROM DUAL
+		</foreach>
+  	</insert>
+
+	<!-- 更新 -->
+  	<update id="update" parameterType="com.taro.entity.help.HelpAdviseEntity">
+    	UPDATE T_HELP_ADVISE
+	    <set>
+      		<if test="id != null" > F_PID = #{id, jdbcType=VARCHAR}, </if>
+      		<if test="tenants_pid != null" > F_TENANTS_PID = #{tenants_pid, jdbcType=VARCHAR}, </if>
+      		<if test="device_pid != null" > F_DEVICE_PID = #{device_pid, jdbcType=VARCHAR}, </if>
+      		<if test="device_did != null" > F_DEVICE_DID = #{device_did, jdbcType=VARCHAR}, </if>
+      		<if test="advise_title != null" > F_ADVISE_TITLE = #{advise_title, jdbcType=VARCHAR}, </if>
+      		<if test="advise_content != null" > F_ADVISE_CONTENT = #{advise_content, jdbcType=BLOB}, </if>
+      		<if test="advise_user != null" > F_ADVISE_USER = #{advise_user, jdbcType=VARCHAR}, </if>
+      		<if test="advise_phone != null" > F_ADVISE_PHONE = #{advise_phone, jdbcType=VARCHAR}, </if>
+      		<if test="is_submit != null" > F_IS_SUBMIT = #{is_submit, jdbcType=CHAR}, </if>
+      		<if test="submit_user_pid != null" > F_SUBMIT_USER_PID = #{submit_user_pid, jdbcType=VARCHAR}, </if>
+      		<if test="submit_time != null" > F_SUBMIT_TIME = #{submit_time, jdbcType=VARCHAR}, </if>
+      		<if test="is_reply != null" > F_IS_REPLY = #{is_reply, jdbcType=CHAR}, </if>
+      		<if test="reply_content != null" > F_REPLY_CONTENT = #{reply_content, jdbcType=BLOB}, </if>
+      		<if test="c1 != null" > F_C1 = #{c1, jdbcType=VARCHAR}, </if>
+      		<if test="c2 != null" > F_C2 = #{c2, jdbcType=VARCHAR}, </if>
+      		<if test="c3 != null" > F_C3 = #{c3, jdbcType=VARCHAR}, </if>
+      		<if test="c4 != null" > F_C4 = #{c4, jdbcType=VARCHAR}, </if>
+      		<if test="c5 != null" > F_C5 = #{c5, jdbcType=VARCHAR}, </if>
+	      	<if test="sysFlag != null" > F_SYS_FLAG = #{sysFlag, jdbcType=VARCHAR}, </if>
+	      	<if test="remark != null" > F_REMARK = #{remark, jdbcType=VARCHAR}, </if>
+	      	<if test="lastModifier != null" > F_LAST_MODIFIER = #{lastModifier, jdbcType=VARCHAR}, </if>
+	      	<if test="lastModifiedTime != null" > F_LAST_MODIFIED_TIME = #{lastModifiedTime, jdbcType=VARCHAR}, </if>
+	      	<if test="creator != null" > F_CREATOR = #{creator, jdbcType=VARCHAR}, </if>
+	      	<if test="createTime != null" > F_CREATE_TIME = #{createTime, jdbcType=VARCHAR}, </if>
+	    </set>
+    	WHERE F_PID = #{id, jdbcType=VARCHAR}
+  	</update>
+
+	<!-- 批量更新 -->
+  	<update id="batchUpdate" parameterType="java.util.List">
+		<foreach collection="list" item="entity" separator=";">
+			UPDATE T_HELP_ADVISE
+			<set>
+		      	<if test="id != null" > F_PID = #{entity.id, jdbcType=VARCHAR}, </if>
+	      		<if test="tenants_pid != null" > F_TENANTS_PID = #{entity.tenants_pid, jdbcType=VARCHAR}, </if>
+	      		<if test="device_pid != null" > F_DEVICE_PID = #{entity.device_pid, jdbcType=VARCHAR}, </if>
+	      		<if test="device_did != null" > F_DEVICE_DID = #{entity.device_did, jdbcType=VARCHAR}, </if>
+	      		<if test="advise_title != null" > F_ADVISE_TITLE = #{entity.advise_title, jdbcType=VARCHAR}, </if>
+	      		<if test="advise_content != null" > F_ADVISE_CONTENT = #{entity.advise_content, jdbcType=BLOB}, </if>
+	      		<if test="advise_user != null" > F_ADVISE_USER = #{entity.advise_user, jdbcType=VARCHAR}, </if>
+	      		<if test="advise_phone != null" > F_ADVISE_PHONE = #{entity.advise_phone, jdbcType=VARCHAR}, </if>
+	      		<if test="is_submit != null" > F_IS_SUBMIT = #{entity.is_submit, jdbcType=CHAR}, </if>
+	      		<if test="submit_user_pid != null" > F_SUBMIT_USER_PID = #{entity.submit_user_pid, jdbcType=VARCHAR}, </if>
+	      		<if test="submit_time != null" > F_SUBMIT_TIME = #{entity.submit_time, jdbcType=VARCHAR}, </if>
+	      		<if test="is_reply != null" > F_IS_REPLY = #{entity.is_reply, jdbcType=CHAR}, </if>
+	      		<if test="reply_content != null" > F_REPLY_CONTENT = #{entity.reply_content, jdbcType=BLOB}, </if>
+	      		<if test="c1 != null" > F_C1 = #{entity.c1, jdbcType=VARCHAR}, </if>
+	      		<if test="c2 != null" > F_C2 = #{entity.c2, jdbcType=VARCHAR}, </if>
+	      		<if test="c3 != null" > F_C3 = #{entity.c3, jdbcType=VARCHAR}, </if>
+	      		<if test="c4 != null" > F_C4 = #{entity.c4, jdbcType=VARCHAR}, </if>
+	      		<if test="c5 != null" > F_C5 = #{entity.c5, jdbcType=VARCHAR}, </if>
+		      	<if test="sysFlag != null" > F_SYS_FLAG = #{entity.sysFlag, jdbcType=VARCHAR}, </if>
+		      	<if test="remark != null" > F_REMARK = #{entity.remark, jdbcType=VARCHAR}, </if>
+		      	<if test="lastModifier != null" > F_LAST_MODIFIER = #{entity.lastModifier, jdbcType=VARCHAR}, </if>
+		      	<if test="lastModifiedTime != null" > F_LAST_MODIFIED_TIME = #{entity.lastModifiedTime, jdbcType=VARCHAR}, </if>
+		      	<if test="creator != null" > F_CREATOR = #{entity.creator, jdbcType=VARCHAR}, </if>
+		      	<if test="createTime != null" > F_CREATE_TIME = #{entity.createTime, jdbcType=VARCHAR}, </if>
+			</set>
+    		WHERE F_PID = #{id, jdbcType=VARCHAR}
+		</foreach>
+  	</update>
+
+	<!-- 逻辑删除 -->
+  	<update id="delete" parameterType="java.lang.String" >
+    	UPDATE T_HELP_ADVISE SET
+			F_SYS_FLAG = '0',
+		    F_LAST_MODIFIER = #{lastModifier, jdbcType=VARCHAR},
+			F_LAST_MODIFIED_TIME = #{lastModifiedTime, jdbcType=VARCHAR}
+    	WHERE F_PID = #{id, jdbcType=VARCHAR}
+  	</update>
+
+	<!-- 逻辑删除所有 -->
+  	<update id="deleteAll" parameterType="map">
+		UPDATE T_HELP_ADVISE SET 
+			F_SYS_FLAG = '0',
+		    F_LAST_MODIFIER = #{lastModifier, jdbcType=VARCHAR},
+			F_LAST_MODIFIED_TIME = #{lastModifiedTime, jdbcType=VARCHAR}
+		WHERE F_PID IN
+		<foreach item="item" collection="ids" open="(" separator="," close=")">
+        	#{item}
+    	</foreach>
+  	</update>
+
+	<!-- 查询条件 模糊查询用concat函数:name like concat(concat('%',#{bean.name,jdbcType=VARCHAR}),'%'),	这样做主要是为了支持mysql和oracle以及防止sql注入 -->
+  	<!-- 列表查询 -->
+  	<select id="list" resultMap="BaseResultMap" parameterType="map">
+	    SELECT 
+	    	<include refid="Base_Column_List" />
+	    FROM T_HELP_ADVISE T
+	    <where>
+			<include refid="where_sql"/>
+		</where>
+  	</select>
+  	
+  	<select id="listHelpAdvise" resultMap="BaseResultMap" parameterType="map">
+	    select t.*,
+		st.F_NAME as F_TENANTS_NAME,
+		u.F_NICKNAME as F_SUBMIT_USER_NAME
+		from t_help_advise t 
+		left join t_sec_tenants st on st.F_PID = t.F_TENANTS_PID and st.F_SYS_FLAG = '1'
+		left join t_sec_user u on t.F_SUBMIT_USER_PID = u.F_PID and u.F_SYS_FLAG = '1'
+		where t.F_SYS_FLAG = '1'
+		<if test="id != null and id != ''" > 
+			and t.F_PID = #{id, jdbcType=VARCHAR}
+		</if>
+		<if test="tenants_pid != null and tenants_pid != ''" > 
+			and T.F_TENANTS_PID = #{tenants_pid, jdbcType=VARCHAR}
+		</if>
+		<if test="device_pid != null and device_pid != ''" > 
+			and T.F_DEVICE_PID = #{device_pid, jdbcType=VARCHAR}
+		</if>
+		<if test="device_did != null and device_did != ''" > 
+			and T.F_DEVICE_DID = #{device_did, jdbcType=VARCHAR}
+		</if>
+		<if test="advise_title != null and advise_title != ''" > 
+			and T.F_ADVISE_TITLE = #{advise_title, jdbcType=VARCHAR}
+		</if>
+		<if test="advise_title_like != null and advise_title_like != ''" > 
+			and T.F_ADVISE_TITLE like concat(concat('%',#{advise_title_like,jdbcType=VARCHAR}),'%')
+		</if>
+		<if test="advise_content != null and advise_content != ''" > 
+			and T.F_ADVISE_CONTENT = #{advise_content, jdbcType=BLOB}
+		</if>
+		<if test="advise_user != null and advise_user != ''" > 
+			and T.F_ADVISE_USER = #{advise_user, jdbcType=VARCHAR}
+		</if>
+		<if test="advise_user_like != null and advise_user_like != ''" > 
+			and T.F_ADVISE_USER like concat(concat('%',#{advise_user_like,jdbcType=VARCHAR}),'%')
+		</if>
+		<if test="advise_phone != null and advise_phone != ''" > 
+			and T.F_ADVISE_PHONE = #{advise_phone, jdbcType=VARCHAR}
+		</if>
+		<if test="advise_phone_like != null and advise_phone_like != ''" > 
+			and T.F_ADVISE_PHONE like concat(concat('%',#{advise_phone_like,jdbcType=VARCHAR}),'%')
+		</if>
+		<if test="is_submit != null and is_submit != ''" > 
+			and T.F_IS_SUBMIT = #{is_submit, jdbcType=CHAR}
+		</if>
+		<if test="submit_user_pid != null and submit_user_pid != ''" > 
+			and T.F_SUBMIT_USER_PID = #{submit_user_pid, jdbcType=VARCHAR}
+		</if>
+		<if test="submit_time != null and submit_time != ''" > 
+			and T.F_SUBMIT_TIME = #{submit_time, jdbcType=VARCHAR}
+		</if>
+		<if test="is_reply != null and is_reply != ''" > 
+			and T.F_IS_REPLY = #{is_reply, jdbcType=CHAR}
+		</if>
+		<if test="reply_content != null and reply_content != ''" > 
+			and T.F_REPLY_CONTENT = #{reply_content, jdbcType=BLOB}
+		</if>
+		<if test="c1 != null and c1 != ''" > 
+			and T.F_C1 = #{c1, jdbcType=VARCHAR}
+		</if>
+		<if test="c2 != null and c2 != ''" > 
+			and T.F_C2 = #{c2, jdbcType=VARCHAR}
+		</if>
+		<if test="c3 != null and c3 != ''" > 
+			and T.F_C3 = #{c3, jdbcType=VARCHAR}
+		</if>
+		<if test="c4 != null and c4 != ''" > 
+			and T.F_C4 = #{c4, jdbcType=VARCHAR}
+		</if>
+		<if test="c5 != null and c5 != ''" > 
+			and T.F_C5 = #{c5, jdbcType=VARCHAR}
+		</if>
+		<if test="sysFlag != null and sysFlag != ''" > 
+			and t.F_SYS_FLAG = #{sysFlag, jdbcType=VARCHAR}
+		</if>
+		<if test="remark != null and remark != ''" > 
+			and t.F_REMARK = #{remark, jdbcType=VARCHAR}
+		</if>
+		<if test="lastModifier != null and lastModifier != ''" > 
+			and t.F_LAST_MODIFIER = #{lastModifier, jdbcType=VARCHAR}
+		</if>
+		<if test="lastModifiedTime != null and lastModifiedTime != ''" > 
+			and t.F_LAST_MODIFIED_TIME = #{lastModifiedTime, jdbcType=VARCHAR}
+		</if>
+		<if test="creator != null and creator != ''" > 
+			and t.F_CREATOR = #{creator, jdbcType=VARCHAR}
+		</if>
+		<if test="createTime != null and createTime != ''" > 
+			and t.F_CREATE_TIME = #{createTime, jdbcType=VARCHAR}
+		</if>
+  	</select>
+
+	<!-- 根据ID查询单条记录 -->
+  	<select id="get" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    	SELECT 
+    		<include refid="Base_Column_List" />
+    	FROM T_HELP_ADVISE T
+    	WHERE T.F_PID = #{id,jdbcType=VARCHAR}
+  	</select>
+
+</mapper>

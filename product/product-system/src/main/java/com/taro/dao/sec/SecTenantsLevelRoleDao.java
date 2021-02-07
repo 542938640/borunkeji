@@ -1,0 +1,1 @@
+package com.taro.dao.sec;import com.taro.dao.AbstractDao;import com.taro.entity.sec.SecTenantsLevelRoleEntity;/** *<p>Title:SecTenantsLevelRoleDao.java</p> *<p>Description: Dao</p> *@author 张宇唯 *@version 1.0 *@Automatically generate by Coder in 2020-12-23 11:56:21 */public interface SecTenantsLevelRoleDao extends AbstractDao<SecTenantsLevelRoleEntity> {}

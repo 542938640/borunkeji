@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- @Automatically generate by Coder in 2020-10-21 11:16:04 -->
+<mapper namespace="com.taro.dao.pay.PayUnionpayMerTerDao">
+
+  	<resultMap id="BaseResultMap" type="com.taro.entity.pay.PayUnionpayMerTerEntity">
+	  	<id column="F_PID" property="id" jdbcType="VARCHAR" />
+  		<result column="F_PID" property="id" jdbcType="VARCHAR" />
+  		<result column="F_UNIONPAY_PID" property="unionpay_pid" jdbcType="VARCHAR" />
+  		<result column="F_UNIONPAY_MER_PID" property="unionpay_mer_pid" jdbcType="VARCHAR" />
+  		<result column="F_TENANTS_PID" property="tenants_pid" jdbcType="VARCHAR" />
+  		<result column="F_TER_NUMBER" property="ter_number" jdbcType="VARCHAR" />
+  	</resultMap>
+
+  	<sql id="Base_Column_List" >
+		t.F_PID, T.F_UNIONPAY_PID, T.F_UNIONPAY_MER_PID, T.F_TENANTS_PID, T.F_TER_NUMBER
+  	</sql>
+
+  	<sql id="where_sql">
+		<if test="id != null and id != ''" > 
+			and t.F_PID = #{id, jdbcType=VARCHAR}
+		</if>
+		<if test="unionpay_pid != null and unionpay_pid != ''" > 
+			and T.F_UNIONPAY_PID = #{unionpay_pid, jdbcType=VARCHAR}
+		</if>
+		<if test="unionpay_mer_pid != null and unionpay_mer_pid != ''" > 
+			and T.F_UNIONPAY_MER_PID = #{unionpay_mer_pid, jdbcType=VARCHAR}
+		</if>
+		<if test="tenants_pid != null and tenants_pid != ''" > 
+			and T.F_TENANTS_PID = #{tenants_pid, jdbcType=VARCHAR}
+		</if>
+		<if test="ter_number != null and ter_number != ''" > 
+			and T.F_TER_NUMBER = #{ter_number, jdbcType=VARCHAR}
+		</if>
+  	</sql>
+
+	<!-- 新增 -->
+  	<insert id="insert" parameterType="com.taro.entity.pay.PayUnionpayMerTerEntity" >
+    	INSERT INTO T_PAY_UNIONPAY_MER_TER (
+    		F_PID, F_UNIONPAY_PID, F_UNIONPAY_MER_PID, F_TENANTS_PID,
+			F_TER_NUMBER
+    	) VALUES (
+    		#{id, jdbcType=VARCHAR}, #{unionpay_pid, jdbcType=VARCHAR}, #{unionpay_mer_pid, jdbcType=VARCHAR}, #{tenants_pid, jdbcType=VARCHAR},
+			#{ter_number,jdbcType=VARCHAR}
+    	)
+  	</insert>
+
+	<!-- 批量新增 -->
+  	<insert id="insertObjects" parameterType="list">
+		INSERT INTO T_PAY_UNIONPAY_MER_TER (
+    		F_PID, F_UNIONPAY_PID, F_UNIONPAY_MER_PID, F_TENANTS_PID,
+			F_TER_NUMBER
+		)
+		<foreach collection="list" item="entity" index="index" separator="union all">
+			SELECT
+    		#{entity.id, jdbcType=VARCHAR}, #{entity.unionpay_pid, jdbcType=VARCHAR}, #{entity.unionpay_mer_pid, jdbcType=VARCHAR}, #{entity.tenants_pid, jdbcType=VARCHAR},
+			#{entity.ter_number,jdbcType=VARCHAR}
+			FROM DUAL
+		</foreach>
+  	</insert>
+
+	<!-- 更新 -->
+  	<update id="update" parameterType="com.taro.entity.pay.PayUnionpayMerTerEntity">
+    	UPDATE T_PAY_UNIONPAY_MER_TER
+	    <set>
+      		<if test="id != null" > F_PID = #{id, jdbcType=VARCHAR}, </if>
+      		<if test="unionpay_pid != null" > F_UNIONPAY_PID = #{unionpay_pid, jdbcType=VARCHAR}, </if>
+      		<if test="unionpay_mer_pid != null" > F_UNIONPAY_MER_PID = #{unionpay_mer_pid, jdbcType=VARCHAR}, </if>
+      		<if test="tenants_pid != null" > F_TENANTS_PID = #{tenants_pid, jdbcType=VARCHAR}, </if>
+      		<if test="ter_number != null" > F_TER_NUMBER = #{ter_number, jdbcType=VARCHAR}, </if>
+	    </set>
+    	WHERE F_PID = #{id, jdbcType=VARCHAR}
+  	</update>
+
+	<!-- 批量更新 -->
+  	<update id="batchUpdate" parameterType="java.util.List">
+		<foreach collection="list" item="entity" separator=";">
+			UPDATE T_PAY_UNIONPAY_MER_TER
+			<set>
+		      	<if test="id != null" > F_PID = #{entity.id, jdbcType=VARCHAR}, </if>
+	      		<if test="unionpay_pid != null" > F_UNIONPAY_PID = #{entity.unionpay_pid, jdbcType=VARCHAR}, </if>
+	      		<if test="unionpay_mer_pid != null" > F_UNIONPAY_MER_PID = #{entity.unionpay_mer_pid, jdbcType=VARCHAR}, </if>
+	      		<if test="tenants_pid != null" > F_TENANTS_PID = #{entity.tenants_pid, jdbcType=VARCHAR}, </if>
+	      		<if test="ter_number != null" > F_TER_NUMBER = #{entity.ter_number, jdbcType=VARCHAR}, </if>
+			</set>
+    		WHERE F_PID = #{id, jdbcType=VARCHAR}
+		</foreach>
+  	</update>
+
+	<!-- 更新 -->
+  	<update id="updateTenants" parameterType="com.taro.entity.pay.PayUnionpayMerTerEntity">
+    	UPDATE T_PAY_UNIONPAY_MER_TER
+	    <set>
+      		<if test="tenants_pid != null" > F_TENANTS_PID = #{tenants_pid, jdbcType=VARCHAR}, </if>
+	    </set>
+    	WHERE F_UNIONPAY_MER_PID = #{unionpay_mer_pid, jdbcType=VARCHAR}
+  	</update>
+  	
+	<!-- 逻辑删除 -->
+  	<delete id="delete" parameterType="java.lang.String" >
+    	DELETE FROM T_PAY_UNIONPAY_MER_TER WHERE F_PID = #{id, jdbcType=VARCHAR}
+  	</delete>
+
+	<!-- 逻辑删除所有 -->
+  	<delete id="deleteAll" parameterType="map">
+		DELETE FROM T_PAY_UNIONPAY_MER_TER WHERE F_PID IN
+		<foreach item="item" collection="ids" open="(" separator="," close=")">
+        	#{item}
+    	</foreach>
+  	</delete>
+
+	<!-- 逻辑删除 -->
+  	<update id="deleteTenants" parameterType="java.lang.String" >
+    	UPDATE T_PAY_UNIONPAY_MER_TER SET
+			F_TENANTS_PID = ''
+    	WHERE F_UNIONPAY_PID = #{unionpay_pid, jdbcType=VARCHAR}
+  	</update>
+
+	<!-- 逻辑删除所有 -->
+  	<delete id="deleteAllByUnionpayPid" parameterType="map">
+		DELETE FROM T_PAY_UNIONPAY_MER_TER WHERE F_UNIONPAY_PID IN
+		<foreach item="item" collection="ids" open="(" separator="," close=")">
+        	#{item}
+    	</foreach>
+  	</delete>
+  	
+	<!-- 查询条件 模糊查询用concat函数:name like concat(concat('%',#{bean.name,jdbcType=VARCHAR}),'%'),	这样做主要是为了支持mysql和oracle以及防止sql注入 -->
+  	<!-- 列表查询 -->
+  	<select id="list" resultMap="BaseResultMap" parameterType="map">
+	    SELECT 
+	    	<include refid="Base_Column_List" />
+	    FROM T_PAY_UNIONPAY_MER_TER T
+	    <where>
+			<include refid="where_sql"/>
+		</where>
+  	</select>
+
+	<!-- 根据ID查询单条记录 -->
+  	<select id="get" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    	SELECT 
+    		<include refid="Base_Column_List" />
+    	FROM T_PAY_UNIONPAY_MER_TER T
+    	WHERE T.F_PID = #{id,jdbcType=VARCHAR}
+  	</select>
+
+</mapper>

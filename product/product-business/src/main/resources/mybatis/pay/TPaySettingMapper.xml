@@ -1,0 +1,274 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- @Automatically generate by Coder in 2020-10-21 10:55:56 -->
+<mapper namespace="com.taro.dao.pay.TPaySettingDao">
+
+  	<resultMap id="BaseResultMap" type="com.taro.entity.pay.TPaySettingEntity">
+	  	<id column="ID" property="id" jdbcType="BIGINT" />
+  		<result column="ID" property="id" jdbcType="BIGINT" />
+  		<result column="F_WXMCH_ID" property="wxmch_id" jdbcType="VARCHAR" />
+  		<result column="F_WXSUBMCH_ID" property="wxsubmch_id" jdbcType="VARCHAR" />
+  		<result column="F_WXAPPID" property="wxappid" jdbcType="VARCHAR" />
+  		<result column="F_WXSUBAPPID" property="wxsubappid" jdbcType="VARCHAR" />
+  		<result column="F_WXAPPKEY" property="wxappkey" jdbcType="VARCHAR" />
+  		<result column="F_APPSECRET" property="appsecret" jdbcType="VARCHAR" />
+  		<result column="F_WXAPI_CERT" property="wxapi_cert" jdbcType="VARCHAR" />
+  		<result column="F_ALIPID" property="alipid" jdbcType="VARCHAR" />
+  		<result column="F_ALIPUBLICKKEY" property="alipublickkey" jdbcType="VARCHAR" />
+  		<result column="F_ALIPRIVATEKEY" property="aliprivatekey" jdbcType="VARCHAR" />
+  		<result column="F_ALITOKEN" property="alitoken" jdbcType="VARCHAR" />
+  		<result column="F_ALISELLER_EMAIL" property="aliseller_email" jdbcType="VARCHAR" />
+  		<result column="F_ALITRANSINALIPARTNER" property="alitransinalipartner" jdbcType="VARCHAR" />
+  		<result column="ALIKEY" property="alikey" jdbcType="VARCHAR" />
+  		<result column="F_WXMODE" property="wxmode" jdbcType="INTEGER" />
+  		<result column="F_ALIMODE" property="alimode" jdbcType="INTEGER" />
+  		<result column="F_WXENABLED" property="wxenabled" jdbcType="TINYINT" />
+  		<result column="F_ALIENABLED" property="alienabled" jdbcType="TINYINT" />
+  		<result column="F_PSSERVICETEL" property="psservicetel" jdbcType="VARCHAR" />
+  		<result column="F_PSCREATEUSER" property="pscreateuser" jdbcType="VARCHAR" />
+  		<result column="F_PSCREATETIME" property="pscreatetime" jdbcType="DATE" />
+  		<result column="F_PSCREATECOMPANY" property="pscreatecompany" jdbcType="VARCHAR" />
+  		<result column="F_SUBAPPSECRET" property="subappsecret" jdbcType="VARCHAR" />
+  		<result column="ISPROFITSHARE" property="isprofitshare" jdbcType="VARCHAR" />
+  	</resultMap>
+
+  	<sql id="Base_Column_List" >
+		T.ID, T.F_WXMCH_ID, T.F_WXSUBMCH_ID, T.F_WXAPPID, T.F_WXSUBAPPID,
+		T.F_WXAPPKEY, T.F_APPSECRET, T.F_WXAPI_CERT, T.F_ALIPID, T.F_ALIPUBLICKKEY,
+		T.F_ALIPRIVATEKEY, T.F_ALITOKEN, T.F_ALISELLER_EMAIL, T.F_ALITRANSINALIPARTNER, T.ALIKEY,
+		T.F_WXMODE, T.F_ALIMODE, T.F_WXENABLED, T.F_ALIENABLED, T.F_PSSERVICETEL,
+		T.F_PSCREATEUSER, T.F_PSCREATETIME, T.F_PSCREATECOMPANY, T.F_SUBAPPSECRET, T.ISPROFITSHARE
+  	</sql>
+
+  	<sql id="where_sql">
+		<if test="id != null and id != ''" > 
+			and T.ID = #{id, jdbcType=BIGINT}
+		</if>
+		<if test="wxmch_id != null and wxmch_id != ''" > 
+			and T.F_WXMCH_ID = #{wxmch_id, jdbcType=VARCHAR}
+		</if>
+		<if test="wxsubmch_id != null and wxsubmch_id != ''" > 
+			and T.F_WXSUBMCH_ID = #{wxsubmch_id, jdbcType=VARCHAR}
+		</if>
+		<if test="wxappid != null and wxappid != ''" > 
+			and T.F_WXAPPID = #{wxappid, jdbcType=VARCHAR}
+		</if>
+		<if test="wxsubappid != null and wxsubappid != ''" > 
+			and T.F_WXSUBAPPID = #{wxsubappid, jdbcType=VARCHAR}
+		</if>
+		<if test="wxappkey != null and wxappkey != ''" > 
+			and T.F_WXAPPKEY = #{wxappkey, jdbcType=VARCHAR}
+		</if>
+		<if test="appsecret != null and appsecret != ''" > 
+			and T.F_APPSECRET = #{appsecret, jdbcType=VARCHAR}
+		</if>
+		<if test="wxapi_cert != null and wxapi_cert != ''" > 
+			and T.F_WXAPI_CERT = #{wxapi_cert, jdbcType=VARCHAR}
+		</if>
+		<if test="alipid != null and alipid != ''" > 
+			and T.F_ALIPID = #{alipid, jdbcType=VARCHAR}
+		</if>
+		<if test="alipublickkey != null and alipublickkey != ''" > 
+			and T.F_ALIPUBLICKKEY = #{alipublickkey, jdbcType=VARCHAR}
+		</if>
+		<if test="aliprivatekey != null and aliprivatekey != ''" > 
+			and T.F_ALIPRIVATEKEY = #{aliprivatekey, jdbcType=VARCHAR}
+		</if>
+		<if test="alitoken != null and alitoken != ''" > 
+			and T.F_ALITOKEN = #{alitoken, jdbcType=VARCHAR}
+		</if>
+		<if test="aliseller_email != null and aliseller_email != ''" > 
+			and T.F_ALISELLER_EMAIL = #{aliseller_email, jdbcType=VARCHAR}
+		</if>
+		<if test="alitransinalipartner != null and alitransinalipartner != ''" > 
+			and T.F_ALITRANSINALIPARTNER = #{alitransinalipartner, jdbcType=VARCHAR}
+		</if>
+		<if test="alikey != null and alikey != ''" > 
+			and T.ALIKEY = #{alikey, jdbcType=VARCHAR}
+		</if>
+		<if test="wxmode != null and wxmode != ''" > 
+			and T.F_WXMODE = #{wxmode, jdbcType=INTEGER}
+		</if>
+		<if test="alimode != null and alimode != ''" > 
+			and T.F_ALIMODE = #{alimode, jdbcType=INTEGER}
+		</if>
+		<if test="wxenabled != null and wxenabled != ''" > 
+			and T.F_WXENABLED = #{wxenabled, jdbcType=TINYINT}
+		</if>
+		<if test="alienabled != null and alienabled != ''" > 
+			and T.F_ALIENABLED = #{alienabled, jdbcType=TINYINT}
+		</if>
+		<if test="psservicetel != null and psservicetel != ''" > 
+			and T.F_PSSERVICETEL = #{psservicetel, jdbcType=VARCHAR}
+		</if>
+		<if test="pscreateuser != null and pscreateuser != ''" > 
+			and T.F_PSCREATEUSER = #{pscreateuser, jdbcType=VARCHAR}
+		</if>
+		<if test="pscreatetime != null and pscreatetime != ''" > 
+			and T.F_PSCREATETIME = #{pscreatetime, jdbcType=DATE}
+		</if>
+		<if test="pscreatecompany != null and pscreatecompany != ''" > 
+			and T.F_PSCREATECOMPANY = #{pscreatecompany, jdbcType=VARCHAR}
+		</if>
+		<if test="subappsecret != null and subappsecret != ''" > 
+			and T.F_SUBAPPSECRET = #{subappsecret, jdbcType=VARCHAR}
+		</if>
+		<if test="isprofitshare != null and isprofitshare != ''" > 
+			and T.ISPROFITSHARE = #{isprofitshare, jdbcType=VARCHAR}
+		</if>
+  	</sql>
+
+	<!-- 新增 -->
+  	<insert id="insert" parameterType="com.taro.entity.pay.TPaySettingEntity" >
+    	INSERT INTO TPAYSETTING (
+    		F_WXMCH_ID, F_WXSUBMCH_ID,
+			F_WXAPPID, F_WXSUBAPPID, F_WXAPPKEY,
+			F_APPSECRET, F_WXAPI_CERT, F_ALIPID,
+			F_ALIPUBLICKKEY, F_ALIPRIVATEKEY, F_ALITOKEN,
+			F_ALISELLER_EMAIL, F_ALITRANSINALIPARTNER, ALIKEY,
+			F_WXMODE, F_ALIMODE, F_WXENABLED,
+			F_ALIENABLED, F_PSSERVICETEL, F_PSCREATEUSER,
+			F_PSCREATETIME, F_PSCREATECOMPANY, F_SUBAPPSECRET,
+			ISPROFITSHARE
+    	) VALUES (
+    		#{wxmch_id, jdbcType=VARCHAR}, #{wxsubmch_id, jdbcType=VARCHAR},
+			#{wxappid, jdbcType=VARCHAR}, #{wxsubappid, jdbcType=VARCHAR}, #{wxappkey, jdbcType=VARCHAR},
+			#{appsecret, jdbcType=VARCHAR}, #{wxapi_cert, jdbcType=VARCHAR}, #{alipid, jdbcType=VARCHAR},
+			#{alipublickkey, jdbcType=VARCHAR}, #{aliprivatekey, jdbcType=VARCHAR}, #{alitoken, jdbcType=VARCHAR},
+			#{aliseller_email, jdbcType=VARCHAR}, #{alitransinalipartner, jdbcType=VARCHAR}, #{alikey, jdbcType=VARCHAR},
+			#{wxmode, jdbcType=INTEGER}, #{alimode, jdbcType=INTEGER}, #{wxenabled, jdbcType=TINYINT},
+			#{alienabled, jdbcType=TINYINT}, #{psservicetel, jdbcType=VARCHAR}, #{pscreateuser, jdbcType=VARCHAR},
+			#{pscreatetime, jdbcType=DATE}, #{pscreatecompany, jdbcType=VARCHAR}, #{subappsecret, jdbcType=VARCHAR},
+			#{isprofitshare,jdbcType=VARCHAR} 
+    	)
+  	</insert>
+
+	<!-- 批量新增 -->
+  	<insert id="insertObjects" parameterType="list">
+		INSERT INTO TPAYSETTING (
+    		ID, F_WXMCH_ID, F_WXSUBMCH_ID,
+			F_WXAPPID, F_WXSUBAPPID, F_WXAPPKEY,
+			F_APPSECRET, F_WXAPI_CERT, F_ALIPID,
+			F_ALIPUBLICKKEY, F_ALIPRIVATEKEY, F_ALITOKEN,
+			F_ALISELLER_EMAIL, F_ALITRANSINALIPARTNER, ALIKEY,
+			F_WXMODE, F_ALIMODE, F_WXENABLED,
+			F_ALIENABLED, F_PSSERVICETEL, F_PSCREATEUSER,
+			F_PSCREATETIME, F_PSCREATECOMPANY, F_SUBAPPSECRET,
+			ISPROFITSHARE
+		)
+		<foreach collection="list" item="entity" index="index" separator="union all">
+			SELECT
+    		#{entity.id, jdbcType=BIGINT}, #{entity.wxmch_id, jdbcType=VARCHAR}, #{entity.wxsubmch_id, jdbcType=VARCHAR},
+			#{entity.wxappid, jdbcType=VARCHAR}, #{entity.wxsubappid, jdbcType=VARCHAR}, #{entity.wxappkey, jdbcType=VARCHAR},
+			#{entity.appsecret, jdbcType=VARCHAR}, #{entity.wxapi_cert, jdbcType=VARCHAR}, #{entity.alipid, jdbcType=VARCHAR},
+			#{entity.alipublickkey, jdbcType=VARCHAR}, #{entity.aliprivatekey, jdbcType=VARCHAR}, #{entity.alitoken, jdbcType=VARCHAR},
+			#{entity.aliseller_email, jdbcType=VARCHAR}, #{entity.alitransinalipartner, jdbcType=VARCHAR}, #{entity.alikey, jdbcType=VARCHAR},
+			#{entity.wxmode, jdbcType=INTEGER}, #{entity.alimode, jdbcType=INTEGER}, #{entity.wxenabled, jdbcType=TINYINT},
+			#{entity.alienabled, jdbcType=TINYINT}, #{entity.psservicetel, jdbcType=VARCHAR}, #{entity.pscreateuser, jdbcType=VARCHAR},
+			#{entity.pscreatetime, jdbcType=DATE}, #{entity.pscreatecompany, jdbcType=VARCHAR}, #{entity.subappsecret, jdbcType=VARCHAR},
+			#{entity.isprofitshare,jdbcType=VARCHAR} 
+			FROM DUAL
+		</foreach>
+  	</insert>
+
+	<!-- 更新 -->
+  	<update id="update" parameterType="com.taro.entity.pay.TPaySettingEntity">
+    	UPDATE TPAYSETTING
+	    <set>
+      		<if test="id != null" > ID = #{id, jdbcType=BIGINT}, </if>
+      		<if test="wxmch_id != null" > F_WXMCH_ID = #{wxmch_id, jdbcType=VARCHAR}, </if>
+      		<if test="wxsubmch_id != null" > F_WXSUBMCH_ID = #{wxsubmch_id, jdbcType=VARCHAR}, </if>
+      		<if test="wxappid != null" > F_WXAPPID = #{wxappid, jdbcType=VARCHAR}, </if>
+      		<if test="wxsubappid != null" > F_WXSUBAPPID = #{wxsubappid, jdbcType=VARCHAR}, </if>
+      		<if test="wxappkey != null" > F_WXAPPKEY = #{wxappkey, jdbcType=VARCHAR}, </if>
+      		<if test="appsecret != null" > F_APPSECRET = #{appsecret, jdbcType=VARCHAR}, </if>
+      		<if test="wxapi_cert != null" > F_WXAPI_CERT = #{wxapi_cert, jdbcType=VARCHAR}, </if>
+      		<if test="alipid != null" > F_ALIPID = #{alipid, jdbcType=VARCHAR}, </if>
+      		<if test="alipublickkey != null" > F_ALIPUBLICKKEY = #{alipublickkey, jdbcType=VARCHAR}, </if>
+      		<if test="aliprivatekey != null" > F_ALIPRIVATEKEY = #{aliprivatekey, jdbcType=VARCHAR}, </if>
+      		<if test="alitoken != null" > F_ALITOKEN = #{alitoken, jdbcType=VARCHAR}, </if>
+      		<if test="aliseller_email != null" > F_ALISELLER_EMAIL = #{aliseller_email, jdbcType=VARCHAR}, </if>
+      		<if test="alitransinalipartner != null" > F_ALITRANSINALIPARTNER = #{alitransinalipartner, jdbcType=VARCHAR}, </if>
+      		<if test="alikey != null" > ALIKEY = #{alikey, jdbcType=VARCHAR}, </if>
+      		<if test="wxmode != null" > F_WXMODE = #{wxmode, jdbcType=INTEGER}, </if>
+      		<if test="alimode != null" > F_ALIMODE = #{alimode, jdbcType=INTEGER}, </if>
+      		<if test="wxenabled != null" > F_WXENABLED = #{wxenabled, jdbcType=TINYINT}, </if>
+      		<if test="alienabled != null" > F_ALIENABLED = #{alienabled, jdbcType=TINYINT}, </if>
+      		<if test="psservicetel != null" > F_PSSERVICETEL = #{psservicetel, jdbcType=VARCHAR}, </if>
+      		<if test="pscreateuser != null" > F_PSCREATEUSER = #{pscreateuser, jdbcType=VARCHAR}, </if>
+      		<if test="pscreatetime != null" > F_PSCREATETIME = #{pscreatetime, jdbcType=DATE}, </if>
+      		<if test="pscreatecompany != null" > F_PSCREATECOMPANY = #{pscreatecompany, jdbcType=VARCHAR}, </if>
+      		<if test="subappsecret != null" > F_SUBAPPSECRET = #{subappsecret, jdbcType=VARCHAR}, </if>
+      		<if test="isprofitshare != null" > ISPROFITSHARE = #{isprofitshare, jdbcType=VARCHAR}, </if>
+	    </set>
+    	WHERE ID = #{id, jdbcType=BIGINT}
+  	</update>
+
+	<!-- 批量更新 -->
+  	<update id="batchUpdate" parameterType="java.util.List">
+		<foreach collection="list" item="entity" separator=";">
+			UPDATE TPAYSETTING
+			<set>
+	      		<if test="id != null" > ID = #{entity.id, jdbcType=BIGINT}, </if>
+	      		<if test="wxmch_id != null" > F_WXMCH_ID = #{entity.wxmch_id, jdbcType=VARCHAR}, </if>
+	      		<if test="wxsubmch_id != null" > F_WXSUBMCH_ID = #{entity.wxsubmch_id, jdbcType=VARCHAR}, </if>
+	      		<if test="wxappid != null" > F_WXAPPID = #{entity.wxappid, jdbcType=VARCHAR}, </if>
+	      		<if test="wxsubappid != null" > F_WXSUBAPPID = #{entity.wxsubappid, jdbcType=VARCHAR}, </if>
+	      		<if test="wxappkey != null" > F_WXAPPKEY = #{entity.wxappkey, jdbcType=VARCHAR}, </if>
+	      		<if test="appsecret != null" > F_APPSECRET = #{entity.appsecret, jdbcType=VARCHAR}, </if>
+	      		<if test="wxapi_cert != null" > F_WXAPI_CERT = #{entity.wxapi_cert, jdbcType=VARCHAR}, </if>
+	      		<if test="alipid != null" > F_ALIPID = #{entity.alipid, jdbcType=VARCHAR}, </if>
+	      		<if test="alipublickkey != null" > F_ALIPUBLICKKEY = #{entity.alipublickkey, jdbcType=VARCHAR}, </if>
+	      		<if test="aliprivatekey != null" > F_ALIPRIVATEKEY = #{entity.aliprivatekey, jdbcType=VARCHAR}, </if>
+	      		<if test="alitoken != null" > F_ALITOKEN = #{entity.alitoken, jdbcType=VARCHAR}, </if>
+	      		<if test="aliseller_email != null" > F_ALISELLER_EMAIL = #{entity.aliseller_email, jdbcType=VARCHAR}, </if>
+	      		<if test="alitransinalipartner != null" > F_ALITRANSINALIPARTNER = #{entity.alitransinalipartner, jdbcType=VARCHAR}, </if>
+	      		<if test="alikey != null" > ALIKEY = #{entity.alikey, jdbcType=VARCHAR}, </if>
+	      		<if test="wxmode != null" > F_WXMODE = #{entity.wxmode, jdbcType=INTEGER}, </if>
+	      		<if test="alimode != null" > F_ALIMODE = #{entity.alimode, jdbcType=INTEGER}, </if>
+	      		<if test="wxenabled != null" > F_WXENABLED = #{entity.wxenabled, jdbcType=TINYINT}, </if>
+	      		<if test="alienabled != null" > F_ALIENABLED = #{entity.alienabled, jdbcType=TINYINT}, </if>
+	      		<if test="psservicetel != null" > F_PSSERVICETEL = #{entity.psservicetel, jdbcType=VARCHAR}, </if>
+	      		<if test="pscreateuser != null" > F_PSCREATEUSER = #{entity.pscreateuser, jdbcType=VARCHAR}, </if>
+	      		<if test="pscreatetime != null" > F_PSCREATETIME = #{entity.pscreatetime, jdbcType=DATE}, </if>
+	      		<if test="pscreatecompany != null" > F_PSCREATECOMPANY = #{entity.pscreatecompany, jdbcType=VARCHAR}, </if>
+	      		<if test="subappsecret != null" > F_SUBAPPSECRET = #{entity.subappsecret, jdbcType=VARCHAR}, </if>
+	      		<if test="isprofitshare != null" > ISPROFITSHARE = #{entity.isprofitshare, jdbcType=VARCHAR}, </if>
+			</set>
+    		WHERE ID = #{id, jdbcType=BIGINT}
+		</foreach>
+  	</update>
+
+	<!-- 逻辑删除 -->
+  	<delete id="delete" parameterType="java.lang.String" >
+    	DELETE FROM TPAYSETTING WHERE ID = #{id, jdbcType=BIGINT}
+  	</delete>
+
+	<!-- 逻辑删除所有 -->
+  	<delete id="deleteAll" parameterType="map">
+		DELETE FROM TPAYSETTING WHERE ID IN
+		<foreach item="item" collection="ids" open="(" separator="," close=")">
+        	#{item}
+    	</foreach>
+  	</delete>
+
+	<!-- 查询条件 模糊查询用concat函数:name like concat(concat('%',#{bean.name,jdbcType=VARCHAR}),'%'),	这样做主要是为了支持mysql和oracle以及防止sql注入 -->
+  	<!-- 列表查询 -->
+  	<select id="list" resultMap="BaseResultMap" parameterType="map">
+	    SELECT 
+	    	<include refid="Base_Column_List" />
+	    FROM TPAYSETTING T
+	    <where>
+			<include refid="where_sql"/>
+		</where>
+  	</select>
+
+	<!-- 根据ID查询单条记录 -->
+  	<select id="get" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    	SELECT 
+    		<include refid="Base_Column_List" />
+    	FROM TPAYSETTING T
+    	WHERE T.ID = #{id,jdbcType=BIGINT}
+  	</select>
+
+</mapper>

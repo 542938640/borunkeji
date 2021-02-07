@@ -1,0 +1,343 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- @Automatically generate by Coder in 2019-08-16 15:33 -->
+<mapper namespace="com.taro.dao.sec.SecUserDao">
+  <resultMap id="BaseResultMap" type="com.taro.entity.sec.SecUserEntity">
+  	<id column="f_pid" property="id" jdbcType="VARCHAR" />
+  	<result column="f_pid" property="id" jdbcType="VARCHAR" />
+  	<result column="f_username" property="username" jdbcType="VARCHAR" />
+  	<result column="f_password" property="password" jdbcType="VARCHAR" />
+  	<result column="f_nickname" property="nickname" jdbcType="VARCHAR" />
+  	<result column="f_sex" property="sex" jdbcType="VARCHAR" />
+  	<result column="f_birthday" property="birthday" jdbcType="VARCHAR" />
+  	<result column="f_salt" property="salt" jdbcType="VARCHAR" />
+  	<result column="f_picture" property="picture" jdbcType="VARCHAR" />
+  	<result column="f_phonenum" property="phonenum" jdbcType="VARCHAR" />
+  	<result column="f_email" property="email" jdbcType="VARCHAR" />
+  	<result column="f_status" property="status" jdbcType="VARCHAR" />
+  	<result column="f_login_status" property="login_status" jdbcType="VARCHAR" />
+  	<result column="f_c1" property="c1" jdbcType="VARCHAR" />
+  	<result column="f_c2" property="c2" jdbcType="VARCHAR" />
+  	<result column="f_c3" property="c3" jdbcType="VARCHAR" />
+  	<result column="f_c4" property="c4" jdbcType="VARCHAR" />
+  	<result column="f_c5" property="c5" jdbcType="VARCHAR" />
+  	<result column="f_c6" property="c6" jdbcType="VARCHAR" />
+  	<result column="f_c7" property="c7" jdbcType="VARCHAR" />
+  	<result column="f_c8" property="c8" jdbcType="VARCHAR" />
+  	<result column="f_c9" property="c9" jdbcType="VARCHAR" />
+  	<result column="f_c10" property="c10" jdbcType="VARCHAR" />
+ 	<result column="f_tenants_pid" property="tenants_pid" jdbcType="VARCHAR" />
+  	<result column="f_sys_flag" property="sysFlag" jdbcType="VARCHAR" />
+  	<result column="f_remark" property="remark" jdbcType="VARCHAR" />
+  	<result column="f_last_modifier" property="lastModifier" jdbcType="VARCHAR" />
+  	<result column="f_last_modified_time" property="lastModifiedTime" jdbcType="VARCHAR" />
+  	<result column="f_creator" property="creator" jdbcType="VARCHAR" />
+  	<result column="f_create_time" property="createTime" jdbcType="VARCHAR" />
+  	
+  	<result column="f_status_name" property="status_name" jdbcType="VARCHAR" />
+  	<result column="f_login_status_name" property="login_status_name" jdbcType="VARCHAR" />
+  	<result column="f_tenants_name" property="tenants_name" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+  	t.f_pid, t.f_username, t.f_password, t.f_nickname, t.f_sex, t.f_birthday,
+  	t.f_salt, t.f_picture, t.f_phonenum, t.f_email, t.f_status, t.f_login_status,
+  	t.f_c1, t.f_c2, t.f_c3, t.f_c4, t.f_c5, t.f_c6, t.f_c7, t.f_c8, t.f_c9, t.f_c10, t.f_tenants_pid, 
+	t.f_sys_flag, t.f_remark, t.f_last_modifier, t.f_last_modified_time, t.f_creator, t.f_create_time
+  </sql>
+  
+  <sql id="where_sql">
+	<if test="not_id != null and not_id != ''" > and t.f_pid != #{not_id,jdbcType=VARCHAR}</if>
+	<if test="id != null and id != ''" > and t.f_pid = #{id,jdbcType=VARCHAR}</if>
+	<if test="usernameEq != null and usernameEq != ''" > and t.f_username =#{usernameEq,jdbcType=VARCHAR}</if>
+	<if test="username != null and username != ''" > 
+		and t.f_username like concat(concat('%',#{username,jdbcType=VARCHAR}),'%')
+	</if>
+	<if test="password != null and password != ''" > and t.f_password =#{password,jdbcType=VARCHAR}</if>
+	<if test="nickname != null and nickname != ''" > and t.f_nickname like concat(concat('%',#{nickname,jdbcType=VARCHAR}),'%')</if>
+	<if test="sex != null and sex != ''" > and t.f_sex = #{sex,jdbcType=VARCHAR}</if>
+	<if test="birthday != null and birthday != ''" > and t.f_birthday = #{birthday,jdbcType=VARCHAR}</if>
+	<if test="salt != null and salt != ''" > and t.f_salt = #{salt,jdbcType=VARCHAR}</if>
+	<if test="picture != null and picture != ''" > and t.f_picture = #{picture,jdbcType=VARCHAR}</if>
+	<if test="phonenum != null and phonenum != ''" > 
+		and t.f_phonenum like concat(concat('%',#{phonenum,jdbcType=VARCHAR}),'%')
+	</if>
+	<if test="email != null and email != ''" > 
+		and t.f_email like concat(concat('%',#{email,jdbcType=VARCHAR}),'%')
+	</if>
+	<if test="status != null and status != ''" > and t.f_status = #{status,jdbcType=VARCHAR}</if>
+	<if test="login_status != null and login_status != ''" > and t.f_login_status = #{login_status,jdbcType=VARCHAR}</if>
+	<if test="c1 != null and c1 != ''" > and t.f_c1 = #{c1,jdbcType=VARCHAR}</if>
+	<if test="c2 != null and c2 != ''" > and t.f_c2 = #{c2,jdbcType=VARCHAR}</if>
+	<if test="c3 != null and c3 != ''" > and t.f_c3 = #{c3,jdbcType=VARCHAR}</if>
+	<if test="c4 != null and c4 != ''" > and t.f_c4 = #{c4,jdbcType=VARCHAR}</if>
+	<if test="c5 != null and c5 != ''" > and t.f_c5 = #{c5,jdbcType=VARCHAR}</if>
+	<if test="c6 != null and c6 != ''" > and t.f_c6 = #{c6,jdbcType=VARCHAR}</if>
+	<if test="c7 != null and c7 != ''" > and t.f_c7 = #{c7,jdbcType=VARCHAR}</if>
+	<if test="c8 != null and c8 != ''" > and t.f_c8 = #{c8,jdbcType=VARCHAR}</if>
+	<if test="c9 != null and c9 != ''" > and t.f_c9 = #{c9,jdbcType=VARCHAR}</if>
+	<if test="c10 != null and c10 != ''" > and t.f_c10 = #{c10,jdbcType=VARCHAR}</if>
+	<if test="tenants_pid != null and tenants_pid != ''" > and t.f_tenants_pid = #{tenants_pid,jdbcType=VARCHAR}</if>
+	<if test="sysFlag != null and sysFlag != ''" > and t.f_sys_flag = #{sysFlag,jdbcType=VARCHAR}</if>
+	<if test="remark != null and remark != ''" > and t.f_remark = #{remark,jdbcType=VARCHAR}</if>
+	<if test="lastModifier != null and lastModifier != ''" > and t.f_last_modifier = #{lastModifier,jdbcType=VARCHAR}</if>
+	<if test="lastModifiedTime != null and lastModifiedTime != ''" > and t.f_last_modified_time = #{lastModifiedTime,jdbcType=VARCHAR}</if>
+	<if test="creator != null and creator != ''" > and t.f_creator = #{creator,jdbcType=VARCHAR}</if>
+	<if test="createTime != null and createTime != ''" > and t.f_create_time = #{createTime,jdbcType=VARCHAR}</if>
+  </sql>
+  
+  <insert id="insert" parameterType="com.taro.entity.sec.SecUserEntity" >
+    insert into t_sec_user (
+      f_pid, f_username, f_password, f_nickname, f_sex, f_birthday,
+  f_salt, f_picture, f_phonenum, f_email, f_status, f_login_status,
+  f_c1, f_c2, f_c3, f_c4, f_c5, f_c6, f_c7, f_c8, f_c9, f_c10, f_tenants_pid, 
+  f_sys_flag, f_remark, f_last_modifier,
+  f_last_modified_time, f_creator, f_create_time
+    ) values (
+      #{id,jdbcType=VARCHAR}, #{username,jdbcType=VARCHAR}, #{password,jdbcType=VARCHAR}, #{nickname,jdbcType=VARCHAR},
+      #{sex,jdbcType=VARCHAR}, #{birthday,jdbcType=VARCHAR}, #{salt,jdbcType=VARCHAR}, #{picture,jdbcType=VARCHAR},
+  #{phonenum,jdbcType=VARCHAR}, #{email,jdbcType=VARCHAR}, #{status,jdbcType=VARCHAR}, #{login_status,jdbcType=VARCHAR}, 
+  #{c1,jdbcType=VARCHAR}, #{c2,jdbcType=VARCHAR}, #{c3,jdbcType=VARCHAR}, #{c4,jdbcType=VARCHAR}, #{c5,jdbcType=VARCHAR}, 
+  #{c6,jdbcType=VARCHAR}, #{c7,jdbcType=VARCHAR}, #{c8,jdbcType=VARCHAR}, #{c9,jdbcType=VARCHAR}, #{c10,jdbcType=VARCHAR}, #{tenants_pid,jdbcType=VARCHAR}, 
+  #{sysFlag,jdbcType=VARCHAR}, #{remark,jdbcType=VARCHAR}, #{lastModifier,jdbcType=VARCHAR},
+  #{lastModifiedTime,jdbcType=VARCHAR}, #{creator,jdbcType=VARCHAR}, #{createTime,jdbcType=VARCHAR} 
+    )
+  </insert>
+  
+  <insert id="insertObjects" parameterType="list">
+		insert into t_sec_user (
+      f_pid, f_username, f_password, f_nickname, f_sex, f_birthday,
+  f_salt, f_picture, f_phonenum, f_email, f_status, f_login_status,
+  f_c1, f_c2, f_c3, f_c4, f_c5, f_c6, f_c7, f_c8, f_c9, f_c10, f_tenants_pid, 
+  f_sys_flag, f_remark, f_last_modifier,
+  f_last_modified_time, f_creator, f_create_time
+		)
+		<foreach collection="list" item="entity" index="index" separator="union all">
+			select
+      #{entity.id,jdbcType=VARCHAR}, #{entity.username,jdbcType=VARCHAR}, #{entity.password,jdbcType=VARCHAR}, #{entity.nickname,jdbcType=VARCHAR},
+      #{entity.sex,jdbcType=VARCHAR}, #{entity.birthday,jdbcType=VARCHAR}, #{entity.salt,jdbcType=VARCHAR}, #{entity.picture,jdbcType=VARCHAR},
+  #{entity.phonenum,jdbcType=VARCHAR}, #{entity.email,jdbcType=VARCHAR}, #{entity.status,jdbcType=VARCHAR}, #{entity.login_status,jdbcType=VARCHAR},
+  #{entity.c1,jdbcType=VARCHAR}, #{entity.c2,jdbcType=VARCHAR}, #{entity.c3,jdbcType=VARCHAR}, #{entity.c4,jdbcType=VARCHAR}, #{entity.c5,jdbcType=VARCHAR}, 
+  #{entity.c6,jdbcType=VARCHAR}, #{entity.c7,jdbcType=VARCHAR}, #{entity.c8,jdbcType=VARCHAR}, #{entity.c9,jdbcType=VARCHAR}, #{entity.c10,jdbcType=VARCHAR}, #{entity.tenants_pid,jdbcType=VARCHAR}, 
+  #{entity.sysFlag,jdbcType=VARCHAR}, #{entity.remark,jdbcType=VARCHAR}, #{entity.lastModifier,jdbcType=VARCHAR},
+  #{entity.lastModifiedTime,jdbcType=VARCHAR}, #{entity.creator,jdbcType=VARCHAR}, #{entity.createTime,jdbcType=VARCHAR} 
+			from dual
+		</foreach>
+  </insert>
+  
+  <update id="update" parameterType="com.taro.entity.sec.SecUserEntity">
+    update t_sec_user 
+    <set>
+      <if test="id != null" > f_pid = #{id,jdbcType=VARCHAR}, </if>
+      <if test="username != null" > f_username = #{username,jdbcType=VARCHAR}, </if>
+      <if test="password != null" > f_password = #{password,jdbcType=VARCHAR}, </if>
+      <if test="nickname != null" > f_nickname = #{nickname,jdbcType=VARCHAR}, </if>
+      <if test="sex != null" > f_sex = #{sex,jdbcType=VARCHAR}, </if>
+      <if test="birthday != null" > f_birthday = #{birthday,jdbcType=VARCHAR}, </if>
+      <if test="salt != null" > f_salt = #{salt,jdbcType=VARCHAR}, </if>
+      <if test="picture != null" > f_picture = #{picture,jdbcType=VARCHAR}, </if>
+      <if test="phonenum != null" > f_phonenum = #{phonenum,jdbcType=VARCHAR}, </if>
+      <if test="email != null" > f_email = #{email,jdbcType=VARCHAR}, </if>
+      <if test="status != null" > f_status = #{status,jdbcType=VARCHAR}, </if>
+      <if test="login_status != null" > f_login_status = #{login_status,jdbcType=VARCHAR}, </if>
+      <if test="c1 != null" > f_c1 = #{c1,jdbcType=VARCHAR}, </if>
+      <if test="c2 != null" > f_c2 = #{c2,jdbcType=VARCHAR}, </if>
+      <if test="c3 != null" > f_c3 = #{c3,jdbcType=VARCHAR}, </if>
+      <if test="c4 != null" > f_c4 = #{c4,jdbcType=VARCHAR}, </if>
+      <if test="c5 != null" > f_c5 = #{c5,jdbcType=VARCHAR}, </if>
+      <if test="c6 != null" > f_c6 = #{c6,jdbcType=VARCHAR}, </if>
+      <if test="c7 != null" > f_c7 = #{c7,jdbcType=VARCHAR}, </if>
+      <if test="c8 != null" > f_c8 = #{c8,jdbcType=VARCHAR}, </if>
+      <if test="c9 != null" > f_c9 = #{c9,jdbcType=VARCHAR}, </if>
+      <if test="c10 != null" > f_c10 = #{c10,jdbcType=VARCHAR}, </if>
+      <if test="tenants_pid != null" > f_tenants_pid = #{tenants_pid,jdbcType=VARCHAR}, </if>
+      <if test="sysFlag != null" > f_sys_flag = #{sysFlag,jdbcType=VARCHAR}, </if>
+      <if test="remark != null" > f_remark = #{remark,jdbcType=VARCHAR}, </if>
+      <if test="lastModifier != null" > f_last_modifier = #{lastModifier,jdbcType=VARCHAR}, </if>
+      <if test="lastModifiedTime != null" > f_last_modified_time = #{lastModifiedTime,jdbcType=VARCHAR}, </if>
+      <if test="creator != null" > f_creator = #{creator,jdbcType=VARCHAR}, </if>
+      <if test="createTime != null" > f_create_time = #{createTime,jdbcType=VARCHAR}, </if>
+    </set>
+    where f_pid = #{id,jdbcType=VARCHAR}
+  </update>
+  
+  <update id="batchUpdate" parameterType="java.util.List">
+		<foreach collection="list" item="entity" separator=";">
+			update t_sec_user
+			<set>
+		      <if test="id != null" > f_pid = #{entity.id,jdbcType=VARCHAR}, </if>
+		      <if test="username != null" > f_username = #{entity.username,jdbcType=VARCHAR}, </if>
+		      <if test="password != null" > f_password = #{entity.password,jdbcType=VARCHAR}, </if>
+		      <if test="nickname != null" > f_nickname = #{entity.nickname,jdbcType=VARCHAR}, </if>
+		      <if test="sex != null" > f_sex = #{entity.sex,jdbcType=VARCHAR}, </if>
+		      <if test="birthday != null" > f_birthday = #{entity.birthday,jdbcType=VARCHAR}, </if>
+		      <if test="salt != null" > f_salt = #{entity.salt,jdbcType=VARCHAR}, </if>
+		      <if test="picture != null" > f_picture = #{entity.picture,jdbcType=VARCHAR}, </if>
+		      <if test="phonenum != null" > f_phonenum = #{entity.phonenum,jdbcType=VARCHAR}, </if>
+		      <if test="email != null" > f_email = #{entity.email,jdbcType=VARCHAR}, </if>
+		      <if test="status != null" > f_status = #{entity.status,jdbcType=VARCHAR}, </if>
+		      <if test="login_status != null" > f_login_status = #{entity.login_status,jdbcType=VARCHAR}, </if>
+		      <if test="c1 != null" > f_c1 = #{entity.c1,jdbcType=VARCHAR}, </if>
+		      <if test="c2 != null" > f_c2 = #{entity.c2,jdbcType=VARCHAR}, </if>
+		      <if test="c3 != null" > f_c3 = #{entity.c3,jdbcType=VARCHAR}, </if>
+		      <if test="c4 != null" > f_c4 = #{entity.c4,jdbcType=VARCHAR}, </if>
+		      <if test="c5 != null" > f_c5 = #{entity.c5,jdbcType=VARCHAR}, </if>
+		      <if test="c6 != null" > f_c6 = #{entity.c6,jdbcType=VARCHAR}, </if>
+		      <if test="c7 != null" > f_c7 = #{entity.c7,jdbcType=VARCHAR}, </if>
+		      <if test="c8 != null" > f_c8 = #{entity.c8,jdbcType=VARCHAR}, </if>
+		      <if test="c9 != null" > f_c9 = #{entity.c9,jdbcType=VARCHAR}, </if>
+		      <if test="c10 != null" > f_c10 = #{entity.c10,jdbcType=VARCHAR}, </if>
+      		  <if test="tenants_pid != null" > f_tenants_pid = #{entity.tenants_pid,jdbcType=VARCHAR}, </if>
+		      <if test="sysFlag != null" > f_sys_flag = #{entity.sysFlag,jdbcType=VARCHAR}, </if>
+		      <if test="remark != null" > f_remark = #{entity.remark,jdbcType=VARCHAR}, </if>
+		      <if test="lastModifier != null" > f_last_modifier = #{entity.lastModifier,jdbcType=VARCHAR}, </if>
+		      <if test="lastModifiedTime != null" > f_last_modified_time = #{entity.lastModifiedTime,jdbcType=VARCHAR}, </if>
+		      <if test="creator != null" > f_creator = #{entity.creator,jdbcType=VARCHAR}, </if>
+		      <if test="createTime != null" > f_create_time = #{entity.createTime,jdbcType=VARCHAR}, </if>
+			</set>
+			where f_pid = #{id,jdbcType=VARCHAR}
+		</foreach>
+  </update>
+  
+  
+  <update id="delete" parameterType="java.lang.String" >
+    update t_sec_user set
+		F_SYS_FLAG='0',
+	    F_LAST_MODIFIER = #{lastModifier,jdbcType=VARCHAR},
+		F_LAST_MODIFIED_TIME = #{lastModifiedTime,jdbcType=VARCHAR} 
+	where f_pid = #{id,jdbcType=VARCHAR}
+  </update>
+  
+  <update id="deleteAll" parameterType="map">
+	update t_sec_user set 
+		F_SYS_FLAG='0',
+	    F_LAST_MODIFIER = #{lastModifier,jdbcType=VARCHAR},
+		F_LAST_MODIFIED_TIME = #{lastModifiedTime,jdbcType=VARCHAR} 
+	where f_pid in
+	<foreach item="item" collection="ids" open="(" separator="," close=")">
+        #{item}
+    </foreach>
+  </update>
+  
+  <!-- 查询条件 模糊查询用concat函数 ：name like concat(concat('%',#{bean.name,jdbcType=VARCHAR}),'%')，
+  	         这样做主要是为了支持mysql和oracle以及防止sql注入 -->
+  <select id="listPerm" resultType="java.lang.String" parameterType="map">
+	select DISTINCT p.f_value1
+  	<choose>
+		<when test="user_pid != '1001'" >
+			from (
+				select up.F_RESOURCE_PID 
+				from t_sec_user_permission up
+				where up.F_USER_PID = #{user_pid,jdbcType=VARCHAR} and up.F_TYPE = '10001'
+				union all
+				select rp.F_RESOURCE_PID 
+				from t_sec_role_permission rp
+				left join t_sec_user_role_rel r on rp.F_ROLE_PID = r.f_role_pid and r.f_sys_flag = '1'
+				where r.f_user_pid = #{user_pid,jdbcType=VARCHAR} and rp.F_TYPE = '10001'
+			) t
+			left join t_pub_dic d on t.F_RESOURCE_PID = d.f_pid and d.f_sys_flag = '1'
+			left join t_pub_dic p on d.F_OTHER_PID1 = p.f_pid and p.f_sys_flag = '1'
+		</when>
+		<otherwise>
+		from t_pub_dic p
+		where p.F_BASE_PID = '10002'
+		and p.f_sys_flag = '1'
+		</otherwise>
+	</choose>
+  </select>
+  
+  
+  <select id="listSecUserByRole" resultMap="BaseResultMap" parameterType="map">
+    select t.f_pid, t.f_username, t.f_nickname, t.f_sex, t.f_birthday,
+  	t.f_picture, t.f_phonenum, t.f_email, t.f_status, t.f_login_status,
+  	t.f_c1, t.f_c2, t.f_c3, t.f_c4, t.f_c5, t.f_c6, t.f_c7, t.f_c8, t.f_c9, t.f_c10,t.f_tenants_pid, 
+	t.f_sys_flag, t.f_remark, t.f_last_modifier, t.f_last_modified_time, t.f_creator, t.f_create_time,
+	d1.f_name as f_status_name,
+	d2.f_name as f_login_status_name
+    from t_sec_user_role_rel ur
+    left join t_sec_user t on t.f_pid = ur.f_user_pid and ur.f_sys_flag = '1'
+	left join t_pub_dic d1 on t.f_status = d1.f_pid and d1.f_sys_flag = '1'
+	left join t_pub_dic d2 on t.f_login_status = d2.f_pid and d2.f_sys_flag = '1'
+    where 1 = 1
+    <include refid="where_sql"/>
+	<if test="role_pid != null and role_pid != ''" > and ur.f_role_pid = #{role_pid,jdbcType=VARCHAR}</if>
+  </select>
+  <select id="listSecUser" resultMap="BaseResultMap" parameterType="map">
+    select t.f_pid, t.f_username, t.f_nickname, t.f_sex, t.f_birthday,
+  	t.f_picture, t.f_phonenum, t.f_email, t.f_status, t.f_login_status,
+  	t.f_c1, t.f_c2, t.f_c3, t.f_c4, t.f_c5, t.f_c6, t.f_c7, t.f_c8, t.f_c9, t.f_c10,t.f_tenants_pid, 
+	t.f_sys_flag, t.f_remark, t.f_last_modifier, t.f_last_modified_time, t.f_creator, t.f_create_time,
+	d1.f_name as f_status_name,
+	d2.f_name as f_login_status_name
+    from t_sec_user t
+	left join t_pub_dic d1 on t.f_status = d1.f_pid and d1.f_sys_flag = '1'
+	left join t_pub_dic d2 on t.f_login_status = d2.f_pid and d2.f_sys_flag = '1'
+    where 1 = 1
+    <include refid="where_sql"/>
+    order by t.f_c1 desc, t.f_create_time desc
+  </select>
+  
+  <select id="list" resultMap="BaseResultMap" parameterType="map">
+    select t.*,
+	d1.f_name as f_status_name,
+	d2.f_name as f_login_status_name
+    from t_sec_user t
+	left join t_pub_dic d1 on t.f_status = d1.f_pid and d1.f_sys_flag = '1'
+	left join t_pub_dic d2 on t.f_login_status = d2.f_pid and d2.f_sys_flag = '1'
+    where 1 = 1
+    <include refid="where_sql"/>
+  </select>
+  
+  <select id="listMenu" resultType="com.taro.entity.pub.PubStructureRelationEntity" parameterType="map">
+	select t.f_pid as id,
+	t.F_PARENTDIC_PID as PARENTDIC_PID,
+	t.F_CHILDDIC_PID as CHILDDIC_PID,
+	d.F_BASE_PID as F_CHILDBASE_PID,
+	d.F_NAME as CHILDDIC_NAME,
+	d.F_VALUE1 as VALUE1,
+	d.F_VALUE2 as VALUE2,
+	d.F_VALUE3 as VALUE3,
+	d.F_VALUE4 as VALUE4,
+	d.F_VALUE5 as VALUE5
+	from t_pub_structure_relation t
+	left join t_pub_dic d on d.F_PID = t.F_CHILDDIC_PID and d.F_SYS_FLAG = '1'
+	where t.f_sys_flag = '1' and t.F_STRUCTURE_PID = 'menuStructure'
+	and d.f_base_pid = '10000'
+	<if test="user_pid != '1001'" >
+		<if test='isAdmin == "0"'>
+		and d.f_pid in (
+			select up.F_RESOURCE_PID 
+			from t_sec_user_permission up
+			where up.F_USER_PID = #{user_pid,jdbcType=VARCHAR}
+			union all
+			select rp.F_RESOURCE_PID 
+			from t_sec_role_permission rp
+			left join t_sec_user_role_rel r on rp.F_ROLE_PID = r.f_role_pid and r.f_sys_flag = '1'
+			where r.f_user_pid = #{user_pid,jdbcType=VARCHAR}
+		)
+		</if>
+		and d.f_pid in (
+			select tp.F_RESOURCE_PID 
+			from t_sec_tenants_permission tp
+			where tp.F_TENANTS_PID = #{tenants_pid,jdbcType=VARCHAR}
+		)
+	</if>
+	order by d.f_order, d.f_create_time desc
+  </select>
+  
+  <select id="get" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from t_sec_user t
+    where t.f_pid = #{id,jdbcType=VARCHAR}
+  </select>
+  
+  
+  <select id="getByUserName" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select t.*,
+    tt.f_name as F_TENANTS_NAME
+    from t_sec_user t
+    left join t_sec_tenants tt on t.F_TENANTS_PID = tt.f_pid and tt.f_sys_flag = '1'
+    where t.f_username = #{username,jdbcType=VARCHAR}
+    and t.f_sys_flag = '1'
+  </select>
+</mapper>

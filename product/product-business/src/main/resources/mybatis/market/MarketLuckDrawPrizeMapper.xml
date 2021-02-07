@@ -1,0 +1,276 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- @Automatically generate by Coder in 2020-10-27 00:21:07 -->
+<mapper namespace="com.taro.dao.market.MarketLuckDrawPrizeDao">
+
+  	<resultMap id="BaseResultMap" type="com.taro.entity.market.MarketLuckDrawPrizeEntity">
+	  	<id column="F_PID" property="id" jdbcType="VARCHAR" />
+  		<result column="F_PID" property="id" jdbcType="VARCHAR" />
+  		<result column="F_LUCKDRAW_PID" property="luckdraw_pid" jdbcType="VARCHAR" />
+  		<result column="F_LUCKDRAW_TYPE" property="luckdraw_type" jdbcType="VARCHAR" />
+  		<result column="F_PRIZE_TYPE" property="prize_type" jdbcType="VARCHAR" />
+  		<result column="F_PRIZE_IMAGE" property="prize_image" jdbcType="VARCHAR" />
+  		<result column="F_SLOT_PID" property="slot_pid" jdbcType="INTEGER" />
+  		<result column="F_PRODUCT_PID" property="product_pid" jdbcType="VARCHAR" />
+  		<result column="F_NUM" property="num" jdbcType="INTEGER" />
+  		<result column="F_PHONE" property="phone" jdbcType="VARCHAR" />
+  		<result column="F_SORT" property="sort" jdbcType="INTEGER" />
+  		<result column="F_C1" property="c1" jdbcType="VARCHAR" />
+  		<result column="F_C2" property="c2" jdbcType="VARCHAR" />
+  		<result column="F_C3" property="c3" jdbcType="VARCHAR" />
+  		<result column="F_C4" property="c4" jdbcType="VARCHAR" />
+  		<result column="F_C5" property="c5" jdbcType="VARCHAR" />
+	  	<result column="F_SYS_FLAG" property="sysFlag" jdbcType="VARCHAR" />
+	  	<result column="F_REMARK" property="remark" jdbcType="VARCHAR" />
+	  	<result column="F_LAST_MODIFIER" property="lastModifier" jdbcType="VARCHAR" />
+	  	<result column="F_LAST_MODIFIED_TIME" property="lastModifiedTime" jdbcType="VARCHAR" />
+	  	<result column="F_CREATOR" property="creator" jdbcType="VARCHAR" />
+	  	<result column="F_CREATE_TIME" property="createTime" jdbcType="VARCHAR" />
+	  	
+	  	<result column="F_PRODUCT_NAME" property="product_name" jdbcType="VARCHAR" />
+	  	<result column="F_PRODUCT_IMGURL" property="product_imgUrl" jdbcType="VARCHAR" />
+	  	<result column="F_PRODUCT_BRAND" property="product_brand" jdbcType="VARCHAR" />
+	  	<result column="F_SLOT_COIL_ID" property="slot_coil_id" jdbcType="INTEGER" />
+  	</resultMap>
+
+  	<sql id="Base_Column_List" >
+		t.F_PID, T.F_LUCKDRAW_PID, T.F_LUCKDRAW_TYPE, T.F_PRIZE_TYPE, T.F_PRIZE_IMAGE, T.F_SLOT_PID, T.F_PRODUCT_PID,
+		T.F_NUM, T.F_PHONE, T.F_SORT, T.F_C1, T.F_C2,
+		T.F_C3, T.F_C4, T.F_C5, 
+		t.F_SYS_FLAG, t.F_REMARK, t.F_LAST_MODIFIER, t.F_LAST_MODIFIED_TIME, t.F_CREATOR, t.F_CREATE_TIME
+  	</sql>
+
+  	<sql id="where_sql">
+		<if test="id != null and id != ''" > 
+			and t.F_PID = #{id, jdbcType=VARCHAR}
+		</if>
+		<if test="luckdraw_pid != null and luckdraw_pid != ''" > 
+			and T.F_LUCKDRAW_PID = #{luckdraw_pid, jdbcType=VARCHAR}
+		</if>
+		<if test="luckdraw_type != null and luckdraw_type != ''" > 
+			and T.F_LUCKDRAW_TYPE = #{luckdraw_type, jdbcType=VARCHAR}
+		</if>
+		<if test="prize_type != null and prize_type != ''" > 
+			and T.F_PRIZE_TYPE = #{prize_type, jdbcType=VARCHAR}
+		</if>
+		<if test="prize_image != null and prize_image != ''" > 
+			and T.F_PRIZE_IMAGE = #{prize_image, jdbcType=VARCHAR}
+		</if>
+		<if test="slot_pid != null and slot_pid != ''" > 
+			and T.F_SLOT_PID = #{slot_pid, jdbcType=INTEGER}
+		</if>
+		<if test="product_pid != null and product_pid != ''" > 
+			and T.F_PRODUCT_PID = #{product_pid, jdbcType=VARCHAR}
+		</if>
+		<if test="num != null and num != ''" > 
+			and T.F_NUM = #{num, jdbcType=INTEGER}
+		</if>
+		<if test="phone != null and phone != ''" > 
+			and T.F_PHONE = #{phone, jdbcType=VARCHAR}
+		</if>
+		<if test="sort != null and sort != ''" > 
+			and T.F_SORT = #{sort, jdbcType=INTEGER}
+		</if>
+		<if test="c1 != null and c1 != ''" > 
+			and T.F_C1 = #{c1, jdbcType=VARCHAR}
+		</if>
+		<if test="c2 != null and c2 != ''" > 
+			and T.F_C2 = #{c2, jdbcType=VARCHAR}
+		</if>
+		<if test="c3 != null and c3 != ''" > 
+			and T.F_C3 = #{c3, jdbcType=VARCHAR}
+		</if>
+		<if test="c4 != null and c4 != ''" > 
+			and T.F_C4 = #{c4, jdbcType=VARCHAR}
+		</if>
+		<if test="c5 != null and c5 != ''" > 
+			and T.F_C5 = #{c5, jdbcType=VARCHAR}
+		</if>
+		<if test="sysFlag != null and sysFlag != ''" > 
+			and t.F_SYS_FLAG = #{sysFlag, jdbcType=VARCHAR}
+		</if>
+		<if test="remark != null and remark != ''" > 
+			and t.F_REMARK = #{remark, jdbcType=VARCHAR}
+		</if>
+		<if test="lastModifier != null and lastModifier != ''" > 
+			and t.F_LAST_MODIFIER = #{lastModifier, jdbcType=VARCHAR}
+		</if>
+		<if test="lastModifiedTime != null and lastModifiedTime != ''" > 
+			and t.F_LAST_MODIFIED_TIME = #{lastModifiedTime, jdbcType=VARCHAR}
+		</if>
+		<if test="creator != null and creator != ''" > 
+			and t.F_CREATOR = #{creator, jdbcType=VARCHAR}
+		</if>
+		<if test="createTime != null and createTime != ''" > 
+			and t.F_CREATE_TIME = #{createTime, jdbcType=VARCHAR}
+		</if>
+  	</sql>
+
+	<!-- 新增 -->
+  	<insert id="insert" parameterType="com.taro.entity.market.MarketLuckDrawPrizeEntity" >
+    	INSERT INTO T_MARKET_LUCKDRAW_PRIZE (
+    		F_PID, F_LUCKDRAW_PID, F_LUCKDRAW_TYPE, F_PRIZE_TYPE,
+			F_PRIZE_IMAGE, F_PRODUCT_PID, F_NUM, F_SLOT_PID,
+			F_PHONE, F_SORT, F_C1,
+			F_C2, F_C3, F_C4,
+			F_C5, 
+		  	F_SYS_FLAG, F_REMARK, F_LAST_MODIFIER,
+		  	F_LAST_MODIFIED_TIME, F_CREATOR, F_CREATE_TIME
+    	) VALUES (
+    		#{id, jdbcType=VARCHAR}, #{luckdraw_pid, jdbcType=VARCHAR}, #{luckdraw_type, jdbcType=VARCHAR}, #{prize_type, jdbcType=VARCHAR},
+			#{prize_image, jdbcType=VARCHAR}, #{product_pid, jdbcType=VARCHAR}, #{num, jdbcType=INTEGER}, #{slot_pid, jdbcType=INTEGER},
+			#{phone, jdbcType=VARCHAR}, #{sort, jdbcType=INTEGER}, #{c1, jdbcType=VARCHAR},
+			#{c2, jdbcType=VARCHAR}, #{c3, jdbcType=VARCHAR}, #{c4, jdbcType=VARCHAR},
+			#{c5,jdbcType=VARCHAR} , 
+		  	#{sysFlag, jdbcType=VARCHAR}, #{remark, jdbcType=VARCHAR}, #{lastModifier, jdbcType=VARCHAR},
+		  	#{lastModifiedTime, jdbcType=VARCHAR}, #{creator, jdbcType=VARCHAR}, #{createTime, jdbcType=VARCHAR} 
+    	)
+  	</insert>
+
+	<!-- 批量新增 -->
+  	<insert id="insertObjects" parameterType="list">
+		INSERT INTO T_MARKET_LUCKDRAW_PRIZE (
+    		F_PID, F_LUCKDRAW_PID, F_LUCKDRAW_TYPE, F_PRIZE_TYPE,
+			F_PRIZE_IMAGE, F_PRODUCT_PID, F_NUM, F_SLOT_PID,
+			F_PHONE, F_SORT, F_C1,
+			F_C2, F_C3, F_C4,
+			F_C5, 
+		  	F_SYS_FLAG, F_REMARK, F_LAST_MODIFIER,
+		  	F_LAST_MODIFIED_TIME, F_CREATOR, F_CREATE_TIME
+		)
+		<foreach collection="list" item="entity" index="index" separator="union all">
+			SELECT
+    		#{entity.id, jdbcType=VARCHAR}, #{entity.luckdraw_pid, jdbcType=VARCHAR}, #{entity.luckdraw_type, jdbcType=VARCHAR}, #{entity.prize_type, jdbcType=VARCHAR},
+			#{entity.prize_image, jdbcType=VARCHAR}, #{entity.product_pid, jdbcType=VARCHAR}, #{entity.num, jdbcType=INTEGER}, #{entity.slot_pid, jdbcType=INTEGER},
+			#{entity.phone, jdbcType=VARCHAR}, #{entity.sort, jdbcType=INTEGER}, #{entity.c1, jdbcType=VARCHAR},
+			#{entity.c2, jdbcType=VARCHAR}, #{entity.c3, jdbcType=VARCHAR}, #{entity.c4, jdbcType=VARCHAR},
+			#{entity.c5,jdbcType=VARCHAR} , 
+  			#{entity.sysFlag,jdbcType=VARCHAR}, #{entity.remark,jdbcType=VARCHAR}, #{entity.lastModifier,jdbcType=VARCHAR},
+  			#{entity.lastModifiedTime,jdbcType=VARCHAR}, #{entity.creator,jdbcType=VARCHAR}, #{entity.createTime,jdbcType=VARCHAR} 
+			FROM DUAL
+		</foreach>
+  	</insert>
+
+	<!-- 更新 -->
+  	<update id="update" parameterType="com.taro.entity.market.MarketLuckDrawPrizeEntity">
+    	UPDATE T_MARKET_LUCKDRAW_PRIZE
+	    <set>
+      		<if test="id != null" > F_PID = #{id, jdbcType=VARCHAR}, </if>
+      		<if test="luckdraw_pid != null" > F_LUCKDRAW_PID = #{luckdraw_pid, jdbcType=VARCHAR}, </if>
+      		<if test="luckdraw_type != null" > F_LUCKDRAW_TYPE = #{luckdraw_type, jdbcType=VARCHAR}, </if>
+      		<if test="prize_type != null" > F_PRIZE_TYPE = #{prize_type, jdbcType=VARCHAR}, </if>
+      		<if test="prize_image != null" > F_PRIZE_IMAGE = #{prize_image, jdbcType=VARCHAR}, </if>
+      		<if test="slot_pid != null" > F_SLOT_PID = #{slot_pid, jdbcType=INTEGER}, </if>
+      		<if test="product_pid != null" > F_PRODUCT_PID = #{product_pid, jdbcType=VARCHAR}, </if>
+      		<if test="num != null" > F_NUM = #{num, jdbcType=INTEGER}, </if>
+      		<if test="phone != null" > F_PHONE = #{phone, jdbcType=VARCHAR}, </if>
+      		<if test="sort != null" > F_SORT = #{sort, jdbcType=INTEGER}, </if>
+      		<if test="c1 != null" > F_C1 = #{c1, jdbcType=VARCHAR}, </if>
+      		<if test="c2 != null" > F_C2 = #{c2, jdbcType=VARCHAR}, </if>
+      		<if test="c3 != null" > F_C3 = #{c3, jdbcType=VARCHAR}, </if>
+      		<if test="c4 != null" > F_C4 = #{c4, jdbcType=VARCHAR}, </if>
+      		<if test="c5 != null" > F_C5 = #{c5, jdbcType=VARCHAR}, </if>
+	      	<if test="sysFlag != null" > F_SYS_FLAG = #{sysFlag, jdbcType=VARCHAR}, </if>
+	      	<if test="remark != null" > F_REMARK = #{remark, jdbcType=VARCHAR}, </if>
+	      	<if test="lastModifier != null" > F_LAST_MODIFIER = #{lastModifier, jdbcType=VARCHAR}, </if>
+	      	<if test="lastModifiedTime != null" > F_LAST_MODIFIED_TIME = #{lastModifiedTime, jdbcType=VARCHAR}, </if>
+	      	<if test="creator != null" > F_CREATOR = #{creator, jdbcType=VARCHAR}, </if>
+	      	<if test="createTime != null" > F_CREATE_TIME = #{createTime, jdbcType=VARCHAR}, </if>
+	    </set>
+    	WHERE F_PID = #{id, jdbcType=VARCHAR}
+  	</update>
+
+	<!-- 批量更新 -->
+  	<update id="batchUpdate" parameterType="java.util.List">
+		<foreach collection="list" item="entity" separator=";">
+			UPDATE T_MARKET_LUCKDRAW_PRIZE
+			<set>
+		      	<if test="id != null" > F_PID = #{entity.id, jdbcType=VARCHAR}, </if>
+	      		<if test="luckdraw_pid != null" > F_LUCKDRAW_PID = #{entity.luckdraw_pid, jdbcType=VARCHAR}, </if>
+	      		<if test="luckdraw_type != null" > F_LUCKDRAW_TYPE = #{entity.luckdraw_type, jdbcType=VARCHAR}, </if>
+	      		<if test="prize_type != null" > F_PRIZE_TYPE = #{entity.prize_type, jdbcType=VARCHAR}, </if>
+	      		<if test="prize_image != null" > F_PRIZE_IMAGE = #{entity.prize_image, jdbcType=VARCHAR}, </if>
+	      		<if test="slot_pid != null" > F_SLOT_PID = #{entity.slot_pid, jdbcType=INTEGER}, </if>
+	      		<if test="product_pid != null" > F_PRODUCT_PID = #{entity.product_pid, jdbcType=VARCHAR}, </if>
+	      		<if test="num != null" > F_NUM = #{entity.num, jdbcType=INTEGER}, </if>
+	      		<if test="phone != null" > F_PHONE = #{entity.phone, jdbcType=VARCHAR}, </if>
+	      		<if test="sort != null" > F_SORT = #{entity.sort, jdbcType=INTEGER}, </if>
+	      		<if test="c1 != null" > F_C1 = #{entity.c1, jdbcType=VARCHAR}, </if>
+	      		<if test="c2 != null" > F_C2 = #{entity.c2, jdbcType=VARCHAR}, </if>
+	      		<if test="c3 != null" > F_C3 = #{entity.c3, jdbcType=VARCHAR}, </if>
+	      		<if test="c4 != null" > F_C4 = #{entity.c4, jdbcType=VARCHAR}, </if>
+	      		<if test="c5 != null" > F_C5 = #{entity.c5, jdbcType=VARCHAR}, </if>
+		      	<if test="sysFlag != null" > F_SYS_FLAG = #{entity.sysFlag, jdbcType=VARCHAR}, </if>
+		      	<if test="remark != null" > F_REMARK = #{entity.remark, jdbcType=VARCHAR}, </if>
+		      	<if test="lastModifier != null" > F_LAST_MODIFIER = #{entity.lastModifier, jdbcType=VARCHAR}, </if>
+		      	<if test="lastModifiedTime != null" > F_LAST_MODIFIED_TIME = #{entity.lastModifiedTime, jdbcType=VARCHAR}, </if>
+		      	<if test="creator != null" > F_CREATOR = #{entity.creator, jdbcType=VARCHAR}, </if>
+		      	<if test="createTime != null" > F_CREATE_TIME = #{entity.createTime, jdbcType=VARCHAR}, </if>
+			</set>
+    		WHERE F_PID = #{id, jdbcType=VARCHAR}
+		</foreach>
+  	</update>
+
+	<!-- 逻辑删除 -->
+  	<update id="delete" parameterType="java.lang.String" >
+    	UPDATE T_MARKET_LUCKDRAW_PRIZE SET
+			F_SYS_FLAG = '0',
+		    F_LAST_MODIFIER = #{lastModifier, jdbcType=VARCHAR},
+			F_LAST_MODIFIED_TIME = #{lastModifiedTime, jdbcType=VARCHAR}
+    	WHERE F_PID = #{id, jdbcType=VARCHAR}
+  	</update>
+
+	<!-- 逻辑删除所有 -->
+  	<update id="deleteAll" parameterType="map">
+		UPDATE T_MARKET_LUCKDRAW_PRIZE SET 
+			F_SYS_FLAG = '0',
+		    F_LAST_MODIFIER = #{lastModifier, jdbcType=VARCHAR},
+			F_LAST_MODIFIED_TIME = #{lastModifiedTime, jdbcType=VARCHAR}
+		WHERE F_PID IN
+		<foreach item="item" collection="ids" open="(" separator="," close=")">
+        	#{item}
+    	</foreach>
+  	</update>
+
+	<!-- 查询条件 模糊查询用concat函数:name like concat(concat('%',#{bean.name,jdbcType=VARCHAR}),'%'),	这样做主要是为了支持mysql和oracle以及防止sql注入 -->
+  	<!-- 列表查询 -->
+  	<select id="list" resultMap="BaseResultMap" parameterType="map">
+	    SELECT t.*,
+		p.F_PdName as F_PRODUCT_NAME,
+		p.F_PdImgUrl as F_PRODUCT_IMGURL,
+		d.f_name as F_PRODUCT_BRAND,
+		s.F_SiCoilId as F_SLOT_COIL_ID
+		FROM T_MARKET_LUCKDRAW_PRIZE T
+		left join tproduct p on t.f_product_pid = p.id
+		left join tslotinfo s on t.F_SLOT_PID = s.Id
+		left join t_pub_dic d on p.F_PdBrandId = d.f_pid and d.f_sys_flag = '1'
+	    <where>
+			<include refid="where_sql"/>
+		</where>
+		order by t.F_SORT
+  	</select>
+
+  	<select id="listAndLock" resultMap="BaseResultMap" parameterType="map">
+	    SELECT t.*,
+		p.F_PdName as F_PRODUCT_NAME,
+		p.F_PdImgUrl as F_PRODUCT_IMGURL,
+		s.F_SiCoilId as F_SLOT_COIL_ID
+		FROM T_MARKET_LUCKDRAW_PRIZE T
+		left join tproduct p on t.f_product_pid = p.id
+		left join tslotinfo s on t.F_SLOT_PID = s.Id
+	    <where>
+			<include refid="where_sql"/>
+		</where>
+		order by t.F_SORT
+		for update
+  	</select>
+  	
+	<!-- 根据ID查询单条记录 -->
+  	<select id="get" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    	SELECT 
+    		<include refid="Base_Column_List" />
+    	FROM T_MARKET_LUCKDRAW_PRIZE T
+    	WHERE T.F_PID = #{id,jdbcType=VARCHAR}
+  	</select>
+
+</mapper>

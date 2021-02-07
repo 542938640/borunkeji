@@ -1,0 +1,273 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- @Automatically generate by Coder in 2021-01-10 21:37:29 -->
+<mapper namespace="com.taro.dao.device.DeviceTenantsDao">
+
+  	<resultMap id="BaseResultMap" type="com.taro.entity.device.DeviceTenantsEntity">
+	  	<id column="F_PID" property="id" jdbcType="VARCHAR" />
+  		<result column="F_PID" property="id" jdbcType="VARCHAR" />
+  		<result column="F_DEVICE_PID" property="device_pid" jdbcType="VARCHAR" />
+  		<result column="F_DEVICE_DID" property="device_did" jdbcType="VARCHAR" />
+  		<result column="F_HEAD_OFFICE_PID" property="head_office_pid" jdbcType="VARCHAR" />
+  		<result column="F_PROVINCIAL_PID" property="provincial_pid" jdbcType="VARCHAR" />
+  		<result column="F_CITY_PID" property="city_pid" jdbcType="VARCHAR" />
+  		<result column="F_BRANCH_PID" property="branch_pid" jdbcType="VARCHAR" />
+  		<result column="F_OUTLETS_PID" property="outlets_pid" jdbcType="VARCHAR" />
+  		<result column="F_HEAD_OFFICE_NAME" property="head_office_name" jdbcType="VARCHAR" />
+  		<result column="F_PROVINCIAL_NAME" property="provincial_name" jdbcType="VARCHAR" />
+  		<result column="F_CITY_NAME" property="city_name" jdbcType="VARCHAR" />
+  		<result column="F_BRANCH_NAME" property="branch_name" jdbcType="VARCHAR" />
+  		<result column="F_OUTLETS_NAME" property="outlets_name" jdbcType="VARCHAR" />
+  		<result column="F_C1" property="c1" jdbcType="VARCHAR" />
+  		<result column="F_C2" property="c2" jdbcType="VARCHAR" />
+  		<result column="F_C3" property="c3" jdbcType="VARCHAR" />
+  		<result column="F_C4" property="c4" jdbcType="VARCHAR" />
+  		<result column="F_C5" property="c5" jdbcType="VARCHAR" />
+	  	<result column="F_SYS_FLAG" property="sysFlag" jdbcType="VARCHAR" />
+	  	<result column="F_REMARK" property="remark" jdbcType="VARCHAR" />
+	  	<result column="F_LAST_MODIFIER" property="lastModifier" jdbcType="VARCHAR" />
+	  	<result column="F_LAST_MODIFIED_TIME" property="lastModifiedTime" jdbcType="VARCHAR" />
+	  	<result column="F_CREATOR" property="creator" jdbcType="VARCHAR" />
+	  	<result column="F_CREATE_TIME" property="createTime" jdbcType="VARCHAR" />
+  	</resultMap>
+
+  	<sql id="Base_Column_List" >
+		t.F_PID, T.F_DEVICE_PID, T.F_DEVICE_DID, T.F_HEAD_OFFICE_PID, T.F_PROVINCIAL_PID, T.F_CITY_PID,
+		T.F_BRANCH_PID, T.F_OUTLETS_PID, T.F_HEAD_OFFICE_NAME, T.F_PROVINCIAL_NAME, T.F_CITY_NAME,
+		T.F_BRANCH_NAME, T.F_OUTLETS_NAME, T.F_C1, T.F_C2, T.F_C3,
+		T.F_C4, T.F_C5, 
+		t.F_SYS_FLAG, t.F_REMARK, t.F_LAST_MODIFIER, t.F_LAST_MODIFIED_TIME, t.F_CREATOR, t.F_CREATE_TIME
+  	</sql>
+
+  	<sql id="where_sql">
+		<if test="id != null and id != ''" > 
+			and t.F_PID = #{id, jdbcType=VARCHAR}
+		</if>
+		<if test="device_pid != null and device_pid != ''" > 
+			and T.F_DEVICE_PID = #{device_pid, jdbcType=VARCHAR}
+		</if>
+		<if test="device_did != null and device_did != ''" > 
+			and T.F_DEVICE_DID = #{device_did, jdbcType=VARCHAR}
+		</if>
+		<if test="head_office_pid != null and head_office_pid != ''" > 
+			and T.F_HEAD_OFFICE_PID = #{head_office_pid, jdbcType=VARCHAR}
+		</if>
+		<if test="provincial_pid != null and provincial_pid != ''" > 
+			and T.F_PROVINCIAL_PID = #{provincial_pid, jdbcType=VARCHAR}
+		</if>
+		<if test="city_pid != null and city_pid != ''" > 
+			and T.F_CITY_PID = #{city_pid, jdbcType=VARCHAR}
+		</if>
+		<if test="branch_pid != null and branch_pid != ''" > 
+			and T.F_BRANCH_PID = #{branch_pid, jdbcType=VARCHAR}
+		</if>
+		<if test="outlets_pid != null and outlets_pid != ''" > 
+			and T.F_OUTLETS_PID = #{outlets_pid, jdbcType=VARCHAR}
+		</if>
+		<if test="head_office_name != null and head_office_name != ''" > 
+			and T.F_HEAD_OFFICE_NAME = #{head_office_name, jdbcType=VARCHAR}
+		</if>
+		<if test="provincial_name != null and provincial_name != ''" > 
+			and T.F_PROVINCIAL_NAME = #{provincial_name, jdbcType=VARCHAR}
+		</if>
+		<if test="city_name != null and city_name != ''" > 
+			and T.F_CITY_NAME = #{city_name, jdbcType=VARCHAR}
+		</if>
+		<if test="branch_name != null and branch_name != ''" > 
+			and T.F_BRANCH_NAME = #{branch_name, jdbcType=VARCHAR}
+		</if>
+		<if test="outlets_name != null and outlets_name != ''" > 
+			and T.F_OUTLETS_NAME = #{outlets_name, jdbcType=VARCHAR}
+		</if>
+		<if test="c1 != null and c1 != ''" > 
+			and T.F_C1 = #{c1, jdbcType=VARCHAR}
+		</if>
+		<if test="c2 != null and c2 != ''" > 
+			and T.F_C2 = #{c2, jdbcType=VARCHAR}
+		</if>
+		<if test="c3 != null and c3 != ''" > 
+			and T.F_C3 = #{c3, jdbcType=VARCHAR}
+		</if>
+		<if test="c4 != null and c4 != ''" > 
+			and T.F_C4 = #{c4, jdbcType=VARCHAR}
+		</if>
+		<if test="c5 != null and c5 != ''" > 
+			and T.F_C5 = #{c5, jdbcType=VARCHAR}
+		</if>
+		<if test="sysFlag != null and sysFlag != ''" > 
+			and t.F_SYS_FLAG = #{sysFlag, jdbcType=VARCHAR}
+		</if>
+		<if test="remark != null and remark != ''" > 
+			and t.F_REMARK = #{remark, jdbcType=VARCHAR}
+		</if>
+		<if test="lastModifier != null and lastModifier != ''" > 
+			and t.F_LAST_MODIFIER = #{lastModifier, jdbcType=VARCHAR}
+		</if>
+		<if test="lastModifiedTime != null and lastModifiedTime != ''" > 
+			and t.F_LAST_MODIFIED_TIME = #{lastModifiedTime, jdbcType=VARCHAR}
+		</if>
+		<if test="creator != null and creator != ''" > 
+			and t.F_CREATOR = #{creator, jdbcType=VARCHAR}
+		</if>
+		<if test="createTime != null and createTime != ''" > 
+			and t.F_CREATE_TIME = #{createTime, jdbcType=VARCHAR}
+		</if>
+  	</sql>
+
+	<!-- 新增 -->
+  	<insert id="insert" parameterType="com.taro.entity.device.DeviceTenantsEntity" >
+    	INSERT INTO T_DEVICE_TENANTS (
+    		F_PID, F_DEVICE_PID, F_DEVICE_DID, F_HEAD_OFFICE_PID,
+			F_PROVINCIAL_PID, F_CITY_PID, F_BRANCH_PID,
+			F_OUTLETS_PID, F_HEAD_OFFICE_NAME, F_PROVINCIAL_NAME,
+			F_CITY_NAME, F_BRANCH_NAME, F_OUTLETS_NAME,
+			F_C1, F_C2, F_C3,
+			F_C4, F_C5, 
+		  	F_SYS_FLAG, F_REMARK, F_LAST_MODIFIER,
+		  	F_LAST_MODIFIED_TIME, F_CREATOR, F_CREATE_TIME
+    	) VALUES (
+    		#{id, jdbcType=VARCHAR}, #{device_pid, jdbcType=VARCHAR}, #{device_did, jdbcType=VARCHAR}, #{head_office_pid, jdbcType=VARCHAR},
+			#{provincial_pid, jdbcType=VARCHAR}, #{city_pid, jdbcType=VARCHAR}, #{branch_pid, jdbcType=VARCHAR},
+			#{outlets_pid, jdbcType=VARCHAR}, #{head_office_name, jdbcType=VARCHAR}, #{provincial_name, jdbcType=VARCHAR},
+			#{city_name, jdbcType=VARCHAR}, #{branch_name, jdbcType=VARCHAR}, #{outlets_name, jdbcType=VARCHAR},
+			#{c1, jdbcType=VARCHAR}, #{c2, jdbcType=VARCHAR}, #{c3, jdbcType=VARCHAR},
+			#{c4, jdbcType=VARCHAR}, #{c5,jdbcType=VARCHAR} , 
+		  	#{sysFlag, jdbcType=VARCHAR}, #{remark, jdbcType=VARCHAR}, #{lastModifier, jdbcType=VARCHAR},
+		  	#{lastModifiedTime, jdbcType=VARCHAR}, #{creator, jdbcType=VARCHAR}, #{createTime, jdbcType=VARCHAR} 
+    	)
+  	</insert>
+
+	<!-- 批量新增 -->
+  	<insert id="insertObjects" parameterType="list">
+		INSERT INTO T_DEVICE_TENANTS (
+    		F_PID, F_DEVICE_PID, F_DEVICE_DID, F_HEAD_OFFICE_PID,
+			F_PROVINCIAL_PID, F_CITY_PID, F_BRANCH_PID,
+			F_OUTLETS_PID, F_HEAD_OFFICE_NAME, F_PROVINCIAL_NAME,
+			F_CITY_NAME, F_BRANCH_NAME, F_OUTLETS_NAME,
+			F_C1, F_C2, F_C3,
+			F_C4, F_C5, 
+		  	F_SYS_FLAG, F_REMARK, F_LAST_MODIFIER,
+		  	F_LAST_MODIFIED_TIME, F_CREATOR, F_CREATE_TIME
+		)
+		<foreach collection="list" item="entity" index="index" separator="union all">
+			SELECT
+    		#{entity.id, jdbcType=VARCHAR}, #{entity.device_pid, jdbcType=VARCHAR}, #{entity.device_did, jdbcType=VARCHAR}, #{entity.head_office_pid, jdbcType=VARCHAR},
+			#{entity.provincial_pid, jdbcType=VARCHAR}, #{entity.city_pid, jdbcType=VARCHAR}, #{entity.branch_pid, jdbcType=VARCHAR},
+			#{entity.outlets_pid, jdbcType=VARCHAR}, #{entity.head_office_name, jdbcType=VARCHAR}, #{entity.provincial_name, jdbcType=VARCHAR},
+			#{entity.city_name, jdbcType=VARCHAR}, #{entity.branch_name, jdbcType=VARCHAR}, #{entity.outlets_name, jdbcType=VARCHAR},
+			#{entity.c1, jdbcType=VARCHAR}, #{entity.c2, jdbcType=VARCHAR}, #{entity.c3, jdbcType=VARCHAR},
+			#{entity.c4, jdbcType=VARCHAR}, #{entity.c5,jdbcType=VARCHAR} , 
+  			#{entity.sysFlag,jdbcType=VARCHAR}, #{entity.remark,jdbcType=VARCHAR}, #{entity.lastModifier,jdbcType=VARCHAR},
+  			#{entity.lastModifiedTime,jdbcType=VARCHAR}, #{entity.creator,jdbcType=VARCHAR}, #{entity.createTime,jdbcType=VARCHAR} 
+			FROM DUAL
+		</foreach>
+  	</insert>
+
+	<!-- 更新 -->
+  	<update id="update" parameterType="com.taro.entity.device.DeviceTenantsEntity">
+    	UPDATE T_DEVICE_TENANTS
+	    <set>
+      		<if test="id != null" > F_PID = #{id, jdbcType=VARCHAR}, </if>
+      		<if test="device_pid != null" > F_DEVICE_PID = #{device_pid, jdbcType=VARCHAR}, </if>
+      		<if test="device_did != null" > F_DEVICE_DID = #{device_did, jdbcType=VARCHAR}, </if>
+      		<if test="head_office_pid != null" > F_HEAD_OFFICE_PID = #{head_office_pid, jdbcType=VARCHAR}, </if>
+      		<if test="provincial_pid != null" > F_PROVINCIAL_PID = #{provincial_pid, jdbcType=VARCHAR}, </if>
+      		<if test="city_pid != null" > F_CITY_PID = #{city_pid, jdbcType=VARCHAR}, </if>
+      		<if test="branch_pid != null" > F_BRANCH_PID = #{branch_pid, jdbcType=VARCHAR}, </if>
+      		<if test="outlets_pid != null" > F_OUTLETS_PID = #{outlets_pid, jdbcType=VARCHAR}, </if>
+      		<if test="head_office_name != null" > F_HEAD_OFFICE_NAME = #{head_office_name, jdbcType=VARCHAR}, </if>
+      		<if test="provincial_name != null" > F_PROVINCIAL_NAME = #{provincial_name, jdbcType=VARCHAR}, </if>
+      		<if test="city_name != null" > F_CITY_NAME = #{city_name, jdbcType=VARCHAR}, </if>
+      		<if test="branch_name != null" > F_BRANCH_NAME = #{branch_name, jdbcType=VARCHAR}, </if>
+      		<if test="outlets_name != null" > F_OUTLETS_NAME = #{outlets_name, jdbcType=VARCHAR}, </if>
+      		<if test="c1 != null" > F_C1 = #{c1, jdbcType=VARCHAR}, </if>
+      		<if test="c2 != null" > F_C2 = #{c2, jdbcType=VARCHAR}, </if>
+      		<if test="c3 != null" > F_C3 = #{c3, jdbcType=VARCHAR}, </if>
+      		<if test="c4 != null" > F_C4 = #{c4, jdbcType=VARCHAR}, </if>
+      		<if test="c5 != null" > F_C5 = #{c5, jdbcType=VARCHAR}, </if>
+	      	<if test="sysFlag != null" > F_SYS_FLAG = #{sysFlag, jdbcType=VARCHAR}, </if>
+	      	<if test="remark != null" > F_REMARK = #{remark, jdbcType=VARCHAR}, </if>
+	      	<if test="lastModifier != null" > F_LAST_MODIFIER = #{lastModifier, jdbcType=VARCHAR}, </if>
+	      	<if test="lastModifiedTime != null" > F_LAST_MODIFIED_TIME = #{lastModifiedTime, jdbcType=VARCHAR}, </if>
+	      	<if test="creator != null" > F_CREATOR = #{creator, jdbcType=VARCHAR}, </if>
+	      	<if test="createTime != null" > F_CREATE_TIME = #{createTime, jdbcType=VARCHAR}, </if>
+	    </set>
+    	WHERE F_PID = #{id, jdbcType=VARCHAR}
+  	</update>
+
+	<!-- 批量更新 -->
+  	<update id="batchUpdate" parameterType="java.util.List">
+		<foreach collection="list" item="entity" separator=";">
+			UPDATE T_DEVICE_TENANTS
+			<set>
+		      	<if test="id != null" > F_PID = #{entity.id, jdbcType=VARCHAR}, </if>
+	      		<if test="device_pid != null" > F_DEVICE_PID = #{entity.device_pid, jdbcType=VARCHAR}, </if>
+	      		<if test="device_did != null" > F_DEVICE_DID = #{entity.device_did, jdbcType=VARCHAR}, </if>
+	      		<if test="head_office_pid != null" > F_HEAD_OFFICE_PID = #{entity.head_office_pid, jdbcType=VARCHAR}, </if>
+	      		<if test="provincial_pid != null" > F_PROVINCIAL_PID = #{entity.provincial_pid, jdbcType=VARCHAR}, </if>
+	      		<if test="city_pid != null" > F_CITY_PID = #{entity.city_pid, jdbcType=VARCHAR}, </if>
+	      		<if test="branch_pid != null" > F_BRANCH_PID = #{entity.branch_pid, jdbcType=VARCHAR}, </if>
+	      		<if test="outlets_pid != null" > F_OUTLETS_PID = #{entity.outlets_pid, jdbcType=VARCHAR}, </if>
+	      		<if test="head_office_name != null" > F_HEAD_OFFICE_NAME = #{entity.head_office_name, jdbcType=VARCHAR}, </if>
+	      		<if test="provincial_name != null" > F_PROVINCIAL_NAME = #{entity.provincial_name, jdbcType=VARCHAR}, </if>
+	      		<if test="city_name != null" > F_CITY_NAME = #{entity.city_name, jdbcType=VARCHAR}, </if>
+	      		<if test="branch_name != null" > F_BRANCH_NAME = #{entity.branch_name, jdbcType=VARCHAR}, </if>
+	      		<if test="outlets_name != null" > F_OUTLETS_NAME = #{entity.outlets_name, jdbcType=VARCHAR}, </if>
+	      		<if test="c1 != null" > F_C1 = #{entity.c1, jdbcType=VARCHAR}, </if>
+	      		<if test="c2 != null" > F_C2 = #{entity.c2, jdbcType=VARCHAR}, </if>
+	      		<if test="c3 != null" > F_C3 = #{entity.c3, jdbcType=VARCHAR}, </if>
+	      		<if test="c4 != null" > F_C4 = #{entity.c4, jdbcType=VARCHAR}, </if>
+	      		<if test="c5 != null" > F_C5 = #{entity.c5, jdbcType=VARCHAR}, </if>
+		      	<if test="sysFlag != null" > F_SYS_FLAG = #{entity.sysFlag, jdbcType=VARCHAR}, </if>
+		      	<if test="remark != null" > F_REMARK = #{entity.remark, jdbcType=VARCHAR}, </if>
+		      	<if test="lastModifier != null" > F_LAST_MODIFIER = #{entity.lastModifier, jdbcType=VARCHAR}, </if>
+		      	<if test="lastModifiedTime != null" > F_LAST_MODIFIED_TIME = #{entity.lastModifiedTime, jdbcType=VARCHAR}, </if>
+		      	<if test="creator != null" > F_CREATOR = #{entity.creator, jdbcType=VARCHAR}, </if>
+		      	<if test="createTime != null" > F_CREATE_TIME = #{entity.createTime, jdbcType=VARCHAR}, </if>
+			</set>
+    		WHERE F_PID = #{id, jdbcType=VARCHAR}
+		</foreach>
+  	</update>
+
+	<!-- 逻辑删除 -->
+  	<update id="delete" parameterType="java.lang.String" >
+    	UPDATE T_DEVICE_TENANTS SET
+			F_SYS_FLAG = '0',
+		    F_LAST_MODIFIER = #{lastModifier, jdbcType=VARCHAR},
+			F_LAST_MODIFIED_TIME = #{lastModifiedTime, jdbcType=VARCHAR}
+    	WHERE F_PID = #{id, jdbcType=VARCHAR}
+  	</update>
+
+	<!-- 逻辑删除所有 -->
+  	<update id="deleteAll" parameterType="map">
+		UPDATE T_DEVICE_TENANTS SET 
+			F_SYS_FLAG = '0',
+		    F_LAST_MODIFIER = #{lastModifier, jdbcType=VARCHAR},
+			F_LAST_MODIFIED_TIME = #{lastModifiedTime, jdbcType=VARCHAR}
+		WHERE F_PID IN
+		<foreach item="item" collection="ids" open="(" separator="," close=")">
+        	#{item}
+    	</foreach>
+  	</update>
+
+	<!-- 查询条件 模糊查询用concat函数:name like concat(concat('%',#{bean.name,jdbcType=VARCHAR}),'%'),	这样做主要是为了支持mysql和oracle以及防止sql注入 -->
+  	<!-- 列表查询 -->
+  	<select id="list" resultMap="BaseResultMap" parameterType="map">
+	    SELECT 
+	    	<include refid="Base_Column_List" />
+	    FROM T_DEVICE_TENANTS T
+	    <where>
+			<include refid="where_sql"/>
+		</where>
+		order by t.F_CREATE_TIME desc
+  	</select>
+
+	<!-- 根据ID查询单条记录 -->
+  	<select id="get" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    	SELECT 
+    		<include refid="Base_Column_List" />
+    	FROM T_DEVICE_TENANTS T
+    	WHERE T.F_PID = #{id,jdbcType=VARCHAR}
+  	</select>
+
+</mapper>

@@ -1,0 +1,320 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- @Automatically generate by Coder in 2020-12-22 15:41:57 -->
+<mapper namespace="com.taro.dao.merchants.MerchantsStoreDao">
+
+  	<resultMap id="BaseResultMap" type="com.taro.entity.merchants.MerchantsStoreEntity">
+	  	<id column="F_PID" property="id" jdbcType="VARCHAR" />
+  		<result column="F_PID" property="id" jdbcType="VARCHAR" />
+  		<result column="F_TENANTS_PID" property="tenants_pid" jdbcType="VARCHAR" />
+  		<result column="F_MERCHANTS_PID" property="merchants_pid" jdbcType="VARCHAR" />
+  		<result column="F_STORE_NAME" property="store_name" jdbcType="VARCHAR" />
+  		<result column="F_STORE_PHONE" property="store_phone" jdbcType="VARCHAR" />
+  		<result column="F_BUSI_START_TIME" property="busi_start_time" jdbcType="VARCHAR" />
+  		<result column="F_BUSI_END_TIME" property="busi_end_time" jdbcType="VARCHAR" />
+  		<result column="F_TRADE" property="trade" jdbcType="VARCHAR" />
+  		<result column="F_FRONT_IMAGE" property="front_image" jdbcType="VARCHAR" />
+  		<result column="F_STORE_IMAGE1" property="store_image1" jdbcType="VARCHAR" />
+  		<result column="F_STORE_IMAGE2" property="store_image2" jdbcType="VARCHAR" />
+  		<result column="F_STORE_IMAGE3" property="store_image3" jdbcType="VARCHAR" />
+  		<result column="F_SYNOPSIS" property="synopsis" jdbcType="VARCHAR" />
+  		<result column="F_BUSI_PERMIT" property="busi_permit" jdbcType="VARCHAR" />
+  		<result column="F_BUSI_LICENSE" property="busi_license" jdbcType="VARCHAR" />
+  		<result column="F_STORE_ADDRESS" property="store_address" jdbcType="VARCHAR" />
+  		<result column="F_LONGITUDE" property="longitude" jdbcType="FLOAT" />
+  		<result column="F_LATITUDE" property="latitude" jdbcType="FLOAT" />
+  		<result column="F_C1" property="c1" jdbcType="VARCHAR" />
+  		<result column="F_C2" property="c2" jdbcType="VARCHAR" />
+  		<result column="F_C3" property="c3" jdbcType="VARCHAR" />
+  		<result column="F_C4" property="c4" jdbcType="VARCHAR" />
+  		<result column="F_C5" property="c5" jdbcType="VARCHAR" />
+	  	<result column="F_SYS_FLAG" property="sysFlag" jdbcType="VARCHAR" />
+	  	<result column="F_REMARK" property="remark" jdbcType="VARCHAR" />
+	  	<result column="F_LAST_MODIFIER" property="lastModifier" jdbcType="VARCHAR" />
+	  	<result column="F_LAST_MODIFIED_TIME" property="lastModifiedTime" jdbcType="VARCHAR" />
+	  	<result column="F_CREATOR" property="creator" jdbcType="VARCHAR" />
+	  	<result column="F_CREATE_TIME" property="createTime" jdbcType="VARCHAR" />
+  	</resultMap>
+
+  	<sql id="Base_Column_List" >
+		t.F_PID, T.F_TENANTS_PID, T.F_MERCHANTS_PID, T.F_STORE_NAME, T.F_STORE_PHONE, T.F_BUSI_START_TIME,
+		T.F_BUSI_END_TIME, T.F_TRADE, T.F_FRONT_IMAGE, T.F_STORE_IMAGE1, T.F_STORE_IMAGE2,
+		T.F_STORE_IMAGE3, T.F_SYNOPSIS, T.F_BUSI_PERMIT, T.F_BUSI_LICENSE, T.F_STORE_ADDRESS,
+		T.F_LONGITUDE, T.F_LATITUDE, T.F_C1, T.F_C2, T.F_C3,
+		T.F_C4, T.F_C5, 
+		t.F_SYS_FLAG, t.F_REMARK, t.F_LAST_MODIFIER, t.F_LAST_MODIFIED_TIME, t.F_CREATOR, t.F_CREATE_TIME
+  	</sql>
+
+  	<sql id="where_sql">
+		<if test="id != null and id != ''" > 
+			and t.F_PID = #{id, jdbcType=VARCHAR}
+		</if>
+		<if test="tenants_pid != null and tenants_pid != ''" > 
+			and T.F_TENANTS_PID = #{tenants_pid, jdbcType=VARCHAR}
+		</if>
+		<if test="merchants_pid != null and merchants_pid != ''" > 
+			and T.F_MERCHANTS_PID = #{merchants_pid, jdbcType=VARCHAR}
+		</if>
+		<if test="store_name != null and store_name != ''" > 
+			and T.F_STORE_NAME = #{store_name, jdbcType=VARCHAR}
+		</if>
+		<if test="store_phone != null and store_phone != ''" > 
+			and T.F_STORE_PHONE = #{store_phone, jdbcType=VARCHAR}
+		</if>
+		<if test="busi_start_time != null and busi_start_time != ''" > 
+			and T.F_BUSI_START_TIME = #{busi_start_time, jdbcType=VARCHAR}
+		</if>
+		<if test="busi_end_time != null and busi_end_time != ''" > 
+			and T.F_BUSI_END_TIME = #{busi_end_time, jdbcType=VARCHAR}
+		</if>
+		<if test="trade != null and trade != ''" > 
+			and T.F_TRADE = #{trade, jdbcType=VARCHAR}
+		</if>
+		<if test="front_image != null and front_image != ''" > 
+			and T.F_FRONT_IMAGE = #{front_image, jdbcType=VARCHAR}
+		</if>
+		<if test="store_image1 != null and store_image1 != ''" > 
+			and T.F_STORE_IMAGE1 = #{store_image1, jdbcType=VARCHAR}
+		</if>
+		<if test="store_image2 != null and store_image2 != ''" > 
+			and T.F_STORE_IMAGE2 = #{store_image2, jdbcType=VARCHAR}
+		</if>
+		<if test="store_image3 != null and store_image3 != ''" > 
+			and T.F_STORE_IMAGE3 = #{store_image3, jdbcType=VARCHAR}
+		</if>
+		<if test="synopsis != null and synopsis != ''" > 
+			and T.F_SYNOPSIS = #{synopsis, jdbcType=VARCHAR}
+		</if>
+		<if test="busi_permit != null and busi_permit != ''" > 
+			and T.F_BUSI_PERMIT = #{busi_permit, jdbcType=VARCHAR}
+		</if>
+		<if test="busi_license != null and busi_license != ''" > 
+			and T.F_BUSI_LICENSE = #{busi_license, jdbcType=VARCHAR}
+		</if>
+		<if test="store_address != null and store_address != ''" > 
+			and T.F_STORE_ADDRESS = #{store_address, jdbcType=VARCHAR}
+		</if>
+		<if test="longitude != null and longitude != ''" > 
+			and T.F_LONGITUDE = #{longitude, jdbcType=FLOAT}
+		</if>
+		<if test="latitude != null and latitude != ''" > 
+			and T.F_LATITUDE = #{latitude, jdbcType=FLOAT}
+		</if>
+		<if test="c1 != null and c1 != ''" > 
+			and T.F_C1 = #{c1, jdbcType=VARCHAR}
+		</if>
+		<if test="c2 != null and c2 != ''" > 
+			and T.F_C2 = #{c2, jdbcType=VARCHAR}
+		</if>
+		<if test="c3 != null and c3 != ''" > 
+			and T.F_C3 = #{c3, jdbcType=VARCHAR}
+		</if>
+		<if test="c4 != null and c4 != ''" > 
+			and T.F_C4 = #{c4, jdbcType=VARCHAR}
+		</if>
+		<if test="c5 != null and c5 != ''" > 
+			and T.F_C5 = #{c5, jdbcType=VARCHAR}
+		</if>
+		<if test="sysFlag != null and sysFlag != ''" > 
+			and t.F_SYS_FLAG = #{sysFlag, jdbcType=VARCHAR}
+		</if>
+		<if test="remark != null and remark != ''" > 
+			and t.F_REMARK = #{remark, jdbcType=VARCHAR}
+		</if>
+		<if test="lastModifier != null and lastModifier != ''" > 
+			and t.F_LAST_MODIFIER = #{lastModifier, jdbcType=VARCHAR}
+		</if>
+		<if test="lastModifiedTime != null and lastModifiedTime != ''" > 
+			and t.F_LAST_MODIFIED_TIME = #{lastModifiedTime, jdbcType=VARCHAR}
+		</if>
+		<if test="creator != null and creator != ''" > 
+			and t.F_CREATOR = #{creator, jdbcType=VARCHAR}
+		</if>
+		<if test="createTime != null and createTime != ''" > 
+			and t.F_CREATE_TIME = #{createTime, jdbcType=VARCHAR}
+		</if>
+  	</sql>
+
+	<!-- 新增 -->
+  	<insert id="insert" parameterType="com.taro.entity.merchants.MerchantsStoreEntity" >
+    	INSERT INTO T_MERCHANTS_STORE (
+    		F_PID, F_TENANTS_PID, F_MERCHANTS_PID, F_STORE_NAME,
+			F_STORE_PHONE, F_BUSI_START_TIME, F_BUSI_END_TIME,
+			F_TRADE, F_FRONT_IMAGE, F_STORE_IMAGE1,
+			F_STORE_IMAGE2, F_STORE_IMAGE3, F_SYNOPSIS,
+			F_BUSI_PERMIT, F_BUSI_LICENSE, F_STORE_ADDRESS,
+			F_LONGITUDE, F_LATITUDE, F_C1,
+			F_C2, F_C3, F_C4,
+			F_C5, 
+		  	F_SYS_FLAG, F_REMARK, F_LAST_MODIFIER,
+		  	F_LAST_MODIFIED_TIME, F_CREATOR, F_CREATE_TIME
+    	) VALUES (
+    		#{id, jdbcType=VARCHAR}, #{tenants_pid, jdbcType=VARCHAR}, #{merchants_pid, jdbcType=VARCHAR}, #{store_name, jdbcType=VARCHAR},
+			#{store_phone, jdbcType=VARCHAR}, #{busi_start_time, jdbcType=VARCHAR}, #{busi_end_time, jdbcType=VARCHAR},
+			#{trade, jdbcType=VARCHAR}, #{front_image, jdbcType=VARCHAR}, #{store_image1, jdbcType=VARCHAR},
+			#{store_image2, jdbcType=VARCHAR}, #{store_image3, jdbcType=VARCHAR}, #{synopsis, jdbcType=VARCHAR},
+			#{busi_permit, jdbcType=VARCHAR}, #{busi_license, jdbcType=VARCHAR}, #{store_address, jdbcType=VARCHAR},
+			#{longitude, jdbcType=FLOAT}, #{latitude, jdbcType=FLOAT}, #{c1, jdbcType=VARCHAR},
+			#{c2, jdbcType=VARCHAR}, #{c3, jdbcType=VARCHAR}, #{c4, jdbcType=VARCHAR},
+			#{c5,jdbcType=VARCHAR} , 
+		  	#{sysFlag, jdbcType=VARCHAR}, #{remark, jdbcType=VARCHAR}, #{lastModifier, jdbcType=VARCHAR},
+		  	#{lastModifiedTime, jdbcType=VARCHAR}, #{creator, jdbcType=VARCHAR}, #{createTime, jdbcType=VARCHAR} 
+    	)
+  	</insert>
+
+	<!-- 批量新增 -->
+  	<insert id="insertObjects" parameterType="list">
+		INSERT INTO T_MERCHANTS_STORE (
+    		F_PID, F_TENANTS_PID, F_MERCHANTS_PID, F_STORE_NAME,
+			F_STORE_PHONE, F_BUSI_START_TIME, F_BUSI_END_TIME,
+			F_TRADE, F_FRONT_IMAGE, F_STORE_IMAGE1,
+			F_STORE_IMAGE2, F_STORE_IMAGE3, F_SYNOPSIS,
+			F_BUSI_PERMIT, F_BUSI_LICENSE, F_STORE_ADDRESS,
+			F_LONGITUDE, F_LATITUDE, F_C1,
+			F_C2, F_C3, F_C4,
+			F_C5, 
+		  	F_SYS_FLAG, F_REMARK, F_LAST_MODIFIER,
+		  	F_LAST_MODIFIED_TIME, F_CREATOR, F_CREATE_TIME
+		)
+		<foreach collection="list" item="entity" index="index" separator="union all">
+			SELECT
+    		#{entity.id, jdbcType=VARCHAR}, #{entity.tenants_pid, jdbcType=VARCHAR}, #{entity.merchants_pid, jdbcType=VARCHAR}, #{entity.store_name, jdbcType=VARCHAR},
+			#{entity.store_phone, jdbcType=VARCHAR}, #{entity.busi_start_time, jdbcType=VARCHAR}, #{entity.busi_end_time, jdbcType=VARCHAR},
+			#{entity.trade, jdbcType=VARCHAR}, #{entity.front_image, jdbcType=VARCHAR}, #{entity.store_image1, jdbcType=VARCHAR},
+			#{entity.store_image2, jdbcType=VARCHAR}, #{entity.store_image3, jdbcType=VARCHAR}, #{entity.synopsis, jdbcType=VARCHAR},
+			#{entity.busi_permit, jdbcType=VARCHAR}, #{entity.busi_license, jdbcType=VARCHAR}, #{entity.store_address, jdbcType=VARCHAR},
+			#{entity.longitude, jdbcType=FLOAT}, #{entity.latitude, jdbcType=FLOAT}, #{entity.c1, jdbcType=VARCHAR},
+			#{entity.c2, jdbcType=VARCHAR}, #{entity.c3, jdbcType=VARCHAR}, #{entity.c4, jdbcType=VARCHAR},
+			#{entity.c5,jdbcType=VARCHAR} , 
+  			#{entity.sysFlag,jdbcType=VARCHAR}, #{entity.remark,jdbcType=VARCHAR}, #{entity.lastModifier,jdbcType=VARCHAR},
+  			#{entity.lastModifiedTime,jdbcType=VARCHAR}, #{entity.creator,jdbcType=VARCHAR}, #{entity.createTime,jdbcType=VARCHAR} 
+			FROM DUAL
+		</foreach>
+  	</insert>
+
+	<!-- 更新 -->
+  	<update id="update" parameterType="com.taro.entity.merchants.MerchantsStoreEntity">
+    	UPDATE T_MERCHANTS_STORE
+	    <set>
+      		<if test="id != null" > F_PID = #{id, jdbcType=VARCHAR}, </if>
+      		<if test="tenants_pid != null" > F_TENANTS_PID = #{tenants_pid, jdbcType=VARCHAR}, </if>
+      		<if test="merchants_pid != null" > F_MERCHANTS_PID = #{merchants_pid, jdbcType=VARCHAR}, </if>
+      		<if test="store_name != null" > F_STORE_NAME = #{store_name, jdbcType=VARCHAR}, </if>
+      		<if test="store_phone != null" > F_STORE_PHONE = #{store_phone, jdbcType=VARCHAR}, </if>
+      		<if test="busi_start_time != null" > F_BUSI_START_TIME = #{busi_start_time, jdbcType=VARCHAR}, </if>
+      		<if test="busi_end_time != null" > F_BUSI_END_TIME = #{busi_end_time, jdbcType=VARCHAR}, </if>
+      		<if test="trade != null" > F_TRADE = #{trade, jdbcType=VARCHAR}, </if>
+      		<if test="front_image != null" > F_FRONT_IMAGE = #{front_image, jdbcType=VARCHAR}, </if>
+      		<if test="store_image1 != null" > F_STORE_IMAGE1 = #{store_image1, jdbcType=VARCHAR}, </if>
+      		<if test="store_image2 != null" > F_STORE_IMAGE2 = #{store_image2, jdbcType=VARCHAR}, </if>
+      		<if test="store_image3 != null" > F_STORE_IMAGE3 = #{store_image3, jdbcType=VARCHAR}, </if>
+      		<if test="synopsis != null" > F_SYNOPSIS = #{synopsis, jdbcType=VARCHAR}, </if>
+      		<if test="busi_permit != null" > F_BUSI_PERMIT = #{busi_permit, jdbcType=VARCHAR}, </if>
+      		<if test="busi_license != null" > F_BUSI_LICENSE = #{busi_license, jdbcType=VARCHAR}, </if>
+      		<if test="store_address != null" > F_STORE_ADDRESS = #{store_address, jdbcType=VARCHAR}, </if>
+      		<if test="longitude != null" > F_LONGITUDE = #{longitude, jdbcType=FLOAT}, </if>
+      		<if test="latitude != null" > F_LATITUDE = #{latitude, jdbcType=FLOAT}, </if>
+      		<if test="c1 != null" > F_C1 = #{c1, jdbcType=VARCHAR}, </if>
+      		<if test="c2 != null" > F_C2 = #{c2, jdbcType=VARCHAR}, </if>
+      		<if test="c3 != null" > F_C3 = #{c3, jdbcType=VARCHAR}, </if>
+      		<if test="c4 != null" > F_C4 = #{c4, jdbcType=VARCHAR}, </if>
+      		<if test="c5 != null" > F_C5 = #{c5, jdbcType=VARCHAR}, </if>
+	      	<if test="sysFlag != null" > F_SYS_FLAG = #{sysFlag, jdbcType=VARCHAR}, </if>
+	      	<if test="remark != null" > F_REMARK = #{remark, jdbcType=VARCHAR}, </if>
+	      	<if test="lastModifier != null" > F_LAST_MODIFIER = #{lastModifier, jdbcType=VARCHAR}, </if>
+	      	<if test="lastModifiedTime != null" > F_LAST_MODIFIED_TIME = #{lastModifiedTime, jdbcType=VARCHAR}, </if>
+	      	<if test="creator != null" > F_CREATOR = #{creator, jdbcType=VARCHAR}, </if>
+	      	<if test="createTime != null" > F_CREATE_TIME = #{createTime, jdbcType=VARCHAR}, </if>
+	    </set>
+    	WHERE F_PID = #{id, jdbcType=VARCHAR}
+  	</update>
+
+	<!-- 批量更新 -->
+  	<update id="batchUpdate" parameterType="java.util.List">
+		<foreach collection="list" item="entity" separator=";">
+			UPDATE T_MERCHANTS_STORE
+			<set>
+		      	<if test="id != null" > F_PID = #{entity.id, jdbcType=VARCHAR}, </if>
+	      		<if test="tenants_pid != null" > F_TENANTS_PID = #{entity.tenants_pid, jdbcType=VARCHAR}, </if>
+	      		<if test="merchants_pid != null" > F_MERCHANTS_PID = #{entity.merchants_pid, jdbcType=VARCHAR}, </if>
+	      		<if test="store_name != null" > F_STORE_NAME = #{entity.store_name, jdbcType=VARCHAR}, </if>
+	      		<if test="store_phone != null" > F_STORE_PHONE = #{entity.store_phone, jdbcType=VARCHAR}, </if>
+	      		<if test="busi_start_time != null" > F_BUSI_START_TIME = #{entity.busi_start_time, jdbcType=VARCHAR}, </if>
+	      		<if test="busi_end_time != null" > F_BUSI_END_TIME = #{entity.busi_end_time, jdbcType=VARCHAR}, </if>
+	      		<if test="trade != null" > F_TRADE = #{entity.trade, jdbcType=VARCHAR}, </if>
+	      		<if test="front_image != null" > F_FRONT_IMAGE = #{entity.front_image, jdbcType=VARCHAR}, </if>
+	      		<if test="store_image1 != null" > F_STORE_IMAGE1 = #{entity.store_image1, jdbcType=VARCHAR}, </if>
+	      		<if test="store_image2 != null" > F_STORE_IMAGE2 = #{entity.store_image2, jdbcType=VARCHAR}, </if>
+	      		<if test="store_image3 != null" > F_STORE_IMAGE3 = #{entity.store_image3, jdbcType=VARCHAR}, </if>
+	      		<if test="synopsis != null" > F_SYNOPSIS = #{entity.synopsis, jdbcType=VARCHAR}, </if>
+	      		<if test="busi_permit != null" > F_BUSI_PERMIT = #{entity.busi_permit, jdbcType=VARCHAR}, </if>
+	      		<if test="busi_license != null" > F_BUSI_LICENSE = #{entity.busi_license, jdbcType=VARCHAR}, </if>
+	      		<if test="store_address != null" > F_STORE_ADDRESS = #{entity.store_address, jdbcType=VARCHAR}, </if>
+	      		<if test="longitude != null" > F_LONGITUDE = #{entity.longitude, jdbcType=FLOAT}, </if>
+	      		<if test="latitude != null" > F_LATITUDE = #{entity.latitude, jdbcType=FLOAT}, </if>
+	      		<if test="c1 != null" > F_C1 = #{entity.c1, jdbcType=VARCHAR}, </if>
+	      		<if test="c2 != null" > F_C2 = #{entity.c2, jdbcType=VARCHAR}, </if>
+	      		<if test="c3 != null" > F_C3 = #{entity.c3, jdbcType=VARCHAR}, </if>
+	      		<if test="c4 != null" > F_C4 = #{entity.c4, jdbcType=VARCHAR}, </if>
+	      		<if test="c5 != null" > F_C5 = #{entity.c5, jdbcType=VARCHAR}, </if>
+		      	<if test="sysFlag != null" > F_SYS_FLAG = #{entity.sysFlag, jdbcType=VARCHAR}, </if>
+		      	<if test="remark != null" > F_REMARK = #{entity.remark, jdbcType=VARCHAR}, </if>
+		      	<if test="lastModifier != null" > F_LAST_MODIFIER = #{entity.lastModifier, jdbcType=VARCHAR}, </if>
+		      	<if test="lastModifiedTime != null" > F_LAST_MODIFIED_TIME = #{entity.lastModifiedTime, jdbcType=VARCHAR}, </if>
+		      	<if test="creator != null" > F_CREATOR = #{entity.creator, jdbcType=VARCHAR}, </if>
+		      	<if test="createTime != null" > F_CREATE_TIME = #{entity.createTime, jdbcType=VARCHAR}, </if>
+			</set>
+    		WHERE F_PID = #{id, jdbcType=VARCHAR}
+		</foreach>
+  	</update>
+
+	<!-- 逻辑删除 -->
+  	<update id="delete" parameterType="java.lang.String" >
+    	UPDATE T_MERCHANTS_STORE SET
+			F_SYS_FLAG = '0',
+		    F_LAST_MODIFIER = #{lastModifier, jdbcType=VARCHAR},
+			F_LAST_MODIFIED_TIME = #{lastModifiedTime, jdbcType=VARCHAR}
+    	WHERE F_PID = #{id, jdbcType=VARCHAR}
+  	</update>
+
+	<!-- 逻辑删除所有 -->
+  	<update id="deleteAll" parameterType="map">
+		UPDATE T_MERCHANTS_STORE SET 
+			F_SYS_FLAG = '0',
+		    F_LAST_MODIFIER = #{lastModifier, jdbcType=VARCHAR},
+			F_LAST_MODIFIED_TIME = #{lastModifiedTime, jdbcType=VARCHAR}
+		WHERE F_PID IN
+		<foreach item="item" collection="ids" open="(" separator="," close=")">
+        	#{item}
+    	</foreach>
+  	</update>
+
+	<!-- 查询条件 模糊查询用concat函数:name like concat(concat('%',#{bean.name,jdbcType=VARCHAR}),'%'),	这样做主要是为了支持mysql和oracle以及防止sql注入 -->
+  	<!-- 列表查询 -->
+  	<select id="list" resultMap="BaseResultMap" parameterType="map">
+	    SELECT 
+	    	<include refid="Base_Column_List" />
+	    FROM T_MERCHANTS_STORE T
+	    <where>
+			<include refid="where_sql"/>
+		</where>
+  	</select>
+
+	<!-- 根据ID查询单条记录 -->
+  	<select id="get" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    	SELECT 
+    		<include refid="Base_Column_List" />
+    	FROM T_MERCHANTS_STORE T
+    	WHERE T.F_PID = #{id,jdbcType=VARCHAR}
+  	</select>
+
+	<!-- 根据ID查询单条记录 -->
+  	<select id="getByMerchants" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    	SELECT 
+    		<include refid="Base_Column_List" />
+    	FROM T_MERCHANTS_STORE T
+    	WHERE T.F_MERCHANTS_PID = #{id,jdbcType=VARCHAR}
+    	and t.f_sys_flag = '1'
+  	</select>
+
+</mapper>

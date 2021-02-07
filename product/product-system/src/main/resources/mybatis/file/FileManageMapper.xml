@@ -1,0 +1,206 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- @Automatically generate by Coder in 2019-07-31 10:57 -->
+<mapper namespace="com.taro.dao.file.FileManageDao">
+  <resultMap id="BaseResultMap" type="com.taro.entity.file.FileManageEntity">
+  	<id column="f_pid" property="id" jdbcType="VARCHAR" />
+  	<result column="f_pid" property="id" jdbcType="VARCHAR" />
+  	<result column="f_type" property="type" jdbcType="VARCHAR" />
+  	<result column="f_busi_key" property="busi_key" jdbcType="VARCHAR" />
+  	<result column="f_busi_type" property="busi_type" jdbcType="VARCHAR" />
+  	<result column="f_busi_flag" property="busi_flag" jdbcType="VARCHAR" />
+  	<result column="f_file_name" property="file_name" jdbcType="VARCHAR" />
+  	<result column="f_file_extname" property="file_extname" jdbcType="VARCHAR" />
+  	<result column="f_file_savename" property="file_savename" jdbcType="VARCHAR" />
+  	<result column="f_file_path" property="file_path" jdbcType="VARCHAR" />
+  	<result column="f_file_size" property="file_size" jdbcType="VARCHAR" />
+  	<result column="f_sys_flag" property="sysFlag" jdbcType="VARCHAR" />
+  	<result column="f_remark" property="remark" jdbcType="VARCHAR" />
+  	<result column="f_last_modifier" property="lastModifier" jdbcType="VARCHAR" />
+  	<result column="f_last_modified_time" property="lastModifiedTime" jdbcType="VARCHAR" />
+  	<result column="f_creator" property="creator" jdbcType="VARCHAR" />
+  	<result column="f_create_time" property="createTime" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+  	t.f_pid, t.f_type, t.f_busi_key, t.f_busi_type, t.f_busi_flag, t.f_file_name,
+t.f_file_extname, t.f_file_savename, t.f_file_path, t.f_file_size, t.f_sys_flag, t.f_remark, t.f_last_modifier,
+t.f_last_modified_time, t.f_creator, t.f_create_time
+  </sql>
+  
+  <sql id="where_sql">
+	<if test="id != null and id != ''" > and t.f_pid = #{id,jdbcType=VARCHAR}</if>
+	<if test="type != null and type != ''" > and t.f_type = #{type,jdbcType=VARCHAR}</if>
+	<if test="busi_key != null and busi_key != ''" > and t.f_busi_key = #{busi_key,jdbcType=VARCHAR}</if>
+	<if test="busi_type != null and busi_type != ''" > and t.f_busi_type = #{busi_type,jdbcType=VARCHAR}</if>
+	<if test="busi_flag != null and busi_flag != ''" > and t.f_busi_flag = #{busi_flag,jdbcType=VARCHAR}</if>
+	<if test="file_name != null and file_name != ''" > and t.f_file_name = #{file_name,jdbcType=VARCHAR}</if>
+	<if test="file_extname != null and file_extname != ''" > and t.f_file_extname = #{file_extname,jdbcType=VARCHAR}</if>
+	<if test="file_savename != null and file_savename != ''" > and t.f_file_savename = #{file_savename,jdbcType=VARCHAR}</if>
+	<if test="file_path != null and file_path != ''" > and t.f_file_path = #{file_path,jdbcType=VARCHAR}</if>
+	<if test="file_size != null and file_size != ''" > and t.f_file_size = #{file_size,jdbcType=VARCHAR}</if>
+	<if test="sysFlag != null and sysFlag != ''" > and t.f_sys_flag = #{sysFlag,jdbcType=VARCHAR}</if>
+	<if test="remark != null and remark != ''" > and t.f_remark = #{remark,jdbcType=VARCHAR}</if>
+	<if test="lastModifier != null and lastModifier != ''" > and t.f_last_modifier = #{lastModifier,jdbcType=VARCHAR}</if>
+	<if test="lastModifiedTime != null and lastModifiedTime != ''" > and t.f_last_modified_time = #{lastModifiedTime,jdbcType=VARCHAR}</if>
+	<if test="creator != null and creator != ''" > and t.f_creator = #{creator,jdbcType=VARCHAR}</if>
+	<if test="createTime != null and createTime != ''" > and t.f_create_time = #{createTime,jdbcType=VARCHAR}</if>
+  </sql>
+  
+  <insert id="insert" parameterType="com.taro.entity.file.FileManageEntity" >
+    insert into t_file_manage (
+      f_pid, f_type, f_busi_key,
+  f_busi_type, f_busi_flag, f_file_name,
+  f_file_extname, f_file_savename, f_file_path, f_file_size,
+  f_sys_flag, f_remark, f_last_modifier,
+  f_last_modified_time, f_creator, f_create_time
+    ) values (
+      #{id,jdbcType=VARCHAR}, #{type,jdbcType=VARCHAR}, #{busi_key,jdbcType=VARCHAR},
+  #{busi_type,jdbcType=VARCHAR}, #{busi_flag,jdbcType=VARCHAR}, #{file_name,jdbcType=VARCHAR},
+  #{file_extname,jdbcType=INTEGER}, #{file_savename,jdbcType=VARCHAR}, #{file_path,jdbcType=VARCHAR}, #{file_size,jdbcType=VARCHAR},
+  #{sysFlag,jdbcType=VARCHAR}, #{remark,jdbcType=VARCHAR}, #{lastModifier,jdbcType=VARCHAR},
+  #{lastModifiedTime,jdbcType=VARCHAR}, #{creator,jdbcType=VARCHAR}, #{createTime,jdbcType=VARCHAR} 
+    )
+  </insert>
+  
+  <insert id="insertObjects" parameterType="list">
+		insert into t_file_manage (
+      f_pid, f_type, f_busi_key,
+  f_busi_type, f_busi_flag, f_file_name,
+  f_file_extname, f_file_savename, f_file_path, f_file_size,
+  f_sys_flag, f_remark, f_last_modifier,
+  f_last_modified_time, f_creator, f_create_time
+		)
+		<foreach collection="list" item="entity" index="index" separator="union all">
+			select
+      #{entity.id,jdbcType=VARCHAR}, #{entity.type,jdbcType=VARCHAR}, #{entity.busi_key,jdbcType=VARCHAR},
+  #{entity.busi_type,jdbcType=VARCHAR}, #{entity.busi_flag,jdbcType=VARCHAR}, #{entity.file_name,jdbcType=VARCHAR},
+  #{entity.file_extname,jdbcType=INTEGER}, #{entity.file_savename,jdbcType=VARCHAR}, #{entity.file_path,jdbcType=VARCHAR}, #{entity.file_size,jdbcType=VARCHAR},
+  #{entity.sysFlag,jdbcType=VARCHAR}, #{entity.remark,jdbcType=VARCHAR}, #{entity.lastModifier,jdbcType=VARCHAR},
+  #{entity.lastModifiedTime,jdbcType=VARCHAR}, #{entity.creator,jdbcType=VARCHAR}, #{entity.createTime,jdbcType=VARCHAR} 
+			from dual
+		</foreach>
+  </insert>
+  
+  <update id="updateByBusiKey" parameterType="com.taro.entity.file.FileManageEntity">
+    update t_file_manage 
+    <set>
+      <if test="id != null" > f_pid = #{id,jdbcType=VARCHAR}, </if>
+      <if test="type != null" > f_type = #{type,jdbcType=VARCHAR}, </if>
+      <if test="busi_key != null" > f_busi_key = #{busi_key,jdbcType=VARCHAR}, </if>
+      <if test="busi_type != null" > f_busi_type = #{busi_type,jdbcType=VARCHAR}, </if>
+      <if test="busi_flag != null" > f_busi_flag = #{busi_flag,jdbcType=VARCHAR}, </if>
+      <if test="file_name != null" > f_file_name = #{file_name,jdbcType=VARCHAR}, </if>
+      <if test="file_extname != null" > f_file_extname = #{file_extname,jdbcType=INTEGER}, </if>
+      <if test="file_savename != null" > f_file_savename = #{file_savename,jdbcType=VARCHAR}, </if>
+      <if test="file_path != null" > f_file_path = #{file_path,jdbcType=VARCHAR}, </if>
+      <if test="file_size != null" > f_file_size = #{file_size,jdbcType=VARCHAR}, </if>
+      <if test="sysFlag != null" > f_sys_flag = #{sysFlag,jdbcType=VARCHAR}, </if>
+      <if test="remark != null" > f_remark = #{remark,jdbcType=VARCHAR}, </if>
+      <if test="lastModifier != null" > f_last_modifier = #{lastModifier,jdbcType=VARCHAR}, </if>
+      <if test="lastModifiedTime != null" > f_last_modified_time = #{lastModifiedTime,jdbcType=VARCHAR}, </if>
+      <if test="creator != null" > f_creator = #{creator,jdbcType=VARCHAR}, </if>
+      <if test="createTime != null" > f_create_time = #{createTime,jdbcType=VARCHAR}, </if>
+    </set>
+    where f_busi_key = #{busi_key,jdbcType=VARCHAR}
+    and f_sys_flag = '1'
+  </update>
+  
+  <update id="update" parameterType="com.taro.entity.file.FileManageEntity">
+    update t_file_manage 
+    <set>
+      <if test="id != null" > f_pid = #{id,jdbcType=VARCHAR}, </if>
+      <if test="type != null" > f_type = #{type,jdbcType=VARCHAR}, </if>
+      <if test="busi_key != null" > f_busi_key = #{busi_key,jdbcType=VARCHAR}, </if>
+      <if test="busi_type != null" > f_busi_type = #{busi_type,jdbcType=VARCHAR}, </if>
+      <if test="busi_flag != null" > f_busi_flag = #{busi_flag,jdbcType=VARCHAR}, </if>
+      <if test="file_name != null" > f_file_name = #{file_name,jdbcType=VARCHAR}, </if>
+      <if test="file_extname != null" > f_file_extname = #{file_extname,jdbcType=INTEGER}, </if>
+      <if test="file_savename != null" > f_file_savename = #{file_savename,jdbcType=VARCHAR}, </if>
+      <if test="file_path != null" > f_file_path = #{file_path,jdbcType=VARCHAR}, </if>
+      <if test="file_size != null" > f_file_size = #{file_size,jdbcType=VARCHAR}, </if>
+      <if test="sysFlag != null" > f_sys_flag = #{sysFlag,jdbcType=VARCHAR}, </if>
+      <if test="remark != null" > f_remark = #{remark,jdbcType=VARCHAR}, </if>
+      <if test="lastModifier != null" > f_last_modifier = #{lastModifier,jdbcType=VARCHAR}, </if>
+      <if test="lastModifiedTime != null" > f_last_modified_time = #{lastModifiedTime,jdbcType=VARCHAR}, </if>
+      <if test="creator != null" > f_creator = #{creator,jdbcType=VARCHAR}, </if>
+      <if test="createTime != null" > f_create_time = #{createTime,jdbcType=VARCHAR}, </if>
+    </set>
+    where f_pid = #{id,jdbcType=VARCHAR}
+  </update>
+  
+  <update id="batchUpdate" parameterType="java.util.List">
+		<foreach collection="list" item="entity" separator=";">
+			update t_file_manage
+			<set>
+			  <if test="id != null" > f_pid = #{entity.id,jdbcType=VARCHAR}, </if>
+		      <if test="type != null" > f_type = #{entity.type,jdbcType=VARCHAR}, </if>
+		      <if test="busi_key != null" > f_busi_key = #{entity.busi_key,jdbcType=VARCHAR}, </if>
+		      <if test="busi_type != null" > f_busi_type = #{entity.busi_type,jdbcType=VARCHAR}, </if>
+		      <if test="busi_flag != null" > f_busi_flag = #{entity.busi_flag,jdbcType=VARCHAR}, </if>
+		      <if test="file_name != null" > f_file_name = #{entity.file_name,jdbcType=VARCHAR}, </if>
+		      <if test="file_extname != null" > f_file_extname = #{entity.file_extname,jdbcType=INTEGER}, </if>
+		      <if test="file_savename != null" > f_file_savename = #{entity.file_savename,jdbcType=VARCHAR}, </if>
+		      <if test="file_path != null" > f_file_path = #{entity.file_path,jdbcType=VARCHAR}, </if>
+		      <if test="file_size != null" > f_file_size = #{entity.file_size,jdbcType=VARCHAR}, </if>
+			  <if test="sysFlag != null" > f_sys_flag = #{entity.sysFlag,jdbcType=VARCHAR}, </if>
+			  <if test="remark != null" > f_remark = #{entity.remark,jdbcType=VARCHAR}, </if>
+			  <if test="lastModifier != null" > f_last_modifier = #{entity.lastModifier,jdbcType=VARCHAR}, </if>
+			  <if test="lastModifiedTime != null" > f_last_modified_time = #{entity.lastModifiedTime,jdbcType=VARCHAR}, </if>
+			  <if test="creator != null" > f_creator = #{entity.creator,jdbcType=VARCHAR}, </if>
+			  <if test="createTime != null" > f_create_time = #{entity.createTime,jdbcType=VARCHAR}, </if>
+			</set>
+			where f_pid = #{id,jdbcType=VARCHAR}
+		</foreach>
+  </update>
+  
+  
+  <update id="delete" parameterType="java.lang.String" >
+    update t_file_manage set
+		F_SYS_FLAG='0',
+	    F_LAST_MODIFIER = #{lastModifier,jdbcType=VARCHAR},
+		F_LAST_MODIFIED_TIME = #{lastModifiedTime,jdbcType=VARCHAR} 
+	where f_pid = #{id,jdbcType=VARCHAR}
+  </update>
+  
+  <update id="deleteAll" parameterType="map">
+	update t_file_manage set 
+		F_SYS_FLAG='0',
+	    F_LAST_MODIFIER = #{lastModifier,jdbcType=VARCHAR},
+		F_LAST_MODIFIED_TIME = #{lastModifiedTime,jdbcType=VARCHAR} 
+	where f_pid in
+	<foreach item="item" collection="ids" open="(" separator="," close=")">
+        #{item}
+    </foreach>
+  </update>
+  
+  <update id="deleteAllByBasePid" parameterType="map">
+	update t_file_manage set 
+		F_SYS_FLAG='0',
+	    F_LAST_MODIFIER = #{lastModifier,jdbcType=VARCHAR},
+		F_LAST_MODIFIED_TIME = #{lastModifiedTime,jdbcType=VARCHAR} 
+	where f_base_pid in
+	<foreach item="item" collection="ids" open="(" separator="," close=")">
+        #{item}
+    </foreach>
+  </update>
+  
+  <!-- 查询条件 模糊查询用concat函数 ：name like concat(concat('%',#{bean.name,jdbcType=VARCHAR}),'%')，
+  	         这样做主要是为了支持mysql和oracle以及防止sql注入 -->
+  <select id="list" resultMap="BaseResultMap" parameterType="map">
+    select 
+    <include refid="Base_Column_List" />
+    from t_file_manage t
+    <where>
+		<include refid="where_sql"/>
+	</where>
+	order by t.f_create_time desc
+  </select>
+  
+  <select id="get" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from t_file_manage t
+    where t.f_pid = #{id,jdbcType=VARCHAR}
+  </select>
+  
+</mapper>

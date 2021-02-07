@@ -1,0 +1,1 @@
+package com.taro.dao.finance;import com.taro.dao.AbstractDao;import com.taro.entity.finance.FinanceEntity;/** *<p>Title:FinanceDao.java</p> *<p>Description:财务管理 Dao</p> *@author 张宇唯 *@version 1.0 *@Automatically generate by Coder in 2021-01-28 14:44:11 */public interface FinanceDao extends AbstractDao<FinanceEntity> {	FinanceEntity getByTenants(String id);    }

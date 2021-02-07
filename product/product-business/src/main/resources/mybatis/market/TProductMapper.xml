@@ -1,0 +1,451 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- @Automatically generate by Coder in 2020-10-22 21:17:41 -->
+<mapper namespace="com.taro.dao.market.TProductDao">
+
+  	<resultMap id="BaseResultMap" type="com.taro.entity.market.TProductEntity">
+	  	<id column="ID" property="id" jdbcType="VARCHAR" />
+  		<result column="ID" property="id" jdbcType="VARCHAR" />
+  		<result column="F_TENANTS_PID" property="tenants_pid" jdbcType="VARCHAR" />
+  		<result column="F_PDCITYPE" property="pdcitype" jdbcType="INTEGER" />
+  		<result column="F_CREATEDATE" property="createdate" jdbcType="VARCHAR" />
+  		<result column="F_DESCRIPTION" property="description" jdbcType="VARCHAR" />
+  		<result column="F_FATHERID" property="fatherid" jdbcType="VARCHAR" />
+  		<result column="F_MANUFACTURERS" property="manufacturers" jdbcType="VARCHAR" />
+  		<result column="F_PDBRANDID" property="pdbrandid" jdbcType="VARCHAR" />
+  		<result column="F_PDBRANDNAME" property="pdbrandname" jdbcType="VARCHAR" />
+  		<result column="F_PDCITY" property="pdcity" jdbcType="VARCHAR" />
+  		<result column="F_PDCODE" property="pdcode" jdbcType="VARCHAR" />
+  		<result column="F_PDCONTENT" property="pdcontent" jdbcType="VARCHAR" />
+  		<result column="F_PDCOSTPRICE" property="pdcostprice" jdbcType="FLOAT" />
+  		<result column="F_PDIMGURL" property="pdimgurl" jdbcType="VARCHAR" />
+  		<result column="F_PDNAME" property="pdname" jdbcType="VARCHAR" />
+  		<result column="F_PDPRODUCTIONPLACE" property="pdproductionplace" jdbcType="VARCHAR" />
+  		<result column="F_PDPROVINCE" property="pdprovince" jdbcType="VARCHAR" />
+  		<result column="F_PDQUALITYPERIOD" property="pdqualityperiod" jdbcType="VARCHAR" />
+  		<result column="F_PDRETAILPRICE" property="pdretailprice" jdbcType="FLOAT" />
+  		<result column="F_PDSPECIFICATION" property="pdspecification" jdbcType="VARCHAR" />
+  		<result column="F_PDSPELL" property="pdspell" jdbcType="VARCHAR" />
+  		<result column="F_PDSTATUS" property="pdstatus" jdbcType="VARCHAR" />
+  		<result column="F_PDSTORAGEMODE" property="pdstoragemode" jdbcType="VARCHAR" />
+  		<result column="F_PDTYPE" property="pdtype" jdbcType="INTEGER" />
+  		<result column="F_PSTATUS" property="pstatus" jdbcType="INTEGER" />
+  		<result column="PRADULTLIMIT" property="pradultlimit" jdbcType="VARCHAR" />
+  		<result column="PRAUDIT" property="praudit" jdbcType="VARCHAR" />
+  		<result column="PRDISCOUNT" property="prdiscount" jdbcType="VARCHAR" />
+  		<result column="PRMEMBERPRICE" property="prmemberprice" jdbcType="VARCHAR" />
+  		<result column="PRPACK" property="prpack" jdbcType="VARCHAR" />
+  		<result column="PRPROMOTIONPRICE" property="prpromotionprice" jdbcType="VARCHAR" />
+  		<result column="PRTAXRATE" property="prtaxrate" jdbcType="VARCHAR" />
+	  	
+  		<result column="F_PDCITYPE_NAME" property="pdcitype_name" jdbcType="VARCHAR" />
+  		<result column="F_MANUFACTURERS_NAME" property="manufacturers_name" jdbcType="VARCHAR" />
+  		<result column="F_PDBRAND_NAME" property="pdbrand_name" jdbcType="VARCHAR" />
+  		<result column="F_SLOT_PID" property="slot_pid" jdbcType="VARCHAR" />
+  	</resultMap>
+
+  	<sql id="Base_Column_List" >
+		T.ID, T.F_TENANTS_PID, T.F_PDCITYPE, T.F_CREATEDATE, T.F_DESCRIPTION, T.F_FATHERID,
+		T.F_MANUFACTURERS, T.F_PDBRANDID, T.F_PDBRANDNAME, T.F_PDCITY, T.F_PDCODE,
+		T.F_PDCONTENT, T.F_PDCOSTPRICE, T.F_PDIMGURL, T.F_PDNAME, T.F_PDPRODUCTIONPLACE,
+		T.F_PDPROVINCE, T.F_PDQUALITYPERIOD, T.F_PDRETAILPRICE, T.F_PDSPECIFICATION, T.F_PDSPELL,
+		T.F_PDSTATUS, T.F_PDSTORAGEMODE, T.F_PDTYPE, T.F_PSTATUS, T.PRADULTLIMIT,
+		T.PRAUDIT, T.PRDISCOUNT, T.PRMEMBERPRICE, T.PRPACK, T.PRPROMOTIONPRICE,
+		T.PRTAXRATE
+  	</sql>
+
+  	<sql id="where_sql">
+		<if test="id != null and id != ''" > 
+			and T.ID = #{id, jdbcType=VARCHAR}
+		</if>
+		<if test="tenants_pid != null and tenants_pid != ''" > 
+			and T.F_TENANTS_PID = #{tenants_pid, jdbcType=VARCHAR}
+		</if>
+		<if test="pdcitype != null and pdcitype != ''" > 
+			and T.F_PDCITYPE = #{pdcitype, jdbcType=INTEGER}
+		</if>
+		<if test="createdate != null and createdate != ''" > 
+			and T.F_CREATEDATE = #{createdate, jdbcType=VARCHAR}
+		</if>
+		<if test="description != null and description != ''" > 
+			and T.F_DESCRIPTION = #{description, jdbcType=VARCHAR}
+		</if>
+		<if test="fatherid != null and fatherid != ''" > 
+			and T.F_FATHERID = #{fatherid, jdbcType=VARCHAR}
+		</if>
+		<if test="manufacturers != null and manufacturers != ''" > 
+			and T.F_MANUFACTURERS = #{manufacturers, jdbcType=VARCHAR}
+		</if>
+		<if test="pdbrandid != null and pdbrandid != ''" > 
+			and T.F_PDBRANDID = #{pdbrandid, jdbcType=VARCHAR}
+		</if>
+		<if test="pdbrandname != null and pdbrandname != ''" > 
+			and T.F_PDBRANDNAME = #{pdbrandname, jdbcType=VARCHAR}
+		</if>
+		<if test="pdcity != null and pdcity != ''" > 
+			and T.F_PDCITY = #{pdcity, jdbcType=VARCHAR}
+		</if>
+		<if test="pdcode != null and pdcode != ''" > 
+			and T.F_PDCODE = #{pdcode, jdbcType=VARCHAR}
+		</if>
+		<if test="pdcontent != null and pdcontent != ''" > 
+			and T.F_PDCONTENT = #{pdcontent, jdbcType=VARCHAR}
+		</if>
+		<if test="pdcostprice != null and pdcostprice != ''" > 
+			and T.F_PDCOSTPRICE = #{pdcostprice, jdbcType=FLOAT}
+		</if>
+		<if test="pdimgurl != null and pdimgurl != ''" > 
+			and T.F_PDIMGURL = #{pdimgurl, jdbcType=VARCHAR}
+		</if>
+		<if test="pdname != null and pdname != ''" > 
+			and T.F_PDNAME = #{pdname, jdbcType=VARCHAR}
+		</if>
+		<if test="pdproductionplace != null and pdproductionplace != ''" > 
+			and T.F_PDPRODUCTIONPLACE = #{pdproductionplace, jdbcType=VARCHAR}
+		</if>
+		<if test="pdprovince != null and pdprovince != ''" > 
+			and T.F_PDPROVINCE = #{pdprovince, jdbcType=VARCHAR}
+		</if>
+		<if test="pdqualityperiod != null and pdqualityperiod != ''" > 
+			and T.F_PDQUALITYPERIOD = #{pdqualityperiod, jdbcType=VARCHAR}
+		</if>
+		<if test="pdretailprice != null and pdretailprice != ''" > 
+			and T.F_PDRETAILPRICE = #{pdretailprice, jdbcType=FLOAT}
+		</if>
+		<if test="pdspecification != null and pdspecification != ''" > 
+			and T.F_PDSPECIFICATION = #{pdspecification, jdbcType=VARCHAR}
+		</if>
+		<if test="pdspell != null and pdspell != ''" > 
+			and T.F_PDSPELL = #{pdspell, jdbcType=VARCHAR}
+		</if>
+		<if test="pdstatus != null and pdstatus != ''" > 
+			and T.F_PDSTATUS = #{pdstatus, jdbcType=VARCHAR}
+		</if>
+		<if test="pdstoragemode != null and pdstoragemode != ''" > 
+			and T.F_PDSTORAGEMODE = #{pdstoragemode, jdbcType=VARCHAR}
+		</if>
+		<if test="pdtype != null and pdtype != ''" > 
+			and T.F_PDTYPE = #{pdtype, jdbcType=INTEGER}
+		</if>
+		<if test="pstatus != null and pstatus != ''" > 
+			and T.F_PSTATUS = #{pstatus, jdbcType=INTEGER}
+		</if>
+		<if test="pradultlimit != null and pradultlimit != ''" > 
+			and T.PRADULTLIMIT = #{pradultlimit, jdbcType=VARCHAR}
+		</if>
+		<if test="praudit != null and praudit != ''" > 
+			and T.PRAUDIT = #{praudit, jdbcType=VARCHAR}
+		</if>
+		<if test="prdiscount != null and prdiscount != ''" > 
+			and T.PRDISCOUNT = #{prdiscount, jdbcType=VARCHAR}
+		</if>
+		<if test="prmemberprice != null and prmemberprice != ''" > 
+			and T.PRMEMBERPRICE = #{prmemberprice, jdbcType=VARCHAR}
+		</if>
+		<if test="prpack != null and prpack != ''" > 
+			and T.PRPACK = #{prpack, jdbcType=VARCHAR}
+		</if>
+		<if test="prpromotionprice != null and prpromotionprice != ''" > 
+			and T.PRPROMOTIONPRICE = #{prpromotionprice, jdbcType=VARCHAR}
+		</if>
+		<if test="prtaxrate != null and prtaxrate != ''" > 
+			and T.PRTAXRATE = #{prtaxrate, jdbcType=VARCHAR}
+		</if>
+  	</sql>
+
+	<!-- 新增 -->
+  	<insert id="insert" parameterType="com.taro.entity.market.TProductEntity" >
+    	INSERT INTO TPRODUCT (
+    		ID, F_TENANTS_PID, F_PDCITYPE, F_CREATEDATE,
+			F_DESCRIPTION, F_FATHERID, F_MANUFACTURERS,
+			F_PDBRANDID, F_PDBRANDNAME, F_PDCITY,
+			F_PDCODE, F_PDCONTENT, F_PDCOSTPRICE,
+			F_PDIMGURL, F_PDNAME, F_PDPRODUCTIONPLACE,
+			F_PDPROVINCE, F_PDQUALITYPERIOD, F_PDRETAILPRICE,
+			F_PDSPECIFICATION, F_PDSPELL, F_PDSTATUS,
+			F_PDSTORAGEMODE, F_PDTYPE, F_PSTATUS,
+			PRADULTLIMIT, PRAUDIT, PRDISCOUNT,
+			PRMEMBERPRICE, PRPACK, PRPROMOTIONPRICE,
+			PRTAXRATE
+    	) VALUES (
+    		#{id, jdbcType=VARCHAR}, #{tenants_pid, jdbcType=VARCHAR}, #{pdcitype, jdbcType=INTEGER}, #{createdate, jdbcType=VARCHAR},
+			#{description, jdbcType=VARCHAR}, #{fatherid, jdbcType=VARCHAR}, #{manufacturers, jdbcType=VARCHAR},
+			#{pdbrandid, jdbcType=VARCHAR}, #{pdbrandname, jdbcType=VARCHAR}, #{pdcity, jdbcType=VARCHAR},
+			#{pdcode, jdbcType=VARCHAR}, #{pdcontent, jdbcType=VARCHAR}, #{pdcostprice, jdbcType=FLOAT},
+			#{pdimgurl, jdbcType=VARCHAR}, #{pdname, jdbcType=VARCHAR}, #{pdproductionplace, jdbcType=VARCHAR},
+			#{pdprovince, jdbcType=VARCHAR}, #{pdqualityperiod, jdbcType=VARCHAR}, #{pdretailprice, jdbcType=FLOAT},
+			#{pdspecification, jdbcType=VARCHAR}, #{pdspell, jdbcType=VARCHAR}, #{pdstatus, jdbcType=VARCHAR},
+			#{pdstoragemode, jdbcType=VARCHAR}, #{pdtype, jdbcType=INTEGER}, #{pstatus, jdbcType=INTEGER},
+			#{pradultlimit, jdbcType=VARCHAR}, #{praudit, jdbcType=VARCHAR}, #{prdiscount, jdbcType=VARCHAR},
+			#{prmemberprice, jdbcType=VARCHAR}, #{prpack, jdbcType=VARCHAR}, #{prpromotionprice, jdbcType=VARCHAR},
+			#{prtaxrate,jdbcType=VARCHAR}
+    	)
+  	</insert>
+
+	<!-- 批量新增 -->
+  	<insert id="insertObjects" parameterType="list">
+		INSERT INTO TPRODUCT (
+    		ID, F_TENANTS_PID, F_PDCITYPE, F_CREATEDATE,
+			F_DESCRIPTION, F_FATHERID, F_MANUFACTURERS,
+			F_PDBRANDID, F_PDBRANDNAME, F_PDCITY,
+			F_PDCODE, F_PDCONTENT, F_PDCOSTPRICE,
+			F_PDIMGURL, F_PDNAME, F_PDPRODUCTIONPLACE,
+			F_PDPROVINCE, F_PDQUALITYPERIOD, F_PDRETAILPRICE,
+			F_PDSPECIFICATION, F_PDSPELL, F_PDSTATUS,
+			F_PDSTORAGEMODE, F_PDTYPE, F_PSTATUS,
+			PRADULTLIMIT, PRAUDIT, PRDISCOUNT,
+			PRMEMBERPRICE, PRPACK, PRPROMOTIONPRICE,
+			PRTAXRATE
+		)
+		<foreach collection="list" item="entity" index="index" separator="union all">
+			SELECT
+    		#{entity.id, jdbcType=VARCHAR}, #{entity.tenants_pid, jdbcType=VARCHAR}, #{entity.pdcitype, jdbcType=INTEGER}, #{entity.createdate, jdbcType=VARCHAR},
+			#{entity.description, jdbcType=VARCHAR}, #{entity.fatherid, jdbcType=VARCHAR}, #{entity.manufacturers, jdbcType=VARCHAR},
+			#{entity.pdbrandid, jdbcType=VARCHAR}, #{entity.pdbrandname, jdbcType=VARCHAR}, #{entity.pdcity, jdbcType=VARCHAR},
+			#{entity.pdcode, jdbcType=VARCHAR}, #{entity.pdcontent, jdbcType=VARCHAR}, #{entity.pdcostprice, jdbcType=FLOAT},
+			#{entity.pdimgurl, jdbcType=VARCHAR}, #{entity.pdname, jdbcType=VARCHAR}, #{entity.pdproductionplace, jdbcType=VARCHAR},
+			#{entity.pdprovince, jdbcType=VARCHAR}, #{entity.pdqualityperiod, jdbcType=VARCHAR}, #{entity.pdretailprice, jdbcType=FLOAT},
+			#{entity.pdspecification, jdbcType=VARCHAR}, #{entity.pdspell, jdbcType=VARCHAR}, #{entity.pdstatus, jdbcType=VARCHAR},
+			#{entity.pdstoragemode, jdbcType=VARCHAR}, #{entity.pdtype, jdbcType=INTEGER}, #{entity.pstatus, jdbcType=INTEGER},
+			#{entity.pradultlimit, jdbcType=VARCHAR}, #{entity.praudit, jdbcType=VARCHAR}, #{entity.prdiscount, jdbcType=VARCHAR},
+			#{entity.prmemberprice, jdbcType=VARCHAR}, #{entity.prpack, jdbcType=VARCHAR}, #{entity.prpromotionprice, jdbcType=VARCHAR},
+			#{entity.prtaxrate,jdbcType=VARCHAR}
+			FROM DUAL
+		</foreach>
+  	</insert>
+
+	<!-- 更新 -->
+  	<update id="update" parameterType="com.taro.entity.market.TProductEntity">
+    	UPDATE TPRODUCT
+	    <set>
+      		<if test="id != null" > ID = #{id, jdbcType=VARCHAR}, </if>
+      		<if test="tenants_pid != null" > F_TENANTS_PID = #{tenants_pid, jdbcType=VARCHAR}, </if>
+      		<if test="pdcitype != null" > F_PDCITYPE = #{pdcitype, jdbcType=INTEGER}, </if>
+      		<if test="createdate != null" > F_CREATEDATE = #{createdate, jdbcType=VARCHAR}, </if>
+      		<if test="description != null" > F_DESCRIPTION = #{description, jdbcType=VARCHAR}, </if>
+      		<if test="fatherid != null" > F_FATHERID = #{fatherid, jdbcType=VARCHAR}, </if>
+      		<if test="manufacturers != null" > F_MANUFACTURERS = #{manufacturers, jdbcType=VARCHAR}, </if>
+      		<if test="pdbrandid != null" > F_PDBRANDID = #{pdbrandid, jdbcType=VARCHAR}, </if>
+      		<if test="pdbrandname != null" > F_PDBRANDNAME = #{pdbrandname, jdbcType=VARCHAR}, </if>
+      		<if test="pdcity != null" > F_PDCITY = #{pdcity, jdbcType=VARCHAR}, </if>
+      		<if test="pdcode != null" > F_PDCODE = #{pdcode, jdbcType=VARCHAR}, </if>
+      		<if test="pdcontent != null" > F_PDCONTENT = #{pdcontent, jdbcType=VARCHAR}, </if>
+      		<if test="pdcostprice != null" > F_PDCOSTPRICE = #{pdcostprice, jdbcType=FLOAT}, </if>
+      		<if test="pdimgurl != null" > F_PDIMGURL = #{pdimgurl, jdbcType=VARCHAR}, </if>
+      		<if test="pdname != null" > F_PDNAME = #{pdname, jdbcType=VARCHAR}, </if>
+      		<if test="pdproductionplace != null" > F_PDPRODUCTIONPLACE = #{pdproductionplace, jdbcType=VARCHAR}, </if>
+      		<if test="pdprovince != null" > F_PDPROVINCE = #{pdprovince, jdbcType=VARCHAR}, </if>
+      		<if test="pdqualityperiod != null" > F_PDQUALITYPERIOD = #{pdqualityperiod, jdbcType=VARCHAR}, </if>
+      		<if test="pdretailprice != null" > F_PDRETAILPRICE = #{pdretailprice, jdbcType=FLOAT}, </if>
+      		<if test="pdspecification != null" > F_PDSPECIFICATION = #{pdspecification, jdbcType=VARCHAR}, </if>
+      		<if test="pdspell != null" > F_PDSPELL = #{pdspell, jdbcType=VARCHAR}, </if>
+      		<if test="pdstatus != null" > F_PDSTATUS = #{pdstatus, jdbcType=VARCHAR}, </if>
+      		<if test="pdstoragemode != null" > F_PDSTORAGEMODE = #{pdstoragemode, jdbcType=VARCHAR}, </if>
+      		<if test="pdtype != null" > F_PDTYPE = #{pdtype, jdbcType=INTEGER}, </if>
+      		<if test="pstatus != null" > F_PSTATUS = #{pstatus, jdbcType=INTEGER}, </if>
+      		<if test="pradultlimit != null" > PRADULTLIMIT = #{pradultlimit, jdbcType=VARCHAR}, </if>
+      		<if test="praudit != null" > PRAUDIT = #{praudit, jdbcType=VARCHAR}, </if>
+      		<if test="prdiscount != null" > PRDISCOUNT = #{prdiscount, jdbcType=VARCHAR}, </if>
+      		<if test="prmemberprice != null" > PRMEMBERPRICE = #{prmemberprice, jdbcType=VARCHAR}, </if>
+      		<if test="prpack != null" > PRPACK = #{prpack, jdbcType=VARCHAR}, </if>
+      		<if test="prpromotionprice != null" > PRPROMOTIONPRICE = #{prpromotionprice, jdbcType=VARCHAR}, </if>
+      		<if test="prtaxrate != null" > PRTAXRATE = #{prtaxrate, jdbcType=VARCHAR}, </if>
+	    </set>
+    	WHERE Id = #{id, jdbcType=VARCHAR}
+  	</update>
+
+	<!-- 批量更新 -->
+  	<update id="batchUpdate" parameterType="java.util.List">
+		<foreach collection="list" item="entity" separator=";">
+			UPDATE TPRODUCT
+			<set>
+	      		<if test="id != null" > ID = #{entity.id, jdbcType=VARCHAR}, </if>
+	      		<if test="tenants_pid != null" > F_TENANTS_PID = #{entity.tenants_pid, jdbcType=VARCHAR}, </if>
+	      		<if test="pdcitype != null" > F_PDCITYPE = #{entity.pdcitype, jdbcType=INTEGER}, </if>
+	      		<if test="createdate != null" > F_CREATEDATE = #{entity.createdate, jdbcType=VARCHAR}, </if>
+	      		<if test="description != null" > F_DESCRIPTION = #{entity.description, jdbcType=VARCHAR}, </if>
+	      		<if test="fatherid != null" > F_FATHERID = #{entity.fatherid, jdbcType=VARCHAR}, </if>
+	      		<if test="manufacturers != null" > F_MANUFACTURERS = #{entity.manufacturers, jdbcType=VARCHAR}, </if>
+	      		<if test="pdbrandid != null" > F_PDBRANDID = #{entity.pdbrandid, jdbcType=VARCHAR}, </if>
+	      		<if test="pdbrandname != null" > F_PDBRANDNAME = #{entity.pdbrandname, jdbcType=VARCHAR}, </if>
+	      		<if test="pdcity != null" > F_PDCITY = #{entity.pdcity, jdbcType=VARCHAR}, </if>
+	      		<if test="pdcode != null" > F_PDCODE = #{entity.pdcode, jdbcType=VARCHAR}, </if>
+	      		<if test="pdcontent != null" > F_PDCONTENT = #{entity.pdcontent, jdbcType=VARCHAR}, </if>
+	      		<if test="pdcostprice != null" > F_PDCOSTPRICE = #{entity.pdcostprice, jdbcType=FLOAT}, </if>
+	      		<if test="pdimgurl != null" > F_PDIMGURL = #{entity.pdimgurl, jdbcType=VARCHAR}, </if>
+	      		<if test="pdname != null" > F_PDNAME = #{entity.pdname, jdbcType=VARCHAR}, </if>
+	      		<if test="pdproductionplace != null" > F_PDPRODUCTIONPLACE = #{entity.pdproductionplace, jdbcType=VARCHAR}, </if>
+	      		<if test="pdprovince != null" > F_PDPROVINCE = #{entity.pdprovince, jdbcType=VARCHAR}, </if>
+	      		<if test="pdqualityperiod != null" > F_PDQUALITYPERIOD = #{entity.pdqualityperiod, jdbcType=VARCHAR}, </if>
+	      		<if test="pdretailprice != null" > F_PDRETAILPRICE = #{entity.pdretailprice, jdbcType=FLOAT}, </if>
+	      		<if test="pdspecification != null" > F_PDSPECIFICATION = #{entity.pdspecification, jdbcType=VARCHAR}, </if>
+	      		<if test="pdspell != null" > F_PDSPELL = #{entity.pdspell, jdbcType=VARCHAR}, </if>
+	      		<if test="pdstatus != null" > F_PDSTATUS = #{entity.pdstatus, jdbcType=VARCHAR}, </if>
+	      		<if test="pdstoragemode != null" > F_PDSTORAGEMODE = #{entity.pdstoragemode, jdbcType=VARCHAR}, </if>
+	      		<if test="pdtype != null" > F_PDTYPE = #{entity.pdtype, jdbcType=INTEGER}, </if>
+	      		<if test="pstatus != null" > F_PSTATUS = #{entity.pstatus, jdbcType=INTEGER}, </if>
+	      		<if test="pradultlimit != null" > PRADULTLIMIT = #{entity.pradultlimit, jdbcType=VARCHAR}, </if>
+	      		<if test="praudit != null" > PRAUDIT = #{entity.praudit, jdbcType=VARCHAR}, </if>
+	      		<if test="prdiscount != null" > PRDISCOUNT = #{entity.prdiscount, jdbcType=VARCHAR}, </if>
+	      		<if test="prmemberprice != null" > PRMEMBERPRICE = #{entity.prmemberprice, jdbcType=VARCHAR}, </if>
+	      		<if test="prpack != null" > PRPACK = #{entity.prpack, jdbcType=VARCHAR}, </if>
+	      		<if test="prpromotionprice != null" > PRPROMOTIONPRICE = #{entity.prpromotionprice, jdbcType=VARCHAR}, </if>
+	      		<if test="prtaxrate != null" > PRTAXRATE = #{entity.prtaxrate, jdbcType=VARCHAR}, </if>
+			</set>
+    		WHERE Id = #{id, jdbcType=VARCHAR}
+		</foreach>
+  	</update>
+
+	<!-- 逻辑删除 -->
+  	<delete id="delete" parameterType="java.lang.String" >
+    	DELETE FROM TPRODUCT WHERE Id = #{id, jdbcType=VARCHAR}
+  	</delete>
+
+	<!-- 逻辑删除所有 -->
+  	<delete id="deleteAll" parameterType="map">
+		DELETE FROM TPRODUCT WHERE Id IN
+		<foreach item="item" collection="ids" open="(" separator="," close=")">
+        	#{item}
+    	</foreach>
+  	</delete>
+
+	<!-- 查询条件 模糊查询用concat函数:name like concat(concat('%',#{bean.name,jdbcType=VARCHAR}),'%'),	这样做主要是为了支持mysql和oracle以及防止sql注入 -->
+  	<!-- 列表查询 -->
+  	<select id="list" resultMap="BaseResultMap" parameterType="map">
+	    SELECT 
+	    	<include refid="Base_Column_List" />
+	    FROM TPRODUCT T
+	    <where>
+			<include refid="where_sql"/>
+		</where>
+  	</select>
+  	
+  	<select id="listProduct" resultMap="BaseResultMap" parameterType="map">
+	    select t.*,
+		<if test="device_did != null and device_did != ''" > 
+		s.Id as F_SLOT_PID,
+		</if>
+		tt.T_FName as F_PdCiType_name,
+		d1.f_name as F_Manufacturers_name,
+		d2.f_name as F_PdBrand_name
+		from tproduct t 
+		left join tproducttype tt on tt.id = t.F_PdCiType
+		left join t_pub_dic d1 on t.F_Manufacturers = d1.f_pid and d1.f_sys_flag = '1'
+		left join t_pub_dic d2 on t.F_PdBrandId = d2.f_pid and d2.f_sys_flag = '1'
+		<if test="device_did != null and device_did != ''" > 
+		left join tslotinfo s on t.id = s.F_SiBarCode and s.F_SiWorkStatus = '1' and s.F_SiDId = #{device_did, jdbcType=VARCHAR}
+		</if>
+		where 1 = 1
+		<if test="pdcitypeIn != null and pdcitypeIn != ''" > 
+			and FIND_IN_SET(t.F_PDCITYPE, getChildrenProductType(#{pdcitypeIn, jdbcType=INTEGER}))
+		</if>
+		<if test="id != null and id != ''" > 
+			and T.ID = #{id, jdbcType=VARCHAR}
+		</if>
+		<if test="tenants_pid != null and tenants_pid != ''" > 
+			and T.F_TENANTS_PID = #{tenants_pid, jdbcType=VARCHAR}
+		</if>
+		<if test="pdcitype != null and pdcitype != ''" > 
+			and T.F_PDCITYPE = #{pdcitype, jdbcType=INTEGER}
+		</if>
+		<if test="createdate != null and createdate != ''" > 
+			and T.F_CREATEDATE = #{createdate, jdbcType=VARCHAR}
+		</if>
+		<if test="description != null and description != ''" > 
+			and T.F_DESCRIPTION = #{description, jdbcType=VARCHAR}
+		</if>
+		<if test="fatherid != null and fatherid != ''" > 
+			and T.F_FATHERID = #{fatherid, jdbcType=VARCHAR}
+		</if>
+		<if test="manufacturers != null and manufacturers != ''" > 
+			and T.F_MANUFACTURERS = #{manufacturers, jdbcType=VARCHAR}
+		</if>
+		<if test="pdbrandid != null and pdbrandid != ''" > 
+			and T.F_PDBRANDID = #{pdbrandid, jdbcType=VARCHAR}
+		</if>
+		<if test="pdbrandname != null and pdbrandname != ''" > 
+			and T.F_PDBRANDNAME = #{pdbrandname, jdbcType=VARCHAR}
+		</if>
+		<if test="pdcity != null and pdcity != ''" > 
+			and T.F_PDCITY = #{pdcity, jdbcType=VARCHAR}
+		</if>
+		<if test="pdcode != null and pdcode != ''" > 
+			and T.F_PDCODE = #{pdcode, jdbcType=VARCHAR}
+		</if>
+		<if test="pdcontent != null and pdcontent != ''" > 
+			and T.F_PDCONTENT = #{pdcontent, jdbcType=VARCHAR}
+		</if>
+		<if test="pdcostprice != null and pdcostprice != ''" > 
+			and T.F_PDCOSTPRICE = #{pdcostprice, jdbcType=FLOAT}
+		</if>
+		<if test="pdimgurl != null and pdimgurl != ''" > 
+			and T.F_PDIMGURL = #{pdimgurl, jdbcType=VARCHAR}
+		</if>
+		<if test="pdname != null and pdname != ''" > 
+			and T.F_PDNAME = #{pdname, jdbcType=VARCHAR}
+		</if>
+		<if test="pdproductionplace != null and pdproductionplace != ''" > 
+			and T.F_PDPRODUCTIONPLACE = #{pdproductionplace, jdbcType=VARCHAR}
+		</if>
+		<if test="pdprovince != null and pdprovince != ''" > 
+			and T.F_PDPROVINCE = #{pdprovince, jdbcType=VARCHAR}
+		</if>
+		<if test="pdqualityperiod != null and pdqualityperiod != ''" > 
+			and T.F_PDQUALITYPERIOD = #{pdqualityperiod, jdbcType=VARCHAR}
+		</if>
+		<if test="pdretailprice != null and pdretailprice != ''" > 
+			and T.F_PDRETAILPRICE = #{pdretailprice, jdbcType=FLOAT}
+		</if>
+		<if test="pdspecification != null and pdspecification != ''" > 
+			and T.F_PDSPECIFICATION = #{pdspecification, jdbcType=VARCHAR}
+		</if>
+		<if test="pdspell != null and pdspell != ''" > 
+			and T.F_PDSPELL = #{pdspell, jdbcType=VARCHAR}
+		</if>
+		<if test="pdstatus != null and pdstatus != ''" > 
+			and T.F_PDSTATUS = #{pdstatus, jdbcType=VARCHAR}
+		</if>
+		<if test="pdstoragemode != null and pdstoragemode != ''" > 
+			and T.F_PDSTORAGEMODE = #{pdstoragemode, jdbcType=VARCHAR}
+		</if>
+		<if test="pdtype != null and pdtype != ''" > 
+			and T.F_PDTYPE = #{pdtype, jdbcType=INTEGER}
+		</if>
+		<if test="pstatus != null and pstatus != ''" > 
+			and T.F_PSTATUS = #{pstatus, jdbcType=INTEGER}
+		</if>
+		<if test="pradultlimit != null and pradultlimit != ''" > 
+			and T.PRADULTLIMIT = #{pradultlimit, jdbcType=VARCHAR}
+		</if>
+		<if test="praudit != null and praudit != ''" > 
+			and T.PRAUDIT = #{praudit, jdbcType=VARCHAR}
+		</if>
+		<if test="prdiscount != null and prdiscount != ''" > 
+			and T.PRDISCOUNT = #{prdiscount, jdbcType=VARCHAR}
+		</if>
+		<if test="prmemberprice != null and prmemberprice != ''" > 
+			and T.PRMEMBERPRICE = #{prmemberprice, jdbcType=VARCHAR}
+		</if>
+		<if test="prpack != null and prpack != ''" > 
+			and T.PRPACK = #{prpack, jdbcType=VARCHAR}
+		</if>
+		<if test="prpromotionprice != null and prpromotionprice != ''" > 
+			and T.PRPROMOTIONPRICE = #{prpromotionprice, jdbcType=VARCHAR}
+		</if>
+		<if test="prtaxrate != null and prtaxrate != ''" > 
+			and T.PRTAXRATE = #{prtaxrate, jdbcType=VARCHAR}
+		</if>
+		<if test="device_did != null and device_did != ''" > 
+			and s.F_SiBarCode is not null
+		</if>
+  	</select>
+
+	<!-- 根据ID查询单条记录 -->
+  	<select id="get" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    	SELECT 
+    		<include refid="Base_Column_List" />
+    	FROM TPRODUCT T
+    	WHERE T.Id = #{id,jdbcType=VARCHAR}
+  	</select>
+
+</mapper>

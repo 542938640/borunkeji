@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- @Automatically generate by Coder in 2020-10-16 10:15:50 -->
+<mapper namespace="com.taro.dao.notice.NoticeObjectDao">
+
+  	<resultMap id="BaseResultMap" type="com.taro.entity.notice.NoticeObjectEntity">
+	  	<id column="F_PID" property="id" jdbcType="VARCHAR" />
+  		<result column="F_PID" property="id" jdbcType="VARCHAR" />
+  		<result column="F_NOTICE_PID" property="notice_pid" jdbcType="VARCHAR" />
+  		<result column="F_TENANTS_PID" property="tenants_pid" jdbcType="VARCHAR" />
+  		
+  		<result column="F_TENANTS_NAME" property="tenants_name" jdbcType="VARCHAR" />
+  	</resultMap>
+
+  	<sql id="Base_Column_List" >
+		t.F_PID, T.F_NOTICE_PID, T.F_TENANTS_PID
+  	</sql>
+
+  	<sql id="where_sql">
+		<if test="id != null and id != ''" > 
+			and t.F_PID = #{id, jdbcType=VARCHAR}
+		</if>
+		<if test="notice_pid != null and notice_pid != ''" > 
+			and T.F_NOTICE_PID = #{notice_pid, jdbcType=VARCHAR}
+		</if>
+		<if test="tenants_pid != null and tenants_pid != ''" > 
+			and T.F_TENANTS_PID = #{tenants_pid, jdbcType=VARCHAR}
+		</if>
+  	</sql>
+
+	<!-- 新增 -->
+  	<insert id="insert" parameterType="com.taro.entity.notice.NoticeObjectEntity" >
+    	INSERT INTO T_NOTICE_OBJECT (
+    		F_PID, F_NOTICE_PID, F_TENANTS_PID
+    	) VALUES (
+    		#{id, jdbcType=VARCHAR}, #{notice_pid, jdbcType=VARCHAR}, #{tenants_pid,jdbcType=VARCHAR}
+    	)
+  	</insert>
+
+	<!-- 批量新增 -->
+  	<insert id="insertObjects" parameterType="list">
+		INSERT INTO T_NOTICE_OBJECT (
+    		F_PID, F_NOTICE_PID, F_TENANTS_PID
+		)
+		<foreach collection="list" item="entity" index="index" separator="union all">
+			SELECT
+    		#{entity.id, jdbcType=VARCHAR}, #{entity.notice_pid, jdbcType=VARCHAR}, #{entity.tenants_pid,jdbcType=VARCHAR} 
+			FROM DUAL
+		</foreach>
+  	</insert>
+
+	<!-- 更新 -->
+  	<update id="update" parameterType="com.taro.entity.notice.NoticeObjectEntity">
+    	UPDATE T_NOTICE_OBJECT
+	    <set>
+      		<if test="id != null" > F_PID = #{id, jdbcType=VARCHAR}, </if>
+      		<if test="notice_pid != null" > F_NOTICE_PID = #{notice_pid, jdbcType=VARCHAR}, </if>
+      		<if test="tenants_pid != null" > F_TENANTS_PID = #{tenants_pid, jdbcType=VARCHAR}, </if>
+	    </set>
+    	WHERE F_PID = #{id, jdbcType=VARCHAR}
+  	</update>
+
+	<!-- 批量更新 -->
+  	<update id="batchUpdate" parameterType="java.util.List">
+		<foreach collection="list" item="entity" separator=";">
+			UPDATE T_NOTICE_OBJECT
+			<set>
+		      	<if test="id != null" > F_PID = #{entity.id, jdbcType=VARCHAR}, </if>
+	      		<if test="notice_pid != null" > F_NOTICE_PID = #{entity.notice_pid, jdbcType=VARCHAR}, </if>
+	      		<if test="tenants_pid != null" > F_TENANTS_PID = #{entity.tenants_pid, jdbcType=VARCHAR}, </if>
+			</set>
+    		WHERE F_PID = #{id, jdbcType=VARCHAR}
+		</foreach>
+  	</update>
+
+	<!-- 逻辑删除 -->
+  	<update id="delete" parameterType="java.lang.String" >
+    	delete from T_NOTICE_OBJECT
+		where f_pid = #{id,jdbcType=VARCHAR}
+  	</update>
+
+	<!-- 逻辑删除所有 -->
+  	<update id="deleteAll" parameterType="map">
+		delete from T_NOTICE_OBJECT 
+		WHERE F_PID IN
+		<foreach item="item" collection="ids" open="(" separator="," close=")">
+        	#{item}
+    	</foreach>
+  	</update>
+
+	<!-- 查询条件 模糊查询用concat函数:name like concat(concat('%',#{bean.name,jdbcType=VARCHAR}),'%'),	这样做主要是为了支持mysql和oracle以及防止sql注入 -->
+  	<!-- 列表查询 -->
+  	<select id="list" resultMap="BaseResultMap" parameterType="map">
+	    SELECT t.f_pid,
+		t.f_notice_pid,
+		t.f_tenants_pid,
+		tt.f_name as f_tenants_name
+		from t_notice_object t
+		left join t_sec_tenants tt on t.f_tenants_pid = tt.f_pid and tt.f_sys_flag = '1'
+	    <where>
+			<include refid="where_sql"/>
+		</where>
+  	</select>
+
+	<!-- 根据ID查询单条记录 -->
+  	<select id="get" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    	SELECT 
+    		<include refid="Base_Column_List" />
+    	FROM T_NOTICE_OBJECT T
+    	WHERE T.F_PID = #{id,jdbcType=VARCHAR}
+  	</select>
+
+  
+  	<!-- 删除用户下的资源 -->  
+	<delete id="deleteNoticeObject" parameterType="java.lang.String">
+        DELETE FROM T_NOTICE_OBJECT WHERE F_NOTICE_PID = #{notice_pid}
+	</delete>
+	
+</mapper>
